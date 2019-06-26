@@ -11,8 +11,10 @@
 <meta name="author" content="" />
 <meta name="robots" content="all" />
 <meta name="generator" content="Magnolia Community Edition 4.4.6" />
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" /> 
-<title>JBossWS - Build - JBoss Community</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <META HTTP-EQUIV='Content-Security-Policy' CONTENT="style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://static.jboss.org  https://www.jboss.org https://ws.sharethis.com/ https://tagmanager.google.com/ ; img-src 'self' 'unsafe-inline'  http://www.jboss.org/ https://www.jboss.org https://static.jboss.org/ https://googleads.g.doubleclick.net/ https://www.google.com/ ; script-src 'self' 'unsafe-inline' https://static.jboss.org/ http://w.sharethis.com/ https://ws.sharethis.com/ 'unsafe-eval' https://tagmanager.google.com/ https://www.googletagmanager.com/ www.googletagmanager.com https://t.sharethis.com/ ; "/>
+
+    <title>JBossWS - Build - JBoss Community</title>
 
     <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/stkdefault-styles.css" media="screen, projection" />
     <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css" media="screen, projection" />
@@ -25,11 +27,11 @@
     <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/print.css" media="print" />
 
     <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
-    <link rel="stylesheet" type="text/css" href="http://static.jboss.org/css/rhbar.css" media="screen, projection" />
+    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
 
 
          <script src="../resources/templating-kit/js/jbossorg.2011-07-27-15-42-03-383.cache.js" type="text/javascript"></script>
-         <script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script>
+         <script src="https://ws.sharethis.com/button/buttons.js" type="text/javascript"></script>
          <script src="https://static.jboss.org/theme/js/magnolia/allinone.js" type="text/javascript"></script>
          <script src="../resources/templating-kit/js/all.2011-01-19-09-23-54-917.cache.js" type="text/javascript"></script>
          <script src="https://static.jboss.org/js/_jbossorg-tabzilla.js" type="text/javascript"></script>
@@ -91,7 +93,7 @@ function correctVhostProjectUrl() {
 <!-- custom page javascript -->
 
 <!-- added below js -->
-<!--[if  lt IE 7]><script type="text/javascript"  src="http://static.jboss.org/theme/js/magnolia/maxWidthFixForIE6.js"></script><![endif]-->  
+<!--[if  lt IE 7]><script type="text/javascript"  src="https://static.jboss.org/theme/js/magnolia/maxWidthFixForIE6.js"></script><![endif]-->
 <script type="text/javascript">         
    stLight.options({
       publisher:'0c0850b9-23f0-4286-b05a-7593cc190675', doNotHash: true, doNotCopy: true, hashAddressBar: false
@@ -168,8 +170,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
     
       <div id="rhbar">
-        <a class="jbdevlogo" href="http://developers.redhat.com"></a>
-        <a class="rhlogo" href="http://www.redhat.com/"></a>
+        <a class="jbdevlogo" href="https://developers.redhat.com"></a>
+        <a class="rhlogo" href="https://www.redhat.com/"></a>
       </div>
     
 
@@ -304,10 +306,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           
             <ul class="level1">
 
-            <li class="leaf"><a href="http://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
+            <li class="leaf"><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
             <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum</a></li>
             <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum</a></li>
-            <li class="leaf"><a href="http://jbossws.blogspot.com/">Blog</a></li>
+            <li class="leaf"><a href="https://jbossws.blogspot.com/">Blog</a></li>
                 
 
             </ul>
@@ -420,7 +422,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     
-        <p><em><strong>JBossWS 5.x and later</strong></em></p> <p>Please refer to the <a href="https://docs.jboss.org/jbossws/5.0.0.Final/sid-88703514.html">documentation</a> or check the <a href="https://github.com/jbossws/jbossws-cxf/blob/jbossws-cxf-5.0.0.Final/README">README</a> file in the root of the project.</p> <p>&nbsp;</p> <p><em><strong>JBossWS 3.x and 4.x</strong></em></p> <p><strong>Binary distribution</strong></p> <p>Simply download the distribution and read the instructions in the <em>doc</em> directory:</p> <ol>     <li>Copy <em>ant.properties.examples</em> to <em>ant.properties</em></li>     <li>Modify the target container location in ant.properties</li>     <li>Execute <em>ant deploy-jbossXYZ</em> where XYZ stands for the target container version (see the Install.txt files, it's something like 712, 713, 720, ...)</li>     <li>Execute the samples to verify your installation: <em>ant tests</em></li> </ol> <p>&nbsp;</p> <p><strong>Source distribution</strong></p> <p>&nbsp;Please refer to the wiki:</p> <ul>     <li><a href="http://www.jboss.org/community/wiki/JBossWS-BuildingFromSource">Building from sources</a></li>     <li><a href="http://www.jboss.org/community/wiki/JBossWS-Mavenization">Mavenization</a></li>     <li><a href="http://www.jboss.org/community/wiki/JBossWS-Runningthetestsuites">Running the testsuite</a></li> </ul> <p>&nbsp;</p> <p><strong>Further informations</strong></p> <p>For futher details on installation and for directions on using JBossWS-Native with JDK 6, please refer to <a href="http://www.jboss.org/community/wiki/JBossWS-Installation">http://www.jboss.org/community/wiki/JBossWS-Installation</a></p>
+        <p><em><strong>JBossWS 5.x and later</strong></em></p> <p>Please refer to the <a href="https://docs.jboss.org/jbossws/5.0.0.Final/sid-88703514.html">documentation</a> or check the <a href="https://github.com/jbossws/jbossws-cxf/blob/jbossws-cxf-5.0.0.Final/README">README</a> file in the root of the project.</p> <p>&nbsp;</p> <p><em><strong>JBossWS 3.x and 4.x</strong></em></p> <p><strong>Binary distribution</strong></p> <p>Simply download the distribution and read the instructions in the <em>doc</em> directory:</p> <ol>     <li>Copy <em>ant.properties.examples</em> to <em>ant.properties</em></li>     <li>Modify the target container location in ant.properties</li>     <li>Execute <em>ant deploy-jbossXYZ</em> where XYZ stands for the target container version (see the Install.txt files, it's something like 712, 713, 720, ...)</li>     <li>Execute the samples to verify your installation: <em>ant tests</em></li> </ol> <p>&nbsp;</p> <p><strong>Source distribution</strong></p> <p>&nbsp;Please refer to the wiki:</p> <ul>
+                    <li><a href="https://www.jboss.org/community/wiki/JBossWS-BuildingFromSource">Building from sources</a></li>
+                    <li><a href="https://www.jboss.org/community/wiki/JBossWS-Mavenization">Mavenization</a></li>
+                    <li><a href="https://www.jboss.org/community/wiki/JBossWS-Runningthetestsuites">Running the testsuite</a></li> </ul> <p>&nbsp;</p> <p><strong>Further informations</strong></p> <p>For futher details on installation and for directions on using JBossWS-Native with JDK 6, please refer to
+                    <a href="https://www.jboss.org/community/wiki/JBossWS-Installation">https://www.jboss.org/community/wiki/JBossWS-Installation</a></p>
 
 
 
@@ -444,10 +450,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <div  id="proj_quick-start"  >
-<h3>Useful Links</h3><ul><li><a href="http://www.jboss.org/community/wiki/JBossWS">Wiki</a></li><li><a href="https://docs.jboss.org/author/display/JBWS">Documentation</a></li><li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+User+Guide">JAX-WS User Guide</a></li><li><a href="https://docs.jboss.org/author/display/JBWS/Advanced+User+Guide">Advanced User Guide</a></li><li><a href="http://www.jboss.org/community/wiki/JBossWS-FAQ">FAQ</a></li><li><a href="http://www.jboss.org/community/wiki/JBossWS-SetupyourIDE">Setup your IDE</a></li><li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+Tools">Tools (JAX-WS)</a></li><li><a href="https://jbossws.github.io/jbossws/build.html">Building the Project</a></li><li><a href="http://www.ohloh.net/p/jbossws">Ohloh.net</a></li></ul></div>
+<h3>Useful Links</h3><ul><li><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
+    <li><a href="https://docs.jboss.org/author/display/JBWS">Documentation</a></li><li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+User+Guide">JAX-WS User Guide</a></li><li><a href="https://docs.jboss.org/author/display/JBWS/Advanced+User+Guide">Advanced User Guide</a></li>
+    <li><a href="https://www.jboss.org/community/wiki/JBossWS-FAQ">FAQ</a></li>
+    <li><a href="https://www.jboss.org/community/wiki/JBossWS-SetupyourIDE">Setup your IDE</a></li>
+    <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+Tools">Tools (JAX-WS)</a></li>
+    <li><a href="https://jbossws.github.io/jbossws/build.html">Building the Project</a></li>
+    <li><a href="https://www.ohloh.net/p/jbossws">Ohloh.net</a></li></ul></div>
 <div class="clear"><br/></div>
 <div>
-    <a href="http://www.jboss.org/security.html"><div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div></a>
+    <a href="https://www.jboss.org/security.html"><div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div></a>
 </div>
                      </div>
                 
@@ -476,8 +488,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="container" id="companyfooter">
       <div class="redhatlogo" style="text-align:center;">
         <div id="logospacer"></div>
-        <a href="http://www.redhat.com/">
-          <img src="http://static.jboss.org/images/rhbar/redhatlogo.png">
+        <a href="https://www.redhat.com/">
+          <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
         </a>
       </div>
     </div>
