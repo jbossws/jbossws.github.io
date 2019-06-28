@@ -3,501 +3,249 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
+   <META HTTP-EQUIV='Content-Security-Policy'
+         CONTENT="style-src 'self' https://static.jboss.org  ; script-src 'self' ; "/>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta name="keywords" content="JBossWS - Build"/>
+   <meta name="description" content=""/>
+   <meta name="author" content=""/>
+   <meta name="robots" content="all"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
 
-<meta name="keywords" content="JBossWS - Build" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<meta name="robots" content="all" />
-<meta name="generator" content="Magnolia Community Edition 4.4.6" />
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
-    <META HTTP-EQUIV='Content-Security-Policy' CONTENT="style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://static.jboss.org  https://www.jboss.org https://ws.sharethis.com/ https://tagmanager.google.com/ ; img-src 'self' 'unsafe-inline'  http://www.jboss.org/ https://www.jboss.org https://static.jboss.org/ https://googleads.g.doubleclick.net/ https://www.google.com/ ; script-src 'self' 'unsafe-inline' https://static.jboss.org/ http://w.sharethis.com/ https://ws.sharethis.com/ 'unsafe-eval' https://tagmanager.google.com/ https://www.googletagmanager.com/ www.googletagmanager.com https://t.sharethis.com/ ; "/>
+   <title>JBossWS - Build - JBoss Community</title>
 
-    <title>JBossWS - Build - JBoss Community</title>
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/stkdefault-styles.css"
+         media="screen, projection"/>
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css"
+         media="screen, projection"/>
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/magnolia/styles.css"
+         media="screen, projection"/>
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/jquery-ui.css"
+         media="screen, projection"/>
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/project.css"
+         media="screen, projection"/>
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css"
+         media="only screen and (min-width: 1200px)"/>
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css"
+         media="screen, projection"/>
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection"/>
 
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/stkdefault-styles.css" media="screen, projection" />
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css" media="screen, projection" />
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/magnolia/styles.css" media="screen, projection" />
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/jquery-ui.css" media="screen, projection" />
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/project.css" media="screen, projection" />
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/clearspace_common.css" media="screen, projection" />
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css" media="only screen and (min-width: 1200px)" />
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/small.css" media="only screen and (max-width: 980px)" />
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/print.css" media="print" />
+   <script src="../resources/templating-kit/js/jbossorg.2011-07-27-15-42-03-383.cache.js"
+           type="text/javascript"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
-    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
+   <!-- Syntax Highlighter -->
+   <script src="../docroot/jbossorg/js/common/syntaxhighlighter/XRegExp.js" type="text/javascript"></script>
+   <script src="../docroot/jbossorg/js/common/syntaxhighlighter/shCore.js" type="text/javascript"></script>
+   <script src="../docroot/jbossorg/js/common/syntaxhighlighter/shAutoloader.js" type="text/javascript"></script>
+   <link href="../docroot/jbossorg/css/common/syntaxhighlighter/shCore.css" rel="stylesheet" type="text/css"/>
+   <link href="../docroot/jbossorg/css/common/syntaxhighlighter/shThemeDefault.css" rel="stylesheet" type="text/css"/>
 
+<body id="project" class="col-float3 rightcol-layout">
 
-         <script src="../resources/templating-kit/js/jbossorg.2011-07-27-15-42-03-383.cache.js" type="text/javascript"></script>
-         <script src="https://ws.sharethis.com/button/buttons.js" type="text/javascript"></script>
-         <script src="https://static.jboss.org/theme/js/magnolia/allinone.js" type="text/javascript"></script>
-         <script src="../resources/templating-kit/js/all.2011-01-19-09-23-54-917.cache.js" type="text/javascript"></script>
-         <script src="https://static.jboss.org/js/_jbossorg-tabzilla.js" type="text/javascript"></script>
-         <script src="../.resources/jbossorg-downloads2/sorttable.js" type="text/javascript"></script>
-
- 
-
-<script type="text/javascript">
-
-function correctVhostProjectUrl() {
-   
-   var ctxPath = location.protocol+'//'+location.hostname;
-   var projectId = 'jbossws';
-   var projectUlr= '';
-  
-  if (projectId=='jbossas6') {
-    projectUrl=ctxPath+'/jbossas';
-    ctxPath= location.protocol+'//jbossas.jboss.org';
-  } else {
-    projectUrl= ctxPath+'/'+projectId; 
-  }
-  
-  if (projectId=='mod_cluster') {
-    projectId='mod-cluster';
-  }
-  
-  if (location.hostname!= (projectId+'.jboss.org')) {
-      return;
-  }
-      
-   var anchors=document.getElementsByTagName('a');
-
-   for (var i=0; i<anchors.length ; i++) {
-
-      if ( anchors[i].href.search(projectUrl)==0 ) {
-        if ( anchors[i].href.search(projectUrl+".html")==0 ) {
-            anchors[i].href = anchors[i].href.replace(projectUrl+".html",ctxPath);
-        } else {
-            anchors[i].href = anchors[i].href.replace(projectUrl,ctxPath);
-        }
-      }
-
-   }
-}
-  
-  $(document).ready(function () {correctVhostProjectUrl();});
-  
-</script>
-
- 
-
-<!-- Add admin fix -->
-<style type="text/css">
-<!-- 
-  .mgnlControlBar td { padding: 4px 100px 4px 2px !important; }
-  -->
-</style>
-
-<!-- custom page javascript -->
-
-<!-- added below js -->
-<!--[if  lt IE 7]><script type="text/javascript"  src="https://static.jboss.org/theme/js/magnolia/maxWidthFixForIE6.js"></script><![endif]-->
-<script type="text/javascript">         
-   stLight.options({
-      publisher:'0c0850b9-23f0-4286-b05a-7593cc190675', doNotHash: true, doNotCopy: true, hashAddressBar: false
-   });
-</script>
-
-<!-- Syntax Highlighter -->
-<script src="../docroot/jbossorg/js/common/syntaxhighlighter/XRegExp.js" type="text/javascript"></script>
-<script src="../docroot/jbossorg/js/common/syntaxhighlighter/shCore.js" type="text/javascript"></script>
-<script src="../docroot/jbossorg/js/common/syntaxhighlighter/shAutoloader.js" type="text/javascript"></script>
-<link href="../docroot/jbossorg/css/common/syntaxhighlighter/shCore.css" rel="stylesheet" type="text/css" />
-<link href="../docroot/jbossorg/css/common/syntaxhighlighter/shThemeDefault.css" rel="stylesheet" type="text/css" />
-
-
-<script type="text/javascript">
-     // initialise Superfish
-     $(document).ready(function() {
-       <!-- loading of necessary brushes -->
-        SyntaxHighlighter.autoloader(
-          'applescript /docroot/jbossorg/js/common/syntaxhighlighter/shBrushAppleScript.js',
-          'as3 /docroot/jbossorg/js/common/syntaxhighlighter/shBrushAS3.js',
-          'bash /docroot/jbossorg/js/common/syntaxhighlighter/shBrushBash.js',
-          'cf /docroot/jbossorg/js/common/syntaxhighlighter/shBrushColdFusion.js',
-          'cpp /docroot/jbossorg/js/common/syntaxhighlighter/shBrushCpp.js',
-          'c-sharp /docroot/jbossorg/js/common/syntaxhighlighter/shBrushCSharp.js',
-          'css /docroot/jbossorg/js/common/syntaxhighlighter/shBrushCss.js',
-          'pas /docroot/jbossorg/js/common/syntaxhighlighter/shBrushDelphi.js',
-          'diff /docroot/jbossorg/js/common/syntaxhighlighter/shBrushDiff.js',
-          'erlang /docroot/jbossorg/js/common/syntaxhighlighter/shBrushErlang.js',
-          'groovy /docroot/jbossorg/js/common/syntaxhighlighter/shBrushGroovy.js',
-          'javafx /docroot/jbossorg/js/common/syntaxhighlighter/shBrushJavaFX.js',
-          'java /docroot/jbossorg/js/common/syntaxhighlighter/shBrushJava.js',
-          'js /docroot/jbossorg/js/common/syntaxhighlighter/shBrushJScript.js',
-          'pl /docroot/jbossorg/js/common/syntaxhighlighter/shBrushPerl.js',
-          'php /docroot/jbossorg/js/common/syntaxhighlighter/shBrushPhp.js',
-          'plain docroot/jbossorg/js/common/syntaxhighlighter/shBrushPlain.js',
-          'ps /docroot/jbossorg/js/common/syntaxhighlighter/shBrushPowerShell.js',
-          'python /docroot/jbossorg/js/common/syntaxhighlighter/shBrushPython.js',
-          'ruby /docroot/jbossorg/js/common/syntaxhighlighter/shBrushRuby.js',
-          'sass /docroot/jbossorg/js/common/syntaxhighlighter/shBrushSass.js',
-          'scala /docroot/jbossorg/js/common/syntaxhighlighter/shBrushScala.js',
-          'sql /docroot/jbossorg/js/common/syntaxhighlighter/shBrushSql.js',
-          'vb /docroot/jbossorg/js/common/syntaxhighlighter/shBrushVb.js',
-          'xml /docroot/jbossorg/js/common/syntaxhighlighter/shBrushXml.js'
-       );
-       SyntaxHighlighter.all();       
-       <!-- ^^ syntax highlighting end -->
-
-         $('ul.sf-menu').superfish({
-             delay:       300,                            // one second delay on mouseout
-             animation:   {opacity:'show',height:'show'},  // fade-in and slide-down animation
-             speed:       'fast',                          // faster animation speed
-             autoArrows:  false,                           // disable generation of arrow mark-up
-             dropShadows: false                            // disable drop shadows
-         });         
-     }); 
-</script>
-<!-- added above js --></head>
-
-
-  
-  
-  <body id="project" class="col-float3 rightcol-layout"  >
-    
-<script>dataLayer = [{'channel' : 'jbossws'}];</script>
-<!-- Google Tag Manager -->
-<noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-NJWS5L"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NJWS5L');</script>
-<!-- End Google Tag Manager -->
-    
-      <div id="rhbar">
-        <a class="jbdevlogo" href="https://developers.redhat.com"></a>
-        <a class="rhlogo" href="https://www.redhat.com/"></a>
-      </div>
-    
-
-    <div id="wrapper">
-        <div id="maincontent-wrapper">
-          
-
-
-
-
-
-
-
-<!-- JBoss.org SSO login info. It needs span or div with 'jbssologininfo' id to fill it with info -->
-<script type="text/javascript">
-  var jbssoserverbase = "https://sso.jboss.org";
-    var jbssobackurl = document.location.href;
-    if (document.location.hash.length > 0) {
-      jbssobackurl = jbssobackurl.replace(document.location.hash, "");
-    }
-  
-  var jbssologouturl = "";
-
-
-</script>
-
-        
-          
-            <div id="top_subnav_branding">
-<div id="banner">
-  
-  
-          <img src="http://www.jboss.org/dms/jbossws/images/jbossws-banner-1180px.png" onError="this.style.display='none'" />
-  
-  
-  <div style="z-index: 999; position: absolute; top: 0px; height:15px;" >
-  </div>
-  
-  <div id="projectname">
-    JBoss Web Services
-  </div>
-    
-      <div id="tagline">&nbsp;</div>
-  
+<div id="rhbar">
+   <a class="jbdevlogo" href="https://developers.redhat.com"></a>
+   <a class="rhlogo" href="https://www.redhat.com/"></a>
 </div>
 
+<div id="wrapper">
+   <div id="maincontent-wrapper">
 
+      <div id="top_subnav_branding">
+         <div id="banner">
 
-
-
-
-
-
-
-
-
-    
-        <div id="proj_announce"> <div id="proj_logo"> <h2>JBoss WS</h2> </div> <div id="proj_tagline"> <h3>Web Services Framework for JBoss AS.</h3> </div> </div>
-
-
-
-
-         
-
-
-
-
-
-<div id="proj_nav" class="" >
-<ul class="sf-menu" >
-
-
-    
-    
-    <li class="open">
-        
-        <span class="notch">&nbsp;</span>
-
-        <a href="../index.html" class="menu-title">Overview</a>
-            
-                <ul class="level1" >
-           <li class="leaf"><a href="news.html">        News
-</a></li>
-                </ul>
-    </li>
-
-
-
-
-    
-    
-    <li class="open">
-
-        <span class="notch">&nbsp;</span>
-
-        <a href="downloads.html" class="menu-title">Downloads</a>
-        
-                <ul class="level1" >
-           <li class="leaf"><a href="downloads/latest.html">        Latest (4.x, 5.x)
-</a></li>
-           <li class="leaf"><a href="downloads/3x.html">        3.x
-</a></li>
-                </ul>
-        
-     </li>
-    
-
-    
-
-    
-    
-    <li class="open">
-
-        <span class="notch">&nbsp;</span>
-
-        <a href="docs.html" class="menu-title">Documentation</a>
-        
-        
-    </li>
-    
-
-    
-
-    
-      
-    <li class="open">
-    
-        <span class="notch">&nbsp;</span>
-
-        <a href="community.html" class="menu-title">Community</a>
-            
-          
-            <ul class="level1">
-
-            <li class="leaf"><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
-            <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum</a></li>
-            <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum</a></li>
-            <li class="leaf"><a href="https://jbossws.blogspot.com/">Blog</a></li>
-                
-
-            </ul>
-                
-            
-    </li>
-            
-        
-
-
-
-        
-    <li class="open">
-
-        <span class="notch">&nbsp;</span>
-
-        <a href="https://jira.jboss.org/jira/browse/JBWS" class="menu-title">Issue Tracker</a>
-
-            
-            <ul class="level1 jiralink">
-                
-            <li class="leaf"><a href="https://jira.jboss.org/jira/browse/JBWS">JIRA</a></li>
-               
-
-            </ul>
-            
-            
-    </li>
-
-
-    
-
-
-
-    <li class="open">
-
-        <span class="notch">&nbsp;</span>
-
-        <a href="sourcecode.html" class="menu-title">Source Code</a>
-
-            
-            <ul class="level1">
-                
-            <li class="leaf"><a href="https://github.com/jbossws">GitHub</a></li>
-
-
-            </ul>
-                
-        
-    </li>
-
-    
-
-
-
-        
-    <li id="buildmenu" class="current">
-
-        <span class="notch">&nbsp;</span>
-
-        <a href="build.html" class="menu-title">Build</a>
-            
-    
-    </li>
-
-
-</ul>
-</div>
-
-         
-
-
-
+            <div style="z-index: 999; position: absolute; top: 0px; height:15px;">
             </div>
-        
-        <div id="wrapper-2">
-            <div id="wrap-content">
+
+            <div id="projectname">
+               JBoss Web Services
+            </div>
+
+            <div id="tagline">&nbsp;</div>
+
+         </div>
+
+         <div id="proj_announce">
+            <div id="proj_logo"><h2>JBoss WS</h2></div>
+            <div id="proj_tagline"><h3>Web Services Framework for JBoss AS.</h3></div>
+         </div>
+
+         <div id="proj_nav" class="">
+            <ul class="sf-menu">
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="../index.html" class="menu-title">Overview</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="news.html"> News</a></li>
+                     <li class="leaf"><a href="news-history.html"> News History</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="downloads.html" class="menu-title">Downloads</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="downloads/latest.html"> Latest (5.x)</a></li>
+                     <li class="leaf"><a href="downloads/4x.html"> 4.x</a></li>
+                     <li class="leaf"><a href="downloads/3x.html"> 3.x</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="docs.html" class="menu-title">Documentation</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="community.html" class="menu-title">Community</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum</a></li>
+                     <li class="leaf"><a href="https://jbossws.blogspot.com/">Blog</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="https://jira.jboss.org/jira/browse/JBWS" class="menu-title">Issue Tracker</a>
+                  <ul class="level1 jiralink">
+                     <li class="leaf"><a href="https://jira.jboss.org/jira/browse/JBWS">JIRA</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="sourcecode.html" class="menu-title">Source Code</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://github.com/jbossws">GitHub</a></li>
+                  </ul>
+               </li>
+
+               <li id="buildmenu" class="current">
+                  <span class="notch">&nbsp;</span>
+                  <a href="build.html" class="menu-title">Build</a>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+
+      <div id="wrapper-2">
+         <div id="wrap-content">
 
             <div id="wrapper-3">
-                
-                <div id="main-wrapper">
-                <div id="main">
- <div id="breadcrumb">
-  <span>
-    
-         <a href="../index.html">JBoss Web Services</a>
-           &gt;
-         <a href="build.html">JBossWS - Build</a>
 
-  </span>
- </div><!-- end breadcrumb -->
-                  
-                  
-                  
-                       <!-- content title -->
-                    
-  
+               <div id="main-wrapper">
+                  <div id="main">
+                     <div id="breadcrumb">
+                       <span>
+                              <a href="../index.html">JBoss Web Services</a>
+                                &gt;
+                              <a href="build.html">JBossWS - Build</a>
+                       </span>
+                     </div><!-- end breadcrumb -->
+
+                     <h3>How to build the project</h3>
+
+                     <p><em><strong>JBossWS 5.x and later</strong></em></p>
+                     <p>Please refer to the
+                        <a href="https://docs.jboss.org/jbossws/5.0.0.Final/sid-88703514.html">documentation</a> or
+                        check the
+                        <a href="https://github.com/jbossws/jbossws-cxf/blob/jbossws-cxf-5.0.0.Final/README">README</a>
+                        file in the root of the project.</p>
+                     <p>&nbsp;</p>
+                     <p><em><strong>JBossWS 3.x and 4.x</strong></em></p>
+                     <p><strong>Binary distribution</strong></p>
+                     <p>Simply download the distribution and read the instructions in the <em>doc</em> directory:</p>
+                     <ol>
+                        <li>Copy <em>ant.properties.examples</em> to <em>ant.properties</em></li>
+                        <li>Modify the target container location in ant.properties</li>
+                        <li>Execute <em>ant deploy-jbossXYZ</em> where XYZ stands for the target container version (see
+                           the Install.txt files, it's something like 712, 713, 720, ...)
+                        </li>
+                        <li>Execute the samples to verify your installation: <em>ant tests</em></li>
+                     </ol>
+                     <p>&nbsp;</p>
+                     <p><strong>Source distribution</strong></p>
+                     <p>&nbsp;Please refer to the wiki:</p>
+                     <ul>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-BuildingFromSource">Building from
+                           sources</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-Mavenization">Mavenization</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-Runningthetestsuites">Running the
+                           testsuite</a></li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <p><strong>Further informations</strong></p>
+                     <p>For futher details on installation and for directions on using JBossWS-Native with JDK 6, please
+                        refer to
+                        <a href="https://www.jboss.org/community/wiki/JBossWS-Installation">https://www.jboss.org/community/wiki/JBossWS-Installation</a>
+                     </p>
+
+                  </div><!-- end main -->
+               </div>
+
+               <div id="rightcolumn" class="column">
+
+                  <div class="projectpage-socialmedia">
+                     <span class="st_sharethis_large">&nbsp;</span>
+                     <span class="st_facebook_large">&nbsp;</span>
+                     <span class="st_twitter_large">&nbsp;</span>
+                     <span class="st_linkedin_large">&nbsp;</span>
+                     <span class="st_email_large">&nbsp;</span>
+                  </div>
 
 
-
-
-
-
-
-
-
-    
-        <h3>How to build the project</h3>
-
-
-
-    
-        <p><em><strong>JBossWS 5.x and later</strong></em></p> <p>Please refer to the <a href="https://docs.jboss.org/jbossws/5.0.0.Final/sid-88703514.html">documentation</a> or check the <a href="https://github.com/jbossws/jbossws-cxf/blob/jbossws-cxf-5.0.0.Final/README">README</a> file in the root of the project.</p> <p>&nbsp;</p> <p><em><strong>JBossWS 3.x and 4.x</strong></em></p> <p><strong>Binary distribution</strong></p> <p>Simply download the distribution and read the instructions in the <em>doc</em> directory:</p> <ol>     <li>Copy <em>ant.properties.examples</em> to <em>ant.properties</em></li>     <li>Modify the target container location in ant.properties</li>     <li>Execute <em>ant deploy-jbossXYZ</em> where XYZ stands for the target container version (see the Install.txt files, it's something like 712, 713, 720, ...)</li>     <li>Execute the samples to verify your installation: <em>ant tests</em></li> </ol> <p>&nbsp;</p> <p><strong>Source distribution</strong></p> <p>&nbsp;Please refer to the wiki:</p> <ul>
-                    <li><a href="https://www.jboss.org/community/wiki/JBossWS-BuildingFromSource">Building from sources</a></li>
-                    <li><a href="https://www.jboss.org/community/wiki/JBossWS-Mavenization">Mavenization</a></li>
-                    <li><a href="https://www.jboss.org/community/wiki/JBossWS-Runningthetestsuites">Running the testsuite</a></li> </ul> <p>&nbsp;</p> <p><strong>Further informations</strong></p> <p>For futher details on installation and for directions on using JBossWS-Native with JDK 6, please refer to
-                    <a href="https://www.jboss.org/community/wiki/JBossWS-Installation">https://www.jboss.org/community/wiki/JBossWS-Installation</a></p>
-
-
-
-
-
-                    
-                </div><!-- end main -->
-                </div>
-               
-                     <div id="rightcolumn" class="column">
-  
-  <div class="projectpage-socialmedia" >
-    <span class="st_sharethis_large">&nbsp;</span>
-    <span class="st_facebook_large">&nbsp;</span>
-    <span class="st_twitter_large">&nbsp;</span>
-    <span class="st_linkedin_large">&nbsp;</span>
-    <span class="st_email_large">&nbsp;</span>
-  </div>
-
-
-
-
-<div  id="proj_quick-start"  >
-<h3>Useful Links</h3><ul><li><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
-    <li><a href="https://docs.jboss.org/author/display/JBWS">Documentation</a></li><li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+User+Guide">JAX-WS User Guide</a></li><li><a href="https://docs.jboss.org/author/display/JBWS/Advanced+User+Guide">Advanced User Guide</a></li>
-    <li><a href="https://www.jboss.org/community/wiki/JBossWS-FAQ">FAQ</a></li>
-    <li><a href="https://www.jboss.org/community/wiki/JBossWS-SetupyourIDE">Setup your IDE</a></li>
-    <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+Tools">Tools (JAX-WS)</a></li>
-    <li><a href="https://jbossws.github.io/jbossws/build.html">Building the Project</a></li>
-    <li><a href="https://www.ohloh.net/p/jbossws">Ohloh.net</a></li></ul></div>
-<div class="clear"><br/></div>
-<div>
-    <a href="https://www.jboss.org/security.html"><div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div></a>
-</div>
-                     </div>
-                
+                  <div id="proj_quick-start">
+                     <h3>Useful Links</h3>
+                     <ul>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS">Documentation</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+User+Guide">JAX-WS User Guide</a>
+                        </li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/Advanced+User+Guide">Advanced User
+                           Guide</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-FAQ">FAQ</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-SetupyourIDE">Setup your IDE</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+Tools">Tools (JAX-WS)</a></li>
+                        <li><a href="https://jbossws.github.io/jbossws/build.html">Building the Project</a></li>
+                        <li><a href="https://www.ohloh.net/p/jbossws">Ohloh.net</a></li>
+                     </ul>
+                  </div>
+                  <div class="clear"><br/></div>
+                  <div>
+                     <a href="https://www.jboss.org/security.html">
+                        <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+                     </a>
+                  </div>
+               </div>
 
             </div><!-- end wrapper-3 -->
 
+         </div><!-- end wrapper-content -->
 
-              
-            </div><!-- end wrapper-content -->
-          
-  
-
-
-
-          
-            <div style="clear: both;"></div>
-        </div><!-- end wrapper-2 -->
-        </div>
-<div id="site-info">
-  <div>
-
-
-  </div>
-  
-<div class="footer">
-    <div class="container" id="companyfooter">
-      <div class="redhatlogo" style="text-align:center;">
-        <div id="logospacer"></div>
-        <a href="https://www.redhat.com/">
-          <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
-        </a>
+         <div style="clear: both;"></div>
+      </div><!-- end wrapper-2 -->
+   </div>
+   <div id="site-info">
+      <div>
       </div>
-    </div>
-</div>    </div><!-- end wrapper -->  
-   
-<!-- Google Code for Remarketing tag -->
-<img height="1" width="1" style="border-style:none;" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/990030321/?value=0&amp;label=rxV4CN_35QQQ8dOK2AM&amp;guid=ON&amp;script=0" /> 
-<!-- End: Google Code for Remarketing tag -->
-    
+
+      <div class="footer">
+         <div class="container" id="companyfooter">
+            <div class="redhatlogo" style="text-align:center;">
+               <div id="logospacer"></div>
+               <a href="https://www.redhat.com/">
+                  <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div><!-- end site-info -->
+</div><!-- end wrapper -->
+
 </body>
 </html>
