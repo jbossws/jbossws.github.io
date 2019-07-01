@@ -4,8 +4,9 @@
 
 <head>
    <META HTTP-EQUIV='Content-Security-Policy'
-         CONTENT="style-src 'self' https://static.jboss.org  ; script-src 'self' ; "/>
-
+         CONTENT="style-src 'self' https://static.jboss.org  ; script-src 'self' ; font-src 'none'; img-src 'self' https://static.jboss.org; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
+   <META HTTP-EQUIV='X-XSS-Protection' CONTENT="1; mode=block">
+   <META HTTP-EQUIV='X-Content-Type-Options' CONTENT="nosniff">
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
    <meta name="keywords" content="JBossWS Documentation"/>
    <meta name="description" content=""/>
