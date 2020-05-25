@@ -1,0 +1,14 @@
+# Site settings
+title: JBossWS
+email:
+meta_author: jbossws
+# Build settings
+markdown: kramdown
+parse_block_html: true
+permalink: pretty
+paginate: 15
+paginate_path: "blogs/page:num"
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+gems: [jekyll-paginate, jekyll-feed]
+plugins: [jekyll-paginate]
+

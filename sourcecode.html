@@ -1,0 +1,58 @@
+---
+layout:     default
+title:       "JBossWS - Source code"
+link:        sourcecode
+---
+
+                     <!-- content title -->
+                     <h3>Understanding the source code layout</h3>
+                     <p>The JBossWS project is actually split up into the following sub-projects:</p>
+                     <p><strong>JBossWS-SPI</strong></p>
+                     <p>This defines the SPI of the abstraction layer between the AS target containers and the supported
+                        web service stacks.</p>
+                     <ul>
+                        <li><em><code class="jive-code">https://github.com/jbossws/jbossws-spi.git</code></em></li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <p><strong>JBossWS-API</strong></p>
+                     <p>This covers the final user jbossws public API:</p>
+                     <ul>
+                        <li><em><code class="jive-code">https://github.com/jbossws/jbossws-api.git</code></em></li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <p><strong>JBossWS-CXF</strong></p>
+                     <p>The WS integration stack based on Apache CXF.</p>
+                     <ul>
+                        <li><em><code class="jive-code">https://github.com/jbossws/jbossws-cxf.git</code></em></li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <p><strong>JBossWS-Common</strong></p>
+                     <p>This provides utilities and general purpose WS code meant to be used in all the supported
+                        stacks.</p>
+                     <ul>
+                        <li><em><code class="jive-code">https://github.com/jbossws/jbossws-common.git</code></em></li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <p><strong>JBossWS-Common-Tools</strong></p>
+                     <p>This provides the (JAXWS) tools utilities (ant tasks, scripts, etc.).</p>
+                     <ul>
+                        <li><em><code class="jive-code">https://github.com/jbossws/jbossws-common-tools.git</code></em>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <p><strong>Container integrations</strong></p>
+                     <p>Finally, in order for providing the proper WS integration into the the supported target
+                        containers, there're some small modules meant to override the AS / WildFly <em>webservice</em>
+                        module functions. This is sometime required when adding features over already released
+                        application server versions.</p>
+                     <ul>
+                        <li><em><code
+                              class="jive-code">https://github.com/jbossws/jbossws-wildfly80.git</code></em><code
+                              class="jive-code"><br/> </code></li>
+                        <li><em><code class="jive-code">https://github.com/jbossws/jbossws-wildfly81.git</code></em>
+                        </li>
+                        <li><em><code class="jive-code">https://github.com/jbossws/jbossws-wildfly82.git</code></em>
+                        </li>
+                        <li>etc...</li>
+                     </ul>
+                     <p>&nbsp;</p>
