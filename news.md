@@ -5,6 +5,11 @@ link:        "news"
 ---
 ### Releases
 
++ 16.01.2020: JBossWS 5.4.0: Apache CXF integration stack ([release notes](https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.3.0.Final.txt))
+  - Upgrade to Apache CXF 3.3.4
+  - JDK 11 compatibility
+  - Bug fixes
+
 + 14.05.2019: JBossWS 5.3.0: Apache CXF integration stack ([release notes](https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.3.0.Final.txt))
   - Upgrade to Apache CXF 3.3.1
   - JDK 11 compatibility
