@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "JBossWS Forum Is Moved to Google Group"
+title:      "Move to JBossWS Google Group"
 subtitle:   ""
 date:       May 27, 2020
 author:     Jim Ma
