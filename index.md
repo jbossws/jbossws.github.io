@@ -1,9 +1,10 @@
 ---
 layout:     main
-title:       "JBossWS 5.4.4.Final released!"
-date:       May 7 ,2021 04:00 pm
+title:       "JBossWS 5.5.0.Final released!"
+date:       Jan 13 ,2022 03:00 pm
 author:     Jim Ma
 ---
-JBossWS 5.4.4.Final has been released and is available for download. The maven artifacts have also been released to the Maven repository.
-This is a bug fix release and mainly resolved [JBWS-4133](https://issues.redhat.com/browse/JBWS-4133) to support JDK14.
-If you moved to JDK14, please try this release and report to us any issues you get.
+JBossWS 5.5.0.Final has been released and is available for download.
+The maven artifacts have been released to the Maven repository. In this release, we upgraded CXF
+to 3.4.5 ,log4j to 2.17.1 and fixed other issues. For more detailed info and full list of issues resolved, please check
+[release notes.](https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&version=12357605)
