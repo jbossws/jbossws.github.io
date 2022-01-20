@@ -4,8 +4,13 @@ title:       "JBossWS - News"
 link:        "news"
 ---
 ### Releases
++ 13.01.2022: JBossWS 5.5.0: Apache CXF integration stack ([release notes](https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&version=12357605)
+  )
+  - Upgrade to Apache CXF 3.4.4
+  - Upgrade to Log4j 2.17.1
+  - Bug fixes
 
-+ 16.01.2020: JBossWS 5.4.0: Apache CXF integration stack ([release notes](https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.3.0.Final.txt))
++ 16.01.2020: JBossWS 5.4.0: Apache CXF integration stack ([release notes](https://issues.redhat.com/secure/ReleaseNote.jspa?version=12341950&projectId=12310050)
   - Upgrade to Apache CXF 3.3.4
   - JDK 11 compatibility
   - Bug fixes

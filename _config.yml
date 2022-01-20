@@ -8,7 +8,14 @@ parse_block_html: true
 permalink: pretty
 paginate: 15
 paginate_path: "blogs/page:num"
+collections:
+  guide:
+    output: true
+asciidoctor:
+  base_dir: :docdir
+  safe: unsafe
+  mkdir: false
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-gems: [jekyll-paginate, jekyll-feed]
-plugins: [jekyll-paginate]
+gems: [jekyll-paginate, jekyll-feed, jekyll-asciidoc]
+plugins: [jekyll-paginate, jekyll-asciidoc]
 
