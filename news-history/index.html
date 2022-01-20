@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   <META HTTP-EQUIV='Content-Security-Policy'
+         CONTENT="default-src 'none'; object-src 'none'; style-src 'self' https://static.jboss.org ; script-src 'self' https://static.jboss.org ; font-src 'none'; img-src 'self' https://static.jboss.org; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
+   <META HTTP-EQUIV='X-XSS-Protection' CONTENT="1; mode=block">
+   <META HTTP-EQUIV='X-Content-Type-Options' CONTENT="nosniff">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta name="keywords" content="JBoss Web Services"/>
+   <meta name="description" content=""/>
+   <meta name="author" content=""/>
+   <meta name="robots" content="all"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+
+   <title>JBoss Web Services - JBoss Community</title>
+
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/clearspace_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/stkdefault-styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/magnolia/styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/jquery-ui.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/project.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css" media="only screen and (min-width: 1200px)" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
+</head>
+
+    <body id="project" class="col-float3 rightcol-layout">
+    <div id="rhbar">
+   <a class="jbdevlogo" href="https://developers.redhat.com"></a>
+   <a class="rhlogo" href="https://www.redhat.com/"></a>
+</div>
+
+<div id="wrapper">
+   <div id="maincontent-wrapper">
+
+      <div id="top_subnav_branding">
+         <div id="banner">
+
+            <div style="z-index: 999; position: absolute; top: 0px; height:15px;">
+            </div>
+
+            <div id="projectname">
+               JBoss Web Services
+            </div>
+
+            <div id="tagline">Web Services Framework for JBoss AS.</div>
+
+         </div>
+
+         <div id="proj_announce">
+            <div id="proj_logo"><h2>JBoss WS</h2></div>
+            <div id="proj_tagline"><h3>Web Services Framework for JBoss AS.</h3></div>
+         </div>
+
+         <div id="proj_nav" class="">
+            <ul class="sf-menu">
+
+               <li class="current">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/index.html" class="menu-title">Overview</a>
+                  <!--ul class="level1">
+                     <li class="leaf"><a href="/news"> News</a></li>
+                     <li class="leaf"><a href="/news-history"> News History</a></li>
+                  </ul-->
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/downloads" class="menu-title">Downloads</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="/downloads-latest"> Latest (5.x)</a></li>
+                     <li class="leaf"><a href="/downloads-4x"> 4.x</a></li>
+                     <li class="leaf"><a href="/downloads-3x"> 3.x</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/docs" class="menu-title">Documentation</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/blogs" class="menu-title">Blog</a>
+               </li>
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/community" class="menu-title">Community</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://groups.google.com/forum/#!forum/jbossws">New Forums</a></li>
+                     <li class="leaf"><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki(archive)</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum(archive)</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum(archive)</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="https://jira.jboss.org/jira/browse/JBWS" class="menu-title">Issue Tracker</a>
+                  <ul class="level1 jiralink">
+                     <li class="leaf"><a href="https://jira.jboss.org/jira/browse/JBWS">JIRA</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/sourcecode" class="menu-title">Source Code</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://github.com/jbossws">GitHub</a></li>
+                  </ul>
+               </li>
+
+               <li id="buildmenu" class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/build" class="menu-title">Build</a>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+
+          <div id="wrapper-2">
+         <div id="wrap-content">
+            <div id="wrapper-3">
+               <div id="main-wrapper">
+                  <div id="main">
+                     <div id="breadcrumb">
+                       <span>
+                              <a href="/">JBoss Web Services</a>
+                                &gt;
+                              <a href="/news-history">JBossWS - News History</a>
+                                &gt;
+                              <a href="#"></a>
+                       </span>
+                     </div><!-- end breadcrumb -->
+                     <h3>Releases</h3>
+                     <ul>
+                        <li>24.11.2016: JBossWS 5.1.6: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.1.6.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 3.1.8</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>15.07.2016: JBossWS 5.1.5: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.1.5.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 3.1.6</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>17.03.2016: JBossWS 5.1.4: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.1.4.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 3.1.5</li>
+                              <li>Few improvements in user deployment classloader isolation</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>25.01.2016: JBossWS 5.1.3: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.1.3.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>23.12.2015: JBossWS 5.1.2: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.1.2.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Few performance improvements / bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>03.12.2015: JBossWS 5.1.1: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.1.1.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 3.1.4</li>
+                              <li>Upgrade to Apache WSS4J 2.1.4</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>01.09.2015: JBossWS 5.1.0: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.1.0.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 3.1.2</li>
+                              <li>Upgrade to Apache WSS4J 2.1.2</li>
+                              <li>Default to using original thread for processing one-way messages</li>
+                              <li>jboss-webservices.xml support in EAR deployments</li>
+                              <li>Bug fixes and few performance improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>05.08.2015: JBossWS 5.0.1: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.0.1.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 3.0.6</li>
+                              <li>Upgrade to Apache WSS4J 2.0.5</li>
+                              <li>Default to using original thread for processing one-way messages</li>
+                              <li>Bug fixes and few performance improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>24.04.2015: JBossWS 5.0.0: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.0.0.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 3.0.4</li>
+                              <li>Upgrade to Apache WSS4J 2.0.3</li>
+                              <li>Convention for automatic predefined client/endpoint configuration retrieval</li>
+                              <li>Apache CXF interceptors setup through properties</li>
+                              <li>Apache CXF features setup through properties</li>
+                              <li>Default Apache CXF HTTP Conduit configuration</li>
+                              <li>JDK 1.8 support</li>
+                              <li>WSDL soap:address rewrite improvements and additional features</li>
+                              <li>System property expansion in wsdl files</li>
+                              <li>WS-Security streaming support</li>
+                              <li>BouncyCastle not globally installed anymore</li>
+                              <li>Multiple bug fixes and few performance improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>03.11.2014: JBossWS 4.3.2: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.3.2.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 2.7.13</li>
+                              <li>Upgrade to Apache WSS4J 1.6.17</li>
+                              <li>Multiple bug fixes and few performance improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>05.09.2014: JBossWS 4.3.1: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.3.1.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 2.7.12</li>
+                              <li>Upgrade to Apache WSS4J 1.6.16</li>
+                              <li>Multiple bug fixes and testsuite improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>17.03.2014: JBossWS 4.3.0: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.3.0.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 2.7.10</li>
+                              <li>Upgrade to Apache WSS4J 1.6.14</li>
+                              <li>Improved stability</li>
+                              <li>JASPI SOAP Profile implementation</li>
+                              <li>Multiple bug fixes and testsuite improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>12.11.2013: JBossWS 4.2.3: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.2.3.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Multiple bug fixes and testsuite improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>22.10.2013: JBossWS 4.2.2: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.2.2.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>WebServiceFeature to control Apache CXF bus creation for JAXWS clients</li>
+                              <li>Upgrade to Apache CXF 2.7.7 and Apache WSS4J 1.6.12</li>
+                              <li>Multiple bug fixes and testsuite improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>18.09.2013: JBossWS 4.2.1: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.2.1.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>WebServiceFeature for creating JAXWS Service in a new CXF Bus</li>
+                              <li>Allow multiple subcodes in a SOAP 1.2 fault</li>
+                              <li>Multiple bug fixes and testsuite improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>29.07.2013: JBossWS 4.2.0: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.2.0.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 2.7.6</li>
+                              <li>Upgrade to Apache WSS4J 1.6.11</li>
+                              <li>Upgrade to Woodstox 4.2.0</li>
+                              <li>WS-Discovery support</li>
+                              <li>WS-Policy code-first improvements (@PolicySets)</li>
+                              <li>WebServiceFeature for initializing JAXWS Port and setting predefined client configs
+                              </li>
+                              <li>System props references resolved in jboss-webservices.xml</li>
+                              <li>wsconsume -clientjar</li>
+                              <li>Partial generation of jbossws-cxf.xml</li>
+                              <li>Restored FastInfoset functionalities</li>
+                              <li>WildFly integration</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>21.12.2012: JBossWS 4.1.1: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.1.1.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Upgrade to Apache CXF 2.6.4</li>
+                              <li>Upgrade to Apache WSS4J 1.6.8</li>
+                              <li>Allow enabling CXF MBean management in jboss-webservices.xml</li>
+                              <li>Few performance optimizations</li>
+                              <li>Revisited / improved soap:address rewrite functionality</li>
+                              Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>15.10.2012: JBossWS 4.1.0: Apache CXF integration stack
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.1.0.Final.txt">(release
+                              notes)</a>
+                           <br/>
+                           <ul>
+                              <li>Apache CXF&nbsp;STS integration</li>
+                              <li>PicketLink STS integration</li>
+                              <li>Apache CXF internals configuration option improvements</li>
+                              <li>Completed JBossWS client/endpoint predefined configuration support</li>
+                              <li>Enabled WS-MetadataExchange (Aug 2006 spec) support</li>
+                              <li>Full IPv6 compatibility</li>
+                              <li>Global handler to intercept inbound/outbound messages</li>
+                              <li>Rewritten JAXWS POJO invocation layer</li>
+                              <li>Upgrade to Apache CXF 2.6.3</li>
+                              <li>Samples for most of the WS-SecurityPolicy Samples 1.0 spec</li>
+                              <li>Improved testsuite (execution time, memory footprint, code &amp; feature coverage)
+                              </li>
+                              <li>Few additional wsconsume/wsprovide options</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>06.03.2012: JBossWS 4.0.2: Including Apache CXF&nbsp;
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.0.2.GA.txt">(release
+                              notes)</a>&nbsp;and Native&nbsp;
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-native-4.0.2.GA.txt">(release
+                              notes)</a>&nbsp;stacks
+                           <ul>
+                              <li>Upgrade to Apache WSS4J 1.6.5 and Santuario 1.5.1</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>05.02.2012: JBossWS 4.0.1: Including Apache CXF&nbsp;
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.0.1.GA.txt">(release
+                              notes)</a>&nbsp;and Native&nbsp;
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-native-4.0.1.GA.txt">(release
+                              notes)</a>&nbsp;stacks
+                           <ul>
+                              <li>Upgrade to Apache CXF 2.4.6</li>
+                              <li>Further WS-SecurityPolicy tests</li>
+                              <li>Upgrade to JAXB 2.2.4</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>22.12.2011: JBossWS 4.0.0.GA: final release for the JBWS 4 candidate release of November
+                           2011 with minor bug fixes and improvements over it.
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>17.11.2011: JBossWS 4.0.0.CR1: Including CXF (
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-4.0.0.CR1.txt">release
+                              notes</a>) and Native (
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-native-4.0.0.CR1.txt">release
+                              notes</a>)
+                           <ul>
+                              <li>Support for JBoss Application Server 7</li>
+                              <li>Upgrade to Apache CXF 2.4.4</li>
+                              <li>Deployment classloader isolation from server side integration classloader</li>
+                              <li>SOAP over JMS 1.0 support</li>
+                              <li>WS-Security UsernameToken JAAS integration for policy-first scenarios</li>
+                              <li>JBossWS endpoint configuration (@EndpointConfig) for CXF stack</li>
+                              <li>WS-SecurityPolicy support without Spring</li>
+                              <li>Support POJO endpoint deployment without web.xml</li>
+                              <li>Build support for Maven 3</li>
+                              <li>Many bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>04.01.2011: JBossWS 3.4.1: Including Native&nbsp;
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-native-3.4.1.GA.txt">(release
+                              notes)</a>&nbsp;and CXF&nbsp;
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-3.4.1.GA.txt">(release
+                              notes)</a>
+                           <ul>
+                              <li>CDI integration</li>
+                              <li>IPv6 tested</li>
+                              <li>Support for AS 6 Final (only)</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>09.12.2010: JBossWS 3.4.0: Including Native
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-native-3.4.0.GA.txt">(release
+                              notes)</a> and CXF
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-3.4.0.GA.txt">(release
+                              notes)</a>
+                           <ul>
+                              <li>Included JAXWS 2.2 compliant implementation from Apache CXF</li>
+                              <li>Implemented JSR 109 v.1.3 additions</li>
+                              <li>Upgrade to Apache CXF 2.3.1</li>
+                              <li>Complete UsernameToken JAAS integration (CXF stack)</li>
+                              <li>@Resource / @EJB injection support in JAXWS endpoints and handlers (CXF stack)</li>
+                              <li>Automatic WS-Policy support without Spring (CXF&nbsp;stack)</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>08.06.2010: JBossWS 3.3.1: Including Native
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-native-3.3.1.GA.txt">(release
+                              notes)</a>, CXF
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-3.3.1.GA.txt">(release
+                              notes)</a> and Metro
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-metro-3.3.1.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Upgrade to Apache CXF 2.2.9</li>
+                              <li>Fix to the binary distribution installation</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>31.05.2010: JBossWS 3.3.0: Including Native
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-native-3.3.0.GA.txt">(release
+                              notes)</a>, CXF
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-3.3.0.GA.txt">(release
+                              notes)</a> and Metro
+                           <a href="https://download.jboss.org/jbossws/ReleaseNotes-jbossws-metro-3.3.0.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>JAX-RPC features with CXF / Metro stacks</li>
+                              <li>JAXWS 2.2 implementation in Native stack</li>
+                              <li>Maven plugin for wsconsume/wsprovide tools</li>
+                              <li>CXF stack missing JSR-109 1.2 feature implementation</li>
+                              <li>CXF Username Token JAAS integration</li>
+                              <li>Upgrade to Apache CXF 2.2.8</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>21.12.2009: JBossWS 3.2.2: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.2.2.GA.txt">(release
+                              notes)</a>, CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.2.2.GA.txt">(release
+                              notes)</a> and Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.2.2.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Performance improvements</li>
+                              <li>New supported annotations in JAXBIntroductions</li>
+                              <li>Policies for running testsuite under a security manager</li>
+                              <li>Upgrade to Apache CXF 2.2.5</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>02.11.2009: JBossWS 3.2.1: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.2.1.GA.txt">(release
+                              notes)</a>, CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.2.1.GA.txt">(release
+                              notes)</a> and Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.2.1.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Performance improvements</li>
+                              <li>JAXBIntroductions with CXF stack</li>
+                              <li>Component upgrades (JAXB, JAXWS-RI, Apache CXF)</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <ul>
+                        <li>28.08.2009: JBossWS 3.2.0: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.2.0.GA.txt">(release
+                              notes)</a>, CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.2.0.GA.txt">(release
+                              notes)</a> and Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.2.0.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Native stack now relies on <a href="https://jboss.org/netty/">Netty</a> for client
+                                 side HTTP transport
+                              </li>
+                              <li>Non-blocking one-way operation on client side (Native stack)</li>
+                              <li>Address rewrite support in CXF stack</li>
+                              <li>Multiple virtual host support in CXF stack</li>
+                              <li>Upgrade to CXF 2.2.3</li>
+                              <li>Upgrade to JBoss-JAXR 2.0.1</li>
+                              <li>Common JAX-WSA (JSR261) API for CXF and Native stack</li>
+                              <li>Bug fixes and AS integration code improvements</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>01.06.2009: JBossWS 3.1.2 CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.1.2.GA.txt">(release
+                              notes)</a>
+                           <ul>
+                              <li>Upgrade to Apache CXF 2.2.2</li>
+                              <li>Many tools fixes (WSConsume)</li>
+                              <li>WS-Security Policy samples</li>
+                              <li>Further Apache CXF integration fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>08.05.2009: JBossWS 3.1.2 Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.1.2.GA.txt">(release
+                              notes)</a>
+                           <ul>
+                              <li>Resource injection fixes</li>
+                              <li>@EJB support in WS components</li>
+                              <li>Further fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>15.04.2009: JBossWS 3.1.1: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.1.1.GA.txt">(release
+                              notes)</a>, CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.1.1.GA.txt">(release
+                              notes)</a> and Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.1.1.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Resource injection in jaxws endpoints and handlers</li>
+                              <li>Improved CXF integration and upgrade to Apache CXF 2.2</li>
+                              <li>wsrunclient script for JBossWS-CXF and JBossWS-Metro</li>
+                              <li>Some FastInfoset and MTOM interoperabily fixes and testing</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>02.03.2009: JBossWS 3.1.0: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.1.0.GA.txt">(release
+                              notes)</a>, CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.1.0.GA.txt">(release
+                              notes)</a> and Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.1.0.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Complete Native JAX-WS 2.1 implementation</li>
+                              <li>WS-Security Usename Token Profile JAAS Implementation for JSE endpoints</li>
+                              <li>Support for generics in wrapper classes</li>
+                              <li>Improved CXF integration and upgrade to CXF 2.1.4</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>19.12.2008: JBossWS 3.0.5: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.0.5.GA.txt">(release
+                              notes)</a>, Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.0.5.GA.txt">(release
+                              notes)</a> and CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.0.5.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Improved Metro integration</li>
+                              <li>Update to more recent Metro components (WSIT, JAXB, JAXWS-RI)</li>
+                              <li>@PostConstruct and @Predestroy annotations Native support for POJO endpoints</li>
+                              <li>Many bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>21.10.2008: JBossWS 3.0.4: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.0.4.GA.txt">(release
+                              notes)</a>, Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.0.4.GA.txt">(release
+                              notes)</a> and CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.0.4.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Wrapper bean classes generation with Metro stack</li>
+                              <li>Native WS-Security interoperability-related fixes</li>
+                              <li>Further bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>14.08.2008: JBossWS 3.0.3: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.0.3.GA.txt">(release
+                              notes)</a>, Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.0.3.GA.txt">(release
+                              notes)</a> and CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.0.3.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Virtual host configuration for EJB endpoints</li>
+                              <li>Improved Metro integration</li>
+                              <li>Samples of records management</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>20.06.2008: JBossWS 3.0.2: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.0.2.GA.txt">(release
+                              notes)</a>, Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.0.2.GA.txt">(release
+                              notes)</a> and CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.0.2.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>WS-Policy available in all stacks</li>
+                              <li>WS-Security available in all stacks</li>
+                              <li>WS-Addressing available in all stacks</li>
+                              <li>WS-ReliableMessaging available in all stacks</li>
+                              <li>Project generator available in all stacks</li>
+                              <li>Native WS-Security improvements</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>01.04.2008: JBossWS 3.0.1: Including Native
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-3.0.1-native-2.0.4.GA.txt">(release
+                              notes)</a>, Metro
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-3.0.1-metro-1.0.1.GA.txt">(release
+                              notes)</a> and CXF
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-3.0.1-cxf-1.0.1.GA.txt">(release
+                              notes)</a> integration
+                           <ul>
+                              <li>Initial support for FastInfoset</li>
+                              <li>Initial support for JSON data binding</li>
+                              <li>Initial support for WS-RX</li>
+                              <li>Completed Username Token Profile 1.0</li>
+                              <li>Improved Eclipse integration</li>
+                              <li>Added support for schema validation</li>
+                              <li>More advanced samples based on real world usecases</li>
+                              <li>Unified SOAP message trace</li>
+                              <li>Added support for SOAP 1.2 in wsconsume</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>11.02.2008: JBossWS 3.0: Metro and CXF integration released
+                           <ul>
+                              <li>The first JBossWS 3.0 release!</li>
+                              <li>A general web service framework that allows for plugability of web service stacks in
+                                 JBoss AS
+                              </li>
+                              <li>Plugs Sun Metro or Apache CXF into JBossAS</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>25.01.2008: JBossWS-2.0.3.GA
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-2.0.3.GA.txt">(release
+                              notes)</a>
+                           <ul>
+                              <li>Statistics/logs about clients calling endpoints</li>
+                              <li>Support the JMS transport with JAX-WS</li>
+                              <li>Add configuration for token references</li>
+                              <li>WS-Addressing with endpoints using soap 1.2</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>26.11.2007: JBossWS-2.0.2.GA
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-2.0.2.GA.txt">(release
+                              notes)</a>
+                           <ul>
+                              <li>Complete WS-Policy implementation</li>
+                              <li>HTTP bindings for Provider</li>
+                              <li>WS-Security with JAX-WS Dispatch</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>17.08.2007: JBossWS-2.0.1.GA
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-2.0.1.GA.txt">(release
+                              notes)</a>
+                           <ul>
+                              <li>MTOM property at service-ref level</li>
+                              <li>Comprehensive SPI tools test suite</li>
+                              <li>Endpoint API for jboss-5.0.0.Beta3</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+                     <ul>
+                        <li>07.07.2007: JBossWS-2.0.0.GA
+                           <a href="https://jboss.org/file-access/default/members/jbossws/downloads/ReleaseNotes-2.0.0.GA.txt">(release
+                              notes)</a>
+                           <ul>
+                              <li>Add support for jdk-1.6</li>
+                              <li>Support swaRef with JAX-WS</li>
+                              <li>Make default context root for jaxws ejb endpoint configurable</li>
+                              <li>Use part names that are friendly to .NET</li>
+                              <li>Update to jaxb-ri-2.1.3</li>
+                              <li>Bug fixes</li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>&nbsp;</p>
+
+
+                  </div><!-- end main -->
+               </div>
+
+                   <div id="rightcolumn" class="column">
+
+                  <div class="projectpage-socialmedia">
+                     <span class="st_sharethis_large">&nbsp;</span>
+                     <span class="st_facebook_large">&nbsp;</span>
+                     <span class="st_twitter_large">&nbsp;</span>
+                     <span class="st_linkedin_large">&nbsp;</span>
+                     <span class="st_email_large">&nbsp;</span>
+                  </div>
+
+
+                  <div id="proj_quick-start">
+                     <h3>Useful Links</h3>
+                     <ul>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS">Documentation</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+User+Guide">JAX-WS User Guide</a>
+                        </li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/Advanced+User+Guide">Advanced User
+                           Guide</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-FAQ">FAQ</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-SetupyourIDE">Setup your IDE</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+Tools">Tools (JAX-WS)</a></li>
+                        <li><a href="https://jbossws.github.io/jbossws/build.html">Building the Project</a></li>
+                        <li><a href="https://www.ohloh.net/p/jbossws">Ohloh.net</a></li>
+                     </ul>
+                  </div>
+                  <div class="interviews-rss ">
+                     <h3>JBossWS</h3>
+
+
+                     <dl class="evenrow">
+                        <dt><a href="/2022/01/13/jbossws-550final-is-released">JBossWS 5.5.0.Final is released</a></dt>
+                        <dd class="date">January 13, 2022 By Jim Ma
+                        </dd>
+                        <dd>JBossWS 5.5.0.Final has been released and is available for download. The maven artifacts have been released to the Maven repository.
+                            In this release, we upgraded CXF to 3.4.5 ,log4j to 2.17.1...
+                        </dd>
+                     </dl>
+                     <dl class="oddrow">
+                        <dt><a href="/2022/01/06/jbossws-log4j-cve">Log4j CVE and JBossWS project</a></dt>
+                        <dd class="date">January 06, 2022 By Jim Ma
+                        </dd>
+                        <dd>After log4j cve issues were reported, we carefully reviewed the usage in JBossWS projects and found we only use log4j dependencies in
+                            command line tools, client side and testsuite...
+                        </dd>
+                     </dl>
+
+                     <dl class="evenrow">
+                         <dt><a href="/2020/05/27/jbossws-new-google-forum/">Move to JBossWS Google Group</a></dt>
+                         <dd class="date">May 27, 2020 By Jim Ma
+                         </dd>
+                         <dd>JBossWS team has moved the old jboss community wiki and forum to <a href="https://groups.google.com/forum/#!forum/jbossws">JBossWS Google Groups</a>.
+                             The old JBossWS wiki, User Forum and Developer Forum are all archived and read only now. This change will allow our community users
+                             find us more easily with one email or web access...
+                         </dd>
+                     </dl>
+
+
+                     <dl>
+                        <dd class="more">View <a href="https://jbossws.github.io/blogs/">more jbossws updates</a></dd>
+                     </dl>
+                  </div>
+                  <div class="clear"><br/></div>
+
+                  <div class="uploaded-img">
+
+                     <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+                        <img width="180" alt="" height="75"
+                             src="/img/logo_jprofiler01.gif"
+                             style="margin:0 auto;"/>
+
+                     </a>
+                  </div>
+
+                  <h5>We use JProfiler for profiling</h5>
+
+                  <table>
+                     <tr>
+                        <td>
+                        </td>
+                     </tr>
+                  </table>
+
+
+                  <div>
+                     <a href="https://www.jboss.org/security.html">
+                        <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+                     </a>
+                  </div>
+               </div>
+
+            </div><!-- end wrapper-3 -->
+
+         </div><!-- end wrapper-content -->
+         <div style="clear: both;"></div>
+      </div><!-- end wrapper-2 -->
+   </div>
+
+       <div id="site-info">
+      <div>
+      </div>
+
+      <div class="footer">
+         <div class="container" id="companyfooter">
+            <div class="redhatlogo" style="text-align:center;">
+               <div id="logospacer"></div>
+               <a href="https://www.redhat.com/">
+                  <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div><!-- end site-info -->
+</div><!-- end wrapper -->
+
+    </body>
+</html>

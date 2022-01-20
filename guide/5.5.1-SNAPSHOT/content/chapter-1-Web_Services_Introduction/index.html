@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <META HTTP-EQUIV='Content-Security-Policy'
+         CONTENT="default-src 'none'; object-src 'none'; style-src 'self' https://static.jboss.org ; script-src 'self' https://static.jboss.org ; font-src 'none'; img-src 'self' https://static.jboss.org; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
+   <META HTTP-EQUIV='X-XSS-Protection' CONTENT="1; mode=block">
+   <META HTTP-EQUIV='X-Content-Type-Options' CONTENT="nosniff">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta name="keywords" content="JBoss Web Services"/>
+   <meta name="description" content=""/>
+   <meta name="author" content=""/>
+   <meta name="robots" content="all"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+
+   <title>JBoss Web Services - JBoss Community</title>
+
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/clearspace_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/stkdefault-styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/magnolia/styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/jquery-ui.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/project.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css" media="only screen and (min-width: 1200px)" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
+</head>
+
+<body id="project" class="col-float3 rightcol-layout">
+<div id="rhbar">
+   <a class="jbdevlogo" href="https://developers.redhat.com"></a>
+   <a class="rhlogo" href="https://www.redhat.com/"></a>
+</div>
+
+<div id="wrapper">
+   <div id="maincontent-wrapper">
+
+      <div id="top_subnav_branding">
+         <div id="banner">
+
+            <div style="z-index: 999; position: absolute; top: 0px; height:15px;">
+            </div>
+
+            <div id="projectname">
+               JBoss Web Services
+            </div>
+
+            <div id="tagline">Web Services Framework for JBoss AS.</div>
+
+         </div>
+
+         <div id="proj_announce">
+            <div id="proj_logo"><h2>JBoss WS</h2></div>
+            <div id="proj_tagline"><h3>Web Services Framework for JBoss AS.</h3></div>
+         </div>
+
+         <div id="proj_nav" class="">
+            <ul class="sf-menu">
+
+               <li class="current">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/index.html" class="menu-title">Overview</a>
+                  <!--ul class="level1">
+                     <li class="leaf"><a href="/news"> News</a></li>
+                     <li class="leaf"><a href="/news-history"> News History</a></li>
+                  </ul-->
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/downloads" class="menu-title">Downloads</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="/downloads-latest"> Latest (5.x)</a></li>
+                     <li class="leaf"><a href="/downloads-4x"> 4.x</a></li>
+                     <li class="leaf"><a href="/downloads-3x"> 3.x</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/docs" class="menu-title">Documentation</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/blogs" class="menu-title">Blog</a>
+               </li>
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/community" class="menu-title">Community</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://groups.google.com/forum/#!forum/jbossws">New Forums</a></li>
+                     <li class="leaf"><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki(archive)</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum(archive)</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum(archive)</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="https://jira.jboss.org/jira/browse/JBWS" class="menu-title">Issue Tracker</a>
+                  <ul class="level1 jiralink">
+                     <li class="leaf"><a href="https://jira.jboss.org/jira/browse/JBWS">JIRA</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/sourcecode" class="menu-title">Source Code</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://github.com/jbossws">GitHub</a></li>
+                  </ul>
+               </li>
+
+               <li id="buildmenu" class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/build" class="menu-title">Build</a>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+
+<div id="wrapper-2">
+    <div id="wrap-content">
+        <div id="wrapper-3">
+            <div id="main-wrapper">
+                <div id="main">
+                    <div id="breadcrumb">
+                       <span>
+                              <a href="/">JBossWS</a>
+                                &gt;
+                              <a href="/docs">JBossWS Documentation</a>
+                                &gt;
+                              <a href="#">Chapter 1 Web_services_introduction</a>
+                       </span>
+                    </div><!-- end breadcrumb -->
+                    <h3>Chapter 1 Web_services_introduction</h3>
+                    <p></p>
+                    <div class="sect1">
+<h2 id="web-services-introduction">Web Services Introduction</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="what-is-a-web-service">What is a web service?</h3>
+<div class="paragraph">
+<p><em>A Web service is a software system designed to support interoperable
+machine-to-machine interaction over a network. It has an interface
+described in a machine-processable format (specifically WSDL). Other
+systems interact with the Web service in a manner prescribed by its
+description using SOAP messages, typically conveyed using HTTP with an
+XML serialization in conjunction with other Web-related standards.</em></p>
+</div>
+<div class="paragraph">
+<p>From <em>W3C Web Services Architecture</em>
+<a href="http://www.w3.org/TR/2004/NOTE-ws-arch-20040211">[1</a>]</p>
+</div>
+<div class="paragraph">
+<p>Technical details will be later explained in the documentation. What
+comes out is that web services provide a standard means of
+interoperating between different software applications. Each of these
+applications may run on a variety of platforms and/or frameworks
+providing a set of functionalities. The main concern is about
+interoperability between services.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A service provider publishes a service contract that exposes the
+public functions (operations) it is able to perform and thus service
+consumers can use.</p>
+</li>
+<li>
+<p>Both service providers and service consumers features concrete
+softwares that send and receive messages according to the informations
+contained in the service contract they agreed before the communication.</p>
+</li>
+<li>
+<p>Basic Web services specifications define the standard way of
+publishing a service contract and communicating.</p>
+</li>
+<li>
+<p>Web services stacks (like <em>JBossWS</em> ) conform to these specifications
+providing software layers to developers who want to either implement a
+service provider or service consumer. This way they almost only need to
+develop their own business logic in their preferred way, without dealing
+with the low-level details of message exchanges and so on.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="who-needs-web-services">Who needs web services?</h4>
+<div class="paragraph">
+<p>Enterprise systems communication may benefit from a wise adoption of WS
+technologies. Exposing well designed contracts allows developers to
+extract an abstract view of their service capabilities. Considering the
+standardized way contracts are written, this definitely helps
+communication with third-party systems and eventually support
+business-to-business integration. No more agreement required on vendor
+specific implementation details, home-brew communication protocol or
+custom per-customer settings. Everything is clear and standardized in
+the contract the provider and consumer agree on. Of course this also
+reduces the dependencies between implementations allowing other
+consumers to easily use the provided service without major changes.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise system may benefit from web service technologies also for
+internal heterogeneous subsystems communication. As a matter of fact
+their interoperability boosts service reuse and composition. No more
+need to rewrite whole functionalities only because they were developed
+by another enterprise department using another software language.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="what-web-services-are-not">What web services are not&#8230;&#8203;</h4>
+<div class="paragraph">
+<p>Needless to say that web services are not the solution for every
+software system communication.</p>
+</div>
+<div class="paragraph">
+<p>Nowadays they are meant to be used for loosely-coupled coarse-grained
+communication, for message (document) exchange. Moreover during the last
+years a lot of specifications (
+<a href="http://community.jboss.org/docs/DOC-13554#Future_of_Web_Services">WS-*</a> )
+were discussed and finally approved to standardize ws-related advanced
+aspects including reliable messaging, message-level security,
+cross-service transactions, etc. Finally web service specifications also
+include notion of registries to collect service contract references, to
+easily discover service implementations, etc.</p>
+</div>
+<div class="paragraph">
+<p>This all means that the web services technology platform suits complex
+enterprise communication and is not simply the latest way of doing
+remote procedure calls.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="from-concepts-to-technology">From concepts to technology</h3>
+<div class="sect3">
+<h4 id="service-contracts">Service contracts</h4>
+<div class="paragraph">
+<p>Contracts carry technical constraints and requirements of the exposed
+service as well as information about data to be exchange to interact
+with the service. They comprise technical descriptions and optional
+non-technical documents. The latter might include human readable
+description of the service and the business process it is part of as
+well as service level agreement / quality of provided service
+information.</p>
+</div>
+<div class="sect4">
+<h5 id="technical-description">Technical description</h5>
+<div class="paragraph">
+<p>Service description is mainly provided using the standard
+<a href="http://www.w3.org/TR/wsdl">Web Service Description Language (WSDL)</a> .
+Practically speaking this means one or more XML files containing
+information including the service location ( <em>endpoint address</em> ), the
+service functionalities ( <em>operations</em> ), the input/output messages
+involved in the communication and the business data structure. The
+latter is basically one or more <a href="http://www.w3.org/TR/xmlschema-0/">XML
+Schema definition</a> . Moreover recent specifications (like
+<a href="http://schemas.xmlsoap.org/ws/2004/09/policy/">WS-Policy</a> ) allow for
+more advanced service capabilities to be stated in the contract through
+WSDL extensions.</p>
+</div>
+<div class="paragraph">
+<p>Web service stacks like JBossWS usually have tools to both generate and
+consume technical contracts. This helps ensuring also from a practical
+point of view that owners of service producer ( <em>server</em> ) and consumer
+( <em>client</em> ) only need contracts to establish the communication.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="contract-delivery-process">Contract delivery process</h5>
+<div class="paragraph">
+<p>One of the main concerns about service contracts is the way they&#8217;re
+obtained.</p>
+</div>
+<div class="sect5">
+<h6 id="bottom-up-approach">Bottom-Up approach</h6>
+<div class="paragraph">
+<p>As previously said, tools allow developers to automatically generate
+WSDL contract files given their service implementation. Advantages and
+disadvantage of this delivery process include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Developers do not have to deal with contracts by hand thus deep
+knowledge of WSDL and XML is not required.</p>
+</li>
+<li>
+<p>Less effort and time required for services to be developed and go live
+to production environment.</p>
+</li>
+<li>
+<p>Contracts usually need frequent maintenance, refactoring and
+versioning.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="down-approach">Down approach</h6>
+<div class="paragraph">
+<p>Developers may write contracts first instead. This usually implies an
+initial collaboration of architects and business analysts to define a
+conceptual service design together.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Services with contracts obtained this way may easily cooperate in a
+service oriented architecture</p>
+</li>
+<li>
+<p>More effort and time required for web service project start-up</p>
+</li>
+<li>
+<p>Deep knowledge of WSDL and related technology required</p>
+</li>
+<li>
+<p>Contracts tend to have longer lifespans and usually require less
+maintenance.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="message-exchange">Message exchange</h4>
+<div class="paragraph">
+<p>As stated by the
+<a href="http://www.w3.org/TR/2004/NOTE-ws-arch-20040211/#whatis">W3C definition</a>
+, the communication between web services is standardized by the
+<a href="http://www.w3.org/TR/soap/">SOAP</a> specification. This means XML messages
+flow from the provider and consumer endpoints.</p>
+</div>
+<div class="paragraph">
+<p>Messages' content is described in the wsdl contract. The WSDL file also
+states the transport protocol to be used for the transmission; the most
+common one is of course HTTP, however JMS, SMTP and other ones are
+allowed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="advanced-web-services-technologies">Advanced Web Services technologies</h4>
+<div class="paragraph">
+<p>The above mentioned specifications are quite common nowadays in the IT
+industry and many enterprise have been using them since years.</p>
+</div>
+<div class="paragraph">
+<p>However a real added value to the web service platform comes from a lot
+of recent additional specifications. These cover features that are
+really relevant to deliver mission critical enterprise services. For
+example some of the most important agreements major vendors came to are
+those on security (WS-Security) and reliable messaging (WS-Reliable
+Messaging).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+                </div><!-- end main -->
+            </div>
+               <div id="rightcolumn" class="column">
+
+                  <div class="projectpage-socialmedia">
+                     <span class="st_sharethis_large">&nbsp;</span>
+                     <span class="st_facebook_large">&nbsp;</span>
+                     <span class="st_twitter_large">&nbsp;</span>
+                     <span class="st_linkedin_large">&nbsp;</span>
+                     <span class="st_email_large">&nbsp;</span>
+                  </div>
+
+
+                  <div id="proj_quick-start">
+                     <h3>Useful Links</h3>
+                     <ul>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS">Documentation</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+User+Guide">JAX-WS User Guide</a>
+                        </li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/Advanced+User+Guide">Advanced User
+                           Guide</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-FAQ">FAQ</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-SetupyourIDE">Setup your IDE</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+Tools">Tools (JAX-WS)</a></li>
+                        <li><a href="https://jbossws.github.io/jbossws/build.html">Building the Project</a></li>
+                        <li><a href="https://www.ohloh.net/p/jbossws">Ohloh.net</a></li>
+                     </ul>
+                  </div>
+                  <div class="interviews-rss ">
+                     <h3>JBossWS</h3>
+
+
+                     <dl class="evenrow">
+                        <dt><a href="/2022/01/13/jbossws-550final-is-released">JBossWS 5.5.0.Final is released</a></dt>
+                        <dd class="date">January 13, 2022 By Jim Ma
+                        </dd>
+                        <dd>JBossWS 5.5.0.Final has been released and is available for download. The maven artifacts have been released to the Maven repository.
+                            In this release, we upgraded CXF to 3.4.5 ,log4j to 2.17.1...
+                        </dd>
+                     </dl>
+                     <dl class="oddrow">
+                        <dt><a href="/2022/01/06/jbossws-log4j-cve">Log4j CVE and JBossWS project</a></dt>
+                        <dd class="date">January 06, 2022 By Jim Ma
+                        </dd>
+                        <dd>After log4j cve issues were reported, we carefully reviewed the usage in JBossWS projects and found we only use log4j dependencies in
+                            command line tools, client side and testsuite...
+                        </dd>
+                     </dl>
+
+                     <dl class="evenrow">
+                         <dt><a href="/2020/05/27/jbossws-new-google-forum/">Move to JBossWS Google Group</a></dt>
+                         <dd class="date">May 27, 2020 By Jim Ma
+                         </dd>
+                         <dd>JBossWS team has moved the old jboss community wiki and forum to <a href="https://groups.google.com/forum/#!forum/jbossws">JBossWS Google Groups</a>.
+                             The old JBossWS wiki, User Forum and Developer Forum are all archived and read only now. This change will allow our community users
+                             find us more easily with one email or web access...
+                         </dd>
+                     </dl>
+
+
+                     <dl>
+                        <dd class="more">View <a href="https://jbossws.github.io/blogs/">more jbossws updates</a></dd>
+                     </dl>
+                  </div>
+                  <div class="clear"><br/></div>
+
+                  <div class="uploaded-img">
+
+                     <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+                        <img width="180" alt="" height="75"
+                             src="/img/logo_jprofiler01.gif"
+                             style="margin:0 auto;"/>
+
+                     </a>
+                  </div>
+
+                  <h5>We use JProfiler for profiling</h5>
+
+                  <table>
+                     <tr>
+                        <td>
+                        </td>
+                     </tr>
+                  </table>
+
+
+                  <div>
+                     <a href="https://www.jboss.org/security.html">
+                        <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+                     </a>
+                  </div>
+               </div>
+
+            </div><!-- end wrapper-3 -->
+
+         </div><!-- end wrapper-content -->
+         <div style="clear: both;"></div>
+      </div><!-- end wrapper-2 -->
+   </div>
+
+   <div id="site-info">
+      <div>
+      </div>
+
+      <div class="footer">
+         <div class="container" id="companyfooter">
+            <div class="redhatlogo" style="text-align:center;">
+               <div id="logospacer"></div>
+               <a href="https://www.redhat.com/">
+                  <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div><!-- end site-info -->
+</div><!-- end wrapper -->
+
+</body>
+</html>

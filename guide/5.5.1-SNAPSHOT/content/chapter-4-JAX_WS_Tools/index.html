@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <META HTTP-EQUIV='Content-Security-Policy'
+         CONTENT="default-src 'none'; object-src 'none'; style-src 'self' https://static.jboss.org ; script-src 'self' https://static.jboss.org ; font-src 'none'; img-src 'self' https://static.jboss.org; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
+   <META HTTP-EQUIV='X-XSS-Protection' CONTENT="1; mode=block">
+   <META HTTP-EQUIV='X-Content-Type-Options' CONTENT="nosniff">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta name="keywords" content="JBoss Web Services"/>
+   <meta name="description" content=""/>
+   <meta name="author" content=""/>
+   <meta name="robots" content="all"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+
+   <title>JBoss Web Services - JBoss Community</title>
+
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/clearspace_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/stkdefault-styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/magnolia/styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/jquery-ui.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/project.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css" media="only screen and (min-width: 1200px)" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
+</head>
+
+<body id="project" class="col-float3 rightcol-layout">
+<div id="rhbar">
+   <a class="jbdevlogo" href="https://developers.redhat.com"></a>
+   <a class="rhlogo" href="https://www.redhat.com/"></a>
+</div>
+
+<div id="wrapper">
+   <div id="maincontent-wrapper">
+
+      <div id="top_subnav_branding">
+         <div id="banner">
+
+            <div style="z-index: 999; position: absolute; top: 0px; height:15px;">
+            </div>
+
+            <div id="projectname">
+               JBoss Web Services
+            </div>
+
+            <div id="tagline">Web Services Framework for JBoss AS.</div>
+
+         </div>
+
+         <div id="proj_announce">
+            <div id="proj_logo"><h2>JBoss WS</h2></div>
+            <div id="proj_tagline"><h3>Web Services Framework for JBoss AS.</h3></div>
+         </div>
+
+         <div id="proj_nav" class="">
+            <ul class="sf-menu">
+
+               <li class="current">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/index.html" class="menu-title">Overview</a>
+                  <!--ul class="level1">
+                     <li class="leaf"><a href="/news"> News</a></li>
+                     <li class="leaf"><a href="/news-history"> News History</a></li>
+                  </ul-->
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/downloads" class="menu-title">Downloads</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="/downloads-latest"> Latest (5.x)</a></li>
+                     <li class="leaf"><a href="/downloads-4x"> 4.x</a></li>
+                     <li class="leaf"><a href="/downloads-3x"> 3.x</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/docs" class="menu-title">Documentation</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/blogs" class="menu-title">Blog</a>
+               </li>
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/community" class="menu-title">Community</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://groups.google.com/forum/#!forum/jbossws">New Forums</a></li>
+                     <li class="leaf"><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki(archive)</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum(archive)</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum(archive)</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="https://jira.jboss.org/jira/browse/JBWS" class="menu-title">Issue Tracker</a>
+                  <ul class="level1 jiralink">
+                     <li class="leaf"><a href="https://jira.jboss.org/jira/browse/JBWS">JIRA</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/sourcecode" class="menu-title">Source Code</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://github.com/jbossws">GitHub</a></li>
+                  </ul>
+               </li>
+
+               <li id="buildmenu" class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/build" class="menu-title">Build</a>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+
+<div id="wrapper-2">
+    <div id="wrap-content">
+        <div id="wrapper-3">
+            <div id="main-wrapper">
+                <div id="main">
+                    <div id="breadcrumb">
+                       <span>
+                              <a href="/">JBossWS</a>
+                                &gt;
+                              <a href="/docs">JBossWS Documentation</a>
+                                &gt;
+                              <a href="#">Chapter 4 Jax_ws_tools</a>
+                       </span>
+                    </div><!-- end breadcrumb -->
+                    <h3>Chapter 4 Jax_ws_tools</h3>
+                    <p></p>
+                    <div class="sect1">
+<h2 id="jax-ws-tools">JAX-WS Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The JAX-WS tools provided by JBossWS can be used in a variety of ways.
+First we will look at server-side development strategies, and then
+proceed to the client.</p>
+</div>
+<div class="sect2">
+<h3 id="server-side">Server side</h3>
+<div class="paragraph">
+<p>When developing a Web Service Endpoint (the server-side) you have the
+option of starting from Java ( <em>bottom-up development</em> ), or from the
+abstact contract (WSDL) that defines your service ( <em>top-down
+development</em> ). If this is a new service (no existing contract), the
+bottom-up approach is the fastest route; you only need to add a few
+annotations to your classes to get a service up and running. However, if
+you are developing a service with an already defined contract, it is far
+simpler to use the top-down approach, since the provided tool will
+generate the annotated code for you.</p>
+</div>
+<div class="paragraph">
+<p>Bottom-up use cases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Exposing an already existing EJB3 bean as a Web Service</p>
+</li>
+<li>
+<p>Providing a new service, and you want the contract to be generated for
+you</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Top-down use cases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Replacing the implementation of an existing Web Service, and you can&#8217;t
+break compatibility with older clients</p>
+</li>
+<li>
+<p>Exposing a service that conforms to a contract specified by a third
+party (e.g. a vender that calls you back using an already defined
+protocol).</p>
+</li>
+<li>
+<p>Creating a service that adheres to the XML Schema and WSDL you
+developed by hand up front</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following JAX-WS command line tools are included in JBossWS:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wsprovide</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generates JAX-WS portable artifacts, and provides the
+abstract contract. Used for bottom-up development.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wsconsume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consumes the abstract contract (WSDL and Schema files), and
+produces artifacts for both a server and client. Used for top-down and
+client development</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="bottom-up-using-wsprovide">Bottom-Up (Using wsprovide)</h4>
+<div class="paragraph">
+<p>The bottom-up strategy involves developing the Java code for your
+service, and then annotating it using JAX-WS annotations. These
+annotations can be used to customize the contract that is generated for
+your service. For example, you can change the operation name to map to
+anything you like. However, all of the annotations have sensible
+defaults, so only the @WebService annotation is required.</p>
+</div>
+<div class="paragraph">
+<p>This can be as simple as creating a single class:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>package echo;
+
+@javax.jws.WebService
+public class Echo
+{
+   public String echo(String input)
+   {
+      return input;
+   }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A JSE or EJB3 deployment can be built using this class, and it is the
+only Java code needed to deploy on JBossWS. The WSDL, and all other Java
+artifacts called "wrapper classes" will be generated for you at deploy
+time. This actually goes beyond the JAX-WS specification, which requires
+that wrapper classes be generated using an offline tool. The reason for
+this requirement is purely a vender implementation problem, and since we
+do not believe in burdening a developer with a bunch of additional
+steps, we generate these as well. However, if you want your deployment
+to be portable to other application servers, you will unfortunately need
+to use a tool and add the generated classes to your deployment.</p>
+</div>
+<div class="paragraph">
+<p>This is the primary purpose of the <em>wsprovide</em> tool, to generate
+portable JAX-WS artifacts. Additionally, it can be used to "provide" the
+abstract contract (WSDL file) for your service. This can be obtained by
+invoking <em>wsprovide</em> using the "-w" option:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ javac -d . Echo.java
+$ wsprovide -w echo.Echo
+Generating WSDL:
+EchoService.wsdl
+Writing Classes:
+echo/jaxws/Echo.class
+echo/jaxws/EchoResponse.class</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Inspecting the WSDL reveals a service called <em>EchoService</em> :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;service name='EchoService'&gt;
+ &lt;port binding='tns:EchoBinding' name='EchoPort'&gt;
+  &lt;soap:address location='REPLACE_WITH_ACTUAL_URL'/&gt;
+ &lt;/port&gt;
+&lt;/service&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As expected, this service defines one operation, " <em>echo</em> ":</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;portType name='Echo'&gt;
+ &lt;operation name='echo' parameterOrder='echo'&gt;
+  &lt;input message='tns:Echo_echo'/&gt;
+  &lt;output message='tns:Echo_echoResponse'/&gt;
+ &lt;/operation&gt;
+&lt;/portType&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Remember that when deploying on JBossWS you do not need to run this
+tool. You only need it for generating portable artifacts and/or the
+abstract contract for your service.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s create a POJO endpoint for deployment on JBoss AS. A simple
+<em>web.xml</em> needs to be created:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+  version="2.4"&gt;
+
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;Echo&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;echo.Echo&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;Echo&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/Echo&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>web.xml</em> and the single class can now be used to create a war:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ mkdir -p WEB-INF/classes
+$ cp -rp echo WEB-INF/classes/
+$ cp web.xml WEB-INF
+$ jar cvf echo.war WEB-INF
+added manifest
+adding: WEB-INF/(in = 0) (out= 0)(stored 0%)
+adding: WEB-INF/classes/(in = 0) (out= 0)(stored 0%)
+adding: WEB-INF/classes/echo/(in = 0) (out= 0)(stored 0%)
+adding: WEB-INF/classes/echo/Echo.class(in = 340) (out= 247)(deflated 27%)
+adding: WEB-INF/web.xml(in = 576) (out= 271)(deflated 52%)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The war can then be deployed to the JBoss Application Server.The war can
+then be deployed to the JBoss Application Server; this will internally
+invoke wsprovide, which will generate the WSDL. If deployment was
+successful, and you are using the default settings, it should be
+available in the server management console.</p>
+</div>
+<div class="paragraph">
+<p>For a portable JAX-WS deployment, the wrapper classes generated earlier
+could be added to the deployment.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="down-using-wsconsume">Down (Using wsconsume)</h4>
+<div class="paragraph">
+<p>The top-down development strategy begins with the abstract contract for
+the service, which includes the WSDL file and zero or more schema files.
+The <em>wsconsume</em> tool is then used to consume this contract, and produce
+annotated Java classes (and optionally sources) that define it.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>wsconsume may have problems with symlinks on Unix systems</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Using the WSDL file from the bottom-up example, a new Java
+implementation that adheres to this service can be generated. The "-k"
+option is passed to <em>wsconsume</em> to preserve the Java source files that
+are generated, instead of providing just classes:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ wsconsume -k EchoService.wsdl
+echo/Echo.java
+echo/EchoResponse.java
+echo/EchoService.java
+echo/Echo_Type.java
+echo/ObjectFactory.java
+echo/package-info.java
+echo/Echo.java
+echo/EchoResponse.java
+echo/EchoService.java
+echo/Echo_Type.java
+echo/ObjectFactory.java
+echo/package-info.java</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following table shows the purpose of each generated file:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">File</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Echo.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service Endpoint Interface</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Echo_Type.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wrapper bean for request message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EchoResponse.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wrapper bean for response message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ObjectFactory.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JAXB XML Registry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">package-info.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Holder for JAXB package annotations</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EchoService.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used only by JAX-WS clients</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Examining the Service Endpoint Interface reveals annotations that are
+more explicit than in the class written by hand in the bottom-up
+example, however, these evaluate to the same contract:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>@WebService(name = "Echo", targetNamespace = "http://echo/")
+public interface Echo {
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "echo", targetNamespace = "http://echo/", className = "echo.Echo_Type")
+    @ResponseWrapper(localName = "echoResponse", targetNamespace = "http://echo/", className = "echo.EchoResponse")
+    public String echo(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The only missing piece (besides for packaging) is the implementation
+class, which can now be written, using the above interface.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>package echo;
+
+@javax.jws.WebService(endpointInterface="echo.Echo")
+public class EchoImpl implements Echo
+{
+   public String echo(String arg0)
+   {
+      return arg0;
+   }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="client-side">Client Side</h3>
+<div class="paragraph">
+<p>Before going to detail on the client-side it is important to understand
+the decoupling concept that is central to Web Services. Web Services are
+not the best fit for internal RPC, even though they can be used in this
+way. There are much better technologies for this (CORBA, and RMI for
+example). Web Services were designed specifically for interoperable
+coarse-grained correspondence. There is no expectation or guarantee that
+any party participating in a Web Service interaction will be at any
+particular location, running on any particular OS, or written in any
+particular programming language. So because of this, it is important to
+clearly separate client and server implementations. The only thing they
+should have in common is the abstract contract definition. If, for
+whatever reason, your software does not adhere to this principal, then
+you should not be using Web Services. For the above reasons, the
+<strong><em>recommended methodology for developing a client is</em></strong> to follow <strong><em>the
+top-down approach</em></strong> , even if the client is running on the same server.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s repeat the process of the top-down section, although using the
+deployed WSDL, instead of the one generated offline by <em>wsprovide</em> . The
+reason why we do this is just to get the right value for soap:address.
+This value must be computed at deploy time, since it is based on
+container configuration specifics. You could of course edit the WSDL
+file yourself, although you need to ensure that the path is correct.</p>
+</div>
+<div class="paragraph">
+<p>Offline version:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;service name='EchoService'&gt;
+  &lt;port binding='tns:EchoBinding' name='EchoPort'&gt;
+   &lt;soap:address location='REPLACE_WITH_ACTUAL_URL'/&gt;
+  &lt;/port&gt;
+&lt;/service&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Online version:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;service name="EchoService"&gt;
+  &lt;port binding="tns:EchoBinding" name="EchoPort"&gt;
+    &lt;soap:address location="http://localhost.localdomain:8080/echo/Echo"/&gt;
+  &lt;/port&gt;
+&lt;/service&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using the online deployed version with <em>wsconsume</em> :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ wsconsume -k http://localhost:8080/echo/Echo?wsdl
+echo/Echo.java
+echo/EchoResponse.java
+echo/EchoService.java
+echo/Echo_Type.java
+echo/ObjectFactory.java
+echo/package-info.java
+echo/Echo.java
+echo/EchoResponse.java
+echo/EchoService.java
+echo/Echo_Type.java
+echo/ObjectFactory.java
+echo/package-info.java</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The one class that was not examined in the top-down section, was
+<code>EchoService.java</code> . Notice how it stores the location the WSDL was
+obtained from.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>@WebServiceClient(name = "EchoService", targetNamespace = "http://echo/", wsdlLocation = "http://localhost:8080/echo/Echo?wsdl")
+public class EchoService extends Service
+{
+    private final static URL ECHOSERVICE_WSDL_LOCATION;
+
+    static {
+        URL url = null;
+        try
+        {
+           url = new URL("http://localhost:8080/echo/Echo?wsdl");
+        }
+        catch (MalformedURLException e)
+        {
+           e.printStackTrace();
+        }
+        ECHOSERVICE_WSDL_LOCATION = url;
+    }
+
+    public EchoService(URL wsdlLocation, QName serviceName)
+    {
+         super(wsdlLocation, serviceName);
+    }
+
+    public EchoService()
+    {
+         super(ECHOSERVICE_WSDL_LOCATION, new QName("http://echo/", "EchoService"));
+    }
+
+    @WebEndpoint(name = "EchoPort")
+    public Echo getEchoPort()
+    {
+         return (Echo)super.getPort(new QName("http://echo/", "EchoPort"), Echo.class);
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see, this generated class extends the main client entry point
+in JAX-WS, <code>javax.xml.ws.Service</code> . While you can use <code>Service</code>
+directly, this is far simpler since it provides the configuration info
+for you. The only method we really care about is the <code>getEchoPort()</code>
+method, which returns an instance of our Service Endpoint Interface. Any
+WS operation can then be called by just invoking a method on the
+returned interface.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It&#8217;s not recommended to refer to a remote WSDL URL in a production
+application. This causes network I/O every time you instantiate the
+Service Object. Instead, use the tool on a saved local copy, or use the
+URL version of the constructor to provide a new WSDL location.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>All that is left to do, is write and compile the client:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>import echo.*;
+
+public class EchoClient
+{
+   public static void main(String args[])
+   {
+      if (args.length != 1)
+      {
+          System.err.println("usage: EchoClient &lt;message&gt;");
+          System.exit(1);
+      }
+
+      EchoService service = new EchoService();
+      Echo echo = service.getEchoPort();
+      System.out.println("Server said: " + echo.echo(args0));
+   }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is easy to change the endpoint address of your operation at runtime,
+setting the <em>ENDPOINT_ADDRESS_PROPERTY</em> as shown below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>      EchoService service = new EchoService();
+      Echo echo = service.getEchoPort();
+
+      /* Set NEW Endpoint Location */
+      String endpointURL = "http://NEW_ENDPOINT_URL";
+      BindingProvider bp = (BindingProvider)echo;
+      bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
+
+      System.out.println("Server said: " + echo.echo(args0));</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ws-binding-customization">WS binding customization</h3>
+<div class="paragraph">
+<p>An introduction to binding customizations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://java.sun.com/webservices/docs/2.0/jaxws/customizations.html" class="bare">http://java.sun.com/webservices/docs/2.0/jaxws/customizations.html</a></p>
+</li>
+<li>
+<p><a href="https://jax-ws.dev.java.net/source/browse/jax-ws/guide/docs/wsdl-customization.xsd?rev=1.2&amp;view=log">binding
+schema</a></p>
+</li>
+<li>
+<p><a href="https://jax-ws.dev.java.net/nonav/guide/customizations/">xnsdoc</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The schema for the binding customization files can be found here:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://jax-ws.dev.java.net/source/browse/jax-ws/guide/docs/wsdl-customization.xsd?rev=1.2&amp;view=log" class="bare">https://jax-ws.dev.java.net/source/browse/jax-ws/guide/docs/wsdl-customization.xsd?rev=1.2&amp;view=log</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wsconsume">wsconsume</h3>
+<div class="paragraph">
+<p><em>wsconsume</em> is a command line tool and ant task that "consumes" the
+abstract contract (WSDL file) and produces portable JAX-WS service and
+client artifacts.</p>
+</div>
+<div class="sect3">
+<h4 id="command-line-tool">Command Line Tool</h4>
+<div class="paragraph">
+<p>The command line tool has the following usage:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>usage: wsconsume [options] &lt;wsdl-url&gt;
+options:
+  -h, --help                  Show this help message
+  -b, --binding=&lt;file&gt;        One or more JAX-WS or JAXB binding files
+  -k, --keep                  Keep/Generate Java source
+  -c  --catalog=&lt;file&gt;        Oasis XML Catalog file for entity resolution
+  -j  --clientjar=&lt;name&gt;      Create a jar file of the generated artifacts for calling the webservice
+  -p  --package=&lt;name&gt;        The target package for generated source
+  -w  --wsdlLocation=&lt;loc&gt;    Value to use for @WebServiceClient.wsdlLocation
+  -o, --output=&lt;directory&gt;    The directory to put generated artifacts
+  -s, --source=&lt;directory&gt;    The directory to put Java source
+  -t, --target=&lt;2.1|2.2&gt;      The JAX-WS specification target
+  -q, --quiet                 Be somewhat more quiet
+  -v, --verbose               Show full exception stack traces
+  -l, --load-consumer         Load the consumer and exit (debug utility)
+  -e, --extension             Enable SOAP 1.2 binding extension
+  -a, --additionalHeaders     Enables processing of implicit SOAP headers
+  -d, --encoding=&lt;charset&gt;    The charset encoding to use for generated sources
+  -n, --nocompile             Do not compile generated sources</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The wsdlLocation is used when creating the Service to be used by clients
+and will be added to the @WebServiceClient annotation, for an endpoint
+implementation based on the generated service endpoint interface you
+will need to manually add the wsdlLocation to the @WebService annotation
+on your web service implementation and not the service endpoint
+interface.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="examples">Examples</h5>
+<div class="paragraph">
+<p>Generate artifacts in Java class form only:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wsconsume Example.wsdl</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Generate source and class files:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wsconsume -k Example.wsdl</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Generate source and class files in a custom directory:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wsconsume -k -o custom Example.wsdl</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Generate source and class files in the org.foo package:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wsconsume -k -p org.foo Example.wsdl</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Generate source and class files using multiple binding files:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wsconsume -k -b wsdl-binding.xml -b schema1-binding.xml -b schema2-binding.xml</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="maven-plugin">Maven Plugin</h4>
+<div class="paragraph">
+<p>The wsconsume tools is included in the
+<strong>org.jboss.ws.plugins:jaxws-tools-</strong> <strong>maven-</strong> <strong>plugin</strong> plugin. The plugin
+has two goals for running the tool, <em>wsconsume</em> and <em>wsconsume-test</em> ,
+which basically do the same during different maven build phases (the
+former triggers the sources generation during <em>generate-sources</em> phase,
+the latter during the <em>generate-test-sources</em> one).</p>
+</div>
+<div class="paragraph">
+<p>The <em>wsconsume</em> plugin has the following parameters:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bindingFiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JAXWS or JAXB binding file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">classpathElements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Each classpathElement provides a library file to be
+added to classpath</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$\{project.compileClasspathElements} or
+$\{project.testClasspathElements}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">catalog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oasis XML Catalog file for entity resolution</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">targetPackage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target Java package for generated code.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bindingFiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more JAX-WS or JAXB binding file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wsdlLocation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value to use for @WebServiceClient.wsdlLocation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">outputDirectory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for generated artifacts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$\{project.build.outputDirectory} or
+$\{project.build.testOutputDirectory}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceDirectory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for Java source.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$\{project.build.directory}/generated-sources/wsconsume</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verbose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables more informational output about command progress.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wsdls</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The WSDL files or URLs to consume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">extension</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable SOAP 1.2 binding extension.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">encoding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The charset encoding to use for generated sources.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$\{project.build.sourceEncoding}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">argLine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An optional additional argline to be used when running in fork
+mode; can be used to set endorse dir, enable debugging, etc. <strong><em>Example</em></strong>
+<code>&lt;argLine&gt;-Djava.endorsed.dirs=&#8230;&#8203;&lt;/argLine&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fork</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not to run the generation task in a separate VM.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">target</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A preference for the JAX-WS specification target</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Depends on
+the underlying stack and endorsed dirs if any</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="examples-2">Examples</h5>
+<div class="paragraph">
+<p>You can use <em>wsconsume</em> in your own project build simply referencing the
+<em>jaxws-tools-</em> <em>maven-</em> <em>plugin</em> in the configured plugins in your
+pom.xml file.</p>
+</div>
+<div class="paragraph">
+<p>The following example makes the plugin consume the test.wsdl file and
+generate SEI and wrappers' java sources. The generated sources are then
+compiled together with the other project classes.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.jboss.ws.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;jaxws-tools-maven-plugin&lt;/artifactId&gt;
+      &lt;version&gt;1.2.0.Final&lt;/version&gt;
+      &lt;configuration&gt;
+        &lt;wsdls&gt;
+          &lt;wsdl&gt;${basedir}/test.wsdl&lt;/wsdl&gt;
+        &lt;/wsdls&gt;
+      &lt;/configuration&gt;
+      &lt;executions&gt;
+        &lt;execution&gt;
+          &lt;goals&gt;
+            &lt;goal&gt;wsconsume&lt;/goal&gt;
+          &lt;/goals&gt;
+        &lt;/execution&gt;
+      &lt;/executions&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also specify multiple wsdl files, as well as force the target
+package, enable SOAP 1.2 binding and turn the tool&#8217;s verbose mode on:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.jboss.ws.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;jaxws-tools-maven-plugin&lt;/artifactId&gt;
+      &lt;version&gt;1.2.0.Final&lt;/version&gt;
+      &lt;configuration&gt;
+       &lt;wsdls&gt;
+        &lt;wsdl&gt;${basedir}/test.wsdl&lt;/wsdl&gt;
+        &lt;wsdl&gt;${basedir}/test2.wsdl&lt;/wsdl&gt;
+       &lt;/wsdls&gt;
+       &lt;targetPackage&gt;foo.bar&lt;/targetPackage&gt;
+       &lt;extension&gt;true&lt;/extension&gt;
+       &lt;verbose&gt;true&lt;/verbose&gt;
+      &lt;/configuration&gt;
+      &lt;executions&gt;
+        &lt;execution&gt;
+          &lt;goals&gt;
+            &lt;goal&gt;wsconsume&lt;/goal&gt;
+          &lt;/goals&gt;
+        &lt;/execution&gt;
+      &lt;/executions&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, if the wsconsume invocation is required for consuming a wsdl to
+be used in your testsuite only, you might want to use the
+<em>wsconsume-test</em> goal as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.jboss.ws.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;jaxws-tools-maven-plugin&lt;/artifactId&gt;
+      &lt;version&gt;1.2.0.Final&lt;/version&gt;
+      &lt;configuration&gt;
+        &lt;wsdls&gt;
+          &lt;wsdl&gt;${basedir}/test.wsdl&lt;/wsdl&gt;
+        &lt;/wsdls&gt;
+      &lt;/configuration&gt;
+      &lt;executions&gt;
+        &lt;execution&gt;
+          &lt;goals&gt;
+            &lt;goal&gt;wsconsume-test&lt;/goal&gt;
+          &lt;/goals&gt;
+        &lt;/execution&gt;
+      &lt;/executions&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Plugin stack dependencyThe plugin itself does not have an explicit
+dependency to a JBossWS stack, as it&#8217;s meant for being used with
+implementations of any supported version of the <em>JBossWS SPI</em> . So the
+user is expected to set a dependency in his own <code>pom.xml</code> to the desired
+<em>JBossWS</em> stack version. The plugin will rely on the that for using the
+proper tooling.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.ws.cxf&lt;/groupId&gt;
+    &lt;artifactId&gt;jbossws-cxf-client&lt;/artifactId&gt;
+    &lt;version&gt;5.1.0.Final&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Be careful when using this plugin with the Maven War Plugin as that
+include any project dependency into the generated application war
+archive. You might want to set <code>&lt;scope&gt;provided&lt;/scope&gt;</code> for the
+<em>JBossWS</em> stack dependency to avoid that.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Up to version 1.1.2.Final, the <em>artifactId</em> of the plugin was
+<strong>maven-jaxws-tools-plugin</strong> .</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ant-task">Ant Task</h4>
+<div class="paragraph">
+<p>The <em>wsconsume</em> Ant task ( <em>org.jboss.ws.tools.ant.WSConsumeTask</em> ) has
+the following attributes:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fork</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not to run the generation task in a separate VM.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep/Enable Java source code generation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">catalog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oasis XML Catalog file for entity resolution</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">package</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target Java package for generated code.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">binding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A JAX-WS or JAXB binding file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wsdlLocation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value to use for @WebServiceClient.wsdlLocation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">encoding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The charset encoding to use for generated sources</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">destdir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for generated artifacts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"output"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourcedestdir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for Java source.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value of destdir</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">target</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The JAX-WS specification target. Allowed values are 2.0, 2.1
+and 2.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verbose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables more informational output about command progress.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wsdl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The WSDL file or URL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">extension</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable SOAP 1.2 binding extension.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">additionalHeaders</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables processing of implicit SOAP headers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Users also need to put streamBuffer.jar and stax-ex.jar to the classpath
+of the ant task to generate the appropriate artefacts.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The wsdlLocation is used when creating the Service to be used by clients
+and will be added to the @WebServiceClient annotation, for an endpoint
+implementation based on the generated service endpoint interface you
+will need to manually add the wsdlLocation to the @WebService annotation
+on your web service implementation and not the service endpoint
+interface.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Also, the following nested elements are supported:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Element</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">binding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A JAXWS or JAXB binding file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jvmarg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows setting of custom jvm arguments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="examples-3">Examples</h5>
+<div class="paragraph">
+<p>Generate JAX-WS source and classes in a separate JVM with separate
+directories, a custom wsdl location attribute, and a list of binding
+files from foo.wsdl:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;wsconsume
+  fork="true"
+  verbose="true"
+  destdir="output"
+  sourcedestdir="gen-src"
+  keep="true"
+  wsdllocation="handEdited.wsdl"
+  wsdl="foo.wsdl"&gt;
+  &lt;binding dir="binding-files" includes="*.xml" excludes="bad.xml"/&gt;
+&lt;/wsconsume&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wsprovide">wsprovide</h3>
+<div class="paragraph">
+<p><em>wsprovide</em> is a command line tool, Maven plugin and Ant task that
+generates portable JAX-WS artifacts for a service endpoint
+implementation. It also has the option to "provide" the abstract
+contract for offline usage.</p>
+</div>
+<div class="sect3">
+<h4 id="command-line-tool-2">Command Line Tool</h4>
+<div class="paragraph">
+<p>The command line tool has the following usage:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>usage: wsprovide [options] &lt;endpoint class name&gt;
+options:
+  -h, --help                  Show this help message
+  -k, --keep                  Keep/Generate Java source
+  -w, --wsdl                  Enable WSDL file generation
+  -a, --address               The generated port soap:address in wsdl
+  -c. --classpath=&lt;path&gt;      The classpath that contains the endpoint
+  -o, --output=&lt;directory&gt;    The directory to put generated artifacts
+  -r, --resource=&lt;directory&gt;  The directory to put resource artifacts
+  -s, --source=&lt;directory&gt;    The directory to put Java source
+  -e, --extension             Enable SOAP 1.2 binding extension
+  -q, --quiet                 Be somewhat more quiet
+  -t, --show-traces           Show full exception stack traces</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="examples-4">Examples</h5>
+<div class="paragraph">
+<p>Generating wrapper classes for portable artifacts in the "generated"
+directory:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wsprovide -o generated foo.Endpoint</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Generating wrapper classes and WSDL in the "generated" directory</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wsprovide -o generated -w foo.Endpoint</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using an endpoint that references other jars</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wsprovide -o generated -c application1.jar:application2.jar foo.Endpoint</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="maven-plugin-2">Maven Plugin</h4>
+<div class="paragraph">
+<p>The <em>wsprovide</em> tools is included in the
+<strong>org.jboss.ws.plugins:jaxws-tools-</strong> <strong>maven-</strong> <strong>plugin</strong> plugin. The plugin
+has two goals for running the tool, <em>wsprovide</em> and <em>wsprovide-test</em> ,
+which basically do the same during different Maven build phases (the
+former triggers the sources generation during <em>process-classes</em> phase,
+the latter during the <em>process-test-classes</em> one).</p>
+</div>
+<div class="paragraph">
+<p>The <em>wsprovide</em> plugin has the following parameters:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">testClasspathElements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Each classpathElement provides a library file to
+be added to classpath</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$\{project.compileClasspathElements} or
+$\{project.testClasspathElements}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">outputDirectory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for generated artifacts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$\{project.build.outputDirectory} or
+$\{project.build.testOutputDirectory}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resourceDirectory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for resource artifacts
+(WSDL/XSD).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$\{project.build.directory}/wsprovide/resources</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceDirectory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for Java source.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$\{project.build.directory}/wsprovide/java</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">extension</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable SOAP 1.2 binding extension.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generateWsdl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not to generate WSDL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verbose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables more informational output about command progress.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">portSoapAddress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The generated port soap:address in the WSDL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>endpointClass</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Service Endpoint Implementation.</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="examples-5">Examples</h5>
+<div class="paragraph">
+<p>You can use <em>wsprovide</em> in your own project build simply referencing the
+<em>jaxws-tools-</em> <em>maven-</em> <em>plugin</em> in the configured plugins in your
+<em>pom.xml</em> file.</p>
+</div>
+<div class="paragraph">
+<p>The following example makes the plugin provide the wsdl file and
+artifact sources for the specified endpoint class:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.jboss.ws.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;jaxws-tools-maven-plugin&lt;/artifactId&gt;
+      &lt;version&gt;1.2.0.Final&lt;/version&gt;
+      &lt;configuration&gt;
+        &lt;verbose&gt;true&lt;/verbose&gt;
+        &lt;endpointClass&gt;org.jboss.test.ws.plugins.tools.wsprovide.TestEndpoint&lt;/endpointClass&gt;
+        &lt;generateWsdl&gt;true&lt;/generateWsdl&gt;
+      &lt;/configuration&gt;
+      &lt;executions&gt;
+        &lt;execution&gt;
+          &lt;goals&gt;
+            &lt;goal&gt;wsprovide&lt;/goal&gt;
+          &lt;/goals&gt;
+        &lt;/execution&gt;
+      &lt;/executions&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example does the same, but is meant for use in your own
+testsuite:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.jboss.ws.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;jaxws-tools-maven-plugin&lt;/artifactId&gt;
+      &lt;version&gt;1.2.0.Final&lt;/version&gt;
+      &lt;configuration&gt;
+        &lt;verbose&gt;true&lt;/verbose&gt;
+        &lt;endpointClass&gt;org.jboss.test.ws.plugins.tools.wsprovide.TestEndpoint2&lt;/endpointClass&gt;
+        &lt;generateWsdl&gt;true&lt;/generateWsdl&gt;
+      &lt;/configuration&gt;
+      &lt;executions&gt;
+        &lt;execution&gt;
+          &lt;goals&gt;
+            &lt;goal&gt;wsprovide-test&lt;/goal&gt;
+          &lt;/goals&gt;
+        &lt;/execution&gt;
+      &lt;/executions&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Plugin stack dependencyThe plugin itself does not have an explicit
+dependency to a JBossWS stack, as it&#8217;s meant for being used with
+implementations of any supported version of the <em>JBossWS SPI</em> . So the
+user is expected to set a dependency in his own <code>pom.xml</code> to the desired
+<em>JBossWS</em> stack version. The plugin will rely on the that for using the
+proper tooling.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.ws.cxf&lt;/groupId&gt;
+    &lt;artifactId&gt;jbossws-cxf-client&lt;/artifactId&gt;
+    &lt;version&gt;5.1.0.Final&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Be careful when using this plugin with the Maven War Plugin as that
+include any project dependency into the generated application war
+archive. You might want to set <code>&lt;scope&gt;provided&lt;/scope&gt;</code> for the
+<em>JBossWS</em> stack dependency to avoid that.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Up to version 1.1.2.Final, the <em>artifactId</em> of the plugin was
+<strong>maven-jaxws-tools-plugin</strong> .</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ant-task-2">Ant Task</h4>
+<div class="paragraph">
+<p>The wsprovide ant task ( <em>org.jboss.ws.tools.ant.WSProvideTask</em> ) has
+the following attributes:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fork</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not to run the generation task in a separate VM.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep/Enable Java source code generation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">destdir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for generated artifacts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"output"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resourcedestdir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for resource artifacts
+(WSDL/XSD).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value of destdir</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourcedestdir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for Java source.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value of destdir</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">extension</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable SOAP 1.2 binding extension.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">genwsdl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not to generate WSDL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The generated port soap:address in wsdl.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verbose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables more informational output about command progress.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sei</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Service Endpoint Implementation.</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">classpath</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The classpath that contains the service endpoint
+implementation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"."</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="examples-6">Examples</h5>
+<div class="paragraph">
+<p>Executing wsprovide in verbose mode with separate output directories for
+source, resources, and classes:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;target name="test-wsproivde" depends="init"&gt;
+  &lt;taskdef name="wsprovide" classname="org.jboss.ws.tools.ant.WSProvideTask"&gt;
+    &lt;classpath refid="core.classpath"/&gt;
+  &lt;/taskdef&gt;
+  &lt;wsprovide
+    fork="false"
+    keep="true"
+    destdir="out"
+    resourcedestdir="out-resource"
+    sourcedestdir="out-source"
+    genwsdl="true"
+    verbose="true"
+    sei="org.jboss.test.ws.jaxws.jsr181.soapbinding.DocWrappedServiceImpl"&gt;
+    &lt;classpath&gt;
+      &lt;pathelement path="${tests.output.dir}/classes"/&gt;
+    &lt;/classpath&gt;
+  &lt;/wsprovide&gt;
+&lt;/target&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+                </div><!-- end main -->
+            </div>
+               <div id="rightcolumn" class="column">
+
+                  <div class="projectpage-socialmedia">
+                     <span class="st_sharethis_large">&nbsp;</span>
+                     <span class="st_facebook_large">&nbsp;</span>
+                     <span class="st_twitter_large">&nbsp;</span>
+                     <span class="st_linkedin_large">&nbsp;</span>
+                     <span class="st_email_large">&nbsp;</span>
+                  </div>
+
+
+                  <div id="proj_quick-start">
+                     <h3>Useful Links</h3>
+                     <ul>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS">Documentation</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+User+Guide">JAX-WS User Guide</a>
+                        </li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/Advanced+User+Guide">Advanced User
+                           Guide</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-FAQ">FAQ</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-SetupyourIDE">Setup your IDE</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+Tools">Tools (JAX-WS)</a></li>
+                        <li><a href="https://jbossws.github.io/jbossws/build.html">Building the Project</a></li>
+                        <li><a href="https://www.ohloh.net/p/jbossws">Ohloh.net</a></li>
+                     </ul>
+                  </div>
+                  <div class="interviews-rss ">
+                     <h3>JBossWS</h3>
+
+
+                     <dl class="evenrow">
+                        <dt><a href="/2022/01/13/jbossws-550final-is-released">JBossWS 5.5.0.Final is released</a></dt>
+                        <dd class="date">January 13, 2022 By Jim Ma
+                        </dd>
+                        <dd>JBossWS 5.5.0.Final has been released and is available for download. The maven artifacts have been released to the Maven repository.
+                            In this release, we upgraded CXF to 3.4.5 ,log4j to 2.17.1...
+                        </dd>
+                     </dl>
+                     <dl class="oddrow">
+                        <dt><a href="/2022/01/06/jbossws-log4j-cve">Log4j CVE and JBossWS project</a></dt>
+                        <dd class="date">January 06, 2022 By Jim Ma
+                        </dd>
+                        <dd>After log4j cve issues were reported, we carefully reviewed the usage in JBossWS projects and found we only use log4j dependencies in
+                            command line tools, client side and testsuite...
+                        </dd>
+                     </dl>
+
+                     <dl class="evenrow">
+                         <dt><a href="/2020/05/27/jbossws-new-google-forum/">Move to JBossWS Google Group</a></dt>
+                         <dd class="date">May 27, 2020 By Jim Ma
+                         </dd>
+                         <dd>JBossWS team has moved the old jboss community wiki and forum to <a href="https://groups.google.com/forum/#!forum/jbossws">JBossWS Google Groups</a>.
+                             The old JBossWS wiki, User Forum and Developer Forum are all archived and read only now. This change will allow our community users
+                             find us more easily with one email or web access...
+                         </dd>
+                     </dl>
+
+
+                     <dl>
+                        <dd class="more">View <a href="https://jbossws.github.io/blogs/">more jbossws updates</a></dd>
+                     </dl>
+                  </div>
+                  <div class="clear"><br/></div>
+
+                  <div class="uploaded-img">
+
+                     <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+                        <img width="180" alt="" height="75"
+                             src="/img/logo_jprofiler01.gif"
+                             style="margin:0 auto;"/>
+
+                     </a>
+                  </div>
+
+                  <h5>We use JProfiler for profiling</h5>
+
+                  <table>
+                     <tr>
+                        <td>
+                        </td>
+                     </tr>
+                  </table>
+
+
+                  <div>
+                     <a href="https://www.jboss.org/security.html">
+                        <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+                     </a>
+                  </div>
+               </div>
+
+            </div><!-- end wrapper-3 -->
+
+         </div><!-- end wrapper-content -->
+         <div style="clear: both;"></div>
+      </div><!-- end wrapper-2 -->
+   </div>
+
+   <div id="site-info">
+      <div>
+      </div>
+
+      <div class="footer">
+         <div class="container" id="companyfooter">
+            <div class="redhatlogo" style="text-align:center;">
+               <div id="logospacer"></div>
+               <a href="https://www.redhat.com/">
+                  <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div><!-- end site-info -->
+</div><!-- end wrapper -->
+
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <META HTTP-EQUIV='Content-Security-Policy'
+         CONTENT="default-src 'none'; object-src 'none'; style-src 'self' https://static.jboss.org ; script-src 'self' https://static.jboss.org ; font-src 'none'; img-src 'self' https://static.jboss.org; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
+   <META HTTP-EQUIV='X-XSS-Protection' CONTENT="1; mode=block">
+   <META HTTP-EQUIV='X-Content-Type-Options' CONTENT="nosniff">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta name="keywords" content="JBoss Web Services"/>
+   <meta name="description" content=""/>
+   <meta name="author" content=""/>
+   <meta name="robots" content="all"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+
+   <title>JBoss Web Services - JBoss Community</title>
+
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/clearspace_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/stkdefault-styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/magnolia/styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/jquery-ui.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/project.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css" media="only screen and (min-width: 1200px)" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
+</head>
+
+<body id="project" class="col-float3 rightcol-layout">
+<div id="rhbar">
+   <a class="jbdevlogo" href="https://developers.redhat.com"></a>
+   <a class="rhlogo" href="https://www.redhat.com/"></a>
+</div>
+
+<div id="wrapper">
+   <div id="maincontent-wrapper">
+
+      <div id="top_subnav_branding">
+         <div id="banner">
+
+            <div style="z-index: 999; position: absolute; top: 0px; height:15px;">
+            </div>
+
+            <div id="projectname">
+               JBoss Web Services
+            </div>
+
+            <div id="tagline">Web Services Framework for JBoss AS.</div>
+
+         </div>
+
+         <div id="proj_announce">
+            <div id="proj_logo"><h2>JBoss WS</h2></div>
+            <div id="proj_tagline"><h3>Web Services Framework for JBoss AS.</h3></div>
+         </div>
+
+         <div id="proj_nav" class="">
+            <ul class="sf-menu">
+
+               <li class="current">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/index.html" class="menu-title">Overview</a>
+                  <!--ul class="level1">
+                     <li class="leaf"><a href="/news"> News</a></li>
+                     <li class="leaf"><a href="/news-history"> News History</a></li>
+                  </ul-->
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/downloads" class="menu-title">Downloads</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="/downloads-latest"> Latest (5.x)</a></li>
+                     <li class="leaf"><a href="/downloads-4x"> 4.x</a></li>
+                     <li class="leaf"><a href="/downloads-3x"> 3.x</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/docs" class="menu-title">Documentation</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/blogs" class="menu-title">Blog</a>
+               </li>
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/community" class="menu-title">Community</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://groups.google.com/forum/#!forum/jbossws">New Forums</a></li>
+                     <li class="leaf"><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki(archive)</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum(archive)</a></li>
+                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum(archive)</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="https://jira.jboss.org/jira/browse/JBWS" class="menu-title">Issue Tracker</a>
+                  <ul class="level1 jiralink">
+                     <li class="leaf"><a href="https://jira.jboss.org/jira/browse/JBWS">JIRA</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/sourcecode" class="menu-title">Source Code</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://github.com/jbossws">GitHub</a></li>
+                  </ul>
+               </li>
+
+               <li id="buildmenu" class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/build" class="menu-title">Build</a>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+
+<div id="wrapper-2">
+    <div id="wrap-content">
+        <div id="wrapper-3">
+            <div id="main-wrapper">
+                <div id="main">
+                    <div id="breadcrumb">
+                       <span>
+                              <a href="/">JBossWS</a>
+                                &gt;
+                              <a href="/docs">JBossWS Documentation</a>
+                                &gt;
+                              <a href="#">Chapter 8 Build_and_testsuite_framework</a>
+                       </span>
+                    </div><!-- end breadcrumb -->
+                    <h3>Chapter 8 Build_and_testsuite_framework</h3>
+                    <p></p>
+                    <div class="sect1">
+<h2 id="build-and-testsuite-framework">Build and testsuite framework</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="introduction">Introduction</h3>
+<div class="paragraph">
+<p>The JBossWS project build and testsuites have been completely revisited
+in version 5.0.0.Beta3. As a result, JBossWS uses the <em>Arquillian</em>
+framework to run its integration tests against WildFly containers.</p>
+</div>
+<div class="paragraph">
+<p>There are two test modules in JBossWS' testsuite, <em>cxf-tests</em> and
+<em>shared-tests</em> . Each test module requires at least one <em>WildFly</em>
+container to run; multiple containers are used for modules whose tests
+can&#8217;t run at the same time on the same container. By default, containers
+are managed (started / stopped) by Arquillian.The JBossWS build system
+fetches a copy of the required container from the Maven repository,
+unpacks it, patches it installing the current webservices stack on it
+and finally hands it over to Arquillian for the testsuite runs. The test
+framework also allows letting Arquillian manage an already available
+container instance on the local filesystem. Finally, it&#8217;s also possible
+to execute single tests against a locally running container
+(non-Arquillian managed) and run the tests concurrently.</p>
+</div>
+<div class="sect3">
+<h4 id="prerequisites-and-requirements">Prerequisites and requirements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Maven version 3.2.2 or higher is required to build and run the
+testsuite.</p>
+</li>
+<li>
+<p>A unique class name for each test across the testsuite&#8217;s three child
+modules; classes may have the same package name across the child modules
+but the overall full-qualified name has to be unique to avoid breaking
+concurrent tests runs.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="architecture-overview">Architecture overview</h3>
+<div class="paragraph">
+<p>When the build fetches the a container from the Maven repository, a
+patched copy of it is put within the target/test-server sub-directory of
+each testsuite module. For instance, you could have:</p>
+</div>
+<div class="paragraph">
+<div class="title">/modules/testsuite/shared-tests/target/test-server/jbossws-cxf-dist-5.0.0-SNAPSHOT/wildfly-8.1.0.Final</div>
+<p>Each container copy is also provided with specific standalone mode
+configuration files ( <em>jbws-testsuite-SOME_IDENTIFIER.xml</em> ) in the
+<code>standalone/configuration</code> server directory. The actual contents of such
+descriptors depends on the tests that are to be run against such
+container configurations (the most common difference when compared to
+the vanilla standalone.xml is the setup op additional security domains,
+system properties, web connectors etc.) Each configuration also includes
+logging setup to ensure logs are written to unique files (
+<em>jbws-testsuite-SOME_IDENFIFIER.log</em> ) in <code>standalone/log</code> directory.</p>
+</div>
+<div class="sect3">
+<h4 id="target-container-identification">Target Container Identification</h4>
+<div class="paragraph">
+<p>JBossWS supports the current WildFly release and several back versions
+for testing. See the
+<a href="https://community.jboss.org/wiki/JBossWS-SupportedTargetContainers">supported
+target containers</a> page for details. Maven profiles are used to identify
+the target container to be used for testing. The naming convention is
+<em>wildflyXYZ</em> , for example <em>wildfly820</em> to mean WIldFly 8.2.0.Final.</p>
+</div>
+<div class="paragraph">
+<p>To run tests against an existing local copy of a WildFly container, the
+user must specify the absolute path to the server implementation&#8217;s home
+directory using the command line option, <em>-Dserver.home=/foo/bar</em> . The
+server is not expected to be running, as the build will create various
+standalone server configurations and start multiple instances on
+different port numbers. However, if a single test of few tests are
+executed only, the user can have those executed against live WildFly
+instances previously started on the same port numbers expected by the
+tests. Arquillian is configured to detect such scenario and use the
+available server.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="port-mapping">Port Mapping</h4>
+<div class="paragraph">
+<p>To facilitate concurrent testing a port offset has been defined for each
+of the server configurations. The offsets are defined in the
+<code>&lt;properties&gt;</code> element of the <code>modules/testsuite/pom.xml</code> file.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-line-options">Command Line Options</h3>
+<div class="paragraph">
+<p>As any other Maven-based project, JBossWS is built as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mvn -P[profile] -D[options] [phase]</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="profile">Profile</h4>
+<div class="paragraph">
+<p>JBossWS uses Maven profiles to declare the target container and other
+types of environment setup. Multiple profiles are provided as a comma
+separated list of profile names. Only a single target container profile
+is allowed at the same time though.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Profile</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wildflyXYZ</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Designates the target container to use, where XYZ is
+WildFly&#8217;s three digit version number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fast</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declares the tests are to be run concurrently</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dist</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Explicitly includes <em>dist</em> module in the build; by default this
+is automatically triggered (only) when a <code>wildflyXYZ</code> profile is set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>testsuite</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Explicitly includes the testsuite modules in the build; by
+default this is automatically triggered (only) when a <code>wildflyXYZ</code>
+profile is set.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="options">Options</h4>
+<div class="paragraph">
+<p>Below is a list of the available build / test options:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Option</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">server.home</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declares the absolute path to a given local server
+instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exclude-udp-tests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Force skipping the UDP tests. This option might be
+needed when running on a network that does not allow UDP broadcast.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nodeploy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Do not upgrade the WS stack on the target server container.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">noprepare</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Skip integration tests preparation phase, which includes
+tuning of the server configurations, wsconsume/wsprovide invocations,
+etc.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">debug</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Turns on Surefire debugging of integration tests only. Debugging
+address is 5005.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jboss.bind.address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starts the containers bound to the specified
+network interface address.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">arquillian.deploymentExportPath</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instructs Arquillian to write the
+actual test deployments to disk in the specified module sub-directory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Runs the test in the specified comma-separated list of JUnit
+classes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maven.surefire.debug</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Turns on Surefire debugging in any module
+including tests.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="examples">Examples</h4>
+<div class="paragraph">
+<p>Build the project, deploy the WS stack to a local copy of WildFly
+8.2.0.Final and run the testsuite:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mvn -Pwildfly820 -Dserver.home=/foo/wildfly-8.2.0.Final integration-test</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use <em>WildFly 8.1.0.Final</em> as the target container (letting the build
+fetch it), patch it with current WS stack and run only test
+<em>MtomTestCase</em> that is located in the <em>cxf-test</em> module:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mvn -Pwildfly810 integration-test -Dtest="org/jboss/test/ws/jaxws/samples/MtomTestCase"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Build, deploy, then run the tests concurrently. Run till Maven
+post-integration-test phase to trigger test servers shutdown and save
+memory at the end of each testsuite module:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mvn -Pfast,wildfly810 post-integration-test</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Completely clean the project:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mvn -Pdist,testsuite clean</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Build the WS stack and install it on a specified server instance without
+running the integration testsuite:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mvn -Pwildfly900 -Dserver.home=/foo/wildfly-9.0.0.Alpha2-SNAPSHOT package</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When a server.home option is not provided, the build creates a zip
+archive with a vanilla WildFly server patched with the current WS stack:
+the zip file path is modules/dist/target/jbossws-cxf-dist-$\{
+<strong>project.version}</strong> -wildflyXYZ.zip</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mvn -Pwildfly810 package</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="container-remote-debugging">Container remote debugging</h3>
+<div class="paragraph">
+<p>While debugging the a testcase is simply a matter of providing the
+-Ddebug option, remote debugging the container code that runs the WS
+stack requires few additional setup steps. The suggested approach is to
+identify a single test to run; before actually running the test,
+manually start a target container in debug mode and specifying the
+proper port offset and server configuration (have a look at the
+arquillian.xml decriptors in the testsuite). Then run the tests with
+-Dserver.home=&#8230;&#8203; option pointing to the home dir for the server
+currently running.</p>
+</div>
+</div>
+</div>
+</div>
+
+                </div><!-- end main -->
+            </div>
+               <div id="rightcolumn" class="column">
+
+                  <div class="projectpage-socialmedia">
+                     <span class="st_sharethis_large">&nbsp;</span>
+                     <span class="st_facebook_large">&nbsp;</span>
+                     <span class="st_twitter_large">&nbsp;</span>
+                     <span class="st_linkedin_large">&nbsp;</span>
+                     <span class="st_email_large">&nbsp;</span>
+                  </div>
+
+
+                  <div id="proj_quick-start">
+                     <h3>Useful Links</h3>
+                     <ul>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS">Documentation</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+User+Guide">JAX-WS User Guide</a>
+                        </li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/Advanced+User+Guide">Advanced User
+                           Guide</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-FAQ">FAQ</a></li>
+                        <li><a href="https://www.jboss.org/community/wiki/JBossWS-SetupyourIDE">Setup your IDE</a></li>
+                        <li><a href="https://docs.jboss.org/author/display/JBWS/JAX-WS+Tools">Tools (JAX-WS)</a></li>
+                        <li><a href="https://jbossws.github.io/jbossws/build.html">Building the Project</a></li>
+                        <li><a href="https://www.ohloh.net/p/jbossws">Ohloh.net</a></li>
+                     </ul>
+                  </div>
+                  <div class="interviews-rss ">
+                     <h3>JBossWS</h3>
+
+
+                     <dl class="evenrow">
+                        <dt><a href="/2022/01/13/jbossws-550final-is-released">JBossWS 5.5.0.Final is released</a></dt>
+                        <dd class="date">January 13, 2022 By Jim Ma
+                        </dd>
+                        <dd>JBossWS 5.5.0.Final has been released and is available for download. The maven artifacts have been released to the Maven repository.
+                            In this release, we upgraded CXF to 3.4.5 ,log4j to 2.17.1...
+                        </dd>
+                     </dl>
+                     <dl class="oddrow">
+                        <dt><a href="/2022/01/06/jbossws-log4j-cve">Log4j CVE and JBossWS project</a></dt>
+                        <dd class="date">January 06, 2022 By Jim Ma
+                        </dd>
+                        <dd>After log4j cve issues were reported, we carefully reviewed the usage in JBossWS projects and found we only use log4j dependencies in
+                            command line tools, client side and testsuite...
+                        </dd>
+                     </dl>
+
+                     <dl class="evenrow">
+                         <dt><a href="/2020/05/27/jbossws-new-google-forum/">Move to JBossWS Google Group</a></dt>
+                         <dd class="date">May 27, 2020 By Jim Ma
+                         </dd>
+                         <dd>JBossWS team has moved the old jboss community wiki and forum to <a href="https://groups.google.com/forum/#!forum/jbossws">JBossWS Google Groups</a>.
+                             The old JBossWS wiki, User Forum and Developer Forum are all archived and read only now. This change will allow our community users
+                             find us more easily with one email or web access...
+                         </dd>
+                     </dl>
+
+
+                     <dl>
+                        <dd class="more">View <a href="https://jbossws.github.io/blogs/">more jbossws updates</a></dd>
+                     </dl>
+                  </div>
+                  <div class="clear"><br/></div>
+
+                  <div class="uploaded-img">
+
+                     <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+                        <img width="180" alt="" height="75"
+                             src="/img/logo_jprofiler01.gif"
+                             style="margin:0 auto;"/>
+
+                     </a>
+                  </div>
+
+                  <h5>We use JProfiler for profiling</h5>
+
+                  <table>
+                     <tr>
+                        <td>
+                        </td>
+                     </tr>
+                  </table>
+
+
+                  <div>
+                     <a href="https://www.jboss.org/security.html">
+                        <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+                     </a>
+                  </div>
+               </div>
+
+            </div><!-- end wrapper-3 -->
+
+         </div><!-- end wrapper-content -->
+         <div style="clear: both;"></div>
+      </div><!-- end wrapper-2 -->
+   </div>
+
+   <div id="site-info">
+      <div>
+      </div>
+
+      <div class="footer">
+         <div class="container" id="companyfooter">
+            <div class="redhatlogo" style="text-align:center;">
+               <div id="logospacer"></div>
+               <a href="https://www.redhat.com/">
+                  <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div><!-- end site-info -->
+</div><!-- end wrapper -->
+
+</body>
+</html>
