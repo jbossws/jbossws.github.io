@@ -12,8 +12,8 @@ dumping the messages that are passed in it; the handler can be added to
 the desired client/endpoints (programmatically / using `@HandlerChain`
 JAX-WS annotation).
 
-The <<_predefined_client_and_endpoint_configurations>>
-mechanism allows user to add the logging handler to any client/endpoint
+The section below, "Predefined client and endpoint configurations" describes the
+mechanism which allows the user to add the logging handler to any client/endpoint
 or to some of them only (in which case the `@EndpointConfig` annotation
 / JBossWS API is required though).
 
@@ -195,7 +195,7 @@ webservices deployment.
 
 Elements `<config-name>` and `<config-file>` can be used to associate
 any endpoint provided in the deployment with a given
-<<_predefined_client_and_endpoint_configurations>> . Endpoint configuration are
+predefined client and endpoint configuration . Endpoint configuration are
 either specified in the referenced config file or in the WildFly domain
 model (webservices subsystem). For further details on the endpoint
 configurations and their management in the domain model, please see the
@@ -284,7 +284,7 @@ public class ValidatingHelloImpl implements Hello {
 ....
 
 Alternatively, any endpoint and client running in-container can be
-associated to a JBossWS <<_predefined_client_and_endpoint_configurations>>
+associated to a JBossWS predefined client and endpoint configuration
 having the `schema-validation-enabled` property set to `true` in the
 referenced config file.
 
@@ -327,7 +327,7 @@ Introductions page] on the wiki and at the examples in the sources.
 
 === WSDL system properties expansion
 
-See <<_published_wsdl_customization>>.
+See the section below titled, "Published WSDL customization".
 
 === Predefined client and endpoint configurations
 
@@ -503,7 +503,7 @@ documentation] for details on managing the _webservices_ subsystem such
 as adding, removing and modifying handlers and properties.
 
 The allowed contents in the _webservices_ subsystem are defined by the
-https://github.com/jbossas/jboss-as/blob/7.2.0.Final/build/src/main/resources/docs/schema/jboss-as-webservices_1_2.xsd[schema]
+https://github.com/wildfly/wildfly/blob/main/webservices/server-integration/src/main/resources/schema/jboss-as-webservices_2_0.xsd[schema]
 included in the application server.
 
 * Standard configurations
@@ -632,7 +632,7 @@ port.echo("Kermit");
 JBossWS parses the specified configuration file. The configuration file
 must be found as a resource by the classloader of the current thread.
 The
-https://github.com/jbossws/jbossws-spi/tree/main/src/main/resources/schemajbossws-jaxws-config_4_0.xsd[jbossws-jaxws-config
+https://github.com/jbossws/jbossws-spi/tree/main/src/main/resources/schema/jbossws-jaxws-config_4_0.xsd[jbossws-jaxws-config
 schema] defines the descriptor contents and is included in the
 _jbossws-spi_ artifact.
 
@@ -1036,7 +1036,7 @@ with a JAX-WS compliant implementation, which is basically Apache CXF
 plus the JBossWS-CXF integration layer. So users just need to write
 their JAX-WS application; _no need for embedding any Apache CXF or any
 ws related dependency library in user deployments_ . Please refer to the
-<<_advanced_user_guide>>  of the documentation for getting started.
+section titled, "Advanced User Guide" for more information.
 
 WS-* usage (including WS-Security, WS-Addressing, WS-ReliableMessaging,
 ...) should also be configured in the most portable way; that is by
@@ -1294,7 +1294,8 @@ customizations.
 ===== Deployment descriptor properties
 
 The `jboss-webservices.xml` descriptor can be used to
-provide property values for <<_component_element>>
+provide property values for component element.  See section, "component element"
+below for more details.
 
 ....
 <webservices xmlns="http://www.jboss.com/xml/ns/javaee" version="1.2">
@@ -1326,7 +1327,7 @@ can add new instances of
 http://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/AutomaticWorkQueueImpl.html[AutomaticWorkQueueImpl]
 to the currently configured WorkQueueManager; the properties below are
 used to fill in parameter into the
-http://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/AutomaticWorkQueueImpl.html#AutomaticWorkQueueImpl(int, int, int, int, long, java.lang.String)[AutomaticWorkQueueImpl
+https://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/AutomaticWorkQueueImpl.html#AutomaticWorkQueueImpl(int,%20int,%20int,%20int,%20long,%20java.lang.String)[AutomaticWorkQueueImpl
 constructor] :
 
 [cols=",",options="header",]
@@ -1343,7 +1344,7 @@ constructor] :
 
 The Apache CXF policy engine supports different strategies to deal with
 policy alternatives. JBossWS-CXF integration currently defaults to the
-http://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/ws/policy/selector/MaximalAlternativeSelector.html[MaximalAlternativeSelector]
+https://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/ws/policy/selector/MaximalAlternativeSelector.html[MaximalAlternativeSelector]
 , but still allows for setting different selector implementation using
 the `cxf.policy.alternativeSelector` property in `jboss-webservices.xml`
 .
@@ -1374,8 +1375,8 @@ desired in some cases. Here is an example:
 ====== Schema validation
 
 Schema validation of exchanged messages can also be enabled in
-`jboss-webservices.xml` . Further details available
-<<_configuration_through_deployment_descriptor>>
+`jboss-webservices.xml` . Further details available in the above
+section titled, "Configuration through deployment descriptor".
 
 ====== Interceptors
 
@@ -1428,7 +1429,8 @@ the deployment.
 ====== Discovery enablement
 
 WS-Discovery support can be turned on in `jboss-webservices` for the
-current deployment. Further details available <<_configuration_through_deployment_descriptor>> .
+current deployment. Further details available in the above
+section titled, "Configuration through deployment descriptor".
 
 ==== Apache CXF interceptors
 
@@ -1445,7 +1447,7 @@ approaches:
 As the Spring descriptor usage is not supported, the JBossWS integration
 adds an additional descriptor based approach to avoid requiring
 modifications to the actual client/endpoint code. Users can declare
-interceptors within <<_predefined_client_and_endpoint_configurations>> by specifying a list of interceptor class names for the
+interceptors within the predefined client and endpoint configuration by specifying a list of interceptor class names for the
 `cxf.interceptors.in` and `cxf.interceptors.out` properties.
 
 ....
@@ -1485,7 +1487,7 @@ approaches:
 As the Spring descriptor usage is not supported, the JBossWS integration
 adds an additional descriptor based approach to avoid requiring
 modifications to the actual client/endpoint code. Users can declare
-features within <<_predefined_client_and_endpoint_configurations>> by specifying a list of feature class names for the
+features within the predefined client and endpoint configuration by specifying a list of feature class names for the
 `cxf.features` property.
 
 ....
@@ -1921,7 +1923,7 @@ documentation] for additional configuration details.
 In order for removing the need of Spring on server side for setting up
 WS-Security configuration properties not covered by policies, the
 JBossWS integration allows for getting those pieces of information from
-a defined _endpoint configuration_ . <<_predefined_client_and_endpoint_configurations>>
+a defined _endpoint configuration_ .  The predefined client and endpoint configuration
 can include property declarations and endpoint
 implementations can be associated with a given endpoint configuration
 using the `@EndpointConfig` annotation.
@@ -2903,7 +2905,7 @@ public class ServiceImpl implements ServiceIface {
 
 ==== WS-Trust overview
 
-https://www.oasis-open.org/standards#wstrustv1.4[WS-Trust] is a Web
+http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html[WS-Trust] is a Web
 service specification that defines extensions to WS-Security. It is a
 general framework for implementing security in a distributed system. The
 standard is based on a centralized Security Token Service, STS, which is
@@ -3867,9 +3869,8 @@ message exchange via SOAP envelopes.
 
 As was done in the ServiceImpl class, the WSS4J annotations
 EndpointProperties and EndpointProperty are providing endpoint
-configuration for the CXF runtime. This was previous described
-<<_web_service_provider_implementation>>
-.
+configuration for the CXF runtime. This is described in the section
+titled, "Web service provider Implementation".
 
 The InInterceptors annotation is used to specify a JBossWS integration
 interceptor to be used for authenticating incoming requests; JAAS
@@ -4113,8 +4114,7 @@ endpoint servlet, for instance by adding a _web.xml_ descriptor as
 follows to the deployment:<?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd[]"> <servlet>
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd[]"> <servlet>
 <servlet-name>TestSecurityTokenService</servlet-name>
 <servlet-class>org.jboss.test.ws.jaxws.samples.wsse.policy.trust.SampleSTS</servlet-class>
 </servlet> <servlet-mapping>
@@ -4590,7 +4590,7 @@ a token is negotiated with the STS. The ActAs element usually takes the
 form of a token with identity claims such as name, role, and
 authorization code, for the client to access the service.
 
-The ActAs scenario is an extension of <<_a_basic_ws_trust_scenario>>. In this example the ActAs service calls the
+The ActAs scenario is an extension of a Basic WS-Trust Scenario. In this example the ActAs service calls the
 ws-service on behalf of a user. There are only a couple of additions to
 the basic scenario's code. An ActAs web service provider and callback
 handler have been added. The ActAs web services' WSDL imposes the same
@@ -5048,8 +5048,8 @@ components are.
 
 ====== STS Implementation class
 
-The initial description of SampleSTS can be found
-<<_actas_ws_trust_scenario>>
+The initial description of SampleSTS can be found in the
+ActAs WS-Trust Scenario section.
 
 The declaration of the set of allowed token recipients by address has
 been extended to accept ActAs addresses and OnBehalfOf addresses. The
@@ -5194,10 +5194,7 @@ the message generation is provided through it. The ActAs user,
 myactaskey, is declared in this section and UsernameTokenCallbackHandler
 is used to provide the contents of the ActAs element to the STSClient.
 In this example a STSClient object is created and provided to the
-proxy's request context. The alternative is to provide keys tagged with
-the ".it" suffix as was done in
-https://docs.jboss.org/author/display/JBWS/WS-Trust+and+STS#WS-TrustandSTS-WebservicerequesterImplementation[the
-Basic Scenario client] . The use of ActAs is configured through the
+proxy's request context.  The use of ActAs is configured through the
 props map using the SecurityConstants.STS_TOKEN_ACT_AS key. The
 alternative is to use the STSClient.setActAs method.
 
@@ -5267,7 +5264,7 @@ is negotiated with the STS. The OnBehalfOf element usually takes the
 form of a token with identity claims such as name, role, and
 authorization code, for the client to access the service.
 
-The OnBehalfOf scenario is an extension of <<_a_basic_ws_trust_scenario>> . In this example the OnBehalfOf service calls the
+The OnBehalfOf scenario is an extension of a Basic WS-Trust Scenario. In this example the OnBehalfOf service calls the
 ws-service on behalf of a user. There are only a couple of additions to
 the basic scenario's code. An OnBehalfOf web service provider and
 callback handler have been added. The OnBehalfOf web services' WSDL
@@ -5859,7 +5856,7 @@ configuration file.
 
 Follow the directions in the, " _Using the pure Java implementation
 supplied by JSSE_ " section in the
-https://docs.jboss.org/author/display/WFLY8/SSL+setup+guide[SSL Setup
+http://www.mastertheboss.com/jbossas/jboss-security/complete-tutorial-for-configuring-ssl-https-on-wildfly/[SSL Setup
 Guide] .
 
 Here is an example of an SSL connector declaration.
@@ -6733,8 +6730,6 @@ ActAs and OnBehalfOf examples.
 
 ====== ClientCallbackHandler
 
-https://docs.jboss.org/author/display/JBWS/WS-Trust+and+STS#WS-TrustandSTS-ClientCallbackHandler[]
-
 ClientCallbackHandler is a callback handler for the WSS4J Crypto API. It
 is used to obtain the password for the private key in the keystore. This
 class enables CXF to retrieve the password of the user name to use for
@@ -6780,8 +6775,6 @@ public class ClientCallbackHandler implements CallbackHandler {
 
 
 ====== Crypto properties and keystore files
-
-https://docs.jboss.org/author/display/JBWS/WS-Trust+and+STS#WS-TrustandSTS-RequesterCryptopropertiesandkeystorefiles[]
 
 WSS4J's Crypto implementation is loaded and configured via a Java
 properties file that contains Crypto configuration data. The file
@@ -7047,8 +7040,6 @@ security settings are provided in the comments in the listing below.
 
 ====== SSL configuration
 
-https://docs.jboss.org/author/display/JBWS/WS-Trust+and+STS#WS-TrustandSTS-SSLconfiguration[]
-
 This web service is using https, therefore the JBoss server must be
 configured to provide SSL support in the Web subsystem. There are 2
 components to SSL configuration.
@@ -7179,8 +7170,6 @@ org.apache.ws.security.crypto.merlin.keystore.file=servicestore.jks
 
 
 ====== MANIFEST.MF
-
-https://docs.jboss.org/author/display/JBWS/WS-Trust+and+STS#WS-TrustandSTS-MANIFEST.MF[]
 
 When deployed on WildFly this application requires access to the JBossWs
 and CXF APIs provided in module org.jboss.ws.cxf.jbossws-cxf-client. The
@@ -8988,7 +8977,7 @@ messages upon undeployment.
 ==== Probing services
 
 Apache CXF comes with a _WS-Discovery_ API that can be used to probe /
-resolve services. When running in-container, a <<_jboss_modules>> dependency to the the `org.apache.cxf.impl` module is
+resolve services. When running in-container, a JBoss Modules dependency to the the `org.apache.cxf.impl` module is
 to be set to have access to _WS-Discovery_ client functionalities.
 
 The
