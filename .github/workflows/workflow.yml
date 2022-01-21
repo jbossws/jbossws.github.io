@@ -8,9 +8,19 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
+      - name: Checkout github io
+        uses: actions/checkout@v2
 
-      - uses: actions/checkout@v2
-
+      - name: Checkout latest snapshot adoc and image files
+        uses: actions/checkout@v2
+        with:
+          repository: jbossws/jbossws-cxf
+          path: './adoc'
+      - name: copy snapshot adoc files to github pages
+        working-directory: ./adoc
+        run: |
+          cp -R ./modules/dist/src/main/doc/adoc/content ../jbossws.github.io/_guide/5.5.1-SNAPSHOT
+          cp -R ./modules/dist/src/main/doc/adoc/image ../jbossws.github.io/_guide/5.5.1-SNAPSHOT
       - name: Set up ruby
         uses: ruby/setup-ruby@v1
         with:
