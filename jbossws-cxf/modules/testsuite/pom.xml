@@ -1,0 +1,1119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>JBoss Web Services - Stack CXF Testsuite</name>
+  <artifactId>jbossws-cxf-testsuite</artifactId>
+  <packaging>pom</packaging>
+
+  <!-- Parent -->
+  <parent>
+    <groupId>org.jboss.ws.cxf</groupId>
+    <artifactId>jbossws-cxf</artifactId>
+    <version>5.5.1-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+
+  <!-- Properties -->
+  <properties>
+    <surefire.security.args>-Djava.security.manager -Djava.security.policy=src/test/etc/tst.policy</surefire.security.args>
+    <surefire.memory.args>-Xmx640m</surefire.memory.args>
+    <surefire.jdwp.args>-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005</surefire.jdwp.args>
+    <surefire.management.args>-Dcom.sun.management.jmxremote</surefire.management.args>
+    <additionalGroovyScriptSuffix />
+    <test.archive.directory>${project.build.directory}/test-libs</test.archive.directory>
+    <test.classes.directory>${project.build.directory}/test-classes</test.classes.directory>
+    <test.resources.directory>${project.build.directory}/test-resources</test.resources.directory>
+    <wsdl.publish.location>${project.build.directory}/wsdl-publish</wsdl.publish.location>
+    <log4j.output.dir>${project.build.directory}</log4j.output.dir>
+    <appclient.output.dir>${project.build.directory}/appclient-logs</appclient.output.dir>
+    <org.littleshoot.littleproxy.version>1.1.2</org.littleshoot.littleproxy.version>
+    <gnu.getopt.version>1.0.13</gnu.getopt.version>
+    <bc.version>1.60</bc.version>
+    <resources-plugin-filters.version>1.1.0.Final</resources-plugin-filters.version>
+    <exec.plugin.version>1.6.0</exec.plugin.version>
+    <port-offset.cxf-tests.jboss>0</port-offset.cxf-tests.jboss>
+    <port-offset.cxf-tests.ssl-mutual-auth>5000</port-offset.cxf-tests.ssl-mutual-auth>
+    <port-offset.cxf-tests.default-config-tests>10000</port-offset.cxf-tests.default-config-tests>
+    <port-offset.cxf-tests.jms>35000</port-offset.cxf-tests.jms>
+    <port-offset.shared-tests.jboss>15000</port-offset.shared-tests.jboss>
+    <port-offset.shared-tests.default-config-tests>20000</port-offset.shared-tests.default-config-tests>
+    <port-offset.shared-tests.address-rewrite>25000</port-offset.shared-tests.address-rewrite>
+    <port-offset.perf-tests.jboss>30000</port-offset.perf-tests.jboss>
+  </properties>
+
+  <!-- Modules -->
+  <modules>
+    <module>cxf-tests</module>
+    <module>shared-tests</module>
+    <module>perf-tests</module>
+  </modules>
+
+  <!-- Dependencies -->
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.ws.cxf</groupId>
+      <artifactId>jbossws-cxf-test-utils</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.ws</groupId>
+      <artifactId>jbossws-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.ws</groupId>
+      <artifactId>jbossws-common-tools</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>gnu.getopt</groupId>
+      <artifactId>java-getopt</artifactId>
+      <version>${gnu.getopt.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.ejb</groupId>
+      <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.jws</groupId>
+      <artifactId>jsr181-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.ws.cxf</groupId>
+      <artifactId>jbossws-cxf-client</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.ws.cxf</groupId>
+      <artifactId>jbossws-cxf-jaspi</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.ws.cxf</groupId>
+      <artifactId>jbossws-cxf-factories</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.shrinkwrap</groupId>
+      <artifactId>shrinkwrap-depchain</artifactId>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.arquillian.junit</groupId>
+      <artifactId>arquillian-junit-container</artifactId>
+      <version>${arquillian.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk15on</artifactId>
+      <version>${bc.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+    </dependency>
+
+  </dependencies>
+
+  <!-- Build -->
+  <build>
+    <testResources>
+      <!-- copy etc files -->
+      <testResource>
+        <directory>src/test/etc</directory>
+        <filtering>true</filtering>
+        <excludes>
+          <exclude>*.keystore</exclude>
+          <exclude>*.truststore</exclude>
+        </excludes>
+      </testResource>
+      <testResource>
+        <directory>src/test/etc</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>*.keystore</include>
+          <include>*.truststore</include>
+        </includes>
+      </testResource>
+      <!-- copy handler definitions -->
+      <testResource>
+        <targetPath>../test-classes</targetPath>
+        <directory>src/test/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+      </testResource>
+      <!-- copy non binary files -->
+      <testResource>
+        <targetPath>../test-resources</targetPath>
+        <directory>src/test/resources</directory>
+        <includes>
+          <include>**/*.wsdl</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>true</filtering>
+      </testResource>
+      <!-- copy binary files -->
+      <testResource>
+        <targetPath>../test-resources</targetPath>
+        <directory>src/test/resources</directory>
+        <excludes>
+          <exclude>**/*.wsdl</exclude>
+          <exclude>**/*.xml</exclude>
+        </excludes>
+      </testResource>
+    </testResources>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec.plugin.version}</version>
+        <inherited>false</inherited>
+        <executions>
+          <execution>
+            <id>check-bc-and-unlimited-crypto</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <configuration>
+              <classpathScope>test</classpathScope>
+              <mainClass>org.jboss.wsf.test.CryptoCheckHelper</mainClass>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <mavenFilteringHints>
+            <mavenFilteringHint>custom</mavenFilteringHint>
+          </mavenFilteringHints>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.jboss.ws.plugins</groupId>
+            <artifactId>resources-plugin-filters</artifactId>
+            <version>${resources-plugin-filters.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>validate-jboss-home</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <echo />
+                <echo message="profile=${jbossws.integration.target}" />
+                <echo message="jboss.home=${jboss.home}" />
+                <echo />
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>target/wsconsume/java</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <argLine>${surefire.jvm.args} ${surefire.jvm.management.args} ${surefire.default-mgmt-serurity.args} ${ipVerArgs}</argLine>
+          <skip>true</skip>
+          <failIfNoTests>false</failIfNoTests>
+          <runOrder>alphabetical</runOrder>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <skip>false</skip>
+              <excludes combine.children="append">
+              </excludes>
+              <includes>
+                <include>**/*Test.java</include>
+                <include>**/*TestCase.java</include>
+              </includes>
+              <systemPropertyVariables>
+                 <jboss.bind.address>${jboss.bind.address}</jboss.bind.address>
+                 <jboss.remoting.protocol>${jboss.remoting.protocol}</jboss.remoting.protocol>
+                 <jboss.initial.context.factory>${jboss.initial.context.factory}</jboss.initial.context.factory>
+                 <java.protocol.handler.pkgs>org.jboss.net.protocol|org.jboss.vfs.protocol|org.jboss.virtual.protocol</java.protocol.handler.pkgs>
+                 <javax.net.ssl.trustStore>${project.build.directory}/test-classes/test.truststore</javax.net.ssl.trustStore>
+                 <javax.net.ssl.trustStorePassword>changeit</javax.net.ssl.trustStorePassword>
+                 <javax.net.ssl.trustStoreType>jks</javax.net.ssl.trustStoreType>
+                 <javax.net.ssl.keyStore>${project.build.directory}/test-classes/client.keystore</javax.net.ssl.keyStore>
+                 <javax.net.ssl.keyStorePassword>changeit</javax.net.ssl.keyStorePassword>
+                 <javax.net.ssl.keyStoreType>jks</javax.net.ssl.keyStoreType>
+                 <cxf.tls-client.disableCNCheck>true</cxf.tls-client.disableCNCheck>
+                 <jboss.home>${jboss.home}</jboss.home>
+                 <jbossws.integration.target>${jbossws.integration.target}</jbossws.integration.target>
+                 <log4j.output.dir>${log4j.output.dir}</log4j.output.dir>
+                 <appclient.output.dir>${appclient.output.dir}</appclient.output.dir>
+                 <org.jboss.ws.testsuite.securityDomain.users.propfile>${project.build.directory}/test-classes/jbossws-users.properties</org.jboss.ws.testsuite.securityDomain.users.propfile>  
+                 <org.jboss.ws.testsuite.securityDomain.roles.propfile>${project.build.directory}/test-classes/jbossws-roles.properties</org.jboss.ws.testsuite.securityDomain.roles.propfile>
+                 <org.jboss.ws.testsuite.server.keystore>${project.build.directory}/test-classes/test.keystore</org.jboss.ws.testsuite.server.keystore>
+                 <org.jboss.ws.testsuite.server.truststore>${project.build.directory}/test-classes/test.truststore</org.jboss.ws.testsuite.server.truststore>
+                 <test.archive.directory>${test.archive.directory}</test.archive.directory>
+                 <test.classes.directory>${test.classes.directory}</test.classes.directory>
+                 <test.resources.directory>${test.resources.directory}</test.resources.directory>
+                 <test.username>${test.username}</test.username>
+                 <test.password>${test.password}</test.password>
+                 <wsdl.publish.location>${wsdl.publish.location}</wsdl.publish.location>
+                 <additionalJvmArgs>${additionalJvmArgs}</additionalJvmArgs>
+                 <modular.jdk.args>${modular.jdk.args}</modular.jdk.args>
+                 <jboss.version>${jboss.version}</jboss.version>
+              </systemPropertyVariables>
+            </configuration>
+          </execution>
+          
+          <execution>
+            <id>forked-integration-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <reuseForks>false</reuseForks>
+              <skip>false</skip>
+              <includes>
+                <include>**/*TestCaseForked.java</include>
+                <include>**/*TestForked.java</include>
+              </includes>
+              <systemPropertyVariables>
+                 <jboss.bind.address>${jboss.bind.address}</jboss.bind.address>
+                 <jboss.remoting.protocol>${jboss.remoting.protocol}</jboss.remoting.protocol>
+                 <jboss.initial.context.factory>${jboss.initial.context.factory}</jboss.initial.context.factory>
+                 <java.protocol.handler.pkgs>org.jboss.net.protocol|org.jboss.vfs.protocol|org.jboss.virtual.protocol</java.protocol.handler.pkgs>
+                 <javax.net.ssl.trustStore>${project.build.directory}/test-classes/test.truststore</javax.net.ssl.trustStore>
+                 <javax.net.ssl.trustStorePassword>changeit</javax.net.ssl.trustStorePassword>
+                 <javax.net.ssl.trustStoreType>jks</javax.net.ssl.trustStoreType>
+                 <javax.net.ssl.keyStore>${project.build.directory}/test-classes/client.keystore</javax.net.ssl.keyStore>
+                 <javax.net.ssl.keyStorePassword>changeit</javax.net.ssl.keyStorePassword>
+                 <javax.net.ssl.keyStoreType>jks</javax.net.ssl.keyStoreType>
+                 <cxf.tls-client.disableCNCheck>true</cxf.tls-client.disableCNCheck>
+                 <jboss.home>${jboss.home}</jboss.home>
+                 <jbossws.integration.target>${jbossws.integration.target}</jbossws.integration.target>
+                 <log4j.output.dir>${log4j.output.dir}</log4j.output.dir>
+                 <appclient.output.dir>${appclient.output.dir}</appclient.output.dir>
+                 <org.jboss.ws.testsuite.securityDomain.users.propfile>${project.build.directory}/test-classes/jbossws-users.properties</org.jboss.ws.testsuite.securityDomain.users.propfile>  
+                 <org.jboss.ws.testsuite.securityDomain.roles.propfile>${project.build.directory}/test-classes/jbossws-roles.properties</org.jboss.ws.testsuite.securityDomain.roles.propfile>
+                 <org.jboss.ws.testsuite.server.keystore>${project.build.directory}/test-classes/test.keystore</org.jboss.ws.testsuite.server.keystore>
+                 <org.jboss.ws.testsuite.server.truststore>${project.build.directory}/test-classes/test.truststore</org.jboss.ws.testsuite.server.truststore>
+                 <test.archive.directory>${test.archive.directory}</test.archive.directory>
+                 <test.classes.directory>${test.classes.directory}</test.classes.directory>
+                 <test.resources.directory>${test.resources.directory}</test.resources.directory>
+                 <wsdl.publish.location>${wsdl.publish.location}</wsdl.publish.location>
+                 <additionalJvmArgs>${additionalJvmArgs}</additionalJvmArgs>
+                 <modular.jdk.args>${modular.jdk.args}</modular.jdk.args>
+                 <jboss.version>${jboss.version}</jboss.version>
+              </systemPropertyVariables>
+            </configuration>
+          </execution>
+          
+        </executions>
+      </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <configuration>
+              <skip>true</skip>
+          </configuration>
+      </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <configuration>
+              <skip>true</skip>
+          </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <skipIfEmpty>true</skipIfEmpty>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- Profiles -->
+  <profiles>
+  
+    <!-- 
+    Name:  download
+    Descr: Download WildFly  
+    -->
+    <profile>
+      <id>download</id>
+      <activation>
+        <property>
+          <name>!server.home</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>unpack</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>unpack</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>org.jboss.ws.cxf</groupId>
+                      <artifactId>jbossws-cxf-dist</artifactId>
+                      <classifier>${jbossws.integration.target}</classifier>
+                      <version>${project.version}</version>
+                      <type>zip</type>
+                      <overWrite>false</overWrite>
+                      <outputDirectory>${project.build.directory}/test-server</outputDirectory>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <properties>
+        <jboss.home>${project.build.directory}/test-server/jbossws-cxf-dist-${project.version}/wildfly-${jboss.version}</jboss.home>
+      </properties>
+    </profile>
+
+    <!--
+    Name:  dist-dependency
+    Descr: Add direct jbossws-cxf-dist dependency to ensure proper testsuite ordering in reactor when running with -T option.
+           It may be convenient to drop this dependency when -Dserver.home is given and we are running from testsuite submodule.
+    -->
+    <profile>
+      <id>dist-dependency</id>
+      <activation>
+        <property>
+          <name>!ts.dist.dependency.skip</name>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>org.jboss.ws.cxf</groupId>
+          <artifactId>jbossws-cxf-dist</artifactId>
+          <version>${project.version}</version>
+          <type>pom</type>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+      
+
+    <!--
+    Name:  debug
+    Descr: Enable remote debuging for tests
+    -->
+    <profile>
+      <id>debug</id>
+      <activation>
+        <property>
+          <name>debug</name>
+        </property>
+      </activation>
+      <properties>
+        <surefire.jvm.args>${surefire.security.args} ${surefire.memory.args} ${modular.jdk.args} ${modular.jdk.props} ${surefire.jdwp.args}</surefire.jvm.args>
+      </properties>
+    </profile>
+    <profile>
+      <id>no-debug</id>
+      <activation>
+        <property>
+          <name>!debug</name>
+        </property>
+      </activation>
+      <properties>
+        <surefire.jvm.args>${surefire.security.args} ${surefire.memory.args} ${modular.jdk.args} ${modular.jdk.props}</surefire.jvm.args>
+      </properties>
+    </profile>
+    
+    <!--
+    Name:  management
+    Descr: Enable remote jmx management (useful to attach JConsole, for instance)
+    -->
+    <profile>
+      <id>management</id>
+      <activation>
+        <property>
+          <name>management</name>
+        </property>
+      </activation>
+      <properties>
+        <surefire.jvm.management.args>${surefire.management.args}</surefire.jvm.management.args>
+      </properties>
+    </profile>
+    <profile>
+      <id>no-management</id>
+      <activation>
+        <property>
+          <name>!management</name>
+        </property>
+      </activation>
+      <properties>
+        <surefire.jvm.management.args> </surefire.jvm.management.args>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>jbossArguments</id>
+      <activation>
+        <property>
+          <name>!noJBossArguments</name>
+        </property>
+      </activation>
+      <properties>
+        <jbossArguments>-b ${jboss.bind.address:127.0.0.1} -bunsecure=${jboss.bind.address:127.0.0.1} -bmanagement=${jboss.bind.address:127.0.0.1}</jbossArguments>
+      </properties>
+    </profile>
+    
+    <!--
+    Name:  hudson
+    Descr: Ignore test failures on hudson
+    -->
+    <profile>
+      <id>hudson</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <testFailureIgnore>true</testFailureIgnore>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!--
+    Name:  logRedirect
+    Descr: redirect console logs to file
+    -->
+    <profile>
+      <id>logRedirect</id>
+      <activation>
+        <property>
+          <name>!noLogRedirect</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <redirectTestOutputToFile>true</redirectTestOutputToFile>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!--
+    Name:  fast
+    Descr: Slightly faster testsuite execution, using 'balanced' surefire runOrder
+    -->
+    <profile>
+      <id>fast</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <parallel>classes</parallel>
+              <threadCount>2</threadCount>
+              <perCoreThreadCount>true</perCoreThreadCount>
+              <runOrder>balanced</runOrder>
+            </configuration>
+          </plugin>
+          <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>checkNoBindAddress</id>
+                <phase>initialize</phase>
+                <goals><goal>run</goal></goals>
+                <configuration>
+                  <tasks>
+                    <fail message="'fast' profile only supports 'jboss.bind.address' property set to 'localhost'">
+                      <condition>
+                        <not>
+                          <equals arg1="${jboss.bind.address}" arg2="localhost" />
+                        </not>
+                      </condition>
+                    </fail>
+                  </tasks>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!--
+    Descr: WildFly-24.0.0 specific options
+    -->
+    <profile>
+      <id>wildfly2400</id>
+      <properties>
+        <jboss.remoting.protocol>remote+http</jboss.remoting.protocol>
+        <jboss.initial.context.factory>org.wildfly.naming.client.WildFlyInitialContextFactory</jboss.initial.context.factory>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.wildfly</groupId>
+          <artifactId>wildfly-webservices-tests-integration</artifactId>
+          <version>${wildfly2400.version}</version>
+          <exclusions>
+            <exclusion>
+              <groupId>org.jboss.sasl</groupId>
+              <artifactId>jboss-sasl</artifactId>
+            </exclusion>
+            <exclusion><!-- exclude old servlet-api coming from jboss-negotiation-common -->
+              <groupId>org.jboss.spec.javax.servlet</groupId>
+              <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <!-- Arquillian container integration -->
+        <dependency>
+          <groupId>org.wildfly.arquillian</groupId>
+          <artifactId>wildfly-arquillian-container-managed</artifactId>
+          <exclusions>
+            <exclusion>
+              <groupId>org.jboss.sasl</groupId>
+              <artifactId>jboss-sasl</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.jboss.marshalling</groupId>
+              <artifactId>jboss-marshalling</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <dependency>
+       	  <groupId>org.jboss.arquillian.protocol</groupId>
+       	  <artifactId>arquillian-protocol-servlet</artifactId>
+       	  <version>${arquillian.version}</version>
+       	  <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
+    <!--
+    Descr: WildFly-25.0.0 specific options
+    -->
+    <profile>
+      <id>wildfly2500</id>
+      <properties>
+        <additionalGroovyScriptSuffix>-nolegacy</additionalGroovyScriptSuffix>
+        <jboss.remoting.protocol>remote+http</jboss.remoting.protocol>
+        <jboss.initial.context.factory>org.wildfly.naming.client.WildFlyInitialContextFactory</jboss.initial.context.factory>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.wildfly</groupId>
+          <artifactId>wildfly-webservices-tests-integration</artifactId>
+          <version>${wildfly2500.version}</version>
+          <exclusions>
+            <exclusion>
+              <groupId>org.jboss.sasl</groupId>
+              <artifactId>jboss-sasl</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <!-- Arquillian container integration -->
+        <dependency>
+          <groupId>org.wildfly.arquillian</groupId>
+          <artifactId>wildfly-arquillian-container-managed</artifactId>
+          <exclusions>
+            <exclusion>
+              <groupId>org.jboss.sasl</groupId>
+              <artifactId>jboss-sasl</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.jboss.marshalling</groupId>
+              <artifactId>jboss-marshalling</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <dependency>
+       	  <groupId>org.jboss.arquillian.protocol</groupId>
+       	  <artifactId>arquillian-protocol-servlet</artifactId>
+       	  <version>${arquillian.version}</version>
+       	  <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.spec.javax.interceptor</groupId>
+          <artifactId>jboss-interceptors-api_1.2_spec</artifactId>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.openjdk-orb</groupId>
+          <artifactId>openjdk-orb</artifactId>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                <!-- https://issues.redhat.com/browse/JBWS-4230 -->
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaas/UsernameAuthorizationDigestTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaas/UsernameAuthorizationTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaas/UsernameAuthorizationDigestEjbTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaspi/JaspiAuthenticationTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/basic/UsernameTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/oasis/WSSecurityPolicyExamples23xTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/trust/WSTrustTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/cxf/clientConfig/SSLContextElytronClientConfigTestCaseForked*</exclude>
+                <exclude>org/jboss/test/ws/publish/EndpointPublishTestCase*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!--
+    Descr: WildFly-26.0.0 specific options
+    -->
+    <profile>
+      <id>wildfly2600</id>
+      <properties>
+        <additionalGroovyScriptSuffix>-nolegacy</additionalGroovyScriptSuffix>
+        <jboss.remoting.protocol>remote+http</jboss.remoting.protocol>
+        <jboss.initial.context.factory>org.wildfly.naming.client.WildFlyInitialContextFactory</jboss.initial.context.factory>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.wildfly</groupId>
+          <artifactId>wildfly-webservices-tests-integration</artifactId>
+          <version>${wildfly2600.version}</version>
+          <exclusions>
+            <exclusion>
+              <groupId>org.jboss.sasl</groupId>
+              <artifactId>jboss-sasl</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <!-- Arquillian container integration -->
+        <dependency>
+          <groupId>org.wildfly.arquillian</groupId>
+          <artifactId>wildfly-arquillian-container-managed</artifactId>
+          <exclusions>
+            <exclusion>
+              <groupId>org.jboss.sasl</groupId>
+              <artifactId>jboss-sasl</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.jboss.marshalling</groupId>
+              <artifactId>jboss-marshalling</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.arquillian.protocol</groupId>
+          <artifactId>arquillian-protocol-servlet</artifactId>
+          <version>${arquillian.version}</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.spec.javax.interceptor</groupId>
+          <artifactId>jboss-interceptors-api_1.2_spec</artifactId>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.openjdk-orb</groupId>
+          <artifactId>openjdk-orb</artifactId>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                <!-- https://issues.redhat.com/browse/JBWS-4230 -->
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaas/UsernameAuthorizationDigestTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaas/UsernameAuthorizationTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaas/UsernameAuthorizationDigestEjbTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaspi/JaspiAuthenticationTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/basic/UsernameTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/oasis/WSSecurityPolicyExamples23xTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/trust/WSTrustTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/cxf/clientConfig/SSLContextElytronClientConfigTestCaseForked*</exclude>
+                <exclude>org/jboss/test/ws/publish/EndpointPublishTestCase*</exclude>
+                <!--https://issues.redhat.com/browse/WFLY-15563 -->
+                <exclude>org/jboss/test/ws/jaxws/cxf/jbws3628/JBWS3628TestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/provider/ProviderJAXBTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/httpbinding/HttpJAXBTestCase*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!--
+    Descr: WildFly-27.0.0 specific options
+    -->
+    <profile>
+      <id>wildfly2700</id>
+      <properties>
+        <additionalGroovyScriptSuffix>-nolegacy</additionalGroovyScriptSuffix>
+        <jboss.remoting.protocol>remote+http</jboss.remoting.protocol>
+        <jboss.initial.context.factory>org.wildfly.naming.client.WildFlyInitialContextFactory</jboss.initial.context.factory>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.wildfly</groupId>
+          <artifactId>wildfly-webservices-tests-integration</artifactId>
+          <version>${wildfly2700.version}</version>
+          <exclusions>
+            <exclusion>
+              <groupId>org.jboss.sasl</groupId>
+              <artifactId>jboss-sasl</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <!-- Arquillian container integration -->
+        <dependency>
+          <groupId>org.wildfly.arquillian</groupId>
+          <artifactId>wildfly-arquillian-container-managed</artifactId>
+          <exclusions>
+            <exclusion>
+              <groupId>org.jboss.sasl</groupId>
+              <artifactId>jboss-sasl</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.jboss.marshalling</groupId>
+              <artifactId>jboss-marshalling</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.arquillian.protocol</groupId>
+          <artifactId>arquillian-protocol-servlet</artifactId>
+          <version>${arquillian.version}</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.spec.javax.interceptor</groupId>
+          <artifactId>jboss-interceptors-api_1.2_spec</artifactId>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.openjdk-orb</groupId>
+          <artifactId>openjdk-orb</artifactId>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                <!-- https://issues.redhat.com/browse/JBWS-4230 -->
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaas/UsernameAuthorizationDigestTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaas/UsernameAuthorizationTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaas/UsernameAuthorizationDigestEjbTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/jaspi/JaspiAuthenticationTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/basic/UsernameTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/oasis/WSSecurityPolicyExamples23xTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/trust/WSTrustTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/cxf/clientConfig/SSLContextElytronClientConfigTestCaseForked*</exclude>
+                <exclude>org/jboss/test/ws/publish/EndpointPublishTestCase*</exclude>
+                <!--https://issues.redhat.com/browse/WFLY-15563 -->
+                <exclude>org/jboss/test/ws/jaxws/cxf/jbws3628/JBWS3628TestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/provider/ProviderJAXBTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/httpbinding/HttpJAXBTestCase*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!--
+    Name:  elytron
+    Descr: Run tests against container with elytron security set instead of the legacy one
+    -->
+    <profile>
+      <id>elytron</id>
+      <activation>
+        <property>
+          <name>elytron</name>
+        </property>
+      </activation>
+      <properties>
+        <additionalGroovyScriptSuffix>-elytron</additionalGroovyScriptSuffix>
+      </properties>
+    </profile>
+
+    <!--
+    Name:  secmgr
+    Descr: Additional testsuite exclusions when running against a container with security manager enabled 
+    -->
+    <profile>
+      <id>secmgr</id>
+      <activation>
+        <property>
+          <name>secmgr</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                <!-- [UNDERTOW-102] Permission check failed for ("java.lang.RuntimePermission" "MODIFY_UNDERTOW_SECURITY_CONTEXT") -->
+                <exclude>org/jboss/test/ws/jaxws/samples/asynch/AsynchTestCase*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!--
+    Name:  wildfly9-secmgr
+    Descr: Additional jvm argumetns to add "-secmgr" flag in server start options" 
+    -->
+    <profile>
+      <id>wildfly9-secmgr</id>
+      <activation>
+        <property>
+          <name>wildfly9-secmgr</name>
+        </property>
+      </activation>
+      <properties>
+          <additionalJvmArgs>-Djava.security.manager</additionalJvmArgs>
+      </properties>
+    </profile>
+    <!--
+    Name:  exclude-integration-tests-BC-related
+    Descr: Additional exclusions of integration tests which require installed JCE Provider Bouncy Castle (AS 7.x)
+    -->
+    <profile>
+      <id>exclude-integration-tests-BC-related</id>
+      <activation>
+        <property>
+          <name>exclude-integration-tests-BC-related</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/basic/SignEncryptGCMTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/basic/AnnotatedSignEncryptTestCase*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    
+    
+    <!--
+    Name:  exclude-integration-tests-unlimited-strength-related
+    Descr: Additional exclusions of integration tests which require installed JCE Unlimited Strength Jurisdiction Policy Files
+    -->
+    <profile>
+      <id>exclude-integration-tests-unlimited-strength-related</id>
+      <activation>
+        <property>
+          <name>exclude-integration-tests-unlimited-strength-related</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/oasis/WSSecurityPolicyExamples22xTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/oasis/WSSecurityPolicyExamples23xTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/trust/WSTrustActAsTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/trust/WSTrustBearerTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/trust/WSTrustHolderOfKeyTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/trust/WSTrustOnBehalfOfTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/trust/WSTrustTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/trust/WSTrustPicketLinkTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/basic/SignEncryptGCMTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/samples/wsse/policy/basic/AnnotatedSignEncryptTestCase*</exclude>
+                <exclude>org/jboss/test/ws/jaxws/cxf/jbws3648/PolicyAttachmentTestCase*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!--
+    Name:  exclude-udp-integration-tests
+    Descr: Additional exclusions of integration tests which require a network environment properly setup for UDP tests
+    -->
+    <profile>
+      <id>exclude-udp-integration-tests</id>
+      <activation>
+        <property>
+          <name>exclude-udp-tests</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                <exclude>org/jboss/test/ws/jaxws/cxf/udp/UDPEndpointAPITestCase*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!--
+    Name:  exclude-ws-discovery-tests
+    Descr: Additional exclusions of WS-Discovery tests which require a network environment properly setup for multicast tests
+    -->
+    <profile>
+      <id>exclude-ws-discovery-tests</id>
+      <activation>
+        <property>
+          <name>exclude-ws-discovery-tests</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                <exclude>org/jboss/test/ws/jaxws/samples/wsdd/WSDiscoveryTestCase*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!--
+    Name:  no-jboss-bind-address
+    Descr: Set the default jboss.bind.address
+
+    command line cannot overwrite pom properties
+    http://jira.codehaus.org/browse/MNG-3546
+    -->
+    <profile>
+      <id>no-jboss-bind-address</id>
+      <activation>
+        <property>
+          <name>!jboss.bind.address</name>
+        </property>
+      </activation>
+      <properties>
+        <jboss.bind.address>localhost</jboss.bind.address>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>default-mgmt-security</id>
+      <activation>
+        <property>
+          <name>!jbossws.deployer.authentication.username</name>
+        </property>
+      </activation>
+      <properties>
+        <surefire.default-mgmt-serurity.args>-Djbossws.deployer.authentication.username=admin -Djbossws.deployer.authentication.password=admin</surefire.default-mgmt-serurity.args>
+      </properties>
+    </profile>
+    <profile>
+      <id>custom-mgmt-security</id>
+      <activation>
+        <property>
+          <name>jbossws.deployer.authentication.username</name>
+        </property>
+      </activation>
+      <properties>
+        <surefire.default-mgmt-serurity.args> </surefire.default-mgmt-serurity.args>
+      </properties>
+    </profile>
+
+  </profiles>
+
+</project>

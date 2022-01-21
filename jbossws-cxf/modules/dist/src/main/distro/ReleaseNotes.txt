@@ -1,0 +1,1832 @@
+
+JBoss Web Services - Stack CXF Distribution
+http://jbossws.jboss.org
+
+Version: jbossws-cxf-5.2.2.Final
+
+Release Notes
+=============
+
+The project home page (http://jbossws.jboss.org) and the official documentation
+(https://docs.jboss.org/author/display/JBWS) are usually good starting points.
+They contain the User Guide and Quick Start instructions.
+
+A list of examples that accompany the UserGuide can be found in the tests directory
+that ship with the distribution.
+
+If you have any questions, please post to the JBossWS User Forum
+https://community.jboss.org/en/jbossws
+
+The issue tracker is at
+https://issues.jboss.org/browse/JBWS
+
+What's new in jbossws-cxf-5.2.4.Final
+-------------------------------------
+
+** Component Upgrade
+    * [JBWS-4136] - Upgrade BouncyCastle to 1.60
+    * [JBWS-4139] - Update to JAXB 2.3.1
+    * [JBWS-4143] - Update Apache CXF from 3.2.5-jbossorg-1 to 3.2.6
+
+** Enhancement
+    * [JBWS-4135] - TCCL not set for JBoss WS deployment
+
+** Bug
+    * [JBWS-4145] - Elytron module dependency is missing in wsprovide and wsconsume modules definitions
+
+** Task
+    * [JBWS-4137] - Enable test against wildfly1500  and drop wildfly1100
+    * [JBWS-4140] - Test with JDK11 on Travis CI
+    * [JBWS-4141] - Ensure all jbossws components can be built with Java 11 
+    * [JBWS-4142] - Dependencies versions update - non cxf components
+
+
+This version of JBossWS is based on Apache CXF 3.2.6
+
+Enjoy,
+The JBossWS Team
+
+
+Previous Releases ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-----------------------
+jbossws-cxf-5.2.3.Final
+-----------------------
+
+Task
+
+    * [JBWS-4134] - Add mechanism for SecurityDomainContext cleanup
+
+This version of JBossWS is based on Apache CXF 3.2.5-jbossorg-1
+
+
+-----------------------
+jbossws-cxf-5.2.2.Final
+-----------------------
+
+Component Upgrade
+
+    * [JBWS-4128] - Upgrade to Apache CXF 3.2.5
+
+Bug
+
+    * [JBWS-4025] - Content of modules-deploy.conf is outdated
+    * [JBWS-4084] - bug in jboss-module cause of 2 testcase failures
+    * [JBWS-4120] - SOAP logging stopped working with WildFly 12 / JBossWS 5.2.0.Final (Apache CXF 3.2.2)
+    * [JBWS-4122] - Can't compile the project with JDK11
+    * [JBWS-4127] - IPV6 test regressions on Jenkins CI
+    * [JBWS-4129] - Can't deploy webservice on JDK11
+
+Task
+
+    * [JBWS-4102] - Investigate warnings in build log
+    * [JBWS-4105] - Move to latest CXF message logging mechanism
+    * [JBWS-4126] - Fix assembly script on windows
+    * [JBWS-4130] - Release jbossws-wildfly130
+    * [JBWS-4132] - Upgrade to ASM 6.2.1
+
+This version of JBossWS is based on Apache CXF 3.2.5-jbossorg-1
+
+
+-----------------------
+jbossws-cxf-5.2.1.Final
+-----------------------
+
+Component Upgrade
+
+    * [JBWS-4093] - Upgrade to Apache CXF 3.2.2
+    * [JBWS-4103] - Upgrade SLF4J dependency
+    * [JBWS-4110] - Upgrade to Apache CXF 3.2.4
+    * [JBWS-4118] - Upgrade to Apache CXF 3.2.4-jbossorg-1
+
+Bug
+
+    * [JBWS-4083] - testcases using wsprovide and wsconsume failure with new -secmgr flag
+    * [JBWS-4095] - Cannot register web service, fails with NullPointerException in DelegateClassLoader
+    * [JBWS-4097] - JAXB doesn't (un)marshall property with @XmlElementRef
+    * [JBWS-4098] - Testsuite server logging doesn't work after migration to gmavenplus-plugin
+    * [JBWS-4104] - Elytron configuration in testsuite no longer working
+    * [JBWS-4107] - wsconsume script is not working on JDK9 and JDK10
+    * [JBWS-4108] - Expired certificates in testsuite
+    * [JBWS-4109] - Failures of response headers checking tests with latest wildfly
+    * [JBWS-4111] - Resource leak in CXFConsumerImpl
+    * [JBWS-4113] - Wsprovide tool doesn't generate/keep class files on JDK9 or JDK10
+    * [JBWS-4114] - DOMUtils incorrectly assumes presence of DocumentBuilderFactory on all CLs
+    * [JBWS-4115] - antrun-wsconsume.xml antrun-wsprovider.xml fails on Windows
+    * [JBWS-4119] - [JDK9+] Package org.jboss.wsf.stack.cxf is present in multiple jars - jbossws-cxf-client, jbossws-cxf-server
+
+Task
+
+    * [JBWS-4089] - Upgrade to JAX-WS API 2.3
+    * [JBWS-4091] - Travis CI jobs
+    * [JBWS-4094] - Update target containers (include WFLY 12)
+    * [JBWS-4099] - JDK10 support
+    * [JBWS-4100] - Add Elytron module dependency to wsprovide wsconsume
+    * [JBWS-4101] - Wsprovide tool ends with java.security.AccessControlException
+    * [JBWS-4106] - Update plugin versions in jbossws-parent
+
+
+This version of JBossWS is based on Apache CXF 3.2.4-jbossorg-1
+
+
+-----------------------
+jbossws-cxf-5.2.0.Final
+-----------------------
+
+Component Upgrade
+
+    * [JBWS-3968] - Upgrade to Apache CXF 3.2
+    * [JBWS-4068] - Upgrade Apache CXF XJC Utils to 3.1.0
+    * [JBWS-4070] - Move to commons-lang3 and Velocity 2
+    * [JBWS-4076] - Upgrade to ASM 5.2
+    * [JBWS-4081] - Upgrade to JAXB impl 2.3.0
+    * [JBWS-4082] - Upgrade to Apache CXF 3.2.1
+
+Feature Request
+
+    * [JBWS-4027] - JDK 9 support
+    * [JBWS-4077] - Add cxf.interceptors.infault and cxf.interceptors.outfault properties to jboss-webservices.xml
+    * [JBWS-4078] - Allow configuration of CXF fault interceptors as JBossWS properties
+
+Bug
+
+    * [JBWS-4035] - BusHolder uses deprecated register() from InstrumentationManagerImpl
+    * [JBWS-4054] - AbstractServerConfig#setWebServiceHost uses local hostname, then fails on verification
+    * [JBWS-4074] - WSDL system property expansion not working on endpoint address
+
+Task
+
+    * [JBWS-4056] - Ensure all tests are written junit4 way
+
+
+This version of JBossWS is based on Apache CXF 3.2.1
+
+
+-----------------------
+jbossws-cxf-5.1.9.Final
+-----------------------
+
+Bug
+
+    * [JBWS-4072] - Inconsistency between WSProvide and WSConsume to show stacktrace
+
+Component Upgrade
+
+    * [JBWS-4065] - Upgrade to Apache CXF 3.1.11
+    * [JBWS-4066] - Upgrade jboss-jaxws-api_2.2_spec and jboss-saaj-api_1.3_spec dependencies
+    * [JBWS-4071] - Upgrade to Apache CXF 3.1.12
+
+Task
+
+    * [JBWS-4041] - Restore JMS tests excluded because of WFLY-7649
+    * [JBWS-4069] - Verify & update SOAP-over-JMS documentation
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3989
+
+This version of JBossWS is based on Apache CXF 3.1.12
+
+
+-----------------------
+jbossws-cxf-5.1.8.Final
+-----------------------
+
+Bug
+
+    * [JBWS-4046] - PostConstruct method not invoked on web service handler
+    * [JBWS-4052] - Maven build is unnecessarily updating org.eclipse.* dependencies everytime
+    * [JBWS-4053] - Build broken against WFLY master due to 'plain-text' attribute moved from 'security-realms' to 'properties-realm'
+    * [JBWS-4062] - java.lang.ClassNotFoundException: org.wildfly.transaction.client.LocalTransactionContext from Module "org.jboss.as.webservices"
+    * [JBWS-4063] - DelegateClassLoader initialization requires privileged block if Security Manager is enabled
+
+Component Upgrade
+
+    * [JBWS-4058] - Upgrade to Apache CXF 3.1.10
+
+Task
+
+    * [JBWS-4055] - Remove the lines with index element in test configuration groovy script
+    * [JBWS-4060] - Exclude org.ow2.asm from cxf-rt-frontend-jaxws in jbossws-cxf-client
+    * [JBWS-4061] - Change ref org.codehaus.woodstox:woodstox-core-asl to com.fasterxml.woodstox:woodstox-core
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3989
+
+This version of JBossWS is based on Apache CXF 3.1.10
+
+
+-----------------------
+jbossws-cxf-5.1.7.Final
+-----------------------
+
+Bug
+
+    * [JBWS-4042] - Custom log4j configuration not being loaded by WSConsume and WSProvide
+    * [JBWS-4050] - JBWS1178TestCase issues
+
+Enhancement
+
+    * [JBWS-4051] - Revisit details on available cryptography for tests
+    * [JBWS-4045] - Upgrade woodstox to 5.x (more changes)
+
+Component Upgrade
+
+    * [JBWS-4049] - Upgrade to Apache CXF 3.1.9
+    * [JBWS-4028] - Upgrade to Apache WSS4J 2.1.8
+    * [JBWS-4044] - Upgrade to Apache Santuario 2.0.8
+
+Task
+
+    * [JBWS-4043] - Fix code to not use default platform dependent encoding - jbossws-common
+    * [JBWS-4048] - Elytron integration
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3989
+
+This version of JBossWS is based on Apache CXF 3.1.9
+
+
+-----------------------
+jbossws-cxf-5.1.6.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3993] - Need to have @org.apache.cxf.annotations.SchemaValidation working on @WebMethod
+    * [JBWS-4024] - WSRMStoreFeatureTestCase regression with Apache CXF 3.1.7 
+
+Enhancement
+
+    * [JBWS-4031] - Avoid array allocation in SubjectCreatingPolicyInterceptor
+    * [JBWS-4038] - few exceptions are ignored, trace level logging should be better option
+
+Component Upgrade
+
+    * [JBWS-4020] - Upgrade to Apache CXF 3.1.7
+    * [JBWS-4033] - Upgrade to Apache CXF 3.1.8
+    * [JBWS-4034] - Upgrade woodstox to 5.x
+
+Task
+
+    * [JBWS-4021] - Update supported target containers
+    * [JBWS-4039] - Fix code to not use default platform dependant encoding
+    * [JBWS-4040] - Support for XTS graceful shutdown
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3989
+
+This version of JBossWS is based on Apache CXF 3.1.8
+
+
+-----------------------
+jbossws-cxf-5.1.5.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3808] - The response-count of the endpoint metrics sometimes not counted
+    * [JBWS-3953] - Coverity reports possible need to use doPrivileged block for MapToBeanConverter
+    * [JBWS-3992] - wsdl diretory is not cleaned on application deploy/undeploy thereby leaving an empty folder under "/wsdl/data" directory
+    * [JBWS-3999] - Testsuite failing on WFLY master because of duplicated https listener
+
+Enhancement
+
+    * [JBWS-3980] - Make removing console log handler during prepare phase of testsuite optional
+    * [JBWS-3997] - jbossws-common - usage of Exception.printStackTrace() instead of logging feature
+
+Feature Request
+
+    * [JBWS-3984] - Add support for cxf-rt-features-clustering in jbossws-cxf
+    * [JBWS-3990] - Upgrade to Apache CXF 3.1.6
+
+Task
+
+    * [JBWS-3995] - Prevent Apache CXF from using ASM from user deployments
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3989
+
+This version of JBossWS is based on Apache CXF 3.1.6
+
+
+-----------------------
+jbossws-cxf-5.1.4.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3964] - Incorrect behaviour with @WebParam(header = true, mode = IN)
+    * [JBWS-3974] - Incorreclty bypass the SecurityManager and call AccessControl.checkPermission() directly
+    * [JBWS-3976] - Two different versions of ASM artifact in client dependency tree
+    * [JBWS-3977] - slf4j is used by ws security related bits, logging bridge probably needed
+    * [JBWS-3985] - CXFHandlerResolverImpl not threadsafe
+
+Enhancement
+
+    * [JBWS-3981] - Remove requirement of org.apache.cxf.impl module dependency for STS deployments
+    * [JBWS-3986] - Improve isolation between integration code and user code
+
+Task
+
+    * [JBWS-3978] - Upgrade to Apache CXF 3.1.5
+    * [JBWS-3975] - Create ASIL for WildFly 10.0.0.Final
+    * [JBWS-3979] - Remove org.apache.santuario.xmlsec dependency from org.jboss.as.webservices.server.integration module
+    * [JBWS-3982] - Clean-up test deployment dependencies
+    * [JBWS-3987] - Loosen BusTestCase::testReuse() checks
+    * [JBWS-3988] - Ignore IDEA files
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3989
+
+This version of JBossWS is based on Apache CXF 3.1.5
+
+
+-----------------------
+jbossws-cxf-5.1.3.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3973] - Disable schema cache to workaround intermittent failure in WFLY testsuite
+
+Task
+
+    * [JBWS-3970] - Migrate from com.sun.xml.bind to org.glassfish.jaxb dependencies
+    * [JBWS-3971] - cxf-rt-*-jandex.jar archives generation not needed anymore
+    * [JBWS-3972] - Upgrade from jboss-servlet-api_3.0_spec to jboss-servlet-api_3.1_spec dependency
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3963
+
+This version of JBossWS is based on Apache CXF 3.1.4
+
+
+-----------------------
+jbossws-cxf-5.1.2.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3957] - publishWsdlImports writes WSDL-XML files with wrong characterset under Windows
+
+Enhancement
+
+    * [JBWS-3966] - Avoid calling BusFactory.setThreadDefaultBus(null) in JBossWSInvoker
+    * [JBWS-3969] - Optimize JBossWSInvoker::invoke
+
+Feature Request
+
+    * [JBWS-3967] - Upgrade to JAXB 2.2.11-jbossorg-1
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3963
+
+This version of JBossWS is based on Apache CXF 3.1.4
+
+
+-----------------------
+jbossws-cxf-5.1.1.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3945] - Set property that causes 400 error message to be returned by apache CXF.
+    * [JBWS-3946] - WS-I BSP test failures about R3217 & R3223
+    * [JBWS-3951] - jbossws-common-tools - BuildFileTest - same branches in if-then-else
+    * [JBWS-3952] - SOAPClientAuthModule - Unwritten field credential
+    * [JBWS-3955] - JBossWS testsuite failure on Windows - CreateProcess error=206, The filename or extension is too long
+    * [JBWS-3956] - Random webservice deployment failure on windows
+    * [JBWS-3959] - schema import failure - JBWS022092: Could not resolve vfs%3A/content...
+
+Enhancement
+
+    * [JBWS-3943] - Clean up test util classes in wsi-bp-tests
+    * [JBWS-3960] - Clearly show the integrated Apache CXF version in containers log
+
+Feature Request
+
+    * [JBWS-3586] - Message log browser functionality
+    * [JBWS-3947] - Add performance tests to the build
+    * [JBWS-3949] - Migrate jbossws-hudson from Hudson to Jenkins
+    * [JBWS-3954] - Upgrade to Apache CXF 3.1.4
+    * [JBWS-3961] - Add WildFly 9.0.2.Final support, remove WildFly 8.2.1.Final support
+
+Task
+
+    * [JBWS-3938] - Upgrade to Apache CXF 3.1.3
+    * [JBWS-3962] - Upgrade jaxws-codefirst-maven-archetype to JBossWS 5.1 series
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3963
+
+This version of JBossWS is based on Apache CXF 3.1.4
+
+
+-----------------------
+jbossws-cxf-5.1.0.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3870] - Imported schemas in weird places in deployments causes issues
+    * [JBWS-3919] - Client-side message context value HTTP_REQUEST_HEADERS is not shared between SOAP handlers
+    * [JBWS-3937] - Build and test failures with IBM JDK 8 (20150711_01 based on Oracle jdk8u51-b15)
+    * [JBWS-3941] - Failure on writing wsdl to disk
+    * [JBWS-3812] - Incorrect value for ws-security.ut.validator
+    * [JBWS-3873] - Web Services can't inherit a JDK8 default method
+    * [JBWS-3910] - Maven archetype jaxws-codefirst has problems on JDK8
+    * [JBWS-3911] - Validate value of wsdl-path-rewrite-rule when setting it
+    * [JBWS-3914] - Arquillian is unable to start server during testsuite when running with 32-bit JDK
+    * [JBWS-3922] - Do not copy org.jboss.wsf.spi.deployment.Endpoint properties into CXF EndpointImpl
+    * [JBWS-3926] - EndorseTestCase#testClientSide() is not run
+    * [JBWS-3928] - jbws-testsuite-jms.groovy script breaks build with WFLY 10
+    * [JBWS-3933] - Exclude of jcl-over-slf4j for org.apache.cxf:cxf-rt-transports-http-hc is needed
+
+Enhancement
+
+    * [JBWS-3940] - Update and migrate wsi bp tests suite with arquillian and new test utilities
+    * [JBWS-3916] - Remove the workaround for JBWS-3843
+    * [JBWS-3920] - Default to using original thread for processing one-way messages
+    * [JBWS-3921] - Get rid of unrequired MessagePropertySettingInterceptor
+
+Feature Request
+
+    * [JBWS-3865] - Add ability to consume jboss-webservices.xml located in META-INF of EAR archive
+    * [JBWS-3883] - Upgrade to Apache CXF 3.0.5
+    * [JBWS-3931] - Upgrade to Apache CXF 3.1.2
+
+Task
+
+    * [JBWS-3942] - Upgrade to Apache CXF 3.1.2-jbossorg-2
+    * [JBWS-3885] - Drop Spring integration
+    * [JBWS-3907] - Add ws-rm test which configures RMManager/RMStore without spring
+    * [JBWS-3908] - Restore automatic errata file generation
+    * [JBWS-3913] - Create WildFly 9.0 ASIL
+    * [JBWS-3915] - Upgrade to JAXB 2.2.11
+    * [JBWS-3923] - Provide option for controlling Surefire console log redirect
+    * [JBWS-3924] - Move project sources to GitHub
+    * [JBWS-3925] - Update Hudson configuration to consume sources from GitHub
+    * [JBWS-3927] - Remove java.endorsed.dirs requirement for properly setup clients
+    * [JBWS-3929] - Remove support for JDK 1.7
+    * [JBWS-3932] - Use different jandex for processing CXF jars depending on target container
+    * [JBWS-3934] - Add WildFly 8.2.1.Final and 9.0.1.Final as supported target containers
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3944
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 3.1.2-jbossorg-2
+
+
+-----------------------
+jbossws-cxf-5.0.1.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3812] - Incorrect value for ws-security.ut.validator
+    * [JBWS-3873] - Web Services can't inherit a JDK8 default method
+    * [JBWS-3910] - Maven archetype jaxws-codefirst has problems on JDK8
+    * [JBWS-3911] - Validate value of wsdl-path-rewrite-rule when setting it
+    * [JBWS-3914] - Arquillian is unable to start server during testsuite when running with 32-bit JDK
+    * [JBWS-3922] - Do not copy org.jboss.wsf.spi.deployment.Endpoint properties into CXF EndpointImpl
+    * [JBWS-3926] - EndorseTestCase#testClientSide() is not run
+    * [JBWS-3928] - jbws-testsuite-jms.groovy script breaks build with WFLY 10
+    * [JBWS-3933] - Exclude of jcl-over-slf4j for org.apache.cxf:cxf-rt-transports-http-hc is needed
+
+Enhancement
+
+    * [JBWS-3916] - Remove the workaround for JBWS-3843
+    * [JBWS-3920] - Default to using original thread for processing one-way messages
+    * [JBWS-3921] - Get rid of unrequired MessagePropertySettingInterceptor
+
+Feature Request
+
+    * [JBWS-3883] - Upgrade to Apache CXF 3.0.5
+    * [JBWS-3930] - Upgrade to Apache CXF 3.0.6
+
+Task
+
+    * [JBWS-3907] - Add ws-rm test which configures RMManager/RMStore without spring
+    * [JBWS-3908] - Restore automatic errata file generation
+    * [JBWS-3913] - Create WildFly 9.0 ASIL
+    * [JBWS-3915] - Upgrade to JAXB 2.2.11
+    * [JBWS-3923] - Provide option for controlling Surefire console log redirect
+    * [JBWS-3924] - Move project sources to GitHub
+    * [JBWS-3925] - Update Hudson configuration to consume sources from GitHub
+    * [JBWS-3927] - Remove java.endorsed.dirs requirement for properly setup clients
+    * [JBWS-3932] - Use different jandex for processing CXF jars depending on target container
+    * [JBWS-3934] - Add WildFly 8.2.1.Final and 9.0.1.Final as supported target containers
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3936
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 3.0.6
+
+-----------------------
+jbossws-cxf-5.0.0.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3773] - HttpServletRequest in WebServiceContext and requests with WSA ReplyTo prop set
+    * [JBWS-3777] - CXF-5645: wsp:Optional isn't adhered to for WS-RM policy in WSDL
+    * [JBWS-3786] - @Resource injection not working on handlers attached to JAX-WS clients running in-container
+    * [JBWS-3796] - CXFHandlerResolverImpl initializes handlers at each getHandlerChain() invocation
+    * [JBWS-3798] - @WebEndpoint name not considered when building up webservicerefs
+    * [JBWS-3802] - Empty response returned when SOAP Fault is thrown from an endpoint having WS-Security Policy Signature profile
+    * [JBWS-3809] - AbstractDeployment#addEndpoint's check on urlPattern performed on wrong data
+    * [JBWS-3810] - Resolve  "WARNING [org.apache.cxf.catalog.OASISCatalogManager]"
+    * [JBWS-3820] - JAXWS 2.1 / 2.0 style clients and WebServiceRef using JAXWS features cause NoSuchMethodException
+    * [JBWS-3821] - WebServiceRef injection not working properly with TCCL and NEW client Bus selection strategies
+    * [JBWS-3816] - WSTrustActAsTestCase.testActAs failing with move to CXF 3.0.2/2.7.13
+    * [JBWS-3827] - WSDL publisher incorrectly attempt to publish external HTTPS import
+    * [JBWS-3830] - WSProvideTask "address" option not working
+    * [JBWS-3831] - Failure of test org.jboss.test.ws.jaxws.samples.wsse.policy.oasis.WSSecurityPolicyExamples23xTestCase
+    * [JBWS-3838] - Predefined configuration handlers executing in different order when server is restarted
+    * [JBWS-3842] - Cannot boot server with 2+ handlers in the same predefined configuration handler chain
+    * [JBWS-3843] - Username Token Digest Authentication failure with EJB3 endpoints
+    * [JBWS-3847] - Memory leak in JBoss WS CXF Client's HandlerChainSortInterceptor
+    * [JBWS-3851] - WSDL publisher incorrectly attempt to publish external HTTPS schema import
+    * [JBWS-3839] - excessive ERROR logging on webservices invocation if SoapFault
+    * [JBWS-3854] - EndpointConfigAdd does not set required PropertyService dependencies
+    * [JBWS-3855] - Cannot boot server with 2+ handler-chains in the same predefined configuration
+    * [JBWS-3857] - Wrong content type (text/xml) in outgoing multipart SOAPMessage (expected multipart/related; ...)
+    * [JBWS-3858] - Misconfigured TCCL during endpoint method invocations when Spring integration is enabled
+    * [JBWS-3862] - NPE when building a PortComponentMetadata with no wsdlPort
+    * [JBWS-3863] - @MTOM.enabled is not honored
+    * [JBWS-3869] - To configure CXF StAX properties on a per-endpoint/client basis if a JAX-WS handler is configured
+    * [JBWS-3845] - Injection not working in JAX-WS handlers from predefined configurations
+    * [JBWS-3876] - Build failures with JDK 1.8
+    * [JBWS-3889] - Fix test failures with IPv6 
+    * [JBWS-3902] - Missing cxf-xjc-runtime.jar artifact
+    * [JBWS-3905] - Use original thread for ejb webservice oneway operation to avoid authorization failure
+
+Enhancement
+
+    * [JBWS-3782] - Allow to specify config name and additional value for JAVA_OPTS for launched appclient
+    * [JBWS-3795] - Improve and fix org.jboss.ws.api.handler.* classes
+    * [JBWS-3807] - Move wsconsume execution to generate-test-sources phase of the build
+    * [JBWS-3848] - Optimize HandlerChainSortInterceptor
+    * [JBWS-3850] - Move SubjectCreatingPolicyInterceptor to PRE_PROTOCOL interceptor phase
+    * [JBWS-3668] - Arquillian integration in testsuite
+    * [JBWS-3813] - Add exception name to faultstring/detail/stackTrace
+    * [JBWS-3738] - Expand WS-Trust / STS test coverage and documentation
+    * [JBWS-3904] - WSDL contract retrieval enhancement and early availability check
+
+Feature Request
+
+    * [JBWS-3628] - Add system property expansion capability to .wsdl files
+    * [JBWS-3630] - Enable CXF Asynch Client HTTP transport
+    * [JBWS-3686] - Upgrade to Apache CXF 3.0.0
+    * [JBWS-3733] - Allow enabling/disabling endpoint metrics
+    * [JBWS-3750] - Add ability to rewrite path in WSDL URL references
+    * [JBWS-3785] - Add option for forcing https protocol when rewriting soap:addres in WSDL
+    * [JBWS-3811] - Upgrade to Apache CXF 3.0.1
+    * [JBWS-3815] - Add mechanism for setting system properties while running JBossWS tests
+    * [JBWS-3822] - Default to TCCL bus selection strategy for clients running in-container
+    * [JBWS-3514] - HTTP session scope support
+    * [JBWS-3789] - Enable WS-Security streaming (StAX) support
+    * [JBWS-3805] - Allow overriding soap:address rewrite options in jboss-webservices.xml
+    * [JBWS-3817] - Avoid globally installing BouncyCastle
+    * [JBWS-3818] - Upgrade to Apache CXF 3.0.2
+    * [JBWS-3826] - Add support for encoding option in JAX-WS tools
+    * [JBWS-3832] - Different default Spring descriptor name for creating client and server Bus instances
+    * [JBWS-3835] - Add mechanism for restarting target container while running JBossWS tests
+    * [JBWS-3836] - Convention for automatic predefined client/endpoint configuration retrieval
+    * [JBWS-3837] - Apache CXF interceptors setup through properties
+    * [JBWS-3840] - jboss-webservices.xml support for Apache CXF interceptor properties
+    * [JBWS-3797] - Let @WebContext(virtualHost...) affect endpoint address
+    * [JBWS-3849] - Upgrade to Apache CXF 3.0.3
+    * [JBWS-3868] - Upgrade to Apache CXF 3.0.4
+    * [JBWS-3875] - Allow setting CXF features using properties on client/endpoint configs and in jboss-webservices.xml
+    * [JBWS-3879] - Convention for declaring interceptor and feature parameters through properties
+    * [JBWS-3901] - Allow configuring default HTTP Conduit
+
+Task
+
+    * [JBWS-3711] - Refactor exising tests to use ShrinkWrap
+    * [JBWS-3779] - Final cleanup of JAX-RPC
+    * [JBWS-3780] - Drop JBoss AS 7.2.x integration
+    * [JBWS-3784] - Remove appclient-ws.xml
+    * [JBWS-3788] - Add catalog testcase
+    * [JBWS-3790] - Add maven profile for disabling UDP tests
+    * [JBWS-3791] - Make jbossws-cxf-test-utils a top level module
+    * [JBWS-3793] - Final refactoring of jbossws-spi metadata
+    * [JBWS-3794] - Create WildFly 8.1 ASIL
+    * [JBWS-3799] - Upgrade to JAXB 2.2.7
+    * [JBWS-3800] - Review the required elements under webservice subystem
+    * [JBWS-3804] - Remove some DeploymentAspect which is not needed 
+    * [JBWS-2680] - Authentication realm name hard-coded as "EJBServiceEndpointServlet Realm"
+    * [JBWS-3803] - Revisit doc on running JBWS testsuite in IDE
+    * [JBWS-3841] - Upgrade to Woodstox 4.4.1
+    * [JBWS-3852] - Change RemoteDeployer to add security domain default with cache-type 
+    * [JBWS-3859] - Create WildFly 8.2 ASIL
+    * [JBWS-3860] - Require JDK 1.7+ for building JBossWS
+    * [JBWS-3861] - Fix tests failing when running against a container not bound to localhost
+    * [JBWS-3846] - Refactor creation process of jaxws handlers from predefined configurations
+    * [JBWS-3871] - Remove dependency on org.jboss:jboss-common-core
+    * [JBWS-3872] - Drop JBossEntityResolver usage
+    * [JBWS-3874] - Move JMS tests from cxf-spring-tests to cxf-tests module
+    * [JBWS-3877] - EndpointRegistry SPI cleanup
+    * [JBWS-3878] - Deal with javadoc warnings
+    * [JBWS-3882] - Add IPv6 jobs to Hudson
+    * [JBWS-3884] - Deprecate Spring integration
+    * [JBWS-3886] - Add option for easily testing with IPv6
+    * [JBWS-3900] - Throw proper exception instead of NPE for invalid url access 
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3909
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 3.0.4
+
+
+-----------------------
+jbossws-cxf-4.3.2.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3816] - WSTrustActAsTestCase.testActAs failing with move to CXF 3.0.2/2.7.13
+    * [JBWS-3831] - Failure of test org.jboss.test.ws.jaxws.samples.wsse.policy.oasis.WSSecurityPolicyExamples23xTestCase
+    * [JBWS-3838] - Predefined configuration handlers executing in different order when server is restarted
+    * [JBWS-3842] - Cannot boot server with 2+ handlers in the same predefined configuration handler chain
+    * [JBWS-3843] - Username Token Digest Authentication failure with EJB3 endpoints
+    * [JBWS-3847] - Memory leak in JBoss WS CXF Client's HandlerChainSortInterceptor
+
+Enhancement
+
+    * [JBWS-3848] - Optimize HandlerChainSortInterceptor
+
+
+Feature Request
+
+    * [JBWS-3819] - Allow parametrization of web connector created within TS execution
+
+Task
+
+    * [JBWS-3844] - Upgrade to Apache CXF 2.7.13
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3853
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 2.7.13
+
+
+-----------------------
+jbossws-cxf-4.3.1.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3773] - HttpServletRequest in WebServiceContext and requests with WSA ReplyTo prop set
+    * [JBWS-3777] - CXF-5645: wsp:Optional isn't adhered to for WS-RM policy in WSDL
+    * [JBWS-3786] - @Resource injection not working on handlers attached to JAX-WS clients running in-container
+    * [JBWS-3796] - CXFHandlerResolverImpl initializes handlers at each getHandlerChain() invocation
+    * [JBWS-3798] - @WebEndpoint name not considered when building up webservicerefs
+    * [JBWS-3809] - AbstractDeployment#addEndpoint's check on urlPattern performed on wrong data
+    * [JBWS-3820] - JAXWS 2.1 / 2.0 style clients and WebServiceRef using JAXWS features cause NoSuchMethodException
+    * [JBWS-3821] - WebServiceRef injection not working properly with TCCL and NEW client Bus selection strategies
+
+Enhancement
+
+    * [JBWS-3782] - Allow to specify config name and additional value for JAVA_OPTS for launched appclient
+
+Feature Request
+
+    * [JBWS-3787] - Upgrade to Apache CXF 2.7.11
+    * [JBWS-3823] - Upgrade to Apache CXF 2.7.12
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3825
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 2.7.12
+
+
+-----------------------
+jbossws-cxf-4.3.0.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3620] - Authentication failures w/ Undertow
+    * [JBWS-3670] - Spring declared endpoints, AS components and injection
+    * [JBWS-3707] - AbstractCommonConfig is not thread safe
+    * [JBWS-3709] - WSDiscoveryTestCase failures related to network environment
+    * [JBWS-3721] - UDP endpoint failure in pure IPv6 environment
+    * [JBWS-3722] - jbossws-cxf-client is using 2.1 version of jaxb-impl
+    * [JBWS-3736] - soap:address rewrite does not consider wsdlLocation in SEI @WebService
+    * [JBWS-3741] - WebService doesn't support "//" 
+    * [JBWS-3742] - EndpointMetricsImpl is not thread-safe
+    * [JBWS-3749] - update build-testsuite.xml to reflect new location of netty module in wildfly 8.0.0
+    * [JBWS-3766] - Null value of POJOEndpoint.viewName causes NullPointerException when building service on JDK 1.8
+    * [JBWS-3772] - ServerConfig#getWebServiceSecurePort returns wrong default value on WFLY
+
+Enhancement
+
+    * [JBWS-3662] - dynamic registration of Bouncy Castle JCE provider in cxf specific tests
+    * [JBWS-3689] - Ensure consistent state of server config is always used
+    * [JBWS-3691] - Prevent race condition in default webservice port retrieval mechanism
+    * [JBWS-3702] - Provide an Undertow based alternative to jbossws-cxf-transports-httpserver
+    * [JBWS-3708] - Enforce client/endpoint config immutability at runtime
+    * [JBWS-3737] - Build PolicyAttachmentStore when the first @PolicySets annotation is found
+    * [JBWS-3739] - Enforce jbossws-spi metadata immutability
+    * [JBWS-3743] - Block HTTP GET requests with no query string
+    * [JBWS-3747] - Higher precision in endpoint metrics
+    * [JBWS-3753] - Improve destination matching when processing requests
+    * [JBWS-3756] - Add permission checks to sensitive public static methods
+
+Feature Request
+
+    * [JBWS-3676] - Minor dependency cleanup in jbossws-common
+    * [JBWS-3734] - Upgrade to Apache CXF 2.7.8
+    * [JBWS-3744] - Remove published wsdl files during app undeployment
+    * [JBWS-3745] - Allow disabling Nagle's algorithm on Web Service calls
+    * [JBWS-3752] - Upgrade to Apache CXF 2.7.10
+    * [JBWS-3767] - Implement JASPIC SOAP profile
+
+Task
+
+    * [JBWS-3664] - Upgrade JavaEE specs dependencies to latest versions
+    * [JBWS-3728] - Add a callback handler mechanism for controlling attribute updates in AbstractServerConfig
+    * [JBWS-3732] - Check for endpoint-config existence when processing @EndpointConfig
+    * [JBWS-3740] - Drop JBoss AS 7.1.x integration
+    * [JBWS-3746] - Hudson cleanup
+    * [JBWS-3751] - Upgrade to Apache WSS4J 1.6.14
+    * [JBWS-3754] - Fix Netty dependency version issues (testsuite against WFLY 8)
+    * [JBWS-3755] - Provide mechanism for knowing when running in-container
+    * [JBWS-3762] - Upgrade PicketLink and PicketBox dependencies
+    * [JBWS-3765] - Run integration tests in alphabetical order to increase error reproducibility
+    * [JBWS-3768] - Fix issues with CXF Conduit re-use and tests modifying client conduits
+    * [JBWS-3769] - Ensure URLConnection inputstreams are properly closed in the testsuite
+    * [JBWS-3774] - JBossWS 4.3.0.Final errata
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3774
+
+Migration notes
+
+    See: https://community.jboss.org/wiki/JBossWS430MigrationNotes
+
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 2.7.10
+
+
+-----------------------
+jbossws-cxf-4.2.3.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3727] - NPE in org.jboss.wsf.stack.cxf.interceptor.HandlerAuthInterceptor
+
+Feature Request
+
+    * [JBWS-3730] - Allow disabling JAXWS handler authorization for EJB3 endpoints
+
+Task
+
+    * [JBWS-3663] - Remove eclipse warnings
+    * [JBWS-3723] - Remove io.netty:netty exclusion from jbossws-native dependency in jbossws-cxf main pom
+    * [JBWS-3725] - Set verify-client flag on htts listener in WSSecurityPolicyExamples23xTestCase
+    * [JBWS-3726] - Fix InContainerClientBusStrategyTestCase failures on IBM JDK
+    * [JBWS-3729] - Fix org.jboss.test.ws.jaxws.cxf.noIntegration.CXFEndpointServlet
+    * [JBWS-3731] - Control and document behavior regarding thread default bus changes depending on client bus selection strategy
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3706
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 2.7.7
+
+
+-----------------------
+jbossws-cxf-4.2.2.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3680] - SOAP 1.2 fault reason xml:lang attribute not properly parsed on client side
+    * [JBWS-3690] - XMLJavaTypeAdapter not working in Exception Classes
+    * [JBWS-3710] - appclient test failures against WFLY master
+    * [JBWS-3712] - Wrong processing of compressed zero (::) format IPv6 addresses
+    * [JBWS-3715] - Custom SOAPConnectionFactory not used in-container
+    * [JBWS-3717] - EndpointResolver implementations do not verify endpoint state before using endpoint
+    * [JBWS-3719] - ServiceContainerEndpointRegistry#getRegisteredEndpoints() returns set containing null
+    * [JBWS-3720] - Missing SOAPHandler compatible extension of ConfigDelegateHandler
+
+Enhancement
+
+    * [JBWS-3667] - Support to create deployment archives directly in testcase using shrinkwrap
+
+Feature Request
+
+    * [JBWS-3713] - Allow better control over Apache CXF bus creation for JAXWS clients
+
+Task
+
+    * [JBWS-3378] - JSR 109 - explicit JAXWS handler authorization for EJB3 endpoints
+    * [JBWS-3625] - Fix the WS-I BSP test failures  
+    * [JBWS-3688] - Upgrade to Apache CXF 2.7.7
+    * [JBWS-3714] - Fix test support classes for use with non compressed-zero format IPv6 addresses
+    * [JBWS-3716] - Reveal hidden exception when running EJB3ClientBusTestCase with IPv6
+    * [JBWS-3718] - Upgrade to JBossWS Native 4.1.2.Final
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3706
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 2.7.7
+
+
+-----------------------
+jbossws-cxf-4.2.1.Final
+-----------------------
+
+Bug
+
+    * [JBWS-3652] - AbstractServerConfig.toIPv6URLFormat should not add brackets to IPv6 hostname
+    * [JBWS-3661] - Allow multiple subcodes in a SOAP 1.2 fault
+    * [JBWS-3677] - Save container registry in ServerConfigService.start() instead of install()
+    * [JBWS-3679] - @WebServiceRef injection of co-located client with no specified wsdlLocation is not working
+    * [JBWS-3684] - AbstractServerConfig is not fully thread safe
+    * [JBWS-3687] - Intermittent failures caused by JBWS1178TestCase
+    * [JBWS-3695] - Fix transient failures in ContinuationsTestCase
+    * [JBWS-3697] - WSConsume fails on OpenJDK 6
+
+Enhancement
+
+    * [JBWS-3666] - Eclipse import of existing maven projects - remove errors "Plugin execution not covered by lifecycle configuration"
+    * [JBWS-3692] - Fix transient failures in JBWS2150TestCaseForked
+    * [JBWS-3694] - CopyJob fix & improvement
+
+Feature Request
+
+    * [JBWS-3699] - Add WebServiceFeature for creating JAXWS Service in a new CXF Bus
+
+Task
+
+    * [JBWS-3681] - Add to testsuite profiles allowing to exclude tests requiring Bouncy Castle JCE provider or unlimited strength cryptography installed
+    * [JBWS-3685] - JBossWS testsuite execution against WFLY w/ security manager enabled
+    * [JBWS-3696] - Make AppclientHelper timeout configurable
+    * [JBWS-3698] - Fix regressions in SOAP-over-JMS testcases on WildFly 8.0.0.Alpha3
+    * [JBWS-3703] - Early initialize WSSConfig (including BouncyCaste JCE provider registration)
+    * [JBWS-3705] - Fix JBWS1807TestCase
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3706
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 2.7.6
+
+
+-----------------------
+jbossws-cxf-4.2.0.Final
+-----------------------
+
+Feature Request
+
+    * [JBWS-3138] - Better support for local WSDL deployment configurations (e.g., wsimport -clientjar)
+    * [JBWS-3396] - Partial generation of jbossws-cxf.xml descriptor
+    * [JBWS-3524] - Resolve system property references in jboss-webservices.xml
+    * [JBWS-3589] - Set custom CXF compiler instance to be used in WSDLToJava
+    * [JBWS-3591] - Provide WebServiceFeature for initializing JAXWS Port
+    * [JBWS-3592] - Provide WebServiceFeature for setting predefined client configs
+    * [JBWS-3595] - Provide alternative SOAP-over-UDP transport
+    * [JBWS-3596] - Provide support for WS-Discovery
+    * [JBWS-3611] - Allow JBossWebservicesMetaData to be passed to EndpointPublisher.publish in SPI
+    * [JBWS-3648] - WS-Policy code-first improvements
+
+Bug
+
+    * [JBWS-3541] - SubjectCreatingInterceptor.createSubject does not return principals in the correct order
+    * [JBWS-3585] - @XMLJavaTypeAdapter ignored when used on setters in Exception Classes
+    * [JBWS-3594] - WSConsume fails when invoked from Ant task on JDK7
+    * [JBWS-3597] - JBWS2241TestCase assumes AS allows invocation of no security role restricted methods
+    * [JBWS-3601] - SOAPFaultException cannot render SOAP 1.2 Fault Subcode in CXF
+    * [JBWS-3602] - Missing javax.servlet.api dependency in org.jboss.ws.jaxws-client AS module
+    * [JBWS-3603] - JBossWS client configuration not working on Dispatch
+    * [JBWS-3608] - JBWS1702TestCase testInheritanceBare failure on IBM JDK 7 
+    * [JBWS-3609] - ClientSpringAppTestCase failures on IBM JDK
+    * [JBWS-3613] - WSConsume fails on IBM JDK6
+    * [JBWS-3638] - Fix SecurityDomainTestCase failure only happens with IBM JDK6
+    * [JBWS-3639] - Add more timeout value for the thread join to fix the JBWS1666TestCase failure on Windows
+    * [JBWS-3640] - Failed to  get jmx connection in JBWS2150TestCaseForked on Windows
+    * [JBWS-3645] - WorkQueueManager is not registered in JMX Server when cxf.management is enabled
+    * [JBWS-3647] - Client/EndpointConfig in ServerConfig should be fully thread-safe lists
+    * [JBWS-3650] - CXF XSD resolution is not working
+    * [JBWS-3653] - soap:address of generated WSDLs never uses the wsdl-host defined in webservices subsystem
+    * [JBWS-3654] - Intermittent failure in EndpointPublisherImpl
+    * [JBWS-3655] - wsdlLocation in ejb-jar throws error for schema import
+    * [JBWS-3659] - XTS services start endpoint with error JBWS022103: Cannot start endpoint in state STARTED
+    * [JBWS-3660] - Intermittent failure in ResourceResolverDeploymentAspect
+    * [JBWS-3669] - DelegateClassLoader: avoid needing read permission when getting resources through ModuleClassLoader
+    * [JBWS-3671] - AbstractServerConfig keep stale reference to server config after reboot
+
+Task
+
+    * [JBWS-3560] - Unlock FastInfoset feature in CXF on top of JBossAS
+    * [JBWS-3566] - Upgrade to Apache CXF 2.7
+    * [JBWS-3587] - WS-I BP 1.2 testsuite
+    * [JBWS-3600] - Support for AS 8 as target container
+    * [JBWS-3606] - Add proper way to identify the cxf and native stack 
+    * [JBWS-3614] - Move to WSS4J 1.6.10
+    * [JBWS-3618] - Add wstx dependency to org.apache.cxf module
+    * [JBWS-3619] - Backport the RemoteDeployer timeout setting to AS 7.2 integration layer 
+    * [JBWS-3621] - Replace HttpServletResponseExt with HttpServletResponseWrapper
+    * [JBWS-3622] - Restore HTTPS tests w/ Undertow
+    * [JBWS-3627] - JBoss AS -> WildFly scripts migration
+    * [JBWS-3629] - Add Woodstox 4.2.0 to binary distro
+    * [JBWS-3634] - Add kerberos token test
+    * [JBWS-3636] - Dismantle jbossws-shared-testsuite
+    * [JBWS-3642] - Replace gnu-getopt:getopt with gnu.getopt:java-getopt
+    * [JBWS-3643] - Review EndpointRegistry container integration
+    * [JBWS-3644] - Review SPI resolution mechanism
+    * [JBWS-3649] - Invoke LifecycleHandler in EndpointService 
+    * [JBWS-3651] - Reduce need for explicit dependency on org.apache.ws.security module
+    * [JBWS-3656] - Upgrade Apache Santuario to 1.5.5
+    * [JBWS-3665] - Upgrade to PicketLink 2.1.7.Final
+    * [JBWS-3674] - Allow WebSerivceFactory to parse new {http://xmlns.jcp.org/xml/ns/javaee}webservice element 
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3675
+
+This version of "JBoss Web Services - Stack CXF Distribution" is based on Apache CXF 2.7.6
+
+
+-----------------------
+jbossws-cxf-4.1.1.Final
+-----------------------
+
+Bug
+
+    [JBWS-3552] - @XmlJavaTypeAdapter ignored on exception classes
+    [JBWS-3568] - Registering endpoints with EndpointPublisher using same context results in DuplicateServiceException
+    [JBWS-3569] - WSDL produced for a multi-port service contains invalid port addresses in clustered configuration
+    [JBWS-3571] - SOAPAddressWSDLParser does not process wsdl imports
+    [JBWS-3579] - Fix MetadataBuilder.processWSDDContribution() port-component matching (JSR 109)
+
+Enhancement
+
+    [JBWS-3570] - Revisit and improve soap:address rewrite functionality
+    [JBWS-3580] - Optimize AbstractWSDLFilePublisher performances
+
+Feature Request
+
+    [JBWS-3561] - Allow enabling CXF MBean management in jboss-webservices.xml
+
+Task
+
+    [JBWS-3426] - Review AS7 EndpointPublisherImpl integration
+    [JBWS-3551] - Extend UnifiedVirtualFile API with no-check findChild methods
+    [JBWS-3565] - Simplify WS Ref creation process
+    [JBWS-3567] - Upgrade to Apache WSS4J 1.6.8
+    [JBWS-3572] - Upgrade to Apache CXF 2.6.4
+    [JBWS-3573] - Review Coverity reports for JBossWS projects
+    [JBWS-3576] - Centralize ServerConfig retrieval
+    [JBWS-3577] - Turn RequestHandler and LifecycleHandler into singletons
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3582
+
+This version of JBoss Web Services - Stack CXF Distribution is based on Apache CXF 2.6.4
+
+
+--------------------
+jbossws-cxf-4.0.2.GA
+--------------------
+
+Bug
+
+    * [JBWS-3297] - javax.xml.ws.service getport not generate correct wsdl url
+    * [JBWS-3362] - no schemaimport for swaref in generated wsdl
+    * [JBWS-3424] - CXF does not return status code 202 when Oneway webservice is invoked via HTTP
+    * [JBWS-3430] - SubjectCreatingPolicyInterceptor does not perform authentication for CXF SecurityContext principals
+    * [JBWS-3431] - JBossWS-CXF integration hides Apache CXF WebServiceContext::getUserPrincipal implementation
+    * [JBWS-3432] - WebservicesFactory can't parse webservices.xml with javaee:descriptionGroup references
+    * [JBWS-3440] - wsconsume chokes on wsdl containing element referring its schema
+
+Feature Request
+
+    * [JBWS-3439] - Upgrade to Apache WSS4J 1.6.5 and Santuario 1.5.1
+
+Task
+
+    * [JBWS-3436] - Set Apache WSS4J and Santuario direct dependencies
+    * [JBWS-3442] - Verify dependencies are up to date
+    * [JBWS-3447] - Properly set classpath for valid JAXWS Provider resolution in binary distro testsuite
+    * [JBWS-3437] - WS Refs have to keep classloader reference
+    * [JBWS-3438] - JAX-RPC generated proxies have to be de/serializable
+    * [JBWS-3444] - Review and rewrite appclient tests
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3449
+
+This version of JBoss Web Services - Stack CXF Distrubiton is based on Apache CXF 2.4.6
+
+
+--------------------
+jbossws-cxf-4.0.1.GA
+--------------------
+
+Bug
+
+    * [JBWS-3262] - Fix JBWS1582TestCase for CXF stack.
+    * [JBWS-3413] - java.xml.ws.spi.Provider resolution is JVM implementation specific
+    * [JBWS-3414] - DeploymentAspectManagerImpl does not properly deal with deployment failures
+    * [JBWS-3421] - EndpointRegistryDeploymentAspect can't properly deal with AS7 domain reloads
+
+Feature Request / Enhancement
+
+    * [JBWS-3408] - maven-jaxws-tools-plugin <target> option is undocumented
+    * [JBWS-3420] - Enhance deployment performance by simplifying connector conf retrieval
+
+Task
+
+    * [JBWS-3388] - Switch to remoting-jmx for tests using JMX to connect to the server
+    * [JBWS-3395] - Avoid CXFInstanceProvider thowing NPE when the endpoint ServiceBean is not available
+    * [JBWS-3410] - Upgrade to Apache CXF 2.4.6
+    * [JBWS-3412] - Add WS-Security Policy (sign+encrypt) testcase with multiple clients support
+    * [JBWS-3419] - Restore managed endpoint registry
+    * [JBWS-3422] - Review and enable passing serviceref/webserviceref tests
+    * [JBWS-3425] - Upgrade to JAXB 2.2.4
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3427
+
+This version of JBoss Web Services - Stack CXF Distrubiton is based on Apache CXF 2.4.6
+
+
+--------------------
+jbossws-cxf-4.0.0.GA
+--------------------
+
+Bug
+
+    * [JBWS-3398] - MetadataBuilder does not re-use WebserviceMetadata parsed into AS integration layer
+
+Task
+
+    * [JBWS-3281] - Create a migration guide to JBossWS 4.0 / AS 7 integration
+    * [JBWS-3373] - port component link servlet on AS7
+    * [JBWS-3389] - Fix org.jboss.test.ws.jaxws.cxf.jms_http.JMSHTTPEndpointDeploymentTestCase regression
+    * [JBWS-3393] - Remove support for AS6 as target container
+    * [JBWS-3399] - Add WS-* samples into JBossWS-CXF binary distribution
+    * [JBWS-3401] - Support deployment of EJB3 endpoints bundled in war archives referencing WSDL that is importing XML schema(s)
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3403
+
+
+---------------------
+jbossws-cxf-4.0.0.CR1
+---------------------
+
+Bug
+
+    * [JBWS-3088] - Failures/regressions with WSTF Scenario 3 (JAXWS + WSA) intreop tests on AS trunk/CXF and AS 6.0.0.M3/Native
+    * [JBWS-3193] - JBossWS-CXF - 'nocompile' and 'source' option for wsconsume (command line) generates .java files into output directory not source directory
+    * [JBWS-3198] - EPR's address is NOT used  for invocations on the endpoint when the dispatchImpl is created with EPR
+    * [JBWS-3247] - Endpoint TCCL is not updated after the enclosing deployment is redeployed
+    * [JBWS-3260] - modifySOAPAddress = true ends up rewriting WSDLS for WebServiceClient code as well
+    * [JBWS-3270] - AS7 org.jboss.as.webservices:main module should not have any stack specific dependencies
+    * [JBWS-3199] - AbstractServerConfig.toIPv6URLFormat throws java.net.UnknownHostException
+    * [JBWS-3201] - WSConsume does not generate operation fault in WSDL when the WS method throws java.lang.Exception.
+    * [JBWS-3269] - WSA implementation does not throw wsa:InvalidCardinality exception when there is a greater than expected number of the specified header.
+    * [JBWS-3292] - IllegalArgumentException: wrong number of arguments with jbossws-cxf Dispatch/Provider service
+    * [JBWS-3298] - CXF throws java.lang.UnsupportedOperationException when a OneWay webservice is invoked via HTTP
+    * [JBWS-3305] - CXF wrongly assumes that code using WSA must be employing a request-reply exchange
+    * [JBWS-3304] - XTS testsuite failures/regressions due to JBWS-CXF upgrades in AS7
+    * [JBWS-3306] - No XPathFactory implementation found by a JAXWS client on AS7
+    * [JBWS-3321] - Enhance ModelDeploymentAspect to generate compatible PathElements
+    * [JBWS-3325] - Endpoints created through Endpoint.publish execute tasks sequentially
+    * [JBWS-3322] - Ensure proper creation of WebMD for EJBs present in web archive.
+    * [JBWS-3332] - wsdl-port modification in subsystem webservices throws error and prevent AS 7 from stat. wsdl-secure-port does not break the startup
+    * [JBWS-3336] - Errata files not properly created by hudson jobs
+    * [JBWS-3337] - Fix ThreadLocalAwareWebServiceContext singleton de/serialization
+    * [JBWS-3338] - Distinguish between @Addressing(enabled=false) and no @Addressing annotation also for port component refs
+    * [JBWS-3341] - AS7 org.jboss.ws.cxf.jbossws-cxf-client module do not export wsdl4j api
+    * [JBWS-3347] - Endpoints created through Endpoint.publish throws Address already in use: bind
+    * [JBWS-3355] - Launch of *.sh scripts from path with space does not work
+    * [JBWS-3288] - Double slash in published endpoint address
+    * [JBWS-3360] - Fix WS ref deserialization process - consider TCCL when instantiating classes.
+    * [JBWS-3205] - java.lang.StackOverflowError on binary distro due to org.jboss.wsf.common.logging.JDKLogManager
+    * [JBWS-3275] - AddressingFeature required Client should throw exception when the wsa header is missing in the inbound message 
+    * [JBWS-3354] - CXF does not set the correct host when viewing WSDLs that are published with JAXWS API
+    * [JBWS-3356] - Fix PostConstruct & PreDestroy implementation for JAXWS endpoints & handlers
+    * [JBWS-3357] - Implement support for lookup mechanism for JAXWS endpoints & handlers
+    * [JBWS-3367] - EJB3 endpoints in war archive should follow context root override rules
+    * [JBWS-3368] - jbossws-cxf-4.0.0.Beta6 : jaxws-benchmark-datatypes-pojo.war deployment on AS7 fails
+    * [JBWS-3371] - Implement better SEI -> EJB View translation algorithm
+    * [JBWS-3384] - Missing dependency in module "org.jboss.ws.jaxws-client"
+
+
+Enhancement
+
+    * [JBWS-3318] - InvocationHandlerEJB3 cannot rely on EJB3 security impl. details
+    * [JBWS-3319] - Unify CXF InvokerJSE & InvokerEJB3 invokers.
+    * [JBWS-3329] - Implement protocol binding filtering for handlers coming from endpoint configuration
+
+Feature Request
+
+    * [JBWS-3265] - Isolate deployment classloader from ws server integration
+    * [JBWS-3272] - Upgrade to Apache CXF 2.4
+    * [JBWS-3282] - Extend jbossws jaxws endpoint configuration (@EndpointConfig) to jbossws-cxf stack
+    * [JBWS-2791] - Register the jms endpoint into endpoint registry in cxf stack 
+    * [JBWS-2941] - HTTP Proxy authentication for JBossWS Web Service clients
+    * [JBWS-3125] - SOAP over JMS 1.0 support
+    * [JBWS-3137] - Support deploying http and jms endpoint in one deployment
+    * [JBWS-3296] - Provide abstraction for picketbox/jboss-security AuthenticationManager and AuthorizationManager
+    * [JBWS-3302] - Enable WS-Security UT JAAS integration for policy-first scenarios
+    * [JBWS-3343] - Support for both EJB3 and POJO WS endpoints in war archives
+    * [JBWS-3286] - Add jaxws-endpoint-configuration to AS7 domain
+    * [JBWS-3115] - Clean dependencies on jbossws-spi
+    * [JBWS-3276] - Implement support for POJO endpoints with no web.xml in archive
+
+Task
+
+    * [JBWS-3080] - Update build for supporting Maven 3
+    * [JBWS-3186] - Upgrade to Apache CXF 2.3.4
+    * [JBWS-3206] - Modify deployment scripts for supporting AS 7
+    * [JBWS-3207] - Remote deployment support for testsuite against AS 7
+    * [JBWS-3208] - Add AS7 jobs to Hudson
+    * [JBWS-3210] - Configure testsuite against JBoss AS7
+    * [JBWS-3223] - Runtime ws client classloader setup on AS7
+    * [JBWS-3224] - Review the jbossws-spi ServiceLoader to allow for passing a classloader in
+    * [JBWS-3236] - Ensure JBossWSBusFactory is built properly on AS7
+    * [JBWS-3238] - Rewrite jaxws tools tests to run in fork mode
+    * [JBWS-3254] - Add the missed  jaxws2.2 methods  in DelegateEndpointImpl
+    * [JBWS-3266] - Update stax-api dependency
+    * [JBWS-3273] - Move ANT & command line tools abstraction from jbossws-common.jar to jbossws-common-tools.jar
+    * [JBWS-3284] - Add WS-SecurityPolicy testcases without Spring descriptors
+    * [JBWS-3135] - WSTF Scenario 3 - Asynch 02 test case failure
+    * [JBWS-3136] - WSTF Scenario 3 - Asynch 03/04 tests case failure
+    * [JBWS-3169] - Remove spi dependency on JBossXB
+    * [JBWS-3185] - WSTF Scenario 3 - Asynch 05/06/07/08 tests case failure
+    * [JBWS-3217] - JBossWS SPI - NoClassDefFoundError: org/jboss/logging/Logger
+    * [JBWS-3218] - Don't use apache logger, use jboss one
+    * [JBWS-3221] - Enable JMX tests
+    * [JBWS-3222] - Resuscitate JBossWS command line tools on AS7
+    * [JBWS-3226] - AS7 jboss-service.xml parsing problem
+    * [JBWS-3229] - Fix testsuite built to provide proper endorse dir setup to wsprovide/wsconsume Ant tasks (AS7)
+    * [JBWS-3231] - policy alternatives can not be satisfied
+    * [JBWS-3245] - AS7 RemoteDeployer have to always undeploy deployed archives
+    * [JBWS-3274] - Restore jaxbintros functionalities on AS7
+    * [JBWS-3283] - Provide a stax based parser of jaxws endpoint config descriptors
+    * [JBWS-3289] - Refactor packages to be in sync. with new abstractions
+    * [JBWS-2709] - Review JBossWS public api and provide javadoc
+    * [JBWS-3105] - Review and fix JBossWS maven dependencies
+    * [JBWS-3248] - Unable to lookup AuthenticationManager using JNDI - AS7
+    * [JBWS-3264] - Don't use log4j configuration classes in our CXF tools - identify possible workarounds
+    * [JBWS-3271] - Allow both Native & CXF stacks to use their own SAAJ implementation on AS7
+    * [JBWS-3279] - Unify CXFServletExt and CXFNonSpringServletExt
+    * [JBWS-3301] - Allow WRAPPED style code generation for "wrapper elements" with xsd:extension 
+    * [JBWS-3303] - Upgrade to Apache CXF 2.4.1
+    * [JBWS-3307] - Remove dependency on JBossXB
+    * [JBWS-3309] - Set default JAXB impl when importing org.jboss.ws.cxf.jbossws-cxf-client AS7 module
+    * [JBWS-3310] - Avoid deployment of useless client archives when running JBossWS testsuite
+    * [JBWS-3312] - Cleanup previously deprecated spi methods
+    * [JBWS-3230] - Could not find any reference to namespace 'http://schemas.xmlsoap.org/ws/2005/02/rm'
+    * [JBWS-3240] - Rewrite tests relying on $JBOSS_HOME/server/default/tmp/jbossws folder existence
+    * [JBWS-3257] - No class available with name 'org.jboss.security.plugins.JaasSecurityDomain'
+    * [JBWS-3316] - i18n logging message
+    * [JBWS-3323] - Get rid of WebServiceDeclaration & WebServiceDeployment SPI abstractions
+    * [JBWS-3326] - Restore project generator against AS7
+    * [JBWS-3330] - Restore RecordProcessor functionalities on AS7
+    * [JBWS-3219] - Unexpected element 'port-qname' encountered
+    * [JBWS-3215] - Review the way testsuite is run using Maven
+    * [JBWS-3333] - Upgrade to Apache CXF 2.4.2
+    * [JBWS-3334] - Rewrite DD driven injection tests.
+    * [JBWS-3348] - Get rid of org.jboss.ws.backward_compatible_context_creator property
+    * [JBWS-3346] - Add EndpointType
+    * [JBWS-3349] - Refactor stack agnostic DepoymentAspects to deploy EJB3 webservice in a war file 
+    * [JBWS-3350] - Change AS7 Integraiton layer to build and deploy EJB3 endpoint  in a war file
+    * [JBWS-3351] - Change AS6 Integraiton layer to build and deploy EJB3 endpoint  in a war file
+    * [JBWS-3328] - Restore @WebServiceRef functionalities on AS7
+    * [JBWS-3366] - Initial restore of JAX-RPC functionalities on AS 7
+    * [JBWS-3352] - Refactor and enable related tests 
+    * [JBWS-3363] - Provide SPI hooks to obtain instances of handlers & endpoints from underlying stacks
+    * [JBWS-2338] - Review JBossWS SPI abstractions and interfaces
+    * [JBWS-2436] - Look for eventual optimizations when scanning classes
+    * [JBWS-3120] - Resuscitate Virtual host feature on AS 7 series
+    * [JBWS-3216] - Investigate & fix test failures against AS7
+    * [JBWS-3280] - Avoid building Spring Bus when deployment has no spring descriptor
+    * [JBWS-3340] - Upgrade to Apache CXF 2.4.3
+    * [JBWS-3358] - Restore @EJB & @Resource injection on JAXWS components on AS7
+    * [JBWS-3369] - Fix AS7 jaxrpc classloading issues
+    * [JBWS-3374] - Remove cxf-xjc-bug671 dependency and move to cxf-xjc utils 2.4.0
+    * [JBWS-3375] - Restore JAXRPC EJB integration on AS7
+    * [JBWS-3379] - Upgrade to Apache CXF 2.4.4
+    * [JBWS-3381] - Support latest AS 7.0.x target container
+    * [JBWS-3382] - Add AS7 RemoteDeployer to jbossws container integration
+    * [JBWS-3225] - Resuscitate JBossWS console
+    * [JBWS-3227] - handlers configuration file not found on classpath
+    * [JBWS-3232] - javax.naming.NameNotFoundException: Name 'service' not found in context 'env'
+    * [JBWS-3364] - Refactor injections on JAXWS components from common to ASIL
+    * [JBWS-3376] - Introduce jboss-webservices.xml DD
+    * [JBWS-3385] - Enable Remote EJB JNDI support in our test suite
+
+--------------------
+jbossws-cxf-3.4.1.GA
+--------------------
+
+Feature Request
+
+    * [JBWS-3139] - Ensure IPv6 Compatibility
+    * [JBWS-3161] - Distinguish between @Addressing(enabled=false) and no @Addressing annotation
+    * [JBWS-3181] - Add support for symlinked bin/*.sh files
+
+Task
+
+    * [JBWS-2896] - Fix unguarded calls to Logger.debug()
+    * [JBWS-3171] - Fix WebServiceContext injection into EJB3 beans
+    * [JBWS-3177] - Provide CDI Integration Points
+    * [JBWS-3179] - InvocationHandlerJAXWS is responsible for endpoint injections & lifecycle 
+
+Errata
+
+    See: https://issues.jboss.org/browse/JBWS-3189
+
+--------------------
+jbossws-cxf-3.4.0.GA
+--------------------
+
+Bug
+
+    * [JBWS-3039] - Spring 3 classpath scanning fails on AS 6
+    * [JBWS-3060] - java.lang.NoSuchMethodException when doing one-way calls to multiple endpoints belonging to the same deployment
+    * [JBWS-3069] - Latest CXF release in AS trunk breaks XTS
+    * [JBWS-3082] - org.jboss.test.ws.jaxws.samples.xop.doclit.XOPBareTestCase in framework tests Native stack implementation details
+    * [JBWS-3081] - HttpServletRequest.getScheme()  returns null in one way webservice method
+    * [JBWS-3091] - org.jboss.test.ws.jaxws.samples.oneway.OnewayTestCase wrongly assumes the result will be set before the feedback() is invoked. 
+    * [JBWS-3094] - Non-Spring JBossWS CXF deployment causes issues during the JBoss start up
+    * [JBWS-3098] - Ensure proper endpoint / bus lifecycle
+    * [JBWS-3099] - CXF tools generating wrong Java artifacts
+    * [JBWS-3100] - Investigate epr CXF tooling issue
+    * [JBWS-2951] - StringIndexOutOfBoundsException in JavaUtils#getPackageName()
+    * [JBWS-3090] - Deploy script does not remove jbossws-native-jaxws-ext.jar
+    * [JBWS-3112] - BusDeploymentAspect does not clear BusFactory threadlocals before starting deployment
+    * [JBWS-3142] - ServiceObjectFactory have to clean up threads after its job is finished
+    * [JBWS-3144] - Server side misuse of CXF default bus
+    * [JBWS-3141] - Mtom and RespectBinding configuration in webservices.xml DD doesn't work 
+    * [JBWS-3143] - SubjectCreatingInterceptor incompatible with PolicyBasedWSS4JInInterceptor
+    * [JBWS-3152] - AS Meta Data should be complete before passing to JBossWS
+
+
+Feature Request
+
+    * [JBWS-3028] - Complete UsernameToken JAAS integration
+    * [JBWS-3063] - Support Log4J in command line wsconsume and wsprovide
+    * [JBWS-2596] - @Resource and @EJB injection in jaxws endpoints and handlers
+    * [JBWS-3001] - Enable @PostConstruct and @Predestroy annotations support for POJO based endpoints
+    * [JBWS-3087] - Default enable WS-Policy engine when Spring is not used
+    * [JBWS-2957] - EJB webservices packaged in web archives (JSR 109 v.1.3 support)
+    * [JBWS-3114] - Stack agnostic configuration of connection timeout
+    * [JBWS-3122] - Implement @WebServiceRef to respect @Addressing, @MTOM & @RespectBinding annotations
+    * [JBWS-3123] - Implement @WebServiceRef support for annotation driven servlets
+    * [JBWS-3133] - Update UMDM for ServiceRef and PortComponentRef to support @Addressing, @MTOM & @RespectBinding settings
+    * [JBWS-3084] - Enable control of chunked encoding when using SOAPConnection
+
+Task
+
+    * [JBWS-3002] - Ensure POJO endpoints are shared
+    * [JBWS-3006] - Review jbossws maven dependencies
+    * [JBWS-3049] - Hudson jobs need to test binary and src distros against vanilla JBoss AS
+    * [JBWS-3062] - Use CXF Log4jLogger and leverage our log redirection only when JDK logging is explicitly used
+    * [JBWS-3064] - Remove references to cxf jaxrs implementation
+    * [JBWS-3073] - Do not require SpringFramework dependencies for basic JAX-WS deployments
+    * [JBWS-3083] - Avoid double Maven lifecycle run for building src and bin distributions
+    * [JBWS-3089] - Upgrade to CXF 2.2.9-patch-01
+    * [JBWS-2987] - Review JMS integration
+    * [JBWS-3075] - Upgrade to Apache CXF 2.2.10
+    * [JBWS-3085] - Enrich testsuite with samples not requiring Spring configuration
+    * [JBWS-3092] - Do not distribute saaj-impl & jaxp-ri with CXF
+    * [JBWS-3093] - Configure maven compiler for JBossWS to be UTF-8 encoding based
+    * [JBWS-3102] - Remove bus-extensions.xml and extensions.xml from jbossws-cxf-client.jar
+    * [JBWS-3104] - Add a WS-Policy MTOM test to CXF tests not depending on Spring
+    * [JBWS-3110] - Add "-createxsdimports" flag to cxf wsprovider to generate schema elements in the seperate files
+    * [JBWS-3050] - Ignore HandlerChain configuration with improper leading namespace prefix
+    * [JBWS-2928] - Use JBoss provided EE APIs
+    * [JBWS-2945] - CXF JAX-WS 2.2 implementation
+    * [JBWS-3000] - Implement handler chains override through webservices.xml
+    * [JBWS-3078] - Fix the formatting for some of the java files
+    * [JBWS-3079] - Provide alternative solution to having jetty dependency for jaxws Endpoint API usage
+    * [JBWS-3086] - Review and merge CXF JMS prototype upstream
+    * [JBWS-3107] - Review org.jboss.test.ws.jaxws.endoint tests
+    * [JBWS-3111] - Enable WS-Trust client tests once the trunk gets updated to CXF 2.3 or 2.2.11
+    * [JBWS-3117] - Remove saaj-api.jar from distribution
+    * [JBWS-3124] - Remove JBWS2942TestCase framework test and create Native and CXF specific tests validating empty EPR Metadata are dropped
+    * [JBWS-3126] - Move to new EjbReferenceResolver
+    * [JBWS-3145] - Remove use of DummyBeanLocator (workaround for CXF-2927)
+    * [JBWS-3146] - Update to Apache CXF 2.3.0 relelase
+    * [JBWS-3121] - Prevent duplicated endpoints for EJB 3.1 beans in web archives
+    * [JBWS-2215] - Produce distributable docs from wiki
+    * [JBWS-2768] - Make sure SOAP stack test suite passes also when no internet connection is available
+    * [JBWS-3127] - Review JMS TestCase after SoapJMSInInterceptor is fixed in CXF trunk
+    * [JBWS-3140] - Process the <addressing> element in webservices.xml (JSR-109 v.1.3)
+    * [JBWS-3149] - Change CXF default MinimalAlternativeSelector  to MaximalAlternativeSelector in sever side
+    * [JBWS-3156] - Refactor ThreadLocalAwareWebserviceContext
+    * [JBWS-3163] - Upgrade to Apache CXF 2.3.1
+
+Errata
+
+    See: https://jira.jboss.org/browse/JBWS-3178
+
+This version of ${project.name} is based on Apache CXF 2.3.1
+
+
+--------------------
+jbossws-cxf-3.3.1.GA
+--------------------
+
+Bug
+
+    * [JBWS-3048] - bin-dist does not correctly undeploy previously installed stack
+    * [JBWS-3054] - Custom BusFactory needs to be endorsed
+    * [JBWS-3051] - Regression on wstrust interop tests
+
+Task
+
+    * [JBWS-2952] - Fix client logging when running the testsuite with CXF stack
+    * [JBWS-3057] - Upgrade to Apache CXF 2.2.9
+
+Errata
+
+    See: https://jira.jboss.org/browse/JBWS-3058
+
+This version of JBoss Web Services - Stack CXF is based on Apache CXF 2.2.9
+
+
+--------------------
+jbossws-cxf-3.3.0.GA
+--------------------
+
+Feature Request
+
+    * [JBWS-2895] - Provide JAX-RPC features on top of stacks not having them
+    * [JBWS-2210] - CXF Username Token JAAS integration
+    * [JBWS-2935] - Implement missing JSR-109 v1.2 features
+    * [JBWS-3016] - Install custom configurer to Bus instances created on client side too
+    * [JBWS-3017] - Configure default HTTPConduit
+    * [JBWS-3024] - Implement endorsing support for JBossWS ANT tools
+    * [JBWS-2971] - Write published wsdl to file on deploy
+    * [JBWS-2974] - Eager load of CXF Bus during deployment
+    * [JBWS-2996] - Provide portcomponentlink servlet
+    * [JBWS-2997] - JSR-109 - service-ref mtom configuration through deployment descriptor
+    * [JBWS-2999] - JSR-109 - webservice.xml overrides with jaxws
+    * [JBWS-2650] - Provide a Maven plugin for wsconsume/wsprovide
+    * [JBWS-2793] - Support of SOAP header code generation for implicit headers 
+
+Bug
+
+    * [JBWS-2571] - Mode.INOUT parameter not generated
+    * [JBWS-2778] - java.net.HttpRetryException: cannot retry due to server authentication, in streaming mode 
+    * [JBWS-2844] - CXF JAXWS implementation is not endorsed
+    * [JBWS-3015] - wsdlLocation attribute from @WebServiceClient not considered when building up webservicerefs
+    * [JBWS-3020] - Investigate why HandlerScopeTestCase fails
+    * [JBWS-3025] - Wrong port-component-ref configuration with multiple webservicerefs
+    * [JBWS-3029] - Quote mismatch in JBossWS console index.html
+    * [JBWS-3037] - Fix NPE thrown from logging framework
+    * [JBWS-2970] - InjectionMetaDataDeploymentAspect misuse of EJBContainer.getEnc()
+    * [JBWS-2983] - Fix regressions due to HornetQ update
+    * [JBWS-2984] - Benchmark tests are setting incorrect date
+    * [JBWS-2021] - app-client impl assumes client and server share the same filesystem
+    * [JBWS-2917] - We're using buggy xalan version causing namespaces issues
+    * [JBWS-2963] - JavaDoc inconsistency in WSConsume.java
+    * [JBWS-2875] - Remove jbossws-jbossXYZ.jar files from JBOSS_HOME/client directory
+    * [JBWS-2902] - Fix JAX-WS 2.2 webserviceref clarification
+    * [JBWS-2934] - WebServiceContext injection have to be ThreadLocal aware
+
+Task
+
+    * [JBWS-3018] - Upgrade to Apache CXF 2.2.8
+    * [JBWS-3030] - Refactor *-deploy.conf for supporting un-install of CXF stack
+    * [JBWS-3032] - Activate authentication for all HTTP verbs in management console
+    * [JBWS-3033] - Review JBossWSCXFConfigurer and enable to configure by  bean name support
+    * [JBWS-3036] - Clean up thirdparty libs dependencies
+    * [JBWS-3038] - Provide new BusFactory impl allowing for integration customizations of default Bus
+    * [JBWS-2923] - Move out of deployers/jbossws.deployer jars that are not required to be in deployers
+    * [JBWS-2986] - Factor out stack agnostic wsdl file publish procedure to jbossws-common
+    * [JBWS-2988] - Fix dependency on jboss-logging
+    * [JBWS-2995] - Provide custom NamespaceHandlerResolver and simplify handlers configuration
+    * [JBWS-3003] - Fix maven [WARNING] Using platform encoding ...  build is platform dependent!
+    * [JBWS-3005] - Use new Maven repository at repository.jboss.org/nexus
+    * [JBWS-2872] - Enable anonymous tests on CXF stack
+    * [JBWS-2887] - Update to Apache CXF 2.2.6
+    * [JBWS-2948] - Fix regressions due to VFS3 update
+    * [JBWS-2950] - Implement support for JAX-WS 2.2 target in wsconsume tool
+    * [JBWS-2959] - Update obsolete jboss dependencies
+    * [JBWS-2968] - Remove compilation warnings where possible
+    * [JBWS-2758] - Remove support for Java 5
+    * [JBWS-2805] - Investigate the cxf jmx management integration 
+    * [JBWS-2807] - Add the log category for cxf stack. 
+    * [JBWS-2881] - Increase DOMUtils performances optimizing DocumentBuilder creation
+    * [JBWS-2898] - Optimize DocumentBuilderFactory creation using DocumentBuilderFactory.newInstance(String s, ClassLoader c)
+    * [JBWS-2900] - Optimize EntityResolver setup in DOMUtils
+    * [JBWS-2916] - Properly setup deployment classloader
+    * [JBWS-2920] - Review install scripts / container integration to produce jbossws-jaxrpc.deployer
+    * [JBWS-2921] - Isolate factories/services configuration in descriptor only jars
+    * [JBWS-2922] - Add some basic JAX-RPC coverage to jbossws-framework testsuite
+
+Errata
+
+    See: https://jira.jboss.org/browse/JBWS-3043
+
+This version of JBoss Web Services - Stack CXF is based on CXF 2.2.8
+
+
+--------------------
+jbossws-cxf-3.2.2.GA
+--------------------
+
+Bug
+
+    * [JBWS-2769] - Make sure our test suites for all stacks pass on Windows XP
+    * [JBWS-2806] - Wrong parameter number exception with explicit soap headers
+    * [JBWS-2809] - MessageContext WSDL_* properties not available in handlers
+    * [JBWS-2822] - JAX-WS Client endpoint configuration in jbossws-cxf.xml is ignored when using @WebServiceRef
+    * [JBWS-2853] - Ineffective implementation of string normalize method
+    * [JBWS-2859] - Optimize DefaultEndpoint.getTargetBeanClass() method
+
+Feature Request
+
+    * [JBWS-2751] - JAXBIntroductions: support @XmlTransient, @XmlID, @XmlIDREF, @XmlElementWrapper and @XmlJavaTypeAdapter
+
+Task
+
+    * [JBWS-2692] - Define client/server security policy for JBWS testsuite and run it under a security manager
+    * [JBWS-2765] - Verify logging redirection
+    * [JBWS-2770] - Rewrite org.jboss.test.ws.jaxws.binding testcase to get SOAPMessageContext from handlers
+    * [JBWS-2821] - Remove jbossws.sar from deploy directory
+    * [JBWS-2824] - test.log file not found exception when run the testsuite and wsprovide command log4j configuration is not initilized error
+    * [JBWS-2825] - Remove dependency on cxf-anttasks
+    * [JBWS-2826] - Give more time to copy the process inputstream and error stream in JBossWSTest
+    * [JBWS-2828] - Update to Apache CXF 2.2.5
+    * [JBWS-2835] - Remove deployers ordering workaround forAS 6.x series
+    * [JBWS-2836] - Remove unused jbossws-cxf.sar resources
+    * [JBWS-2840] - Implement support for SOAP12 protocol in wsprovide
+    * [JBWS-2848] - Fix build/testsuite for supporting AS 6.0.0.M1 integration target
+
+Errata
+
+    See: https://jira.jboss.org/jira/browse/JBWS-2866
+
+This version of JBoss Web Services - Stack CXF is based on CXF 2.2.5
+
+--------------------
+jbossws-cxf-3.2.1.GA
+--------------------
+
+Bug
+
+    * [JBWS-2743] - Make sure all maven dependencies are downloaded only from JBoss repositories
+    * [JBWS-2745] - Issue with stack switch and binary distro install
+    * [JBWS-2759] - JBossWS installation doesn't work for non default configurations
+    * [JBWS-2760] - wsconsume.bat and wsprovider.bat require JAVA_HOME environment variable in Winodws OS
+    * [JBWS-2764] - Wrong SOAP stack version in JBoss webservices console
+    * [JBWS-2773] - Remove JBossAS webservices integration layer from tests classpath
+    * [JBWS-2786] - Wrong classpath declaration in wsconsume.bat
+
+Feature Request
+
+    * [JBWS-2660] - Provide testcase for JMS transport with CXF stack
+    * [JBWS-2714] - Enable JAXBIntroductions support
+    * [JBWS-2740] - Add Class-Path attribute to jbossws-cxf-client manifest file
+    * [JBWS-2752] - Add 'nocompile' option to wsconsume (command line)
+
+Task
+
+    * [JBWS-2613] - Ensure correct line ends in windows shell scripts (CRNL)
+    * [JBWS-2727] - Fix AS-Tests-AS-6.0.0 hudson job
+    * [JBWS-2749] - Update Hudson jobs because of JDK1.5 finishing EOL transition period
+    * [JBWS-2750] - Reduce impact of logging on performances
+    * [JBWS-2757] - Update Class-Path attribute in manifest
+    * [JBWS-2763] - Miscellaneous performance optimizations
+    * [JBWS-2766] - Provide a testcase for Aegis binding
+    * [JBWS-2772] - Remove JBoss kernel dependencies from SPI, COMMON and all STACKS
+    * [JBWS-2780] - Upgrade to Apache CXF 2.2.4
+    * [JBWS-2794] - Release spi, common, framework and container integrations
+    * [JBWS-2798] - Release JBossWS-CXF 3.2.1.GA binaries and sources
+
+Errata
+
+    See: https://jira.jboss.org/jira/browse/JBWS-2800
+
+This version of JBoss Web Services - Stack CXF is based on CXF 2.2.4
+
+--------------------
+jbossws-cxf-3.2.0.GA
+--------------------
+
+Bug
+
+    * [JBWS-2508] - Tools output is not correctly redirected
+    * [JBWS-2630] - Invalid "Endpoint Address" in http://localhost:8080/jbossws/services, when a .war is embedded in a jar.
+    * [JBWS-2668] - Add missing privileged blocks
+    * [JBWS-2669] - Endpoint metrics do not work
+    * [JBWS-2699] - BackwardCompatibleURLPatternDeploymentAspect is mangling URLs
+
+Feature Request
+
+    * [JBWS-1655] - Add support for endpoint address rewriting
+    * [JBWS-2106] - Unify Native and CXF api for JAX-WSA (JSR-261)
+    * [JBWS-2227] - soap:address rewrite for multiple virtual hosts support on CXF
+    * [JBWS-2507] - Support generics in wrapper classes
+    * [JBWS-2652] - jboss-bootstrap upgrade
+    * [JBWS-2657] - Provide testcase for common JSR-261 API
+
+Task
+
+    * [JBWS-2203] - Test message context properties with CXF stack
+    * [JBWS-2247] - Rewrite test for JBWS-1190 making it stack agnostic
+    * [JBWS-2402] - Upgrade JBoss-JAXR to 2.0.1 including its dependencies
+    * [JBWS-2435] - Move jbossws documentation to http://www.jboss.org/community/docs/
+    * [JBWS-2457] - Update WS-Addressing tutorials to use JAXWS 2.1 AddressingFeature
+    * [JBWS-2521] - Refactor / rewrite ServiceObjectFactory
+    * [JBWS-2639] - Provide testcase for WS-Trust (client side)
+    * [JBWS-2661] - Remove proprietary CXF API usage from WS-A and WS-RM samples
+    * [JBWS-2707] - Update to Apache CXF 2.2.3
+    * [JBWS-2719] - Allow jconsole to be attached to testsuite
+    * [JBWS-2722] - Review documentation
+    * [JBWS-2333] - Refactor ArchiveDeployerHook.getWebservicesMetaData() to Separate Deployer
+    * [JBWS-2370] - Ensure correct JBossWS startup if there are Webservice archived in deploy directory during JBossAS bootstrap
+    * [JBWS-2382] - Fix JBossWS deployers processing
+    * [JBWS-2658] - Update jboss.org/jbossws home page
+
+Errata
+
+    See: https://jira.jboss.org/jira/browse/JBWS-2736
+
+This version of JBoss Web Services - Stack CXF is based on CXF 2.2.3
+
+--------------------
+jbossws-cxf-3.1.2.GA
+--------------------
+
+Bug
+
+    * [JBWS-2528] - Missing parameterOrder in portType/operation
+    * [JBWS-2582] - CXF ToolException: -p option cannot be used when wsdl contains mutiple schemas
+    * [JBWS-2584] - Provider endpoint causes NPE in AbstractPolicyInterceptor
+    * [JBWS-2591] - WSConsume does not generate @XmlList with doc/lit wsdl
+    * [JBWS-2593] - WSConsume does not generate @XmlJavaTypeAdapter in SEI
+    * [JBWS-2597] - XsiNilLoader throws NPE when using FastInfoset and nullable elements
+    * [JBWS-2616] - handlerscope testcase is (native) stack specific
+    * [JBWS-2629] - Transient failures in jaxws module of TCK
+
+Feature Request
+
+    * [JBWS-2619] - Consider DeploymentUnit's metadataLocation in ArchiveDeployment.getMetadataFileURL(..)
+    * [JBWS-2628] - Upgrade to Apache CXF 2.2.1
+    * [JBWS-2653] - Upgrade to Apache CXF 2.2.2
+
+Task
+
+    * [JBWS-2578] - Provide testcase for WS-SecurityPolicy
+    * [JBWS-2612] - Remove AS 4.2.x support from all stacks
+    * [JBWS-2626] - Update CXF stack tutorials to refer to JBossWS tools
+    * [JBWS-2667] - Upload cxf 2.2.2 artifacts to jboss m2 repository
+
+Errata
+
+    See: https://jira.jboss.org/jira/browse/JBWS-2665
+
+This version of JBoss Web Services - Stack CXF is based on CXF 2.2.2
+
+--------------------
+jbossws-cxf-3.1.1.GA
+--------------------
+
+Bug
+
+    * [JBWS-1665] - incorrect wsdl generation
+    * [JBWS-2506] - Cannot find symbol javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter$DEFAULT
+    * [JBWS-2529] - Missing type in generated WSDL definition
+    * [JBWS-2555] - Miscellaneous issues reported by FindBugs
+    * [JBWS-2562] - There are tests failures in CXF when no internet connection is available
+    * [JBWS-2564] - Use Server MBean instead of ServerConfig to get JBoss version
+    * [JBWS-2573] - Fix JBossWS builds with Maven 2.0.10
+    * [JBWS-2581] - NPE in AbstractInvoker
+    * [JBWS-2585] - JBossWS commandline tools reference not existing log4j config
+    * [JBWS-2589] - Some deployment failures prevent re-deployment
+
+Feature Request
+
+    * [JBWS-2151] - Provide wsrunclient.sh(.bat) for Metro and CXF
+
+Task
+
+    * [JBWS-2223] - wsconsume for cxf build
+    * [JBWS-2327] - Provide tests for wsrunclient shell script
+    * [JBWS-2487] - Run TCK5 and detect issues
+    * [JBWS-2490] - JAXWS TCK5 test suite
+    * [JBWS-2524] - Sort out / remove GenericSOAPHandler duplicity
+    * [JBWS-2533] - Fix MTOM/XOP Content Type Testcase failure
+    * [JBWS-2537] - Simplify Hudson Jobs
+    * [JBWS-2538] - FastInfoset interoperability
+    * [JBWS-2553] - Enable WebServiceRef tests
+    * [JBWS-2566] - Add Maven Release plugin
+    * [JBWS-2568] - Remove AS 4.2 branch support (424 target)
+    * [JBWS-2576] - Verify dependencies on outstanding CXF issues
+    * [JBWS-2577] - Update to Apache CXF 2.2
+    * [JBWS-2583] - Upload cxf 2.2 artifacts to jboss m2 repository
+
+Errata
+
+    See: https://jira.jboss.org/jira/browse/JBWS-2600
+
+This version of JBoss Web Services - CXF is based on Apache CXF 2.2
+
+--------------------
+jbossws-cxf-3.1.0.GA
+--------------------
+
+Bug
+
+    * [JBWS-1683] - Fix JAXR samples for CXF
+    * [JBWS-2114] - IllegalArgumentException: Wrong target. class
+    * [JBWS-2115] - EJB client vehicle not sufficiently isolated
+    * [JBWS-2118] - context-root in jboss.xml is ignored
+    * [JBWS-2119] - WebServiceRef injection from DD doesn't work
+    * [JBWS-2377] - jbossws-deploy.conf in 'all' configuration links libraries in 'default' conf
+    * [JBWS-2416] - Search is not working on the mediawiki
+    * [JBWS-2478] - AbstractInvoker throws UnsupportedOperationException when running wsse encryption test
+    * [JBWS-2497] - Handler was not called
+    * [JBWS-2499] - SOAP Fault tests failing
+    * [JBWS-2502] - Preconfigured handler was not retured by original HandlerResolver
+    * [JBWS-2512] - Improper destination is used when there are multiple destinations in descriptor
+    * [JBWS-2513] - Implement proper handling of application exceptions
+    * [JBWS-2517] - HandlerChain is not set on client side when specified via WebServiceRefs
+    * [JBWS-2519] - Stub properties not propagated through service-ref
+    * [JBWS-2525] - Wrong addressing policy in WS-RM CXF tests
+    * [JBWS-2527] - BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext
+
+Feature Request
+
+    * [JBWS-1774] - Provide tools implementation for CXF (WSContractProvider and WSContractConsumer)
+    * [JBWS-2417] - Update to more recent CXF components
+    * [JBWS-2491] - Enable JAXWS 2.1 WebServiceContext methods
+
+Task
+
+    * [JBWS-2090] - Setup mailing lists for metro,cxf user forums
+    * [JBWS-2431] - Update native deployment macros to don't publish jaxb-api.jar and stax-api.jar to JBOSS_HOME/lib directory
+    * [JBWS-2444] - Update hudson, deploy scripts, etc. for new AS repository layout
+    * [JBWS-2483] - Add smoke tools tests to the binary distro
+    * [JBWS-2505] - Remove container integration layer for AS 5.1.0 and AS 6.0.0
+    * [JBWS-2515] - Upload cxf artifacts to jboss m2 repository
+    * [JBWS-2516] - Test cxf stack with JDK 1.6
+    * [JBWS-2531] - Check testsuite & hudson integration
+
+Errata
+
+    See: https://jira.jboss.org/jira/browse/JBWS-2543
+
+--------------------
+jbossws-cxf-3.0.5.GA
+--------------------
+
+Bug
+
+    * [JBWS-2399] - Specify groupId explicitly in assembly creating deploy-artifacts directory
+    * [JBWS-2364] - Incorrect JBossWS version displayed in server startup log 
+
+Feature Request
+
+    * [JBWS-2375] - Add getChildren fuctionality to UnifiedVirtualFile  
+
+Task
+
+    * [JBWS-2339] - Improve endpoint lifecycle management
+    * [JBWS-2355] - Remove Aspect Manager support from AbstractEndpointServlet
+    * [JBWS-2366] - Restore missing images on wiki
+    * [JBWS-2383] - Fix JBossWS deployment macros for new JBossAS trunk directory structure
+
+Errata
+
+    See: https://jira.jboss.org/jira/browse/JBWS-2429
+
+--------------------
+jbossws-cxf-3.0.4.GA
+--------------------
+
+Bug
+
+    * [JBWS-2246] - NPE deploying web services in service archive in CR1 release
+    * [JBWS-2290] - Missing property jbossws.integration.target during ant eclipse
+    * [JBWS-2322] - Commandline JBossWS Native Tests Are Not Cross Platform
+    * [JBWS-2336] - Fix JSE deployers ordering
+    * [JBWS-2363] - Binary distribution has ant.properties instead of ant.properties.example
+
+Task
+
+    * [JBWS-2286] - Provide source distributions
+    * [JBWS-2289] - Update source code headers
+    * [JBWS-2310] - Restore hudson job cleaning maven repository
+    * [JBWS-2320] - JBossWS ant and maven targets don't work on Windows OS
+
+Errata
+
+    See: https://jira.jboss.org/jira/browse/JBWS-2359
+
+--------------------
+jbossws-cxf-3.0.3.GA
+--------------------
+
+Bug
+
+    * [JBWS-2194] - Cannot get security domain declared through jboss.xml DD
+
+Feature Request
+
+    * [JBWS-981]  - Virtual host configuration for EJB endpoints
+    * [JBWS-2191] - Provide junit tests for the record management tools
+
+Errata
+
+    See: http://jira.jboss.org/jira/browse/JBWS-2279
+
+--------------------
+jbossws-cxf-3.0.2.GA
+--------------------
+
+Bug
+
+    * [JBWS-2174] - CXF specific DD location context param isn't propagated to CXF transport  
+
+Task
+
+    * [JBWS-2029] - Make the project generator available for all stacks
+    * [JBWS-2097] - Unlock WS-ReliableMessaging in all stacks
+    * [JBWS-2098] - Unlock WS-Security in all stacks
+    * [JBWS-2099] - Unlock WS-Policy in all stacks
+    * [JBWS-2100] - Unlock WS-Addressing in all stacks
+    * [JBWS-2160] - Upgrade to Apache CXF 2.1
+
+Errata
+
+    See: http://jira.jboss.org/jira/browse/JBWS-2075
+
+--------------------------
+jbossws-3.0.1-cxf-1.0.1.GA
+--------------------------
+
+Feature Request
+
+    * [JBWS-1865] - Unify SOAP message trace
+
+Task
+
+    * [JBWS-1982] - Simplify deploy/undeploy cycles for different stacks
+    * [JBWS-1995] - Fix cxf build issues
+    * [JBWS-2056] - Update to apache-cxf-2.0.4-incubator
+
+Errata
+
+    FIXME: [CXF-1253]  - CXF does not respect @HandlerChain on client SEI
+    FIXME: [CXF-1257]  - Cannot create proxy for namespaced doc/wrapped
+    FIXME: [CXF-1258]  - soap:Fault response does not cause SOAPFaultException
+    FIXME: [CXF-1310]  - Generated WSDL for an WS-RM endpoint does not contain RM policies
+    FIXME: [JBWS-1655] - Add support for endpoint address rewriting
+    FIXME: [JBWS-1683] - Fix JAXR samples for CXF
+    FIXME: [JBWS-1774] - Provide tools implementation for CXF (WSContractProvider and WSContractConsumer)
+
+------------------------
+jbossws-3.0-cxf-1.0.0.GA
+------------------------
+
+Bug
+
+    * [JBWS-1754] - Investigate CXF samples oneway
+    * [JBWS-1756] - Fix @WebServiceRef with CXF
+
+Task
+
+    * [JBWS-1677] - Redirect CXF message logging to jboss log
+    * [JBWS-1742] - Update to cxf-2.0.3-incubator
+    * [JBWS-1952] - Release jbossws-cxf-1.0.0 binary
+
+Errata
+
+    FIXME: [CXF-1257] Cannot create proxy for namespaced doc/wrapped
+    FIXME: [CXF-1258] soap:Fault response does not cause SOAPFaultException
+    FIXME: [JBWS-1655] - Add support for endpoint address rewriting

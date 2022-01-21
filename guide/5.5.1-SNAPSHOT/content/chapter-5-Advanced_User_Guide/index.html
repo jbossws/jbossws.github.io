@@ -154,7 +154,7 @@ the desired client/endpoints (programmatically / using <code>@HandlerChain</code
 JAX-WS annotation).</p>
 </div>
 <div class="paragraph">
-<p>The <a href="#_predefined_client_and_endpoint_configurations">[_predefined_client_and_endpoint_configurations]</a>
+<p>The <a href="#predefined-client-and-endpoint-configurations">Predefined client and endpoint configurations</a>
 mechanism allows user to add the logging handler to any client/endpoint
 or to some of them only (in which case the <code>@EndpointConfig</code> annotation
 / JBossWS API is required though).</p>
@@ -389,7 +389,7 @@ webservices deployment.</p>
 <div class="paragraph">
 <p>Elements <code>&lt;config-name&gt;</code> and <code>&lt;config-file&gt;</code> can be used to associate
 any endpoint provided in the deployment with a given
-<a href="#_predefined_client_and_endpoint_configurations">[_predefined_client_and_endpoint_configurations]</a> . Endpoint configuration are
+<a href="#predefined-client-and-endpoint-configurations">Predefined client and endpoint configurations</a> . Endpoint configuration are
 either specified in the referenced config file or in the WildFly domain
 model (webservices subsystem). For further details on the endpoint
 configurations and their management in the domain model, please see the
@@ -496,7 +496,7 @@ public class ValidatingHelloImpl implements Hello {
 </div>
 <div class="paragraph">
 <p>Alternatively, any endpoint and client running in-container can be
-associated to a JBossWS <a href="#_predefined_client_and_endpoint_configurations">[_predefined_client_and_endpoint_configurations]</a>
+associated to a JBossWS <a href="#predefined-client-and-endpoint-configurations">Predefined client and endpoint configurations</a>
 having the <code>schema-validation-enabled</code> property set to <code>true</code> in the
 referenced config file.</p>
 </div>
@@ -549,7 +549,7 @@ Introductions page</a> on the wiki and at the examples in the sources.</p>
 <div class="sect2">
 <h3 id="wsdl-system-properties-expansion">WSDL system properties expansion</h3>
 <div class="paragraph">
-<p>See <a href="#_published_wsdl_customization">[_published_wsdl_customization]</a>.</p>
+<p>See <a href="#published-wsdl-customization">Published WSDL customization</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -754,7 +754,7 @@ as adding, removing and modifying handlers and properties.</p>
 </div>
 <div class="paragraph">
 <p>The allowed contents in the <em>webservices</em> subsystem are defined by the
-<a href="https://github.com/jbossas/jboss-as/blob/7.2.0.Final/build/src/main/resources/docs/schema/jboss-as-webservices_1_2.xsd">schema</a>
+<a href="https://github.com/wildfly/wildfly/blob/main/webservices/server-integration/src/main/resources/schema/jboss-as-webservices_2_0.xsd">schema</a>
 included in the application server.</p>
 </div>
 <div class="ulist">
@@ -910,7 +910,7 @@ port.echo("Kermit");</pre>
 <p>JBossWS parses the specified configuration file. The configuration file
 must be found as a resource by the classloader of the current thread.
 The
-<a href="https://github.com/jbossws/jbossws-spi/tree/main/src/main/resources/schemajbossws-jaxws-config_4_0.xsd">jbossws-jaxws-config
+<a href="https://github.com/jbossws/jbossws-spi/tree/main/src/main/resources/schema/jbossws-jaxws-config_4_0.xsd">jbossws-jaxws-config
 schema</a> defines the descriptor contents and is included in the
 <em>jbossws-spi</em> artifact.</p>
 </div>
@@ -1348,7 +1348,7 @@ annotation, the JASPI security domain specified in
 <div class="paragraph">
 <p>All JAX-WS functionalities provided by JBossWS on top of WildFly are
 currently served through a proper integration of the JBoss Web Services
-stack with most of the <a href="http://cxf.apache.org/">Apache CXF</a> project
+stack with most of the <a href="https://cxf.apache.org/">Apache CXF</a> project
 modules.</p>
 </div>
 <div class="paragraph">
@@ -1383,7 +1383,7 @@ internal customizations on top of Apache CXF.</p>
 <div class="paragraph">
 <p>In the next sections a list of technical suggestions and notes on the
 integration is provided; please also refer to the
-<a href="http://cxf.apache.org/docs/index.html">Apache CXF official documentation</a>
+<a href="https://cxf.apache.org/docs/index.html">Apache CXF official documentation</a>
 for in-depth details on the CXF architecture.</p>
 </div>
 </div>
@@ -1391,7 +1391,7 @@ for in-depth details on the CXF architecture.</p>
 <h4 id="building-ws-applications-the-jboss-way">Building WS applications the JBoss way</h4>
 <div class="paragraph">
 <p>The Apache CXF client and endpoint configuration as explained in the
-<a href="http://cxf.apache.org/docs/index.html">Apache CXF official user guide</a> is
+<a href="https://cxf.apache.org/docs/index.html">Apache CXF official user guide</a> is
 heavily based on Spring. Apache CXF basically parses Spring <code>cxf.xml</code>
 descriptors; those may contain any basic bean plus specific ws client
 and endpoint beans which CXF has custom parsers for. Apache CXF can be
@@ -1424,7 +1424,7 @@ with a JAX-WS compliant implementation, which is basically Apache CXF
 plus the JBossWS-CXF integration layer. So users just need to write
 their JAX-WS application; <em>no need for embedding any Apache CXF or any
 ws related dependency library in user deployments</em> . Please refer to the
-<a href="#_advanced_user_guide">[_advanced_user_guide]</a>  of the documentation for getting started.</p>
+<a href="#advanced-user-guide">Advanced User Guide</a>  of the documentation for getting started.</p>
 </div>
 <div class="paragraph">
 <p>WS-* usage (including WS-Security, WS-Addressing, WS-ReliableMessaging,
@@ -1752,7 +1752,7 @@ customizations.</p>
 <h5 id="deployment-descriptor-properties">Deployment descriptor properties</h5>
 <div class="paragraph">
 <p>The <code>jboss-webservices.xml</code> descriptor can be used to
-provide property values for <a href="#_component_element">[_component_element]</a></p>
+provide property values for <a href="#component-element">component element</a></p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1775,7 +1775,7 @@ control Apache CXF internals.</p>
 <div class="paragraph">
 <p>Apache CXF uses WorkQueue instances for dealing with some operations
 (e.g. @Oneway requests processing). A
-<a href="http://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/WorkQueueManager.html">WorkQueueManager</a>
+<a href="https://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/WorkQueueManager.html">WorkQueueManager</a>
 is installed in the Bus as an extension and allows for adding / removing
 queues as well as controlling the existing ones.</p>
 </div>
@@ -1785,11 +1785,11 @@ queues as well as controlling the existing ones.</p>
 <code>cxf.queue.default.maxQueueSize</code> for controlling the max queue size of
 the <code>default</code> workqueue). At deployment time, the JBossWS integration
 can add new instances of
-<a href="http://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/AutomaticWorkQueueImpl.html">AutomaticWorkQueueImpl</a>
+<a href="https://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/AutomaticWorkQueueImpl.html">AutomaticWorkQueueImpl</a>
 to the currently configured WorkQueueManager; the properties below are
 used to fill in parameter into the
-<a href="http://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/AutomaticWorkQueueImpl.html#AutomaticWorkQueueImpl(int" class="bare">http://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/AutomaticWorkQueueImpl.html#AutomaticWorkQueueImpl(int</a>, int, int, int, long, java.lang.String)[AutomaticWorkQueueImpl
-constructor] :</p>
+<a href="https://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/workqueue/AutomaticWorkQueueImpl.html#AutomaticWorkQueueImpl(int,%20int,%20int,%20int,%20long,%20java.lang.String)">AutomaticWorkQueueImpl
+constructor</a> :</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1831,7 +1831,7 @@ constructor] :</p>
 <div class="paragraph">
 <p>The Apache CXF policy engine supports different strategies to deal with
 policy alternatives. JBossWS-CXF integration currently defaults to the
-<a href="http://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/ws/policy/selector/MaximalAlternativeSelector.html">MaximalAlternativeSelector</a>
+<a href="https://cxf.apache.org/javadoc/latest-2.5.x/org/apache/cxf/ws/policy/selector/MaximalAlternativeSelector.html">MaximalAlternativeSelector</a>
 , but still allows for setting different selector implementation using
 the <code>cxf.policy.alternativeSelector</code> property in <code>jboss-webservices.xml</code>
 .</p>
@@ -1868,7 +1868,7 @@ desired in some cases. Here is an example:</p>
 <div class="paragraph">
 <p>Schema validation of exchanged messages can also be enabled in
 <code>jboss-webservices.xml</code> . Further details available
-<a href="#_configuration_through_deployment_descriptor">[_configuration_through_deployment_descriptor]</a></p>
+<a href="#configuration-through-deployment-descriptor">Configuration through deployment descriptor</a></p>
 </div>
 </div>
 <div class="sect5">
@@ -1929,7 +1929,7 @@ the deployment.</p>
 <h6 id="discovery-enablement">Discovery enablement</h6>
 <div class="paragraph">
 <p>WS-Discovery support can be turned on in <code>jboss-webservices</code> for the
-current deployment. Further details available <a href="#_configuration_through_deployment_descriptor">[_configuration_through_deployment_descriptor]</a> .</p>
+current deployment. Further details available <a href="#configuration-through-deployment-descriptor">Configuration through deployment descriptor</a> .</p>
 </div>
 </div>
 </div>
@@ -1960,7 +1960,7 @@ approaches:</p>
 <p>As the Spring descriptor usage is not supported, the JBossWS integration
 adds an additional descriptor based approach to avoid requiring
 modifications to the actual client/endpoint code. Users can declare
-interceptors within <a href="#_predefined_client_and_endpoint_configurations">[_predefined_client_and_endpoint_configurations]</a> by specifying a list of interceptor class names for the
+interceptors within <a href="#predefined-client-and-endpoint-configurations">Predefined client and endpoint configurations</a> by specifying a list of interceptor class names for the
 <code>cxf.interceptors.in</code> and <code>cxf.interceptors.out</code> properties.</p>
 </div>
 <div class="literalblock">
@@ -2013,7 +2013,7 @@ approaches:</p>
 <p>As the Spring descriptor usage is not supported, the JBossWS integration
 adds an additional descriptor based approach to avoid requiring
 modifications to the actual client/endpoint code. Users can declare
-features within <a href="#_predefined_client_and_endpoint_configurations">[_predefined_client_and_endpoint_configurations]</a> by specifying a list of feature class names for the
+features within &lt;&lt;&gt;&gt; by specifying a list of feature class names for the
 <code>cxf.features</code> property.</p>
 </div>
 <div class="literalblock">
@@ -2121,7 +2121,7 @@ course be configured.</p>
 <div class="paragraph">
 <p>HTTP transport setup in Apache CXF is achieved through
 <code>org.apache.cxf.transport.http.HTTPConduit</code>
-<a href="http://cxf.apache.org/docs/client-http-transport-including-ssl-support.html">configurations</a>
+<a href="https://cxf.apache.org/docs/client-http-transport-including-ssl-support.html">configurations</a>
 . When running on top of the JBossWS integration, conduits can be
 programmatically modified using the Apache CXF API as follows:</p>
 </div>
@@ -2271,8 +2271,8 @@ message context</p>
 <div class="paragraph">
 <p>Please refer to the the Apache CXF documentation for further information
 on the proprietary
-<a href="http://cxf.apache.org/docs/ws-addressing.html">WS-Addressing setup</a> and
-<a href="http://cxf.apache.org/docs/wsaconfiguration.html">configuration details</a>
+<a href="https://cxf.apache.org/docs/ws-addressing.html">WS-Addressing setup</a> and
+<a href="https://cxf.apache.org/docs/wsaconfiguration.html">configuration details</a>
 .</p>
 </div>
 </div>
@@ -2489,7 +2489,7 @@ configurations and easily extendible.</p>
 operations. Interceptors can be configured in different ways, either
 through Spring configuration files or directly using Apache CXF client
 API. Please refer to the
-<a href="http://cxf.apache.org/docs/ws-security.html">Apache CXF documentation</a> if
+<a href="https://cxf.apache.org/docs/ws-security.html">Apache CXF documentation</a> if
 you&#8217;re looking for more details.</p>
 </div>
 <div class="paragraph">
@@ -2611,7 +2611,7 @@ port.echoString("hello");</pre>
 </div>
 <div class="paragraph">
 <p>Please refer to the
-<a href="http://cxf.apache.org/docs/ws-securitypolicy.html">Apache CXF
+<a href="https://cxf.apache.org/docs/ws-securitypolicy.html">Apache CXF
 documentation</a> for additional configuration details.</p>
 </div>
 </div>
@@ -2622,7 +2622,7 @@ documentation</a> for additional configuration details.</p>
 <p>In order for removing the need of Spring on server side for setting up
 WS-Security configuration properties not covered by policies, the
 JBossWS integration allows for getting those pieces of information from
-a defined <em>endpoint configuration</em> . <a href="#_predefined_client_and_endpoint_configurations">[_predefined_client_and_endpoint_configurations]</a>
+a defined <em>endpoint configuration</em> . <a href="#predefined-client-and-endpoint-configurations">Predefined client and endpoint configurations</a>
 can include property declarations and endpoint
 implementations can be associated with a given endpoint configuration
 using the <code>@EndpointConfig</code> annotation.</p>
@@ -3726,7 +3726,7 @@ public class ServiceImpl implements ServiceIface {
 <div class="sect3">
 <h4 id="ws-trust-overview">WS-Trust overview</h4>
 <div class="paragraph">
-<p><a href="https://www.oasis-open.org/standards#wstrustv1.4">WS-Trust</a> is a Web
+<p><a href="http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html">WS-Trust</a> is a Web
 service specification that defines extensions to WS-Security. It is a
 general framework for implementing security in a distributed system. The
 standard is based on a centralized Security Token Service, STS, which is
@@ -4780,7 +4780,7 @@ message exchange via SOAP envelopes.</p>
 <p>As was done in the ServiceImpl class, the WSS4J annotations
 EndpointProperties and EndpointProperty are providing endpoint
 configuration for the CXF runtime. This was previous described
-<a href="#_web_service_provider_implementation">[_web_service_provider_implementation]</a>
+<a href="#web-service-provider-implementation">Web service provider Implementation</a>
 .</p>
 </div>
 <div class="paragraph">
@@ -5569,7 +5569,7 @@ form of a token with identity claims such as name, role, and
 authorization code, for the client to access the service.</p>
 </div>
 <div class="paragraph">
-<p>The ActAs scenario is an extension of <a href="#_a_basic_ws_trust_scenario">[_a_basic_ws_trust_scenario]</a>. In this example the ActAs service calls the
+<p>The ActAs scenario is an extension of <a href="#a-basic-ws-trust-scenario">A Basic WS-Trust Scenario</a>. In this example the ActAs service calls the
 ws-service on behalf of a user. There are only a couple of additions to
 the basic scenario&#8217;s code. An ActAs web service provider and callback
 handler have been added. The ActAs web services' WSDL imposes the same
@@ -6302,7 +6302,7 @@ form of a token with identity claims such as name, role, and
 authorization code, for the client to access the service.</p>
 </div>
 <div class="paragraph">
-<p>The OnBehalfOf scenario is an extension of <a href="#_a_basic_ws_trust_scenario">[_a_basic_ws_trust_scenario]</a> . In this example the OnBehalfOf service calls the
+<p>The OnBehalfOf scenario is an extension of <a href="#a-basic-ws-trust-scenario">A Basic WS-Trust Scenario</a> . In this example the OnBehalfOf service calls the
 ws-service on behalf of a user. There are only a couple of additions to
 the basic scenario&#8217;s code. An OnBehalfOf web service provider and
 callback handler have been added. The OnBehalfOf web services' WSDL
@@ -9288,7 +9288,7 @@ only portable one. The other approaches are Apache CXF proprietary ones,
 however they allow for fine-grained configuration of protocol aspects
 that are not covered by the WS-Reliable Messaging Policy. More details
 are available in the
-<a href="http://cxf.apache.org/docs/wsrmconfiguration.html">Apache CXF
+<a href="https://cxf.apache.org/docs/wsrmconfiguration.html">Apache CXF
 documentation</a> .</p>
 </div>
 </div>
@@ -9613,7 +9613,7 @@ controlled by proper elements and attributes in the <code>binding</code> and
 developed using a contract-first approach.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="http://cxf.apache.org/docs/soap-over-jms-10-support.html">Apache CXF
+<p>The <a href="https://cxf.apache.org/docs/soap-over-jms-10-support.html">Apache CXF
 documentation</a> covers all the details of the supported configurations.
 The minimum configuration implies:</p>
 </div>
@@ -10305,7 +10305,7 @@ provided by the Apache CXF http transport layer.</p>
 <div class="paragraph">
 <p>The suggested configuration mechanism when running JBoss Web Services is
 explained below; for further information please refer to the
-<a href="http://cxf.apache.org/docs/client-http-transport-including-ssl-support.html">Apache
+<a href="https://cxf.apache.org/docs/client-http-transport-including-ssl-support.html">Apache
 CXF documentation</a> .</p>
 </div>
 <div class="sect3">
@@ -10418,7 +10418,7 @@ required multicast traffic is also covered by the protocol.</p>
 </div>
 <div class="paragraph">
 <p>JBossWS integrates the <em>WS-Discovery</em>
-<a href="http://cxf.apache.org/docs/ws-discovery.html">functionalities</a> provided
+<a href="https://cxf.apache.org/docs/ws-discovery.html">functionalities</a> provided
 by Apache CXF into the application server.</p>
 </div>
 <div class="sect3">
@@ -10465,7 +10465,7 @@ messages upon undeployment.</p>
 <h4 id="probing-services">Probing services</h4>
 <div class="paragraph">
 <p>Apache CXF comes with a <em>WS-Discovery</em> API that can be used to probe /
-resolve services. When running in-container, a <a href="#_jboss_modules">[_jboss_modules]</a> dependency to the the <code>org.apache.cxf.impl</code> module is
+resolve services. When running in-container, a <a href="#JBoss Modules">[JBoss Modules]</a> dependency to the the <code>org.apache.cxf.impl</code> module is
 to be set to have access to <em>WS-Discovery</em> client functionalities.</p>
 </div>
 <div class="paragraph">
@@ -10508,7 +10508,7 @@ or features.</p>
 <div class="paragraph">
 <p>Of course users can also make direct use of the Apache CXF policy
 framework,
-<a href="http://cxf.apache.org/docs/developing-assertions.html">defining custom
+<a href="https://cxf.apache.org/docs/developing-assertions.html">defining custom
 assertions</a> , etc.</p>
 </div>
 <div class="paragraph">

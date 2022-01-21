@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ JBoss, Home of Professional Open Source.
+  ~ Copyright 2014, Red Hat, Inc., and individual contributors
+  ~ as indicated by the @author tags. See the copyright.txt file in the
+  ~ distribution for a full listing of individual contributors.
+  ~
+  ~ This is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2.1 of
+  ~ the License, or (at your option) any later version.
+  ~
+  ~ This software is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this software; if not, write to the Free
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+  -->
+
+<project>
+  <condition property="isWindows">
+     <os family="windows" />
+  </condition>
+
+  <taskdef name="wsprovide" classname="org.jboss.ws.tools.ant.WSProvideTask">
+     <classpath>
+       <pathelement path="${maven.test.classpath}"/>
+     </classpath>
+  </taskdef>
+
+  <target name="wsprovide" description="Provide JAX-WS contracts" depends="wsprovideWindows, wsprovideNotWindows"/>
+
+  <target name="wsprovideWindows" if="isWindows">
+    <wsprovide-macro
+      sei="org.jboss.test.ws.jaxws.jbws2960.AddNumbersImpl"
+      destdir="jaxws/jbws2960"
+      outputDir="${tests.output.dir}"
+      log4jConf="${log4j.conf}"
+      loggingDir="${log4j.output.dir}"
+      resourcesDir="jaxws/jbws2960"
+      fork="false"
+      additional.jvm.args="${additional.jvm.args}"
+    />
+  </target>
+
+  <target name="wsprovideNotWindows" unless="isWindows">
+    <wsprovide-macro
+      sei="org.jboss.test.ws.jaxws.jbws2960.AddNumbersImpl"
+      destdir="jaxws/jbws2960"
+      outputDir="${tests.output.dir}"
+      log4jConf="${log4j.conf}"
+      loggingDir="${log4j.output.dir}"
+      resourcesDir="jaxws/jbws2960"
+      fork="true"
+      additional.jvm.args="${additional.jvm.args}"
+    />
+  </target>
+
+  <macrodef name="wsprovide-macro">
+
+    <attribute name="sei"/>
+    <attribute name="destDir"/>
+    <attribute name="outputDir"/>
+    <attribute name="log4jConf"/>
+    <attribute name="loggingDir"/>
+    <attribute name="resourcesDir"/>
+    <attribute name="fork"/>
+  	<attribute name="additional.jvm.args"/>
+
+    <sequential>
+      <wsprovide
+        sei="@{sei}"
+        fork="@{fork}"
+        genwsdl="true"
+        verbose="false"
+        classpath="@{outputDir}/test-classes"
+        destdir="@{outputDir}/test-classes/@{destDir}"
+        resourcedestdir="@{outputDir}/test-resources/@{resourcesDir}"
+      >
+        <jvmarg line="-Dlog4j.configuration=file://@{log4jConf}"/>
+        <jvmarg line="-Dlog4j.output.dir=@{loggingDir}"/>
+        <jvmarg line="-Djavax.xml.accessExternalSchema=file,http"/>
+      	<jvmarg line="@{additional.jvm.args}"/>
+      </wsprovide>
+    </sequential>
+
+  </macrodef>
+
+</project>

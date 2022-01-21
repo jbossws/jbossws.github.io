@@ -144,7 +144,7 @@
 focus on web service deployments that leverage EJB3 service
 implementations and the JAX-WS programming models. For further
 information on POJO service implementations and advanced topics you need
-consult the <a href="#_jax_ws_user_guide">[_jax_ws_user_guide]</a>.</p>
+consult the <a href="#JAX-WS User Guide">[JAX-WS User Guide]</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="developing-web-service-implementations">Developing web service implementations</h3>
@@ -161,7 +161,7 @@ probably going to start with the implementation and derive the abstract
 contract from it. You are probably not even getting in touch with the
 WSDL unless you hand it to 3rd party clients. For this reason we are
 going to look at a service implementation that leverages
-<a href="http://www.jcp.org/en/jsr/summary?id=181">JSR-181 annotations</a> .</p>
+<a href="https://jakarta.ee/specifications/web-services-metadata/">Jakarta Web Service Metadata</a> .</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -178,8 +178,7 @@ further information see</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://www.jcp.org/en/jsr/summary?id=181">Web service meta data
-(JSR-181)</a></p>
+<p><a href="https://jakarta.ee/specifications/web-services-metadata/">Jakarta Web Service Metadata</a></p>
 </li>
 <li>
 <p><a href="http://www.jcp.org/en/jsr/summary?id=222">Java API for XML binding
@@ -353,14 +352,16 @@ bean will also be there) and create an HTTP endpoint at deploy-time.</p>
 <div class="paragraph">
 <p>jar -tf jaxws-samples-retail.jar</p>
 </div>
-<div class="paragraph">
-<p>org/jboss/test/ws/jaxws/samples/retail/profile/DiscountRequest.class
+<div class="literalblock">
+<div class="content">
+<pre>org/jboss/test/ws/jaxws/samples/retail/profile/DiscountRequest.class
 org/jboss/test/ws/jaxws/samples/retail/profile/DiscountResponse.class
 org/jboss/test/ws/jaxws/samples/retail/profile/ObjectFactory.class
 org/jboss/test/ws/jaxws/samples/retail/profile/ProfileMgmt.class
 org/jboss/test/ws/jaxws/samples/retail/profile/ProfileMgmtBean.class
 org/jboss/test/ws/jaxws/samples/retail/profile/ProfileMgmtService.class
-org/jboss/test/ws/jaxws/samples/retail/profile/package-info.class</p>
+org/jboss/test/ws/jaxws/samples/retail/profile/package-info.class</pre>
+</div>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -558,9 +559,9 @@ dependency. Users should simply add a dependency to it in their Maven
 project.</p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re running the client out of container, It&#8217;s also recommended to
+<p>If you&#8217;re running the client out of the container, It&#8217;s also recommended to
 properly setup JAXWS implementation endorsing, to make sure you use the
-JBossWS <strong>implementation</strong> of JAXWS API instead of relying on the
+JBossWS implementation of JAXWS API instead of relying on the
 implementation coming with the JDK; this is usually done by copying the
 `
               org.jboss.ws.cxf.jbossws-cxf-factories
@@ -687,7 +688,7 @@ server container WS endpoints are run in. This is achieved by using the
 <div class="paragraph">
 <p>The <em>client.jar</em> is meant to contain the WS client application and
 include a <em>MANIFEST.MF</em> file specifying the proper <code>Main-Class</code> as well
-as <a href="#sid-4784150">JBoss Module dependencies</a> , for instance:</p>
+as <a href="#JBoss Modules">[JBoss Modules]</a> dependencies, for instance:</p>
 </div>
 <div class="literalblock">
 <div class="content">
