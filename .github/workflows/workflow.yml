@@ -17,7 +17,7 @@ jobs:
           repository: jbossws/jbossws-cxf
           path: './adoc'
       - name: copy snapshot adoc files to github pages
-        working-directory: ./adoc
+        working-directory: './adoc'
         run: |
           cp -R ./modules/dist/src/main/doc/adoc/content ../jbossws.github.io/_guide/5.5.1-SNAPSHOT
           cp -R ./modules/dist/src/main/doc/adoc/image ../jbossws.github.io/_guide/5.5.1-SNAPSHOT
