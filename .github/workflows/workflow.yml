@@ -23,6 +23,9 @@ jobs:
         run: |
           cp -R ./modules/dist/src/main/doc/adoc/content ../_guide/5.5.1-SNAPSHOT
           cp -R ./modules/dist/src/main/doc/adoc/image ../_guide/5.5.1-SNAPSHOT
+      - name: remove jbossws-cxf
+        run: |
+          rm -rf jbossws-cxf
       - name: Set up ruby
         uses: ruby/setup-ruby@v1
         with:
