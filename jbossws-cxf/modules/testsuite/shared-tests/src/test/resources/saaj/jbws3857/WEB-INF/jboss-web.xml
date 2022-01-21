@@ -1,3 +1,0 @@
-<jboss-web>
-	<context-root>reproducer-eap-wrong-multipart</context-root>
-</jboss-web>
