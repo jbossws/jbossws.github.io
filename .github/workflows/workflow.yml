@@ -15,12 +15,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: jbossws/jbossws-cxf
-          path: './adoc'
+          path: './jbossws-cxf'
       - name: copy snapshot adoc files to github pages
-        working-directory: './adoc'
+        working-directory: './jbossws-cxf'
         run: |
-          cp -R ./modules/dist/src/main/doc/adoc/content ../jbossws.github.io/_guide/5.5.1-SNAPSHOT
-          cp -R ./modules/dist/src/main/doc/adoc/image ../jbossws.github.io/_guide/5.5.1-SNAPSHOT
+          cp -R ./modules/dist/src/main/doc/adoc/content ../_guide/5.5.1-SNAPSHOT
+          cp -R ./modules/dist/src/main/doc/adoc/image ../_guide/5.5.1-SNAPSHOT
       - name: Set up ruby
         uses: ruby/setup-ruby@v1
         with:
