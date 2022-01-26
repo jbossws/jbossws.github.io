@@ -9,7 +9,7 @@ permalink: pretty
 paginate: 15
 paginate_path: "blogs/page:num"
 collections:
-  guide:
+  documentation:
     output: true
 asciidoctor:
   base_dir: :docdir
