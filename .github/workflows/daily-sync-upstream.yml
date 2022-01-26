@@ -17,8 +17,8 @@ jobs:
       - name: copy snapshot adoc files to github pages
         working-directory: './jbossws-cxf'
         run: |
-          cp -R ./modules/dist/src/main/doc/adoc/content ../_documentation/5.5.1-SNAPSHOT
-          cp -R ./modules/dist/src/main/doc/adoc/image ../_documentation/5.5.1-SNAPSHOT
+          cp -R ./modules/dist/src/main/doc/adoc/content ../_documentation/latest
+          cp -R ./modules/dist/src/main/doc/adoc/image ../_documentation/latest
       - name: remove jbossws-cxf
         run: |
           rm -rf jbossws-cxf
