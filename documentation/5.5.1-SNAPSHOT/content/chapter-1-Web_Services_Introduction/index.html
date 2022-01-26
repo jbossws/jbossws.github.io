@@ -129,30 +129,235 @@
                        <span>
                               <a href="/">JBoss Web Services</a>
                                 &gt;
-                              <a href="/docs">JBossWS Documentation</a>
+                              <a href="/">Chapter 1 Web_services_introduction</a>
                                 &gt;
                               <a href="#"></a>
                        </span>
                      </div><!-- end breadcrumb -->
-                     <h3>Documentation</h3>
-<p><em><strong>Main SNAPSHOT documentation</strong></em></p>
-<p><a href="/documentation/5.5.1-SNAPSHOT/JBossWS-CXF">5.5.1-SNAPSHOT</a> </p>
-
-<p><em><strong>Release documentation</strong></em></p>
-<p><a href="/documentation/5.5.0.Final/">5.5.0.Final</a> </p>
-<p><a href="/documentation/5.4.4.Final/">5.4.4.Final</a> </p>
-<p><a href="/documentation/5.3.0.Final/">5.3.0.Final</a> </p>
-<p><a href="/documentation/5.2.4.Final/">5.2.4.Final</a> </p>
-<p><a href="/documentation/5.1.9.Final/">5.1.9.Final</a> </p>
-
-<!--
-<p>The <a href="https://docs.jboss.org/author/display/JBWS">documentation for the latest JBossWS
-    series</a> is available and continuously updated.</p>
-<p>Starting from JBossWS 5.0.0.Final, the release documentation is exported at
-    <a href="https://docs.jboss.org/jbossws/">https://docs.jboss.org/jbossws/</a>.</p>
-<p>&nbsp;</p>
--->
-
+                     <div class="sect1">
+<h2 id="web-services-introduction">Web Services Introduction</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="what-is-a-web-service">What is a web service?</h3>
+<div class="paragraph">
+<p><em>A Web service is a software system designed to support interoperable
+machine-to-machine interaction over a network. It has an interface
+described in a machine-processable format (specifically WSDL). Other
+systems interact with the Web service in a manner prescribed by its
+description using SOAP messages, typically conveyed using HTTP with an
+XML serialization in conjunction with other Web-related standards.</em></p>
+</div>
+<div class="paragraph">
+<p>From <em>W3C Web Services Architecture</em>
+<a href="http://www.w3.org/TR/2004/NOTE-ws-arch-20040211">[1</a>]</p>
+</div>
+<div class="paragraph">
+<p>Technical details will be later explained in the documentation. What
+comes out is that web services provide a standard means of
+interoperating between different software applications. Each of these
+applications may run on a variety of platforms and/or frameworks
+providing a set of functionalities. The main concern is about
+interoperability between services.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A service provider publishes a service contract that exposes the
+public functions (operations) it is able to perform and thus service
+consumers can use.</p>
+</li>
+<li>
+<p>Both service providers and service consumers features concrete
+softwares that send and receive messages according to the informations
+contained in the service contract they agreed before the communication.</p>
+</li>
+<li>
+<p>Basic Web services specifications define the standard way of
+publishing a service contract and communicating.</p>
+</li>
+<li>
+<p>Web services stacks (like <em>JBossWS</em> ) conform to these specifications
+providing software layers to developers who want to either implement a
+service provider or service consumer. This way they almost only need to
+develop their own business logic in their preferred way, without dealing
+with the low-level details of message exchanges and so on.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="who-needs-web-services">Who needs web services?</h4>
+<div class="paragraph">
+<p>Enterprise systems communication may benefit from a wise adoption of WS
+technologies. Exposing well designed contracts allows developers to
+extract an abstract view of their service capabilities. Considering the
+standardized way contracts are written, this definitely helps
+communication with third-party systems and eventually support
+business-to-business integration. No more agreement required on vendor
+specific implementation details, home-brew communication protocol or
+custom per-customer settings. Everything is clear and standardized in
+the contract the provider and consumer agree on. Of course this also
+reduces the dependencies between implementations allowing other
+consumers to easily use the provided service without major changes.</p>
+</div>
+<div class="paragraph">
+<p>Enterprise system may benefit from web service technologies also for
+internal heterogeneous subsystems communication. As a matter of fact
+their interoperability boosts service reuse and composition. No more
+need to rewrite whole functionalities only because they were developed
+by another enterprise department using another software language.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="what-web-services-are-not">What web services are not&#8230;&#8203;</h4>
+<div class="paragraph">
+<p>Needless to say that web services are not the solution for every
+software system communication.</p>
+</div>
+<div class="paragraph">
+<p>Nowadays they are meant to be used for loosely-coupled coarse-grained
+communication, for message (document) exchange. Moreover during the last
+years a lot of specifications (
+<a href="http://community.jboss.org/docs/DOC-13554#Future_of_Web_Services">WS-*</a> )
+were discussed and finally approved to standardize ws-related advanced
+aspects including reliable messaging, message-level security,
+cross-service transactions, etc. Finally web service specifications also
+include notion of registries to collect service contract references, to
+easily discover service implementations, etc.</p>
+</div>
+<div class="paragraph">
+<p>This all means that the web services technology platform suits complex
+enterprise communication and is not simply the latest way of doing
+remote procedure calls.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="from-concepts-to-technology">From concepts to technology</h3>
+<div class="sect3">
+<h4 id="service-contracts">Service contracts</h4>
+<div class="paragraph">
+<p>Contracts carry technical constraints and requirements of the exposed
+service as well as information about data to be exchange to interact
+with the service. They comprise technical descriptions and optional
+non-technical documents. The latter might include human readable
+description of the service and the business process it is part of as
+well as service level agreement / quality of provided service
+information.</p>
+</div>
+<div class="sect4">
+<h5 id="technical-description">Technical description</h5>
+<div class="paragraph">
+<p>Service description is mainly provided using the standard
+<a href="http://www.w3.org/TR/wsdl">Web Service Description Language (WSDL)</a> .
+Practically speaking this means one or more XML files containing
+information including the service location ( <em>endpoint address</em> ), the
+service functionalities ( <em>operations</em> ), the input/output messages
+involved in the communication and the business data structure. The
+latter is basically one or more <a href="http://www.w3.org/TR/xmlschema-0/">XML
+Schema definition</a> . Moreover recent specifications (like
+<a href="http://schemas.xmlsoap.org/ws/2004/09/policy/">WS-Policy</a> ) allow for
+more advanced service capabilities to be stated in the contract through
+WSDL extensions.</p>
+</div>
+<div class="paragraph">
+<p>Web service stacks like JBossWS usually have tools to both generate and
+consume technical contracts. This helps ensuring also from a practical
+point of view that owners of service producer ( <em>server</em> ) and consumer
+( <em>client</em> ) only need contracts to establish the communication.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="contract-delivery-process">Contract delivery process</h5>
+<div class="paragraph">
+<p>One of the main concerns about service contracts is the way they&#8217;re
+obtained.</p>
+</div>
+<div class="sect5">
+<h6 id="bottom-up-approach">Bottom-Up approach</h6>
+<div class="paragraph">
+<p>As previously said, tools allow developers to automatically generate
+WSDL contract files given their service implementation. Advantages and
+disadvantage of this delivery process include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Developers do not have to deal with contracts by hand thus deep
+knowledge of WSDL and XML is not required.</p>
+</li>
+<li>
+<p>Less effort and time required for services to be developed and go live
+to production environment.</p>
+</li>
+<li>
+<p>Contracts usually need frequent maintenance, refactoring and
+versioning.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="down-approach">Down approach</h6>
+<div class="paragraph">
+<p>Developers may write contracts first instead. This usually implies an
+initial collaboration of architects and business analysts to define a
+conceptual service design together.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Services with contracts obtained this way may easily cooperate in a
+service oriented architecture</p>
+</li>
+<li>
+<p>More effort and time required for web service project start-up</p>
+</li>
+<li>
+<p>Deep knowledge of WSDL and related technology required</p>
+</li>
+<li>
+<p>Contracts tend to have longer lifespans and usually require less
+maintenance.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="message-exchange">Message exchange</h4>
+<div class="paragraph">
+<p>As stated by the
+<a href="http://www.w3.org/TR/2004/NOTE-ws-arch-20040211/#whatis">W3C definition</a>
+, the communication between web services is standardized by the
+<a href="http://www.w3.org/TR/soap/">SOAP</a> specification. This means XML messages
+flow from the provider and consumer endpoints.</p>
+</div>
+<div class="paragraph">
+<p>Messages' content is described in the wsdl contract. The WSDL file also
+states the transport protocol to be used for the transmission; the most
+common one is of course HTTP, however JMS, SMTP and other ones are
+allowed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="advanced-web-services-technologies">Advanced Web Services technologies</h4>
+<div class="paragraph">
+<p>The above mentioned specifications are quite common nowadays in the IT
+industry and many enterprise have been using them since years.</p>
+</div>
+<div class="paragraph">
+<p>However a real added value to the web service platform comes from a lot
+of recent additional specifications. These cover features that are
+really relevant to deliver mission critical enterprise services. For
+example some of the most important agreements major vendors came to are
+those on security (WS-Security) and reliable messaging (WS-Reliable
+Messaging).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
                   </div><!-- end main -->
                </div>
