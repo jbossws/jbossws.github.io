@@ -1,4 +1,10 @@
-= JBoss Web Services Documentation - 5.5.1-SNAPSHOT
+---
+layout:     default
+title:       "JBossWS Documentation"
+subtitle:    "5.5.1-SNAPSHOT"
+link:        docs
+---
+= JBossWS Documentation
 :sectnums:
 :toc:
 :toclevels: 3
