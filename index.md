@@ -1,10 +1,12 @@
 ---
 layout:     main
-title:       "JBossWS 5.5.0.Final released!"
-date:       Jan 13 ,2022 03:00 pm
+title:       "JBossWS 6.0.0.Final released!"
+date:       June 21 ,2022 02:00 pm
 author:     Jim Ma
 ---
-JBossWS 5.5.0.Final has been released and is available for download.
-The maven artifacts have been released to the Maven repository. In this release, we upgraded CXF
-to 3.4.5 ,log4j to 2.17.1 and fixed other issues. For more detailed info and full list of issues resolved, please check
-[release notes.](https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&version=12357605)
+JBossWS 6.0.0.Final has been released and is available for download.
+The maven artifacts have been released to the Maven repository. In this major release, 
+the Jakarta EE 9.1(jakarta namespace aka big bang change) is supported and a lot of
+jakarta maven artifacts are included/updated.
+For more detailed info and full list of issues resolved, please check
+[release notes.](https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&version=12379843)

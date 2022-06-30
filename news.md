@@ -1,9 +1,16 @@
----
+ 
+-                                                                                                                                1--
 layout:     default
 title:       "JBossWS - News"
 link:        "news"
 ---
 ### Releases
+
++ 21.06.2022: JBossWS 6.0.0: Apache CXF integration stack ([release notes](https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&version=12379843)
+  )
+  - Support Jakarta EE 9.1 (jakarta namespace change)
+  - Bug fixes
+
 + 13.01.2022: JBossWS 5.5.0: Apache CXF integration stack ([release notes](https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&version=12357605)
   )
   - Upgrade to Apache CXF 3.4.4
@@ -18,7 +25,7 @@ link:        "news"
 + 14.05.2019: JBossWS 5.3.0: Apache CXF integration stack ([release notes](https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.3.0.Final.txt))
   - Upgrade to Apache CXF 3.3.1
   - JDK 11 compatibility
-  - Bug fixes
+  - Bug fixes 
 
 + 10.10.2018: JBossWS 5.2.4: Apache CXF integration stack ([release notes](https://download.jboss.org/jbossws/ReleaseNotes-jbossws-cxf-5.2.4.Final.txt))
   - Upgrade to Apache CXF 3.2.6
