@@ -235,7 +235,7 @@ defaults, so only the @WebService annotation is required.</p>
 <div class="content">
 <pre>package echo;
 
-@javax.jws.WebService
+@jakarta.jws.WebService
 public class Echo
 {
    public String echo(String input)
@@ -251,7 +251,7 @@ only Java code needed to deploy on JBossWS. The WSDL, and all other Java
 artifacts called "wrapper classes" will be generated for you at deploy
 time. This actually goes beyond the JAX-WS specification, which requires
 that wrapper classes be generated using an offline tool. The reason for
-this requirement is purely a vender implementation problem, and since we
+this requirement is purely a vendor implementation problem, and since we
 do not believe in burdening a developer with a bunch of additional
 steps, we generate these as well. However, if you want your deployment
 to be portable to other application servers, you will unfortunately need
@@ -321,10 +321,10 @@ abstract contract for your service.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>&lt;web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+<pre>&lt;web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-  version="2.4"&gt;
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+  version="5.0"&gt;
 
   &lt;servlet&gt;
     &lt;servlet-name&gt;Echo&lt;/servlet-name&gt;
@@ -481,7 +481,7 @@ class, which can now be written, using the above interface.</p>
 <div class="content">
 <pre>package echo;
 
-@javax.jws.WebService(endpointInterface="echo.Echo")
+@jakarta.jws.WebService(endpointInterface="echo.Echo")
 public class EchoImpl implements Echo
 {
    public String echo(String arg0)
@@ -609,7 +609,7 @@ public class EchoService extends Service
 </div>
 <div class="paragraph">
 <p>As you can see, this generated class extends the main client entry point
-in JAX-WS, <code>javax.xml.ws.Service</code> . While you can use <code>Service</code>
+in JAX-WS, <code>jakarta.xml.ws.Service</code> . While you can use <code>Service</code>
 directly, this is far simpler since it provides the configuration info
 for you. The only method we really care about is the <code>getEchoPort()</code>
 method, which returns an instance of our Service Endpoint Interface. Any

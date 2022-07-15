@@ -139,29 +139,31 @@
 <h2 id="jakarta-xml-web-services-user-guide">Jakarta XML Web Services User Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <a href="http://www.jcp.org/en/jsr/detail?id=224">Java API for XML-Based Web
-Services (JAX-WS / JSR-224)</a> defines the mapping between WSDL and Java
+<p>The <a href="https://jakarta.ee/specifications/xml-web-services/">Jakarta XML Web Services(JAX-WS)</a>
+defines the mapping between WSDL and Java
 as well as the classes to be used for accessing webservices and
-publishing them. JBossWS implements the latest JAX-WS specification,
+publishing them. JBossWS implements the latest Jakarta XML Web Services specification,
 hence users can reference it for any vendor agnostic webservice usage
 need. Below is a brief overview of the most basic functionalities.</p>
 </div>
 <div class="sect2">
 <h3 id="web-service-endpoints">Web Service Endpoints</h3>
 <div class="paragraph">
-<p>JAX-WS simplifies the development model for a web service endpoint a
+<p>Jakarta XML Web Services simplifies the development model for a web service endpoint a
 great deal. In short, an endpoint implementation bean is annotated with
 JAX-WS annotations and deployed to the server. The server automatically
 generates and publishes the abstract contract (i.e. wsdl+schema) for
 client consumption. All marshalling/unmarshalling is delegated to
-<a href="http://www.jcp.org/en/jsr/summary?id=jaxb">JAXB</a> .</p>
+<a href="https://jakarta.ee/specifications/xml-binding" class="bare">https://jakarta.ee/specifications/xml-binding</a>[Jakarta XML Binding
+(JAXB).</p>
 </div>
 <div class="sect3">
 <h4 id="plain-old-java-object-pojo">Plain old Java Object (POJO)</h4>
 <div class="paragraph">
 <p>Let&#8217;s take a look at simple POJO endpoint implementation. All endpoint
 associated metadata is provided via
-<a href="http://www.jcp.org/en/jsr/summary?id=181">JSR-181</a> annotations</p>
+<a href="https://jakarta.ee/specifications/web-services-metadata/">Jakarta Web Service Metadata</a>
+ annotations</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -273,7 +275,7 @@ both on the remote interface and as an endpoint operation.</p>
 <div class="sect4">
 <h5 id="packaging-the-endpoint-2">Packaging the endpoint</h5>
 <div class="paragraph">
-<p>A JSR-181 EJB service endpoint is packaged as an ordinary ejb
+<p>A Jakarta Web Service Metadata EJB service endpoint is packaged as an ordinary ejb
 deployment.</p>
 </div>
 <div class="literalblock">
@@ -403,7 +405,7 @@ generated class:</p>
 <pre>// Generated Service Class
 
 @WebServiceClient(name="StockQuoteService", targetNamespace="http://example.com/stocks", wsdlLocation="http://example.com/stocks.wsdl")
-public class StockQuoteService extends javax.xml.ws.Service
+public class StockQuoteService extends jakarta.xml.ws.Service
 {
    public StockQuoteService()
    {
@@ -543,8 +545,8 @@ public class TestEndpointService extends Service
 <div class="paragraph">
 <p>The <code>@WebServiceRef</code> annotation is used to declare a reference to a Web
 service. It follows the resource pattern exemplified by the
-<code>javax.annotation.Resource</code> annotation in
-<a href="http://www.jcp.org/en/jsr/summary?id=250">JSR-250</a> .</p>
+<code>jakarta.annotation.Resource</code> annotation in
+<a href="https://jakarta.ee/specifications/annotations">Jakarta Annotations</a> .</p>
 </div>
 <div class="paragraph">
 <p>There are two uses to the WebServiceRef annotation:</p>
@@ -565,7 +567,7 @@ present with a non-default value.</p>
 element MAY be present with its default value if the type of the
 reference can be inferred from the annotated field/method declaration,
 but the value element MUST always be present and refer to a generated
-service class type (a subtype of javax.xml.ws.Service). The wsdlLocation
+service class type (a subtype of jakarta.xml.ws.Service). The wsdlLocation
 element, if present, overrides theWSDL location information specified in
 the WebService annotation of the referenced generated service class.</p>
 <div class="literalblock">
@@ -624,11 +626,11 @@ port</p>
      &lt;service-endpoint-interface&gt;org.jboss.tests.ws.jaxws.webserviceref.SecureEndpoint&lt;/service-endpoint-interface&gt;
      &lt;port-qname&gt;{http://org.jboss.ws/wsref}SecureEndpointPort&lt;/port-qname&gt;
      &lt;stub-property&gt;
-      &lt;prop-name&gt;javax.xml.ws.security.auth.username&lt;/prop-name&gt;
+      &lt;prop-name&gt;jakarta.xml.ws.security.auth.username&lt;/prop-name&gt;
       &lt;prop-value&gt;kermit&lt;/prop-value&gt;
      &lt;/stub-property&gt;
      &lt;stub-property&gt;
-      &lt;prop-name&gt;javax.xml.ws.security.auth.password&lt;/prop-name&gt;
+      &lt;prop-name&gt;jakarta.xml.ws.security.auth.password&lt;/prop-name&gt;
       &lt;prop-value&gt;thefrog&lt;/prop-value&gt;
      &lt;/stub-property&gt;
    &lt;/port-component-ref&gt;
@@ -654,8 +656,8 @@ this mode of interaction.</p>
 </div>
 <div class="paragraph">
 <p><code>Dispatch</code> supports two usage modes, identified by the constants
-<code>javax.xml.ws.Service.Mode.MESSAGE</code> and
-<code>javax.xml.ws.Service.Mode.PAYLOAD</code> respectively:</p>
+<code>jakarta.xml.ws.Service.Mode.MESSAGE</code> and
+<code>jakarta.xml.ws.Service.Mode.PAYLOAD</code> respectively:</p>
 </div>
 <div class="paragraph">
 <p><strong><em>Message</em></strong> In this mode, client applications work directly with
@@ -764,10 +766,10 @@ client receive time out:</p>
 <pre>public void testConfigureTimeout() throws Exception
 {
    //Set timeout until a connection is established
-   ((BindingProvider)port).getRequestContext().put("javax.xml.ws.client.connectionTimeout", "6000");
+   ((BindingProvider)port).getRequestContext().put("jakarta.xml.ws.client.connectionTimeout", "6000");
 
    //Set timeout until the response is received
-   ((BindingProvider) port).getRequestContext().put("javax.xml.ws.client.receiveTimeout", "1000");
+   ((BindingProvider) port).getRequestContext().put("jakarta.xml.ws.client.receiveTimeout", "1000");
 
    port.echo("testTimeout");
 }</pre>
@@ -810,7 +812,7 @@ invoked with different types of message context.</p>
 <p>Handlers that only operate on message context properties and message
 payloads. Logical handlers are protocol agnostic and are unable to
 affect protocol specific parts of a message. Logical handlers are
-handlers that implement <code>javax.xml.ws.handler.LogicalHandler</code> .</p>
+handlers that implement <code>jakarta.xml.ws.handler.LogicalHandler</code> .</p>
 </div>
 </div>
 <div class="sect4">
@@ -820,8 +822,8 @@ handlers that implement <code>javax.xml.ws.handler.LogicalHandler</code> .</p>
 specific messages. Protocol handlers are specific to a particular
 protocol and may access and change protocol specific aspects of a
 message. Protocol handlers are handlers that implement any interface
-derived from <code>javax.xml.ws.handler.Handler</code> except
-<code>javax.xml.ws.handler.LogicalHandler</code> .</p>
+derived from <code>jakarta.xml.ws.handler.Handler</code> except
+<code>jakarta.xml.ws.handler.LogicalHandler</code> .</p>
 </div>
 </div>
 <div class="sect4">
@@ -965,11 +967,10 @@ beans at runtime if they are not part of the deployment</p>
 <div class="sect2">
 <h3 id="ws-annotations">WS Annotations</h3>
 <div class="paragraph">
-<p>For details, see <a href="http://www.jcp.org/en/jsr/detail?id=224">JSR-224 - Java
-API for XML-Based Web Services (JAX-WS) 2.2</a></p>
+<p>For details, see <a href="https://jakarta.ee/specifications/xml-web-services/">Jakarta XML Web Services</a></p>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-servicemode">javax.xml.ws.ServiceMode</h4>
+<h4 id="jakarta-xml-ws-servicemode">jakarta.xml.ws.ServiceMode</h4>
 <div class="paragraph">
 <p>The <code>ServiceMode</code> annotation is used to specify the mode for a provider
 class, i.e. whether a provider wants to have access to protocol message
@@ -978,7 +979,7 @@ envelope).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-webfault">javax.xml.ws.WebFault</h4>
+<h4 id="jakarta-xml-ws-webfault">jakarta.xml.ws.WebFault</h4>
 <div class="paragraph">
 <p>The <code>WebFault</code> annotation is used when mapping WSDL faults to Java
 exceptions, see section 2.5. It is used to capture the name of the fault
@@ -988,7 +989,7 @@ customize the mapping of service specific exceptions to WSDL faults.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-requestwrapper">javax.xml.ws.RequestWrapper</h4>
+<h4 id="jakarta-xml-ws-requestwrapper">jakarta.xml.ws.RequestWrapper</h4>
 <div class="paragraph">
 <p>The <code>RequestWrapper</code> annotation is applied to the methods of an SEI. It
 is used to capture the JAXB generated request wrapper bean and the
@@ -1001,7 +1002,7 @@ mode. Only the className element is required in this case.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-responsewrapper">javax.xml.ws.ResponseWrapper</h4>
+<h4 id="jakarta-xml-ws-responsewrapper">jakarta.xml.ws.ResponseWrapper</h4>
 <div class="paragraph">
 <p>The <code>ResponseWrapper</code> annotation is applied to the methods of an SEI. It
 is used to capture the JAXB generated response wrapper bean and the
@@ -1015,7 +1016,7 @@ required in this case.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-webserviceclient">javax.xml.ws.WebServiceClient</h4>
+<h4 id="jakarta-xml-ws-webserviceclient">jakarta.xml.ws.WebServiceClient</h4>
 <div class="paragraph">
 <p>The <code>WebServiceClient</code> annotation is specified on a generated service
 class (see 2.7). It is used to associate a class with a specific Web
@@ -1024,7 +1025,7 @@ a wsdl:service element.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-webendpoint">javax.xml.ws.WebEndpoint</h4>
+<h4 id="jakarta-xml-ws-webendpoint">jakarta.xml.ws.WebEndpoint</h4>
 <div class="paragraph">
 <p>The <code>WebEndpoint</code> annotation is specified on the getPortName() methods
 of a generated service class (see 2.7). It is used to associate a get
@@ -1033,10 +1034,10 @@ NCName).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-webserviceprovider">javax.xml.ws.WebServiceProvider</h4>
+<h4 id="jakarta-xml-ws-webserviceprovider">jakarta.xml.ws.WebServiceProvider</h4>
 <div class="paragraph">
 <p>The <code>WebServiceProvider</code> annotation is specified on classes that
-implement a strongly typed <code>javax.xml.ws.Provider</code> . It is used to
+implement a strongly typed <code>jakarta.xml.ws.Provider</code> . It is used to
 declare that a class that satisfies the requirements for a provider (see
 5.1) does indeed define a Web service endpoint, much like the
 <code>WebService</code> annotation does for SEI-based endpoints.</p>
@@ -1047,7 +1048,7 @@ exclusive.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-bindingtype">javax.xml.ws.BindingType</h4>
+<h4 id="jakarta-xml-ws-bindingtype">jakarta.xml.ws.BindingType</h4>
 <div class="paragraph">
 <p>The <code>BindingType</code> annotation is applied to an endpoint implementation
 class. It specifies the binding to use when publishing an endpoint of
@@ -1058,18 +1059,18 @@ this type.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-webserviceref">javax.xml.ws.WebServiceRef</h4>
+<h4 id="jakarta-xml-ws-webserviceref">jakarta.xml.ws.WebServiceRef</h4>
 <div class="paragraph">
 <p>The <code>WebServiceRef</code> annotation is used to declare a reference to a Web
 service. It follows the resource pattern exemplified by the
-<code>javax.annotation.Resource</code> annotation in JSR-250 [32]. The
+<code>jakarta.annotation.Resource</code> annotation in Jakarta Annotations [32]. The
 <code>WebServiceRef</code> annotation is required to be honored when running on the
-Java EE 5 platform, where it is subject to the common resource injection
+JakartaEE platform, where it is subject to the common resource injection
 rules described by the platform specification [33].</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-webservicerefs">javax.xml.ws.WebServiceRefs</h4>
+<h4 id="jakarta-xml-ws-webservicerefs">jakarta.xml.ws.WebServiceRefs</h4>
 <div class="paragraph">
 <p>The <code>WebServiceRefs</code> annotation is used to declare multiple references
 to Web services on a single class. It is necessary to work around the
@@ -1089,7 +1090,7 @@ platform specification.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-action">javax.xml.ws.Action</h4>
+<h4 id="jakarta-xml-ws-action">jakarta.xml.ws.Action</h4>
 <div class="paragraph">
 <p>The <code>Action</code> annotation is applied to the methods of a SEI. It used to
 generate the wsa:Action on wsdl:input and wsdl:output of each
@@ -1097,7 +1098,7 @@ wsdl:operation mapped from the annotated methods.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-xml-ws-faultaction">javax.xml.ws.FaultAction</h4>
+<h4 id="jakarta-xml-ws-faultaction">jakarta.xml.ws.FaultAction</h4>
 <div class="paragraph">
 <p>The <code>FaultAction</code> annotation is used within the <code>Action</code> annotation to
 generate the wsa:Action element on the wsdl:fault element of each
@@ -1106,30 +1107,30 @@ wsdl:operation mapped from the annotated methods.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="181-annotations">181 Annotations</h3>
+<h3 id="jakarta-web-service-metadata-annotations">Jakarta Web Service Metadata Annotations</h3>
 <div class="paragraph">
-<p>JSR-181 defines the syntax and semantics of Java Web Service (JWS)
+<p>Jakarta Web Service Metadata defines the syntax and semantics of JAX-WS
 metadata and default values.</p>
 </div>
 <div class="paragraph">
-<p>For details, see <a href="http://www.jcp.org/en/jsr/detail?id=181">JSR 181 - Web
-Services Metadata for the Java Platform</a> .</p>
+<p>For details, see <a href="https://jakarta.ee/specifications/web-services-metadata/">Jakarta Web Service
+Metadata</a> .</p>
 </div>
 <div class="sect3">
-<h4 id="javax-jws-webservice">javax.jws.WebService</h4>
+<h4 id="jakarta-jws-webservice">jakarta.jws.WebService</h4>
 <div class="paragraph">
 <p>Marks a Java class as implementing a Web Service, or a Java interface as
 defining a Web Service interface.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-jws-webmethod">javax.jws.WebMethod</h4>
+<h4 id="jakarta-jws-webmethod">jakarta.jws.WebMethod</h4>
 <div class="paragraph">
 <p>Customizes a method that is exposed as a Web Service operation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-jws-oneway">javax.jws.OneWay</h4>
+<h4 id="jakarta-jws-oneway">jakarta.jws.OneWay</h4>
 <div class="paragraph">
 <p>Indicates that the given web method has only an input message and no
 output. Typically, a oneway method returns the thread of control to the
@@ -1140,21 +1141,21 @@ INOUT or OUT parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-jws-webparam">javax.jws.WebParam</h4>
+<h4 id="jakarta-jws-webparam">jakarta.jws.WebParam</h4>
 <div class="paragraph">
 <p>Customizes the mapping of an individual parameter to a Web Service
 message part and XML element.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-jws-webresult">javax.jws.WebResult</h4>
+<h4 id="jakarta-jws-webresult">jakarta.jws.WebResult</h4>
 <div class="paragraph">
 <p>Customizes the mapping of the return value to a WSDL part and XML
 element.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-jws-soapbinding">javax.jws.SOAPBinding</h4>
+<h4 id="jakarta-jws-soapbinding">jakarta.jws.SOAPBinding</h4>
 <div class="paragraph">
 <p>Specifies the mapping of the Web Service onto the SOAP message protocol.</p>
 </div>
@@ -1168,7 +1169,7 @@ annotation accept the <code>SOAPBinding</code> behavior defined on the type.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="javax-jws-handlerchain">javax.jws.HandlerChain</h4>
+<h4 id="jakarta-jws-handlerchain">jakarta.jws.HandlerChain</h4>
 <div class="paragraph">
 <p>The <code>@HandlerChain</code> annotation associates the Web Service with an
 externally defined handler chain.</p>
