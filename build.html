@@ -3,39 +3,9 @@ layout:     default
 title:       "JBossWS - Build"
 link:        build
 ---
-<h3>How to build the project</h3>
-
-<p><em><strong>JBossWS 5.x and later</strong></em></p>
-<p>Please refer to the
-    <a href="{{site.baseurl}}/documentation/latest/JBossWS-CXF/#build-and-testsuite-framework">documentation</a> or
-    check the
-    <a href="https://github.com/jbossws/jbossws-cxf/#readme">README</a>
-    file in the root of the project.</p>
-<p>&nbsp;</p>
-<p><em><strong>JBossWS 3.x and 4.x</strong></em></p>
-<p><strong>Binary distribution</strong></p>
-<p>Simply download the distribution and read the instructions in the <em>doc</em> directory:</p>
-<ol>
-    <li>Copy <em>ant.properties.examples</em> to <em>ant.properties</em></li>
-    <li>Modify the target container location in ant.properties</li>
-    <li>Execute <em>ant deploy-jbossXYZ</em> where XYZ stands for the target container version (see
-        the Install.txt files, it's something like 712, 713, 720, ...)
-    </li>
-    <li>Execute the samples to verify your installation: <em>ant tests</em></li>
-</ol>
-<p>&nbsp;</p>
-<p><strong>Source distribution</strong></p>
-<p>&nbsp;Please refer to the wiki:</p>
-<ul>
-    <li><a href="https://www.jboss.org/community/wiki/JBossWS-BuildingFromSource">Building from
-        sources</a></li>
-    <li><a href="https://www.jboss.org/community/wiki/JBossWS-Mavenization">Mavenization</a></li>
-    <li><a href="https://www.jboss.org/community/wiki/JBossWS-Runningthetestsuites">Running the
-        testsuite</a></li>
-</ul>
-<p>&nbsp;</p>
-<p><strong>Further informations</strong></p>
-<p>For futher details on installation and for directions on using JBossWS-Native with JDK 6, please
-    refer to
-    <a href="https://www.jboss.org/community/wiki/JBossWS-Installation">https://www.jboss.org/community/wiki/JBossWS-Installation</a>
+<p>JBossWs source code can be found at
+    <a href="https://github.com/jbossws/jbossws-cxf">github.com/jbossws/jbossws-cxf</a>
+    Project builds require Maven 3.6.0 or higher and JDK-8 or higher.
+    The project's README file provides information about options for running the
+    testsuite.
 </p>
