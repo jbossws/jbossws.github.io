@@ -59,10 +59,6 @@
                <li class="current">
                   <span class="notch">&nbsp;</span>
                   <a href="/index.html" class="menu-title">Overview</a>
-                  <!--ul class="level1">
-                     <li class="leaf"><a href="/news"> News</a></li>
-                     <li class="leaf"><a href="/news-history"> News History</a></li>
-                  </ul-->
                </li>
 
                <li class="open">
@@ -84,9 +80,11 @@
                   <span class="notch">&nbsp;</span>
                   <a href="/blogs" class="menu-title">Blog</a>
                </li>
+
                <li class="open">
                   <span class="notch">&nbsp;</span>
                   <a href="/community" class="menu-title">Community</a>
+                  <!-- ################## rls
                   <ul class="level1">
                      <li class="leaf"><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
                      <li class="leaf"><a href="https://groups.google.com/forum/#!forum/jbossws">Forums</a></li>
@@ -94,13 +92,14 @@
                      <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum(archive)</a></li>
                      <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum(archive)</a></li>
                   </ul>
+                  ############### -->
                </li>
 
                <li class="open">
                   <span class="notch">&nbsp;</span>
-                  <a href="https://issues.redhat.com/browse/JBWS" class="menu-title">Issue Tracker</a>
+                  <a href="https://issues.redhat.com/jira/browse/JBWS" class="menu-title">Issue Tracker</a>
                   <ul class="level1 jiralink">
-                     <li class="leaf"><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
+                     <li class="leaf"><a href="https://issues.redhat.com/jira/browse/JBWS">JIRA</a></li>
                   </ul>
                </li>
 
@@ -120,7 +119,6 @@
          </div>
 
       </div>
-
           <div id="wrapper-2">
          <div id="wrap-content">
             <div id="wrapper-3">
@@ -148,7 +146,7 @@ approaches are available for achieving that:</p>
 <h4 id="jax-ws-handler-approach">JAX-WS Handler approach</h4>
 <div class="paragraph">
 <p>A portable way of performing logging is writing a simple JAX-WS handler
-dumping the messages that are passed in it; the handler can be added to
+dumping the messages that are passed to it; the handler can be added to
 the desired client/endpoints (programmatically / using <code>@HandlerChain</code>
 JAX-WS annotation).</p>
 </div>
@@ -182,7 +180,7 @@ created on the JVM.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>On WildFly, the system property is easily set by adding what follows to
+<p>On WildFly, the system property is set by adding what follows to
 the standalone / domain server configuration just after the extensions
 section:</p>
 </div>
@@ -204,7 +202,7 @@ section:</p>
 <p>Logging interceptors can be selectively added to endpoints using the
 Apache CXF annotations <code>@org.apache.cxf.interceptor.InInterceptors</code> and
 <code>@org.apache.cxf.interceptor.OutInterceptors</code> . The same is achieved on
-client side by programmatically adding new instances of the logging
+the client side by programmatically adding new instances of the logging
 interceptors to the client or the bus.</p>
 </div>
 <div class="paragraph">
@@ -237,8 +235,7 @@ Policy framework is fully supported, enabling full contract driven
 configuration of complex features like WS-Security.</p>
 </div>
 <div class="paragraph">
-<p>In details information available further down in this documentation
-book.</p>
+<p>More information can be found later in this chapter.</p>
 </div>
 </div>
 <div class="sect2">
@@ -339,7 +336,7 @@ JAR/WAR archives override the contents of the descriptor in the parent
 EAR archive.</p>
 </div>
 <div class="paragraph">
-<p>The structure of file is the following (schemas are available
+<p>The structure of the file is the following (schemas are available
 <a href="https://github.com/jbossws/jbossws-spi/tree/main/src/main/resources/schema">here</a>
 ):</p>
 </div>
@@ -535,12 +532,12 @@ introduction of annotations to the runtime.</p>
 </div>
 <div class="paragraph">
 <p>This is currently leveraged by the JBoss JAXB Introductions project,
-using which users can define annotations in XML and make JAXB see those
+in which users can define annotations in XML and make JAXB see those
 as if those were in the class files (perhaps coming from 3rd party
 libraries).</p>
 </div>
 <div class="paragraph">
-<p>Take a look at the <a href="http://community.jboss.org/docs/DOC-10075">JAXB
+<p>Look at the <a href="http://community.jboss.org/docs/DOC-10075">JAXB
 Introductions page</a> on the wiki and at the examples in the sources.</p>
 </div>
 </div>
@@ -1038,7 +1035,7 @@ JAX-WS clients.</p>
 explicitly set will cause JBossWS to look for a
 <em>org.foo.bar.EndpointImpl</em> named configuration within a
 <em>jaxws-endpoint-config.xml</em> descriptor in the root of the application
-deployment. Similarly, on client side, a client proxy implementing
+deployment. Similarly, on the client side, a client proxy implementing
 <code>org.foo.bar.Endpoint</code> interface (SEI) will have the setup read from a
 <em>org.foo.bar.Endpoint</em> named configuration in <em>jaxws-client-config.xml</em>
 descriptor.</p>
@@ -1154,8 +1151,8 @@ public class EndpointEJB implements EndpointInterface
 </div>
 </div>
 <div class="paragraph">
-<p>The security domain as well as its the authentication and authorization
-mechanisms are defined differently depending on the server in use.</p>
+<p>The security domain is the authentication and authorization
+mechanism. Security domains are defined differently depending on the server in use.</p>
 </div>
 </div>
 <div class="sect4">
@@ -1180,7 +1177,7 @@ bp.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, "thefrog");</pre>
 <div class="sect4">
 <h5 id="using-http-basic-auth-for-security">Using HTTP Basic Auth for security</h5>
 <div class="paragraph">
-<p>To enable HTTP Basic authentication you use the <code>@WebContext</code> annotation
+<p>To enable HTTP Basic authentication use the <code>@WebContext</code> annotation
 on the bean class</p>
 </div>
 <div class="literalblock">
@@ -1268,13 +1265,13 @@ used to deploy webservice endpoints on any servlet container by
 including its libraries in the deployment; in such a scenario Spring
 basically serves as a convenient configuration option, given direct
 Apache CXF API usage won&#8217;t be very handy. Similar reasoning applies on
-client side, where a Spring based descriptor offers a shortcut for
+client side, where a Spring based descriptor offers to a shortcut for
 setting up Apache CXF internals.</p>
 </div>
 <div class="paragraph">
 <p>This said, nowadays almost any Apache CXF functionality can be
 configured and used through direct API usage, without Spring. As a
-consequence of that and given the considerations in the sections below,
+consequence and given the considerations in the sections below,
 the JBossWS integration with Apache CXF does not rely on Spring
 descriptors.</p>
 </div>
@@ -1287,8 +1284,8 @@ users with a fully compliant target platform for Java EE applications.</p>
 <div class="paragraph">
 <p>Generally speaking, <em>users are encouraged to write portable
 applications</em> by relying only on <em>JAX-WS specification</em> whenever
-possible. That would by the way ensure easy migrations to and from other
-compliant platforms. Being a Java EE container, WildFlt already comes
+possible, that would by the way ensure easy migrations to and from other
+compliant platforms. Being a Java EE container, WildFly already comes
 with a JAX-WS compliant implementation, which is basically Apache CXF
 plus the JBossWS-CXF integration layer. So users just need to write
 their JAX-WS application; <em>no need for embedding any Apache CXF or any
@@ -1314,16 +1311,17 @@ descriptors</em> .</p>
 <div class="sect4">
 <h5 id="direct-apache-cxf-api-usage">Direct Apache CXF API usage</h5>
 <div class="paragraph">
-<p>Whenever users can&#8217;t really meet their application requirements with
-JAX-WS plus WS-Policy, it is of course still possible to rely on direct
-Apache CXF API usage (given that&#8217;s included in the AS), losing the Jakarta
-EE portability of the application. That could be the case of a user
+<p>Whenever users can&#8217;t meet their application requirements with
+JAX-WS plus WS-Policy, it is still possible to rely on direct
+Apache CXF API usage (given that&#8217;s included in the AS).  The
+transition to Jakarta EE could affect portability of newer applications
+to legacy systems, that could be the case of a user
 needing specific Apache CXF functionalities, or having to consume WS-*
 enabled endpoints advertised through legacy wsdl contracts without
 WS-Policy assertions.</p>
 </div>
 <div class="paragraph">
-<p>On server side, direct Apache CXF API usage might not be always possible
+<p>On server side, direct Apache CXF API usage might not always be possible
 or end up being not very easy. For this reason, the JBossWS integration
 comes with a convenient alternative through customization options in the
 <code>jboss-webservices.xml</code> descriptor described below on this page.
@@ -1355,13 +1353,13 @@ handler business code.</p>
 </div>
 <div class="paragraph">
 <p>The algorithm for selecting the actual implementation of <code>BusFactory</code> to
-be used leverages the Service API, basically looking for optional
+be used leverages the Service API, looking for optional
 configurations in <em>META-INF/services/&#8230;&#8203;</em> location using the current
 thread context classloader. JBossWS-CXF integration comes with its own
 implementation of <code>BusFactory</code> ,
 <code>org.jboss.wsf.stack.cxf.client.configuration.JBossWSBusFactory</code> , that
 allows for seamless setup of JBossWS customizations on top of Apache
-CXF. So, assuming the JBossWS-CXF libraries are available in the current
+CXF. Assuming the JBossWS-CXF libraries are available in the current
 thread context classloader, the <code>JBossWSBusFactory</code> is <em>automatically</em>
 retrieved by the <code>BusFactory.newInstance()</code> call above.</p>
 </div>
@@ -1382,7 +1380,7 @@ Bus bus = new JBossWSBusFactory().createBus(myExtensions);</pre>
 <h5 id="using-existing-bus-instances">Using existing Bus instances</h5>
 <div class="paragraph">
 <p>Apache CXF keeps reference to a global default <code>Bus</code> instance as well as
-to a thread default bus for each thread. That is performed through
+to a thread default bus for each thread.  That is performed through
 static members in <code>org.apache.cxf.BusFactory</code> <em>,</em> which also comes with
 the following methods in the public API:</p>
 </div>
@@ -1402,13 +1400,13 @@ public static void setThreadDefaultBus(Bus bus)</pre>
 <code>getThreadDefaultBus(true)</code> is to create a new Bus instance if that&#8217;s
 not set yet. Moreover <em>getThreadDefaultBus()</em> and
 <em>getThreadDefaultBus(true)</em> first fallback to retrieving the configured
-global default bus before actually trying creating a new instance (and
-the created new instance is set as global default bus if that was not
-set there yet).</p>
+global default bus before trying to create a new instance (and
+the created new instance is set as global default bus if it is not yet
+set).</p>
 </div>
 <div class="paragraph">
-<p>The drawback of this mechanism (which is basically fine in JSE
-environment) is that when running in WildFly container you need to be
+<p>The drawback of this mechanism (which is fine in JSE
+environment) is that when running in the WildFly container you need to be
 careful in order not to (mis)use a bus over multiple applications
 (assuming the Apache CXF classes are loaded by the same classloader,
 which is currently the case with WildFly).</p>
@@ -1429,9 +1427,9 @@ your code;</p>
 you already know for sure the default bus is already set;</p>
 </li>
 <li>
-<p>keep in mind thread pooling whenever you customize a thread default
+<p>keep in mind thread pooling whenever customizing a thread default
 bus instance (for instance adding bus scope interceptors, &#8230;&#8203;), as that
-thread and bus might be later reused; so either shutdown the bus when
+thread and bus might be later reused; either shutdown the bus when
 you&#8217;re done or explicitly remove it from the BusFactory thread
 association.</p>
 </li>
@@ -1515,36 +1513,36 @@ after the previous client creation. The main drawback is of course worse
 performance as the Bus creation takes time.</p>
 </div>
 <div class="paragraph">
-<p>If there&#8217;s a bus already associated to the current thread before the
+<p>If there&#8217;s a bus already associated with the current thread before the
 JAX-WS client creation, that is automatically restored when returning
 control to the user; in other words, the newly created bus will be used
-only for the created JAX-WS client but won&#8217;t stay associated to the
+only for the created JAX-WS client but won&#8217;t stay associated with the
 current thread at the end of the process. Similarly, if the thread was
-not associated to any bus before the client creation, no bus will be
-associated to the thread at the end of the client creation.</p>
+not associated with any bus before the client creation, no bus will be
+associated with the thread at the end of the client creation.</p>
 </div>
 </div>
 <div class="sect5">
 <h6 id="thread-context-classloader-bus-strategy-tccl_bus">Thread context classloader bus strategy (TCCL_BUS)</h6>
 <div class="paragraph">
 <p>The last strategy is to have the bus created for serving the client be
-associated to the current thread context classloader (TCCL). That
-basically means the same Bus instance is shared by JAX-WS clients running
+associated with the current thread context classloader (TCCL). That
+basically means, the same Bus instance is shared by JAX-WS clients running
 when the same TCCL is set. This is particularly interesting as each web
-application deployment usually has its own context classloader, so this
+application deployment usually has its own context classloader. This
 strategy is possibly a way to keep the number of created Bus instances
 bound to the application number in a WildFly container.</p>
 </div>
 <div class="paragraph">
-<p>If there&#8217;s a bus already associated to the current thread before the
+<p>If there&#8217;s a bus already associated with the current thread before the
 JAX-WS client creation, that is automatically restored when returning
 control to the user; in other words, the bus corresponding to the
 current thread context classloader will be used only for the created
-JAX-WS client but won&#8217;t stay associated to the current thread at the end
-of the process. If the thread was not associated to any bus before the
+JAX-WS client but won&#8217;t stay associated with the current thread at the end
+of the process. If the thread was not associated with any bus before the
 client creation, a new bus will be created (and later user for any other
 client built with this strategy and the same TCCL in place); no bus will
-be associated to the thread at the end of the client creation.</p>
+be associated with the thread at the end of the client creation.</p>
 </div>
 </div>
 <div class="sect5">
@@ -1605,7 +1603,7 @@ starting the JVM. The valid values for the property are <code>THREAD_BUS</code> 
 creating proper Apache CXF structures (including a <code>Bus</code> instance, of
 course) for the provided ws deployment. Should the deployment include
 multiple endpoints, those would all live within the same Apache CXF Bus,
-which would of course be completely separated by the other deployments'
+which would be completely separated by the other deployments'
 bus instances.</p>
 </div>
 <div class="paragraph">
@@ -2167,7 +2165,7 @@ and turn on addressing as requested.</p>
 <div class="sect3">
 <h4 id="example">Example</h4>
 <div class="paragraph">
-<p>Here is an example showing how to simply enable WS-Addressing through
+<p>Here is an example showing how to enable WS-Addressing through
 WS-Policy.</p>
 </div>
 <div class="sect4">
@@ -2247,7 +2245,7 @@ like this:</p>
 <h5 id="client">Client</h5>
 <div class="paragraph">
 <p>Since the WS-Policy engine is on by default, the client side code is
-basically a pure JAX-WS client app:</p>
+a pure JAX-WS client app:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -2291,7 +2289,7 @@ standard, it allows you to:</p>
 </div>
 <div class="paragraph">
 <p>WS-Security makes heavy use of public and private key cryptography. It
-is helpful to understand these basics to really understand how to
+is helpful to understand the basics to understand how to
 configure WS-Security. With public key cryptography, a user has a pair
 of public and private keys. These are generated using a large prime
 number and a key function.</p>
@@ -2382,8 +2380,8 @@ encrypt or sign, whether to sign then encrypt or encrypt then sign,
 whether to include timestamps, whether to use derived keys, etc.</p>
 </div>
 <div class="paragraph">
-<p>However, some mandatory configuration elements are not covered by
-WS-SecurityPolicy, basically because they&#8217;re not meant to be public /
+<p>Some mandatory configuration elements are not covered by
+WS-SecurityPolicy, because they&#8217;re not meant to be a public /
 part of the published endpoint contract; those include things such as
 keystore locations, usernames and passwords, etc. Apache CXF allows
 configuring these elements either through Spring xml descriptors or
@@ -2581,10 +2579,10 @@ public class ServiceImpl implements ServiceIface {
 <div class="sect3">
 <h4 id="examples">Examples</h4>
 <div class="paragraph">
-<p>In this section some sample of WS-Security service endpoints and clients
+<p>In this section a sample of WS-Security service endpoints and clients
 are provided. Please note they&#8217;re only meant as tutorials; you should
-really careful isolate the ws-security policies / assertion that best
-suite your security needs before going to production environment.</p>
+careful isolate the ws-security policies / assertion that best
+suite your security needs before going to a production environment.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -2608,11 +2606,11 @@ requirements and choosing the most suitable security policy for them.</p>
 <div class="sect5">
 <h6 id="endpoint-2">Endpoint</h6>
 <div class="paragraph">
-<p>First of all you need to create the web service endpoint using JAX-WS.
+<p>First, you need to create the web service endpoint using JAX-WS.
 While this can generally be achieved in different ways, it&#8217;s required to
 use a contract-first approach when using WS-Security, as the policies
 declared in the wsdl are parsed by the Apache CXF engine on both server
-and client sides. So, here is an example of WSDL contract enforcing
+and client sides. Here is an example of WSDL contract enforcing
 signature and encryption using X 509 certificates (the referenced schema
 is omitted):</p>
 </div>
@@ -2894,8 +2892,7 @@ supported):</p>
 </div>
 </div>
 <div class="paragraph">
-<p>As you can see, the jaxws classes generated by the tools are of course
-also included, as well as a basic <em>web.xml</em> referencing the endpoint
+<p>The jaxws classes generated by the tools are included, as well as a basic <em>web.xml</em> referencing the endpoint
 bean:</p>
 </div>
 <div class="literalblock">
@@ -2943,8 +2940,8 @@ Dependencies: org.apache.ws.security</pre>
 <div class="sect5">
 <h6 id="client-2">Client</h6>
 <div class="paragraph">
-<p>You start by consuming the published WSDL contract using the <em>wsconsume</em>
-tool on client side too. Then you simply invoke the the endpoint as a
+<p>Start by consuming the published WSDL contract using the <em>wsconsume</em>
+tool on client side, then simply invoke the endpoint as a
 standard JAX-WS one:</p>
 </div>
 <div class="literalblock">
@@ -2966,10 +2963,10 @@ proxy.sayHello();</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>As you can see, the WS-Security properties are set in the request
-context. Here the <code>KeystorePasswordCallback</code> is the same as on server
+<p>The WS-Security properties are set in the request
+context. Here the <code>KeystorePasswordCallback</code> is the same as on the server
 side above, you might want/need different implementation in real world
-scenarios, of course. The <em>alice.properties</em> file is the client side
+scenarios. The <em>alice.properties</em> file is the client side
 equivalent of the server side <em>bob.properties</em> and references the
 <em>alice.jks</em> keystore file, which has been populated with Alice&#8217;s
 (client) full key (private/certificate + public key) as well as Bob&#8217;s
@@ -2995,14 +2992,14 @@ interacting with the server endpoint.</p>
 <div class="paragraph">
 <p>The server side configuration described above implies the endpoint is
 configured for serving a given client which a service agreement has been
-established for. In some real world scenarios though, the same server
+established for. In some real world scenarios, the same server
 might be expected to be able to deal with (including decrypting and
 encrypting) messages coming from and being sent to multiple clients.
 Apache CXF supports that through the <code>useReqSigCert</code> value for the
 <code>ws-security.encryption.username</code> configuration parameter.</p>
 </div>
 <div class="paragraph">
-<p>Of course the referenced server side keystore then needs to contain the
+<p>Of course the referenced server side keystore needs to contain the
 public key of all the clients that are expected to be served.</p>
 </div>
 </div>
@@ -3014,7 +3011,7 @@ public key of all the clients that are expected to be served.</p>
 to a WS-Security enabled target endpoint.</p>
 </div>
 <div class="paragraph">
-<p>Apache CXF provides means for setting basic <em>password callback handlers</em>
+<p>Apache CXF provides a means for setting basic <em>password callback handlers</em>
 on both client and server sides to set/check passwords; the
 <em>ws-security.username</em> and <em>ws-security.callback-handler</em> properties can
 be used similarly as shown in the signature and encryption example.
@@ -3023,8 +3020,8 @@ authenticated (and authorized) against a security domain on the target
 WildFly server.</p>
 </div>
 <div class="paragraph">
-<p>On server side, you need to install two additional interceptors that act
-as bridges towards the application server authentication layer:</p>
+<p>On the server side, you need to install two additional interceptors that act
+as bridges for the application server authentication layer:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3046,7 +3043,7 @@ mapping endpoint operations to allowed roles.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>So, here follows an example of WS-SecurityPolicy endpoint using Username
+<p>Here follows an example of WS-SecurityPolicy endpoint using Username
 Token Profile for authenticating through the WildFly security domain
 system.</p>
 </div>
@@ -3374,8 +3371,8 @@ Dependencies: org.apache.ws.security,org.apache.cxf</pre>
 <div class="sect5">
 <h6 id="client-3">Client</h6>
 <div class="paragraph">
-<p>Here too you start by consuming the published WSDL contract using the
-<em>wsconsume</em> tool. Then you simply invoke the the endpoint as a standard
+<p>Start by consuming the published WSDL contract using the
+<em>wsconsume</em> tool, then invoke the the endpoint as a standard
 JAX-WS one:</p>
 </div>
 <div class="literalblock">
@@ -3419,8 +3416,8 @@ public class UsernamePasswordCallback implements CallbackHandler
 </div>
 </div>
 <div class="paragraph">
-<p>If everything has been done properly, you should expect to calls to
-<code>sayHello()</code> fail when done with user "snoopy" and pass with user
+<p>If everything has been done properly, you should expect calls to
+<code>sayHello()</code> to fail when done with user "snoopy" and pass with user
 "kermit" (and credential "thefrog"); moreover, you should get an
 authorization error when trying to call <code>greetMe()</code> with user "kermit",
 as that does not have the "snoopies" role.</p>
@@ -3436,7 +3433,7 @@ implemented similarly to what&#8217;s described in the previous example,
 except for few differences explained below.</p>
 </div>
 <div class="paragraph">
-<p>First of all, here is an excerpt of a wsdl wth a sample security policy
+<p>Here is an excerpt of a wsdl with a sample security policy
 for Username Token over HTTPS:</p>
 </div>
 <div class="literalblock">
@@ -3509,7 +3506,7 @@ for Username Token over HTTPS:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The endpoint then needs of course to be actually available on HTTPS
+<p>The endpoint needs to be available on HTTPS
 only, so we have a <em>web.xml</em> setting the <em>transport-guarantee</em> such as
 below:</p>
 </div>
@@ -3551,10 +3548,10 @@ specification, which is about improving performance by allowing client
 and server to negotiate initial security keys to be used for later
 communication encryption/signature. This is done by having two policies
 in the wsdl contract, an outer one setting the security requirements to
-actually communicate with the endpoint and a bootstrap one, related to
+communicate with the endpoint and a bootstrap one, related to
 the communication for establishing the secure conversation keys. The
 client will be automatically sending an initial message to the server
-for negotiating the keys, then the actual communication to the endpoint
+for negotiating the keys, then the communication to the endpoint
 takes place. As a consequence, Apache CXF needs a way to specify which
 WS-Security configuration properties are intended for the bootstrap
 policy and which are intended for the actual service policy. To
@@ -4018,7 +4015,7 @@ listing below.</p>
 <div class="sect5">
 <h6 id="web-service-provider-interface">Web service provider Interface</h6>
 <div class="paragraph">
-<p>The web service provider interface class, ServiceIface, is a simple
+<p>The web service provider interface class, ServiceIface, is a
 straight forward web service definition.</p>
 </div>
 <div class="literalblock">
@@ -4045,7 +4042,7 @@ public interface ServiceIface
 <div class="paragraph">
 <p>The web service provider implementation class, ServiceImpl, is a simple
 POJO. It uses the standard WebService annotation to define the service
-endpoint. In addition, there are two Apache CXF annotations,
+endpoint. There are two Apache CXF annotations,
 EndpointProperties and EndpointProperty used for configuring the
 endpoint for the CXF runtime. These annotations come from the
 <a href="https://ws.apache.org/wss4j/">Apache WSS4J project</a> , which provides a
@@ -4229,7 +4226,7 @@ messages that pass back and forth between ws-requester and the STS. The
 ws-requester is required to authenticate itself by providing WSS
 UsernameToken credentials. The rules for sharing the public and private
 keys in the SOAP request and response messages are declared. A detailed
-explanation of the security settings are provided in the comments in the
+explanation of the security settings is provided in the comments in the
 listing below.</p>
 </div>
 <div class="literalblock">
@@ -4856,7 +4853,7 @@ configuration file.</p>
 <div class="paragraph">
 <p>For this scenario the domain needs to contain user <em>alice</em> , password
 <em>clarinet</em> , and role <em>friend</em> . See the listings below for
-jbossws-users.properties and jbossws-roles.properties. In addition the
+jbossws-users.properties and jbossws-roles.properties. The
 following XML must be added to the JBoss security subsystem in the
 server configuration file. Replace " <strong>SOME_PATH</strong> " with appropriate
 information.</p>
@@ -4936,7 +4933,7 @@ xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/n
 </div>
 </div>
 <div class="paragraph">
-<p>As a matter of fact, at the time of writing some webservices
+<p>At the time of writing some webservices
 implementations (including <em>Metro</em> ) assume the <code>/mex</code> URL as the
 default choice for directing WS-MetadataExchange requests to and use
 that to retrieve STS wsdl contracts.</p>
@@ -4973,8 +4970,8 @@ scenario. The components that will be discussed are.</p>
 <p>The ws-requester, the client, uses standard procedures for creating a
 reference to the web service in the first four line. To address the
 endpoint security requirements, the web service&#8217;s "Request Context" is
-configured with the information needed in message generation. In
-addition, the STSClient that communicates with the STS is configured
+configured with the information needed in message generation.
+The STSClient that communicates with the STS is configured
 with similar values. Note the key strings ending with a ".it" suffix.
 This suffix flags these settings as belonging to the STSClient. The
 internal CXF code assigns this information to the STSClient that is
@@ -5574,7 +5571,7 @@ public interface ActAsServiceIface
 <h6 id="web-service-implementation">Web Service Implementation</h6>
 <div class="paragraph">
 <p>The web service provider implementation class, ActAsServiceImpl, is a
-simple POJO. It uses the standard WebService annotation to define the
+POJO. It uses the standard WebService annotation to define the
 service endpoint and two Apache WSS4J annotations, EndpointProperties
 and EndpointProperty used for configuring the endpoint for the CXF
 runtime. The WSS4J configuration information provided is for WSS4J&#8217;s
@@ -6182,7 +6179,7 @@ the basic scenario&#8217;s code. An OnBehalfOf web service provider and
 callback handler have been added. The OnBehalfOf web services' WSDL
 imposes the same security policies as the ws-provider.
 UsernameTokenCallbackHandler is a utility shared with ActAs. It
-generates the content for the OnBehalfOf element. And lastly there are
+generates the content for the OnBehalfOf element. Lastly there are
 code additions in the STS that both OnBehalfOf and ActAs share in
 common.</p>
 </div>
@@ -6304,7 +6301,7 @@ public interface OnBehalfOfServiceIface
 <h6 id="web-service-implementation-2">Web Service Implementation</h6>
 <div class="paragraph">
 <p>The web service provider implementation class, OnBehalfOfServiceImpl, is
-a simple POJO. It uses the standard WebService annotation to define the
+a POJO. It uses the standard WebService annotation to define the
 service endpoint and two Apache WSS4J annotations, EndpointProperties
 and EndpointProperty used for configuring the endpoint for the CXF
 runtime. The WSS4J configuration information provided is for WSS4J&#8217;s
@@ -6871,9 +6868,9 @@ public interface BearerIface
 <div class="sect5">
 <h6 id="web-service-implementation-3">Web service Implementation</h6>
 <div class="paragraph">
-<p>The web service provider implementation class, BearerImpl, is a simple
+<p>The web service provider implementation class, BearerImpl, is a
 POJO. It uses the standard WebService annotation to define the service
-endpoint. In addition there are two Apache CXF annotations,
+endpoint. There are two Apache CXF annotations,
 EndpointProperties and EndpointProperty used for configuring the
 endpoint for the CXF runtime. These annotations come from the
 <a href="https://ws.apache.org/wss4j/">Apache WSS4J project</a> , which provides a
@@ -7013,7 +7010,7 @@ configuration file.</p>
 <div class="paragraph">
 <p>For this scenario the domain needs to contain user <em>alice</em> , password
 <em>clarinet</em> , and role <em>friend</em> . See the listings below for
-jbossws-users.properties and jbossws-roles.properties. In addition the
+jbossws-users.properties and jbossws-roles.properties. The
 following XML must be added to the JBoss security subsystem in the
 server configuration file. Replace " <strong>SOME_PATH</strong> " with appropriate
 information.</p>
@@ -7712,7 +7709,7 @@ The components that will be discussed are.</p>
 <p>The ws-requester, the client, uses standard procedures for creating a
 reference to the web service. To address the endpoint security
 requirements, the web service&#8217;s "Request Context" is configured with the
-information needed in message generation. In addition, the STSClient
+information needed in message generation. The STSClient
 that communicates with the STS is configured with similar values. Note
 the key strings ending with a ".it" suffix. This suffix flags these
 settings as belonging to the STSClient. The internal CXF code assigns
@@ -8171,8 +8168,8 @@ public interface HolderOfKeyIface {
 <h6 id="web-service-implementation-4">Web service Implementation</h6>
 <div class="paragraph">
 <p>The web service provider implementation class, HolderOfKeyImpl, is a
-simple POJO. It uses the standard WebService annotation to define the
-service endpoint. In addition there are two Apache CXF annotations,
+POJO. It uses the standard WebService annotation to define the
+service endpoint. There are two Apache CXF annotations,
 EndpointProperties and EndpointProperty used for configuring the
 endpoint for the CXF runtime. These annotations come from the
 <a href="https://ws.apache.org/wss4j/">Apache WSS4J project</a> , which provides a
@@ -9305,7 +9302,7 @@ the published WSDL and the client is required to also enable WS-RM for
 successfully exchanging messages with the server.</p>
 </div>
 <div class="paragraph">
-<p>So a regular JAX-WS client is enough if the user does not need to tune
+<p>A regular JAX-WS client is enough if the user does not need to tune
 any specific detail of the RM subsystem.</p>
 </div>
 <div class="literalblock">
@@ -9467,7 +9464,7 @@ the Apache CXF core similarly as with <em>HTTP</em> endpoints.</p>
 <div class="paragraph">
 <p>As per specification, the <em>SOAP over JMS</em> transport configuration is
 controlled by proper elements and attributes in the <code>binding</code> and
-<code>service</code> elements of the WSDL contract. So a <em>JMS</em> endpoint is usually
+<code>service</code> elements of the WSDL contract. A <em>JMS</em> endpoint is usually
 developed using a contract-first approach.</p>
 </div>
 <div class="paragraph">
@@ -9664,7 +9661,7 @@ context factory class to use and the JNDI registry address.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Have a look at the application server domain for finding out the
+<p>Look at the application server domain to see the
 configured connection factory JNDI locations.</p>
 </div>
 </td>
@@ -9672,7 +9669,7 @@ configured connection factory JNDI locations.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>The endpoint implementation is a basic JAX-WS POJO using @WebService
+<p>The endpoint implementation is a JAX-WS POJO using @WebService
 annotation to refer to the consumed contract:</p>
 </div>
 <div class="literalblock">
@@ -9715,7 +9712,7 @@ starting the endpoint on server side.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>That&#8217;s pretty much all. We just need to package the generated service
+<p>The final step is to package the generated service
 endpoint interface, the endpoint implementation and the WSDL file in a
 <em>jar</em> archive and deploy it:</p>
 </div>
@@ -9803,7 +9800,7 @@ automatically published WSDL contract.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>in order for performing the remote invocation (which internally goes
+<p>In order for performing the remote invocation (which internally goes
 through remote JNDI lookup of the connection factory), the calling user
 credentials need to be set into the Apache CXF JMSConduit:</p>
 </div>
@@ -9827,8 +9824,7 @@ credentials need to be set into the Apache CXF JMSConduit:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Have a look at the WildFly domain and messaging configuration for
-finding out the actual security requirements. At the time of writing, a
+<p>Look at the WildFly domain and messaging configuration to see the security requirements. At the time of writing, a
 user with <code>guest</code> role is required and that&#8217;s internally checked using
 the <code>other</code> security domain.</p>
 </div>
@@ -9837,9 +9833,9 @@ the <code>other</code> security domain.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Of course once the endpoint is exposed over JMS transport, any plain JMS
-client can also be used to send messages to the webservice endpoint. You
-can have a look at the SOAP over JMS spec details and code the client
+<p>Once the endpoint is exposed over JMS transport, any plain JMS
+client can also be used to send messages to the webservice endpoint.
+Look at the SOAP over JMS spec details and code the client
 similarly to</p>
 </div>
 <div class="literalblock">
@@ -10053,7 +10049,7 @@ the WSDL file in a <em>war</em> archive:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>A trivial web.xml descriptor is also included to trigger the HTTP
+<p>A web.xml descriptor is included to trigger the HTTP
 endpoint publish:</p>
 </div>
 <div class="literalblock">
@@ -10082,7 +10078,7 @@ endpoint publish:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Here too the MANIFEST.MF needs to declare a dependency on
+<p>The MANIFEST.MF needs to declare a dependency on
 <em>org.apache.activemq.artemis</em> module when deploying to WildFly.</p>
 </div>
 </td>
@@ -10121,11 +10117,11 @@ finally
 <div class="sect4">
 <h5 id="use-of-endpoint-publish-api">Use of Endpoint.publish() API</h5>
 <div class="paragraph">
-<p>An alternative to deploying an archive containing JMS endpoints is in
+<p>An alternative to deploying an archive containing JMS endpoints is
 starting them directly using the JAX-WS <code>Endpoint.publish(..)</code> API.</p>
 </div>
 <div class="paragraph">
-<p>That&#8217;s as easy as doing:</p>
+<p>It is as easy as doing:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -10851,65 +10847,96 @@ enabled for the endpoint defined by the contract above.</p>
                   </div><!-- end main -->
                </div>
 
-                   <div id="rightcolumn" class="column">
+    <div id="rightcolumn" class="column">
 
-                  <div class="projectpage-socialmedia">
-                     <span class="st_sharethis_large">&nbsp;</span>
-                     <span class="st_facebook_large">&nbsp;</span>
-                     <span class="st_twitter_large">&nbsp;</span>
-                     <span class="st_linkedin_large">&nbsp;</span>
-                     <span class="st_email_large">&nbsp;</span>
-                  </div>
-
-
-                  <div id="proj_quick-start">
-                     <h3>Useful Links</h3>
-                     <ul>
-                        <li><a href="/downloads-latest/">Download</a></li>
-                        <li><a href="/docs">Documentation</a></li>
-                        <li><a href="/blogs">Blog</a></li>
-                        <li><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
-                        <li><a href="https://github.com/jbossws">Code</a></li>
-                        <li><a href=" https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
-                     </ul>
-                  </div>
-                  <div class="clear"><br/></div>
-
-                  <div class="uploaded-img">
-
-                     <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
-
-                        <img width="180" alt="" height="75"
-                             src="/img/logo_jprofiler01.gif"
-                             style="margin:0 auto;"/>
-
-                     </a>
-                  </div>
-
-                  <h5>We use JProfiler for profiling</h5>
-
-                  <table>
-                     <tr>
-                        <td>
-                        </td>
-                     </tr>
-                  </table>
+    <div class="projectpage-socialmedia">
+        <span class="st_sharethis_large">&nbsp;</span>
+        <span class="st_facebook_large">&nbsp;</span>
+        <span class="st_twitter_large">&nbsp;</span>
+        <span class="st_linkedin_large">&nbsp;</span>
+        <span class="st_email_large">&nbsp;</span>
+    </div>
 
 
-                  <div>
-                     <a href="https://www.jboss.org/security.html">
-                        <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
-                     </a>
-                  </div>
-               </div>
+    <div id="proj_quick-start">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="https://docs.jboss.org/author/display/JBWS">JAX-WS User Guide</a></li>
+            <li><a href="https://github.com/jbossws/jbossws-cxf">Source Code</a></li>
+            <li><a href="https://issues.redhat.com/projects/JBWS/issues">
+                Issue Tracker</a></li>
+            <li><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
+        </ul>
+    </div>
+    <div class="interviews-rss ">
+        <h3>JBossWS</h3>
+        <dl class="evenrow">
+            <dt><a href="/2020/05/27/jbossws-new-google-forum/">Move to JBossWS Google Group</a></dt>
+            <dd class="date">May 27, 2020 By Jim Ma
+            </dd>
+            <dd>JBossWS team has moved the old jboss community wiki and forum to <a href="https://groups.google.com/forum/#!forum/jbossws">JBossWS Google Groups</a>.
+                The old JBossWS wiki, User Forum and Developer Forum are all archived and read only now. This change will allow our community users
+                find us more easily with one email or web access...
+            </dd>
+        </dl>
+        <dl class="oddrow">
+            <dt><a href="/2020/01/15/jbossws-540final-is-released/">JBossWS
+                5.4.0.Final is released!</></dt>
+            <dd class="date">Wednesday, January 15, 2020 By Jim Ma
+            </dd>
+            <dd>I am pleased to annouce JBossWS 5.4.0 Final is out. In this release we upgraded many
+                components as usual and brings Elytron&#8230;
+            </dd>
+        </dl>
 
-            </div><!-- end wrapper-3 -->
+        <dl class="oddrow">
+            <dt><a href="/2019/05/14/jbossws-530final-is-out">JBossWS
+                5.3.0.Final is out!</a></dt>
+            <dd class="date">May 14, 2019 19:07 PM by Jim Ma
+            </dd>
+            <dd>After couple days work, I am proud to announce JBossWS 5.3.0.Final has been released. This
+                new release brings a lot of component up&#8230;
+            </dd>
+        </dl>
 
-         </div><!-- end wrapper-content -->
-         <div style="clear: both;"></div>
-      </div><!-- end wrapper-2 -->
-   </div>
 
+        <dl>
+            <dd class="more">View <a href="https://jbossws.github.io/blogs/">more jbossws updates</a></dd>
+        </dl>
+    </div>
+    <div class="clear"><br/></div>
+
+    <div class="uploaded-img">
+
+        <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+            <img width="180" alt="" height="75"
+                 src="/img/logo_jprofiler01.gif"
+                 style="margin:0 auto;"/>
+
+        </a>
+    </div>
+
+    <h5>We use JProfiler for profiling</h5>
+
+    <table>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+
+
+    <div>
+        <a href="https://www.jboss.org/security.html">
+            <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+        </a>
+    </div>
+</div>
+
+</div><!-- end wrapper-3 -->
+
+</div>
        <div id="site-info">
       <div>
       </div>

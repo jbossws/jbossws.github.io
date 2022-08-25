@@ -59,10 +59,6 @@
                <li class="current">
                   <span class="notch">&nbsp;</span>
                   <a href="/index.html" class="menu-title">Overview</a>
-                  <!--ul class="level1">
-                     <li class="leaf"><a href="/news"> News</a></li>
-                     <li class="leaf"><a href="/news-history"> News History</a></li>
-                  </ul-->
                </li>
 
                <li class="open">
@@ -84,9 +80,11 @@
                   <span class="notch">&nbsp;</span>
                   <a href="/blogs" class="menu-title">Blog</a>
                </li>
+
                <li class="open">
                   <span class="notch">&nbsp;</span>
                   <a href="/community" class="menu-title">Community</a>
+                  <!-- ################## rls
                   <ul class="level1">
                      <li class="leaf"><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
                      <li class="leaf"><a href="https://groups.google.com/forum/#!forum/jbossws">Forums</a></li>
@@ -94,13 +92,14 @@
                      <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum(archive)</a></li>
                      <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum(archive)</a></li>
                   </ul>
+                  ############### -->
                </li>
 
                <li class="open">
                   <span class="notch">&nbsp;</span>
-                  <a href="https://issues.redhat.com/browse/JBWS" class="menu-title">Issue Tracker</a>
+                  <a href="https://issues.redhat.com/jira/browse/JBWS" class="menu-title">Issue Tracker</a>
                   <ul class="level1 jiralink">
-                     <li class="leaf"><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
+                     <li class="leaf"><a href="https://issues.redhat.com/jira/browse/JBWS">JIRA</a></li>
                   </ul>
                </li>
 
@@ -120,7 +119,6 @@
          </div>
 
       </div>
-
           <div id="wrapper-2">
          <div id="wrap-content">
             <div id="wrapper-3">
@@ -149,7 +147,7 @@ belong to the JBossWS - WildFly integration. Users should not need to
 change anything in them.</p>
 </div>
 <div class="paragraph">
-<p>While users are of course allowed to provide their own modules for their
+<p>While users are allowed to provide their own modules for their
 custom needs, below is a brief collection of suggestions and hints
 around modules and webservices development on WildFly.</p>
 </div>
@@ -171,7 +169,7 @@ dependencies they want to be added to their deployment.</p>
 <td class="content">
 <div class="paragraph">
 <p>The JBoss Web Services APIs are always available by default whenever the
-webservices subsystem is available on AS7. So users just use them, no
+webservices subsystem is available on AS7. Users just use them, no
 need for explicit dependencies declaration for those modules.</p>
 </div>
 </td>
@@ -191,9 +189,9 @@ Dependencies: org.jboss.ws.cxf.jbossws-cxf-client services export,foo.bar</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Here above <em>org.jboss.ws.cxf.jbossws-cxf-client</em> and <em>foo.bar</em> are the
+<p>Above <em>org.jboss.ws.cxf.jbossws-cxf-client</em> and <em>foo.bar</em> are the
 modules you want to set dependencies to; <em>services</em> tells the modules
-framework that you want to also import <em>META-INF/services/..</em>
+framework that you want to import <em>META-INF/services/..</em>
 declarations from the dependency, while <em>export</em> exports the classes
 from the module to any other module that might be depending on the
 module implicitly created for your deployment.</p>
@@ -208,9 +206,9 @@ module implicitly created for your deployment.</p>
 <div class="paragraph">
 <p>When using annotations on your endpoints / handlers such as the Apache
 CXF ones (@InInterceptor, @GZIP, &#8230;&#8203;) remember to add the proper module
-dependency in your manifest. Otherwise your annotations are not picked
+dependency in your manifest, otherwise your annotations are not picked
 up and added to the annotation index by WildFly, resulting in them being
-completely and silently ignored.</p>
+silently ignored.</p>
 </div>
 </td>
 </tr>
@@ -219,7 +217,7 @@ completely and silently ignored.</p>
 <div class="sect4">
 <h5 id="using-jaxb">Using JAXB</h5>
 <div class="paragraph">
-<p>In order for successfully directly using JAXB contexts, etc. in your
+<p>In order to directly use JAXB contexts, in your
 client or endpoint running in-container, you need to properly setup a
 JAXB implementation; that is performed setting the following dependency:</p>
 </div>
@@ -232,7 +230,7 @@ JAXB implementation; that is performed setting the following dependency:</p>
 <div class="sect4">
 <h5 id="using-apache-cxf">Using Apache CXF</h5>
 <div class="paragraph">
-<p>In order for using Apache CXF APIs and implementation classes you need
+<p>In order to use Apache CXF APIs and implementation classes you need
 to add a dependency to the <em>org.apache.cxf</em> (API) module and / or
 <em>org.apache.cxf.impl</em> (implementation) module:</p>
 </div>
@@ -242,7 +240,7 @@ to add a dependency to the <em>org.apache.cxf</em> (API) module and / or
 </div>
 </div>
 <div class="paragraph">
-<p>However, please note that would not come with any JBossWS-CXF
+<p>Please note that that would not come with any JBossWS-CXF
 customizations nor additional extensions. For this reason, and generally
 speaking for simplifying user configuration, a client side aggregation
 module is available with all the WS dependencies users might need.</p>
@@ -251,7 +249,7 @@ module is available with all the WS dependencies users might need.</p>
 <div class="sect4">
 <h5 id="client-side-ws-aggregation-module">Client side WS aggregation module</h5>
 <div class="paragraph">
-<p>Whenever you simply want to use all the JBoss Web Services
+<p>Whenever you want to use all the JBoss Web Services
 feature/functionalities, you can set a dependency to the convenient
 client module.</p>
 </div>
@@ -261,7 +259,7 @@ client module.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Please note the <em>services</em> option above: that&#8217;s strictly required in
+<p>Note the <em>services</em> option above: it is strictly required in
 order for you to get the JBossWS-CXF version of classes that are
 retrieved using the <em>Service API</em> , the <code>Bus</code> for instance.</p>
 </div>
@@ -273,7 +271,7 @@ retrieved using the <em>Service API</em> , the <code>Bus</code> for instance.</p
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Be careful as issues because of misconfiguration here can be quite hard
+<p>Be careful. Issues of misconfiguration here can be quite hard
 to track down, because the Apache CXF behaviour would be sensibly
 different.</p>
 </div>
@@ -291,8 +289,8 @@ different.</p>
 <div class="paragraph">
 <p>The <em>services</em> option is almost always needed when declaring
 dependencies on <em>org.jboss.ws.cxf.jbossws-cxf-client</em> and
-<em>org.apache.cxf</em> modules. The reason for this is in it affecting the
-loading of classes through the <em>Service API</em> , which is what is used to
+<em>org.apache.cxf</em> modules. It affects the
+loading of classes through the <em>Service API</em> , which is used to
 wire most of the JBossWS components as well as all Apache CXF Bus
 extensions.</p>
 </div>
@@ -305,10 +303,10 @@ extensions.</p>
 <h5 id="annotation-scanning">Annotation scanning</h5>
 <div class="paragraph">
 <p>The application server uses an annotation index for detecting JAX-WS
-endpoints in user deployments. When declaring WS endpoints whose class
+endpoints in the user deployments. When declaring WS endpoints, whose class
 belongs to a different module (for instance referring that in the
 <code>web.xml</code> descriptor), be sure to have an <code>annotations</code> type dependency
-in place. Without that, your endpoints would simply be ignored as they
+in place. Without that, your endpoints will be ignored as they
 won&#8217;t appear as annotated classes to the webservices subsystem.</p>
 </div>
 <div class="literalblock">
@@ -335,65 +333,96 @@ their deployment and set module dependencies in it.</p>
                   </div><!-- end main -->
                </div>
 
-                   <div id="rightcolumn" class="column">
+    <div id="rightcolumn" class="column">
 
-                  <div class="projectpage-socialmedia">
-                     <span class="st_sharethis_large">&nbsp;</span>
-                     <span class="st_facebook_large">&nbsp;</span>
-                     <span class="st_twitter_large">&nbsp;</span>
-                     <span class="st_linkedin_large">&nbsp;</span>
-                     <span class="st_email_large">&nbsp;</span>
-                  </div>
-
-
-                  <div id="proj_quick-start">
-                     <h3>Useful Links</h3>
-                     <ul>
-                        <li><a href="/downloads-latest/">Download</a></li>
-                        <li><a href="/docs">Documentation</a></li>
-                        <li><a href="/blogs">Blog</a></li>
-                        <li><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
-                        <li><a href="https://github.com/jbossws">Code</a></li>
-                        <li><a href=" https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
-                     </ul>
-                  </div>
-                  <div class="clear"><br/></div>
-
-                  <div class="uploaded-img">
-
-                     <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
-
-                        <img width="180" alt="" height="75"
-                             src="/img/logo_jprofiler01.gif"
-                             style="margin:0 auto;"/>
-
-                     </a>
-                  </div>
-
-                  <h5>We use JProfiler for profiling</h5>
-
-                  <table>
-                     <tr>
-                        <td>
-                        </td>
-                     </tr>
-                  </table>
+    <div class="projectpage-socialmedia">
+        <span class="st_sharethis_large">&nbsp;</span>
+        <span class="st_facebook_large">&nbsp;</span>
+        <span class="st_twitter_large">&nbsp;</span>
+        <span class="st_linkedin_large">&nbsp;</span>
+        <span class="st_email_large">&nbsp;</span>
+    </div>
 
 
-                  <div>
-                     <a href="https://www.jboss.org/security.html">
-                        <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
-                     </a>
-                  </div>
-               </div>
+    <div id="proj_quick-start">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="https://docs.jboss.org/author/display/JBWS">JAX-WS User Guide</a></li>
+            <li><a href="https://github.com/jbossws/jbossws-cxf">Source Code</a></li>
+            <li><a href="https://issues.redhat.com/projects/JBWS/issues">
+                Issue Tracker</a></li>
+            <li><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
+        </ul>
+    </div>
+    <div class="interviews-rss ">
+        <h3>JBossWS</h3>
+        <dl class="evenrow">
+            <dt><a href="/2020/05/27/jbossws-new-google-forum/">Move to JBossWS Google Group</a></dt>
+            <dd class="date">May 27, 2020 By Jim Ma
+            </dd>
+            <dd>JBossWS team has moved the old jboss community wiki and forum to <a href="https://groups.google.com/forum/#!forum/jbossws">JBossWS Google Groups</a>.
+                The old JBossWS wiki, User Forum and Developer Forum are all archived and read only now. This change will allow our community users
+                find us more easily with one email or web access...
+            </dd>
+        </dl>
+        <dl class="oddrow">
+            <dt><a href="/2020/01/15/jbossws-540final-is-released/">JBossWS
+                5.4.0.Final is released!</></dt>
+            <dd class="date">Wednesday, January 15, 2020 By Jim Ma
+            </dd>
+            <dd>I am pleased to annouce JBossWS 5.4.0 Final is out. In this release we upgraded many
+                components as usual and brings Elytron&#8230;
+            </dd>
+        </dl>
 
-            </div><!-- end wrapper-3 -->
+        <dl class="oddrow">
+            <dt><a href="/2019/05/14/jbossws-530final-is-out">JBossWS
+                5.3.0.Final is out!</a></dt>
+            <dd class="date">May 14, 2019 19:07 PM by Jim Ma
+            </dd>
+            <dd>After couple days work, I am proud to announce JBossWS 5.3.0.Final has been released. This
+                new release brings a lot of component up&#8230;
+            </dd>
+        </dl>
 
-         </div><!-- end wrapper-content -->
-         <div style="clear: both;"></div>
-      </div><!-- end wrapper-2 -->
-   </div>
 
+        <dl>
+            <dd class="more">View <a href="https://jbossws.github.io/blogs/">more jbossws updates</a></dd>
+        </dl>
+    </div>
+    <div class="clear"><br/></div>
+
+    <div class="uploaded-img">
+
+        <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+            <img width="180" alt="" height="75"
+                 src="/img/logo_jprofiler01.gif"
+                 style="margin:0 auto;"/>
+
+        </a>
+    </div>
+
+    <h5>We use JProfiler for profiling</h5>
+
+    <table>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+
+
+    <div>
+        <a href="https://www.jboss.org/security.html">
+            <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+        </a>
+    </div>
+</div>
+
+</div><!-- end wrapper-3 -->
+
+</div>
        <div id="site-info">
       <div>
       </div>

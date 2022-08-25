@@ -59,10 +59,6 @@
                <li class="current">
                   <span class="notch">&nbsp;</span>
                   <a href="/index.html" class="menu-title">Overview</a>
-                  <!--ul class="level1">
-                     <li class="leaf"><a href="/news"> News</a></li>
-                     <li class="leaf"><a href="/news-history"> News History</a></li>
-                  </ul-->
                </li>
 
                <li class="open">
@@ -84,9 +80,11 @@
                   <span class="notch">&nbsp;</span>
                   <a href="/blogs" class="menu-title">Blog</a>
                </li>
+
                <li class="open">
                   <span class="notch">&nbsp;</span>
                   <a href="/community" class="menu-title">Community</a>
+                  <!-- ################## rls
                   <ul class="level1">
                      <li class="leaf"><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
                      <li class="leaf"><a href="https://groups.google.com/forum/#!forum/jbossws">Forums</a></li>
@@ -94,13 +92,14 @@
                      <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum(archive)</a></li>
                      <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum(archive)</a></li>
                   </ul>
+                  ############### -->
                </li>
 
                <li class="open">
                   <span class="notch">&nbsp;</span>
-                  <a href="https://issues.redhat.com/browse/JBWS" class="menu-title">Issue Tracker</a>
+                  <a href="https://issues.redhat.com/jira/browse/JBWS" class="menu-title">Issue Tracker</a>
                   <ul class="level1 jiralink">
-                     <li class="leaf"><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
+                     <li class="leaf"><a href="https://issues.redhat.com/jira/browse/JBWS">JIRA</a></li>
                   </ul>
                </li>
 
@@ -120,7 +119,6 @@
          </div>
 
       </div>
-
           <div id="wrapper-2">
          <div id="wrap-content">
             <div id="wrapper-3">
@@ -10851,65 +10849,96 @@ enabled for the endpoint defined by the contract above.</p>
                   </div><!-- end main -->
                </div>
 
-                   <div id="rightcolumn" class="column">
+    <div id="rightcolumn" class="column">
 
-                  <div class="projectpage-socialmedia">
-                     <span class="st_sharethis_large">&nbsp;</span>
-                     <span class="st_facebook_large">&nbsp;</span>
-                     <span class="st_twitter_large">&nbsp;</span>
-                     <span class="st_linkedin_large">&nbsp;</span>
-                     <span class="st_email_large">&nbsp;</span>
-                  </div>
-
-
-                  <div id="proj_quick-start">
-                     <h3>Useful Links</h3>
-                     <ul>
-                        <li><a href="/downloads-latest/">Download</a></li>
-                        <li><a href="/docs">Documentation</a></li>
-                        <li><a href="/blogs">Blog</a></li>
-                        <li><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
-                        <li><a href="https://github.com/jbossws">Code</a></li>
-                        <li><a href=" https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
-                     </ul>
-                  </div>
-                  <div class="clear"><br/></div>
-
-                  <div class="uploaded-img">
-
-                     <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
-
-                        <img width="180" alt="" height="75"
-                             src="/img/logo_jprofiler01.gif"
-                             style="margin:0 auto;"/>
-
-                     </a>
-                  </div>
-
-                  <h5>We use JProfiler for profiling</h5>
-
-                  <table>
-                     <tr>
-                        <td>
-                        </td>
-                     </tr>
-                  </table>
+    <div class="projectpage-socialmedia">
+        <span class="st_sharethis_large">&nbsp;</span>
+        <span class="st_facebook_large">&nbsp;</span>
+        <span class="st_twitter_large">&nbsp;</span>
+        <span class="st_linkedin_large">&nbsp;</span>
+        <span class="st_email_large">&nbsp;</span>
+    </div>
 
 
-                  <div>
-                     <a href="https://www.jboss.org/security.html">
-                        <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
-                     </a>
-                  </div>
-               </div>
+    <div id="proj_quick-start">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="https://docs.jboss.org/author/display/JBWS">JAX-WS User Guide</a></li>
+            <li><a href="https://github.com/jbossws/jbossws-cxf">Source Code</a></li>
+            <li><a href="https://issues.redhat.com/projects/JBWS/issues">
+                Issue Tracker</a></li>
+            <li><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
+        </ul>
+    </div>
+    <div class="interviews-rss ">
+        <h3>JBossWS</h3>
+        <dl class="evenrow">
+            <dt><a href="/2020/05/27/jbossws-new-google-forum/">Move to JBossWS Google Group</a></dt>
+            <dd class="date">May 27, 2020 By Jim Ma
+            </dd>
+            <dd>JBossWS team has moved the old jboss community wiki and forum to <a href="https://groups.google.com/forum/#!forum/jbossws">JBossWS Google Groups</a>.
+                The old JBossWS wiki, User Forum and Developer Forum are all archived and read only now. This change will allow our community users
+                find us more easily with one email or web access...
+            </dd>
+        </dl>
+        <dl class="oddrow">
+            <dt><a href="/2020/01/15/jbossws-540final-is-released/">JBossWS
+                5.4.0.Final is released!</></dt>
+            <dd class="date">Wednesday, January 15, 2020 By Jim Ma
+            </dd>
+            <dd>I am pleased to annouce JBossWS 5.4.0 Final is out. In this release we upgraded many
+                components as usual and brings Elytron&#8230;
+            </dd>
+        </dl>
 
-            </div><!-- end wrapper-3 -->
+        <dl class="oddrow">
+            <dt><a href="/2019/05/14/jbossws-530final-is-out">JBossWS
+                5.3.0.Final is out!</a></dt>
+            <dd class="date">May 14, 2019 19:07 PM by Jim Ma
+            </dd>
+            <dd>After couple days work, I am proud to announce JBossWS 5.3.0.Final has been released. This
+                new release brings a lot of component up&#8230;
+            </dd>
+        </dl>
 
-         </div><!-- end wrapper-content -->
-         <div style="clear: both;"></div>
-      </div><!-- end wrapper-2 -->
-   </div>
 
+        <dl>
+            <dd class="more">View <a href="https://jbossws.github.io/blogs/">more jbossws updates</a></dd>
+        </dl>
+    </div>
+    <div class="clear"><br/></div>
+
+    <div class="uploaded-img">
+
+        <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+            <img width="180" alt="" height="75"
+                 src="/img/logo_jprofiler01.gif"
+                 style="margin:0 auto;"/>
+
+        </a>
+    </div>
+
+    <h5>We use JProfiler for profiling</h5>
+
+    <table>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+
+
+    <div>
+        <a href="https://www.jboss.org/security.html">
+            <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+        </a>
+    </div>
+</div>
+
+</div><!-- end wrapper-3 -->
+
+</div>
        <div id="site-info">
       <div>
       </div>
