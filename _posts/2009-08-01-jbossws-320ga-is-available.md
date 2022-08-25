@@ -36,10 +36,10 @@ The endpoint address in the wsdl as well as the URL shown in the JBossWS deploye
 *   a server configuration allowing for rewrite of host and port of both valid and invalid user provided URLs;
 or  
 
-*   the host/port used by the client when actually hitting an endpoint deployed on an application service bound to multiple network interfaces (or simply in the [multiple virtual host](https://jira.jboss.org/jira/browse/JBWS-2227) case)[Detailed documentation](http://www.jboss.org/community/wiki/JBossWS-UserGuide#Address_rewrite) is available in the [renewed JBossWS area](http://www.jboss.org/community/wiki/JBossWS) of the JBoss community wiki.  
+*   the host/port used by the client when actually hitting an endpoint deployed on an application service bound to multiple network interfaces (or simply in the [multiple virtual host](https://issues.redhat.com/jira/browse/JBWS-2227) case)[Detailed documentation](http://www.jboss.org/community/wiki/JBossWS-UserGuide#Address_rewrite) is available in the [renewed JBossWS area](http://www.jboss.org/community/wiki/JBossWS) of the JBoss community wiki.  
 We have plans for further contribution to Apache CXF in the future, stay tuned.  
 
-One of the aims of the JBoss Web Service Framework is to add features on top of what the supported stacks already provides. Thanks to a [contribution](https://jira.jboss.org/jira/browse/JBWS-2106) from Andrew Dinn, a colleague involved in the JBoss Transactions project, JBossWS 3.2.0.GA includes a common API for using the JAX-WSA (JSR-261) WS-Addressing functionalities in a stack independent way. The (different) implementations currently supported under the hood are those of Native and CXF stacks.  
+One of the aims of the JBoss Web Service Framework is to add features on top of what the supported stacks already provides. Thanks to a [contribution](https://issues.redhat.com/jira/browse/JBWS-2106) from Andrew Dinn, a colleague involved in the JBoss Transactions project, JBossWS 3.2.0.GA includes a common API for using the JAX-WSA (JSR-261) WS-Addressing functionalities in a stack independent way. The (different) implementations currently supported under the hood are those of Native and CXF stacks.  
 
 Further information available in the release notes. That&#39;s enough for now, [download JBossWS-3.2.0.GA](http://jboss.org/jbossws/downloads/) and give it a try! :-)  
 
