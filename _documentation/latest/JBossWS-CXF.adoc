@@ -1,5 +1,3 @@
-// Developers note: The directory, content, is copied from project
-// jbossws-cxf by .github/workflows/workflow.yml
 ---
 layout:     default
 title:       "JBossWS Documentation"
