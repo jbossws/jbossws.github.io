@@ -84,15 +84,6 @@
                <li class="open">
                   <span class="notch">&nbsp;</span>
                   <a href="/community" class="menu-title">Community</a>
-                  <!-- ################## rls
-                  <ul class="level1">
-                     <li class="leaf"><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
-                     <li class="leaf"><a href="https://groups.google.com/forum/#!forum/jbossws">Forums</a></li>
-                     <li class="leaf"><a href="https://www.jboss.org/community/wiki/JBossWS">Wiki(archive)</a></li>
-                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws">User Forum(archive)</a></li>
-                     <li class="leaf"><a href="https://community.jboss.org/en/jbossws/dev">Developer Forum(archive)</a></li>
-                  </ul>
-                  ############### -->
                </li>
 
                <li class="open">
@@ -128,40 +119,300 @@
                        <span>
                               <a href="/">JBoss Web Services</a>
                                 &gt;
-                              <a href="/">Jbossws Cxf</a>
+                              <a href="/docs">JBossWS Documentation</a>
                                 &gt;
-                              <a href="#"></a>
+                              <a href="#">6.0.1-SNAPSHOT</a>
                        </span>
                      </div><!-- end breadcrumb -->
-                     <hr>
-<div class="paragraph">
-<p>layout:     default
-title:       "JBossWS Documentation"
-subtitle:    "6.0.1-SNAPSHOT"
-link:        docs
----
-= JBossWS Documentation
-:sectnums:
-:toc:
-:toclevels: 3
-:doctype: book
-:title-logo-image:
-:leveloffset: -1
-:imagesdir: ../image/</p>
+                     <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel0">
+<li><a href="#preface-JBoss_Web_Services_Documentation">Preface</a>
+<ul class="sectlevel1">
+<li><a href="#web-services-introduction">1. Web Services Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#what-is-a-web-service">1.1. What is a web service?</a>
+<ul class="sectlevel3">
+<li><a href="#who-needs-web-services">1.1.1. Who needs web services?</a></li>
+<li><a href="#what-web-services-are-not">1.1.2. What web services are not&#8230;&#8203;</a></li>
+</ul>
+</li>
+<li><a href="#from-concepts-to-technology">1.2. From concepts to technology</a>
+<ul class="sectlevel3">
+<li><a href="#service-contracts">1.2.1. Service contracts</a></li>
+<li><a href="#message-exchange">1.2.2. Message exchange</a></li>
+<li><a href="#advanced-web-services-technologies">1.2.3. Advanced Web Services technologies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#quick-start">2. Quick Start</a>
+<ul class="sectlevel2">
+<li><a href="#developing-web-service-implementations">2.1. Developing web service implementations</a>
+<ul class="sectlevel3">
+<li><a href="#the-service-implementation-class">2.1.1. The service implementation class</a></li>
+<li><a href="#deploying-service-implementations">2.1.2. Deploying service implementations</a></li>
+</ul>
+</li>
+<li><a href="#consuming-web-services">2.2. Consuming web services</a>
+<ul class="sectlevel3">
+<li><a href="#creating-the-client-artifacts">2.2.1. Creating the client artifacts</a></li>
+<li><a href="#constructing-a-service-stub">2.2.2. Constructing a service stub</a></li>
+<li><a href="#resolving-dependencies-and-running-the-client">2.2.3. Resolving dependencies and running the client</a></li>
+</ul>
+</li>
+<li><a href="#maven-archetype-quick-start">2.3. Maven archetype quick start</a></li>
+<li><a href="#appendix">2.4. Appendix</a>
+<ul class="sectlevel3">
+<li><a href="#sample-wsdl-contract">2.4.1. Sample wsdl contract</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#jakarta-xml-web-services-user-guide">3. Jakarta XML Web Services User Guide</a>
+<ul class="sectlevel2">
+<li><a href="#web-service-endpoints">3.1. Web Service Endpoints</a>
+<ul class="sectlevel3">
+<li><a href="#plain-old-java-object-pojo">3.1.1. Plain old Java Object (POJO)</a></li>
+<li><a href="#ejb3-stateless-session-bean-slsb">3.1.2. EJB3 Stateless Session Bean (SLSB)</a></li>
+<li><a href="#endpoint-provider">3.1.3. Endpoint Provider</a></li>
+</ul>
+</li>
+<li><a href="#web-service-clients">3.2. Web Service Clients</a>
+<ul class="sectlevel3">
+<li><a href="#service">3.2.1. Service</a></li>
+<li><a href="#dynamic-proxy">3.2.2. Dynamic Proxy</a></li>
+<li><a href="#webserviceref">3.2.3. WebServiceRef</a></li>
+<li><a href="#dispatch">3.2.4. Dispatch</a></li>
+<li><a href="#asynchronous-invocations">3.2.5. Asynchronous Invocations</a></li>
+<li><a href="#oneway-invocations">3.2.6. Oneway Invocations</a></li>
+<li><a href="#timeout-configuration">3.2.7. Timeout Configuration</a></li>
+</ul>
+</li>
+<li><a href="#common-api">3.3. Common API</a>
+<ul class="sectlevel3">
+<li><a href="#handler-framework">3.3.1. Handler Framework</a></li>
+<li><a href="#message-context">3.3.2. Message Context</a></li>
+<li><a href="#fault-handling">3.3.3. Fault Handling</a></li>
+</ul>
+</li>
+<li><a href="#ws-annotations">3.4. WS Annotations</a>
+<ul class="sectlevel3">
+<li><a href="#jakarta-xml-ws-servicemode">3.4.1. jakarta.xml.ws.ServiceMode</a></li>
+<li><a href="#jakarta-xml-ws-webfault">3.4.2. jakarta.xml.ws.WebFault</a></li>
+<li><a href="#jakarta-xml-ws-requestwrapper">3.4.3. jakarta.xml.ws.RequestWrapper</a></li>
+<li><a href="#jakarta-xml-ws-responsewrapper">3.4.4. jakarta.xml.ws.ResponseWrapper</a></li>
+<li><a href="#jakarta-xml-ws-webserviceclient">3.4.5. jakarta.xml.ws.WebServiceClient</a></li>
+<li><a href="#jakarta-xml-ws-webendpoint">3.4.6. jakarta.xml.ws.WebEndpoint</a></li>
+<li><a href="#jakarta-xml-ws-webserviceprovider">3.4.7. jakarta.xml.ws.WebServiceProvider</a></li>
+<li><a href="#jakarta-xml-ws-bindingtype">3.4.8. jakarta.xml.ws.BindingType</a></li>
+<li><a href="#jakarta-xml-ws-webserviceref">3.4.9. jakarta.xml.ws.WebServiceRef</a></li>
+<li><a href="#jakarta-xml-ws-webservicerefs">3.4.10. jakarta.xml.ws.WebServiceRefs</a></li>
+<li><a href="#jakarta-xml-ws-action">3.4.11. jakarta.xml.ws.Action</a></li>
+<li><a href="#jakarta-xml-ws-faultaction">3.4.12. jakarta.xml.ws.FaultAction</a></li>
+</ul>
+</li>
+<li><a href="#jakarta-web-service-metadata-annotations">3.5. Jakarta Web Service Metadata Annotations</a>
+<ul class="sectlevel3">
+<li><a href="#jakarta-jws-webservice">3.5.1. jakarta.jws.WebService</a></li>
+<li><a href="#jakarta-jws-webmethod">3.5.2. jakarta.jws.WebMethod</a></li>
+<li><a href="#jakarta-jws-oneway">3.5.3. jakarta.jws.OneWay</a></li>
+<li><a href="#jakarta-jws-webparam">3.5.4. jakarta.jws.WebParam</a></li>
+<li><a href="#jakarta-jws-webresult">3.5.5. jakarta.jws.WebResult</a></li>
+<li><a href="#jakarta-jws-soapbinding">3.5.6. jakarta.jws.SOAPBinding</a></li>
+<li><a href="#jakarta-jws-handlerchain">3.5.7. jakarta.jws.HandlerChain</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#jax-ws-tools">4. JAX-WS Tools</a>
+<ul class="sectlevel2">
+<li><a href="#server-side">4.1. Server side</a>
+<ul class="sectlevel3">
+<li><a href="#bottom-up-using-wsprovide">4.1.1. Bottom-Up (Using wsprovide)</a></li>
+<li><a href="#down-using-wsconsume">4.1.2. Down (Using wsconsume)</a></li>
+</ul>
+</li>
+<li><a href="#client-side">4.2. Client Side</a></li>
+<li><a href="#ws-binding-customization">4.3. WS binding customization</a></li>
+<li><a href="#wsconsume">4.4. wsconsume</a>
+<ul class="sectlevel3">
+<li><a href="#command-line-tool">4.4.1. Command Line Tool</a></li>
+<li><a href="#maven-plugin">4.4.2. Maven Plugin</a></li>
+<li><a href="#ant-task">4.4.3. Ant Task</a></li>
+</ul>
+</li>
+<li><a href="#wsprovide">4.5. wsprovide</a>
+<ul class="sectlevel3">
+<li><a href="#command-line-tool-2">4.5.1. Command Line Tool</a></li>
+<li><a href="#maven-plugin-2">4.5.2. Maven Plugin</a></li>
+<li><a href="#ant-task-2">4.5.3. Ant Task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#advanced-user-guide">5. Advanced User Guide</a>
+<ul class="sectlevel2">
+<li><a href="#logging">5.1. Logging</a>
+<ul class="sectlevel3">
+<li><a href="#jax-ws-handler-approach">5.1.1. JAX-WS Handler approach</a></li>
+<li><a href="#apache-cxf-approach">5.1.2. Apache CXF approach</a></li>
+</ul>
+</li>
+<li><a href="#ws-support">5.2. WS-* support</a></li>
+<li><a href="#address-rewrite">5.3. Address rewrite</a>
+<ul class="sectlevel3">
+<li><a href="#server-configuration-options">5.3.1. Server configuration options</a></li>
+<li><a href="#dynamic-rewrite">5.3.2. Dynamic rewrite</a></li>
+</ul>
+</li>
+<li><a href="#configuration-through-deployment-descriptor">5.4. Configuration through deployment descriptor</a>
+<ul class="sectlevel3">
+<li><a href="#context-root-element">5.4.1. context-root element</a></li>
+<li><a href="#config-name-and-config-file-elements">5.4.2. config-name and config-file elements</a></li>
+<li><a href="#property-element">5.4.3. property element</a></li>
+<li><a href="#component-element">5.4.4. component element</a></li>
+<li><a href="#webservice-description-element">5.4.5. webservice-description element</a></li>
+</ul>
+</li>
+<li><a href="#schema-validation-of-soap-messages">5.5. Schema validation of SOAP messages</a></li>
+<li><a href="#jaxb-introductions">5.6. JAXB Introductions</a></li>
+<li><a href="#wsdl-system-properties-expansion">5.7. WSDL system properties expansion</a></li>
+<li><a href="#predefined-client-and-endpoint-configurations">5.8. Predefined client and endpoint configurations</a>
+<ul class="sectlevel3">
+<li><a href="#overview">5.8.1. Overview</a></li>
+<li><a href="#assigning-configurations">5.8.2. Assigning configurations</a></li>
+</ul>
+</li>
+<li><a href="#authentication">5.9. Authentication</a>
+<ul class="sectlevel3">
+<li><a href="#authentication-2">5.9.1. Authentication</a></li>
+</ul>
+</li>
+<li><a href="#apache-cxf-integration">5.10. Apache CXF integration</a>
+<ul class="sectlevel3">
+<li><a href="#jbossws-integration-layer-with-apache-cxf">5.10.1. JBossWS integration layer with Apache CXF</a></li>
+<li><a href="#building-ws-applications-the-jboss-way">5.10.2. Building WS applications the JBoss way</a></li>
+<li><a href="#bus-usage">5.10.3. Bus usage</a></li>
+<li><a href="#server-side-integration-customization">5.10.4. Server Side Integration Customization</a></li>
+<li><a href="#apache-cxf-interceptors">5.10.5. Apache CXF interceptors</a></li>
+<li><a href="#apache-cxf-features">5.10.6. Apache CXF features</a></li>
+<li><a href="#properties-driven-bean-creation">5.10.7. Properties driven bean creation</a></li>
+<li><a href="#httpconduit-configuration">5.10.8. HTTPConduit configuration</a></li>
+</ul>
+</li>
+<li><a href="#addressing">5.11. Addressing</a>
+<ul class="sectlevel3">
+<li><a href="#enabling-ws-addressing">5.11.1. Enabling WS-Addressing</a></li>
+<li><a href="#addressing-policy">5.11.2. Addressing Policy</a></li>
+<li><a href="#example">5.11.3. Example</a></li>
+</ul>
+</li>
+<li><a href="#ws-security">5.12. WS-Security</a>
+<ul class="sectlevel3">
+<li><a href="#ws-security-overview">5.12.1. WS-Security overview</a></li>
+<li><a href="#jboss-ws-security-support">5.12.2. JBoss WS-Security support</a></li>
+<li><a href="#examples-7">5.12.3. Examples</a></li>
+</ul>
+</li>
+<li><a href="#ws-trust-and-sts">5.13. WS-Trust and STS</a>
+<ul class="sectlevel3">
+<li><a href="#ws-trust-overview">5.13.1. WS-Trust overview</a></li>
+<li><a href="#security-token-service">5.13.2. Security Token Service</a></li>
+<li><a href="#apache-cxf-support">5.13.3. Apache CXF support</a></li>
+<li><a href="#a-basic-ws-trust-scenario">5.13.4. A Basic WS-Trust Scenario</a></li>
+<li><a href="#actas-ws-trust-scenario">5.13.5. ActAs WS-Trust Scenario</a></li>
+<li><a href="#onbehalfof-ws-trust-scenario">5.13.6. OnBehalfOf WS-Trust Scenario</a></li>
+<li><a href="#saml-bearer-assertion-scenario">5.13.7. SAML Bearer Assertion Scenario</a></li>
+<li><a href="#saml-holder-of-key-assertion-scenario">5.13.8. SAML Holder-Of-Key Assertion Scenario</a></li>
+</ul>
+</li>
+<li><a href="#ws-reliable-messaging">5.14. WS-Reliable Messaging</a>
+<ul class="sectlevel3">
+<li><a href="#enabling-ws-reliable-messaging">5.14.1. Enabling WS-Reliable Messaging</a></li>
+<li><a href="#example-2">5.14.2. Example</a></li>
+</ul>
+</li>
+<li><a href="#soap-over-jms">5.15. SOAP over JMS</a>
+<ul class="sectlevel3">
+<li><a href="#configuring-soap-over-jms">5.15.1. Configuring SOAP over JMS</a></li>
+<li><a href="#examples-8">5.15.2. Examples</a></li>
+</ul>
+</li>
+<li><a href="#http-proxy">5.16. HTTP Proxy</a>
+<ul class="sectlevel3">
+<li><a href="#configuration">5.16.1. Configuration</a></li>
+</ul>
+</li>
+<li><a href="#ws-discovery">5.17. WS-Discovery</a>
+<ul class="sectlevel3">
+<li><a href="#enabling-ws-discovery">5.17.1. Enabling WS-Discovery</a></li>
+<li><a href="#probing-services">5.17.2. Probing services</a></li>
+</ul>
+</li>
+<li><a href="#ws-policy">5.18. WS-Policy</a>
+<ul class="sectlevel3">
+<li><a href="#apache-cxf-ws-policy-support">5.18.1. Apache CXF WS-Policy support</a></li>
+<li><a href="#jbossws-additions">5.18.2. JBossWS additions</a></li>
+</ul>
+</li>
+<li><a href="#published-wsdl-customization">5.19. Published WSDL customization</a>
+<ul class="sectlevel3">
+<li><a href="#endpoint-address-rewrite">5.19.1. Endpoint address rewrite</a></li>
+<li><a href="#system-property-references">5.19.2. System property references</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#jboss-modules">6. JBoss Modules</a>
+<ul class="sectlevel2">
+<li><a href="#setting-module-dependencies">6.1. Setting module dependencies</a>
+<ul class="sectlevel3">
+<li><a href="#using-manifest-mf">6.1.1. Using MANIFEST.MF</a></li>
+<li><a href="#using-jboss-deployment-descriptor-xml">6.1.2. Using jboss-deployment-descriptor.xml</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#build-and-testsuite-framework">7. Build and testsuite framework</a>
+<ul class="sectlevel2">
+<li><a href="#introduction">7.1. Introduction</a>
+<ul class="sectlevel3">
+<li><a href="#prerequisites-and-requirements">7.1.1. Prerequisites and requirements</a></li>
+</ul>
+</li>
+<li><a href="#architecture-overview">7.2. Architecture overview</a>
+<ul class="sectlevel3">
+<li><a href="#target-container-identification">7.2.1. Target Container Identification</a></li>
+<li><a href="#port-mapping">7.2.2. Port Mapping</a></li>
+</ul>
+</li>
+<li><a href="#command-line-options">7.3. Command Line Options</a>
+<ul class="sectlevel3">
+<li><a href="#profile">7.3.1. Profile</a></li>
+<li><a href="#options">7.3.2. Options</a></li>
+<li><a href="#examples-9">7.3.3. Examples</a></li>
+</ul>
+</li>
+<li><a href="#container-remote-debugging">7.4. Container remote debugging</a></li>
+</ul>
+</li>
+<li><a href="#legal-notice">8. Legal Notice</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="preface-JBoss_Web_Services_Documentation" class="sect0">Preface</h1>
+<div class="openblock partintro">
+<div class="content">
+This book covers the documentation for the current JBossWS release.
+</div>
 </div>
 <div class="sect1">
-<h2 id="preface-JBoss_Web_Services_Documentation">Preface</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This book covers the documentation for the current JBossWS release.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="web-services-introduction">Web Services Introduction</h2>
+<h2 id="web-services-introduction">1. Web Services Introduction</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="what-is-a-web-service">What is a web service?</h3>
+<h3 id="what-is-a-web-service">1.1. What is a web service?</h3>
 <div class="paragraph">
 <p><em>A Web service is a software system designed to support interoperable
 machine-to-machine interaction over a network. It has an interface
@@ -202,7 +453,7 @@ software that sends and receives messages in accordance with the service contrac
 </ul>
 </div>
 <div class="sect3">
-<h4 id="who-needs-web-services">Who needs web services?</h4>
+<h4 id="who-needs-web-services">1.1.1. Who needs web services?</h4>
 <div class="paragraph">
 <p>Enterprise systems communication may benefit from adoption of WS
 technologies.  The Exposure of well designed contracts allows developers to extract an abstract view of service capabilities.  The standardization of software contracts can help improve communication with third-party systems and business-to-business integration.  It is easier to expand services for the consumer.  No more vendor specific implementation details, home-brew communication protocol or custom per-customer settings.</p>
@@ -214,7 +465,7 @@ Departments are free to implement providers and consumers in different software 
 </div>
 </div>
 <div class="sect3">
-<h4 id="what-web-services-are-not">What web services are not&#8230;&#8203;</h4>
+<h4 id="what-web-services-are-not">1.1.2. What web services are not&#8230;&#8203;</h4>
 <div class="paragraph">
 <p>Web services are not the solution for every software system communication.</p>
 </div>
@@ -231,9 +482,9 @@ Web service specifications also include the notion of registries to collect serv
 </div>
 </div>
 <div class="sect2">
-<h3 id="from-concepts-to-technology">From concepts to technology</h3>
+<h3 id="from-concepts-to-technology">1.2. From concepts to technology</h3>
 <div class="sect3">
-<h4 id="service-contracts">Service contracts</h4>
+<h4 id="service-contracts">1.2.1. Service contracts</h4>
 <div class="paragraph">
 <p>Contracts carry technical constraints and requirements of the exposed
 service as well as information about data to be exchange to interact
@@ -322,7 +573,7 @@ maintenance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="message-exchange">Message exchange</h4>
+<h4 id="message-exchange">1.2.2. Message exchange</h4>
 <div class="paragraph">
 <p>As stated by the
 <a href="http://www.w3.org/TR/2004/NOTE-ws-arch-20040211/#whatis">W3C definition</a>
@@ -336,7 +587,7 @@ states the  to be used for the transmission. The most common transport protocol 
 </div>
 </div>
 <div class="sect3">
-<h4 id="advanced-web-services-technologies">Advanced Web Services technologies</h4>
+<h4 id="advanced-web-services-technologies">1.2.3. Advanced Web Services technologies</h4>
 <div class="paragraph">
 <p>The above specifications are quite common nowadays in the IT
 industry. Many enterprises have used them for years.</p>
@@ -350,7 +601,7 @@ Important functionality in delivering mission critical enterprise services.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="quick-start">Quick Start</h2>
+<h2 id="quick-start">2. Quick Start</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>JBossWS uses WildFly as its target container. The following examples
@@ -360,7 +611,7 @@ information on POJO service implementations and advanced topics
 consult the <a href="#jakarta-xml-web-services-user-guide">Jakarta XML Web Services User Guide</a> .</p>
 </div>
 <div class="sect2">
-<h3 id="developing-web-service-implementations">Developing web service implementations</h3>
+<h3 id="developing-web-service-implementations">2.1. Developing web service implementations</h3>
 <div class="paragraph">
 <p>Jakarta XML Web Services leverages annotations in order to express web service meta data on Java components and to describe the mapping between Java data types and XML. When developing web service implementations one needs to decide whether to start with an abstract contract (WSDL) or a Java component.</p>
 </div>
@@ -401,7 +652,7 @@ further information see</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="the-service-implementation-class">The service implementation class</h4>
+<h4 id="the-service-implementation-class">2.1.1. The service implementation class</h4>
 <div class="paragraph">
 <p>When starting from Java, a service (endpoint) implementation must be provided. A valid endpoint implementation class must meet the following
 requirements:</p>
@@ -525,7 +776,7 @@ public class DiscountRequest {
 </div>
 </div>
 <div class="sect3">
-<h4 id="deploying-service-implementations">Deploying service implementations</h4>
+<h4 id="deploying-service-implementations">2.1.2. Deploying service implementations</h4>
 <div class="paragraph">
 <p>Web service deployment depends on the implementation type. Web services can be implemented as plain old Java objects, POJO or as EJB3 components.</p>
 </div>
@@ -574,7 +825,7 @@ in the application server management console.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="consuming-web-services">Consuming web services</h3>
+<h3 id="consuming-web-services">2.2. Consuming web services</h3>
 <div class="paragraph">
 <p>When creating web service clients, one usually starts from the WSDL, but deciphering the WSDL can be complicated.
 JBossWS ships with a set of tools to generate the required JAX-WS
@@ -583,7 +834,7 @@ looks at a basic usage pattern. For a more detailed
 introduction to the web service client please consult the user guide.</p>
 </div>
 <div class="sect3">
-<h4 id="creating-the-client-artifacts">Creating the client artifacts</h4>
+<h4 id="creating-the-client-artifacts">2.2.1. Creating the client artifacts</h4>
 <div class="sect4">
 <h5 id="using-wsconsume">Using wsconsume</h5>
 <div class="paragraph">
@@ -685,7 +936,7 @@ classes), the service endpoint interface and a service factory class.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="constructing-a-service-stub">Constructing a service stub</h4>
+<h4 id="constructing-a-service-stub">2.2.2. Constructing a service stub</h4>
 <div class="paragraph">
 <p>Web service clients make use of a service stub that hides the details of
 a remote web service invocation. To a client application a WS invocation
@@ -723,7 +974,7 @@ stub</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="resolving-dependencies-and-running-the-client">Resolving dependencies and running the client</h4>
+<h4 id="resolving-dependencies-and-running-the-client">2.2.3. Resolving dependencies and running the client</h4>
 <div class="paragraph">
 <p>To successfully run a WS client application, a classloader
 needs to be properly setup to include the JBossWS components and its
@@ -788,7 +1039,7 @@ Dependencies: org.jboss.ws.cxf.jbossws-cxf-client</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="maven-archetype-quick-start">Maven archetype quick start</h3>
+<h3 id="maven-archetype-quick-start">2.3. Maven archetype quick start</h3>
 <div class="paragraph">
 <p>A convenient approach to start a new project aiming at providing and/or
 consuming a JAX-WS endpoint is to use the JBossWS <em>jaxws-codefirst</em>
@@ -844,9 +1095,9 @@ achieve their own needs.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="appendix">Appendix</h3>
+<h3 id="appendix">2.4. Appendix</h3>
 <div class="sect3">
-<h4 id="sample-wsdl-contract">Sample wsdl contract</h4>
+<h4 id="sample-wsdl-contract">2.4.1. Sample wsdl contract</h4>
 <div class="literalblock">
 <div class="content">
 <pre>&lt;definitions
@@ -943,7 +1194,7 @@ achieve their own needs.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="jakarta-xml-web-services-user-guide">Jakarta XML Web Services User Guide</h2>
+<h2 id="jakarta-xml-web-services-user-guide">3. Jakarta XML Web Services User Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <a href="https://jakarta.ee/specifications/xml-web-services/">Jakarta XML Web Services(JAX-WS)</a>
@@ -953,7 +1204,7 @@ publishing them. JBossWS implements the latest Jakarta XML Web Services specific
 hence users can reference it for any vendor agnostic webservice usage. Below is a brief overview of the most basic functionalities.</p>
 </div>
 <div class="sect2">
-<h3 id="web-service-endpoints">Web Service Endpoints</h3>
+<h3 id="web-service-endpoints">3.1. Web Service Endpoints</h3>
 <div class="paragraph">
 <p>Jakarta XML Web Services simplifies the development model for a web service endpoint. An endpoint implementation bean is annotated with
 JAX-WS annotations and deployed to the server. The server automatically
@@ -963,7 +1214,7 @@ client consumption. All marshalling/unmarshalling is delegated to
 (JAXB).</p>
 </div>
 <div class="sect3">
-<h4 id="plain-old-java-object-pojo">Plain old Java Object (POJO)</h4>
+<h4 id="plain-old-java-object-pojo">3.1.1. Plain old Java Object (POJO)</h4>
 <div class="paragraph">
 <p>The following is a simple POJO endpoint implementation. All endpoint
 associated metadata is provided via
@@ -1049,7 +1300,7 @@ WSDL).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ejb3-stateless-session-bean-slsb">EJB3 Stateless Session Bean (SLSB)</h4>
+<h4 id="ejb3-stateless-session-bean-slsb">3.1.2. EJB3 Stateless Session Bean (SLSB)</h4>
 <div class="paragraph">
 <p>The JAX-WS programming model supports the same set of annotations on
 EJB3 stateless session beans as on POJO endpoints.</p>
@@ -1118,7 +1369,7 @@ WSDL).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="endpoint-provider">Endpoint Provider</h4>
+<h4 id="endpoint-provider">3.1.3. Endpoint Provider</h4>
 <div class="paragraph">
 <p>JAX-WS services typically implement a native Java service endpoint
 interface (SEI), perhaps mapped from a WSDL port type, either directly
@@ -1163,9 +1414,9 @@ the <em>wsdlLocation</em> with the <code>@</code> <code>WebServiceProvider</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="web-service-clients">Web Service Clients</h3>
+<h3 id="web-service-clients">3.2. Web Service Clients</h3>
 <div class="sect3">
-<h4 id="service">Service</h4>
+<h4 id="service">3.2.1. Service</h4>
 <div class="paragraph">
 <p><code>Service</code> is an abstraction that represents a WSDL service. A WSDL
 service is a collection of related ports, each of which consists of a
@@ -1278,7 +1529,7 @@ modify and retrieve the executor configured for a service.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="dynamic-proxy">Dynamic Proxy</h4>
+<h4 id="dynamic-proxy">3.2.2. Dynamic Proxy</h4>
 <div class="paragraph">
 <p>An instance of a client proxy can be created using one of <code>getPort</code>
 methods on the <code>Service</code> .</p>
@@ -1344,7 +1595,7 @@ public class TestEndpointService extends Service
 </div>
 </div>
 <div class="sect3">
-<h4 id="webserviceref">WebServiceRef</h4>
+<h4 id="webserviceref">3.2.3. WebServiceRef</h4>
 <div class="paragraph">
 <p>The <code>@WebServiceRef</code> annotation is used to declare a reference to a Web
 service. It follows the resource pattern exemplified by the
@@ -1448,7 +1699,7 @@ port</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="dispatch">Dispatch</h4>
+<h4 id="dispatch">3.2.4. Dispatch</h4>
 <div class="paragraph">
 <p>XML Web Services use XML messages for communication between services and
 service clients. The higher level JAX-WS APIs are designed to hide the
@@ -1494,7 +1745,7 @@ Source retObj = (Source)dispatch.invoke(new StreamSource(new StringReader(payloa
 </div>
 </div>
 <div class="sect3">
-<h4 id="asynchronous-invocations">Asynchronous Invocations</h4>
+<h4 id="asynchronous-invocations">3.2.5. Asynchronous Invocations</h4>
 <div class="paragraph">
 <p>The <code>BindingProvider</code> interface represents a component that provides a
 protocol binding for use by clients, it is implemented by proxies and is
@@ -1525,7 +1776,7 @@ Instead a separate response context is made available using the
 </div>
 </div>
 <div class="sect3">
-<h4 id="oneway-invocations">Oneway Invocations</h4>
+<h4 id="oneway-invocations">3.2.6. Oneway Invocations</h4>
 <div class="paragraph">
 <p><code>@Oneway</code> indicates that the given web method has only an input message
 and no output. Typically, a oneway method returns the thread of control
@@ -1559,7 +1810,7 @@ public class PingEndpointImpl
 </div>
 </div>
 <div class="sect3">
-<h4 id="timeout-configuration">Timeout Configuration</h4>
+<h4 id="timeout-configuration">3.2.7. Timeout Configuration</h4>
 <div class="paragraph">
 <p>There are two properties to configure the http connection timeout and
 client receive time out:</p>
@@ -1581,13 +1832,13 @@ client receive time out:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="common-api">Common API</h3>
+<h3 id="common-api">3.3. Common API</h3>
 <div class="paragraph">
 <p>This sections describes concepts that apply equally to Web Service
 Endpoints and Web Service Clients.</p>
 </div>
 <div class="sect3">
-<h4 id="handler-framework">Handler Framework</h4>
+<h4 id="handler-framework">3.3.1. Handler Framework</h4>
 <div class="paragraph">
 <p>The handler framework is implemented by a JAX-WS protocol binding in
 both client and server side runtimes. Proxies, and Dispatch instances,
@@ -1679,7 +1930,7 @@ bindingProvider.getBinding().setHandlerChain(handlerChain); // important!</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="message-context">Message Context</h4>
+<h4 id="message-context">3.3.2. Message Context</h4>
 <div class="paragraph">
 <p><code>MessageContext</code> is the super interface for all JAX-WS message contexts.
 It extends <code>Map&lt;String,Object&gt;</code> with additional methods and constants to
@@ -1723,7 +1974,7 @@ modify the SOAP message payload.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="fault-handling">Fault Handling</h4>
+<h4 id="fault-handling">3.3.3. Fault Handling</h4>
 <div class="paragraph">
 <p>An implementation may throw a <code>SOAPFaultException</code></p>
 </div>
@@ -1768,12 +2019,12 @@ beans at runtime if they are not part of the deployment</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ws-annotations">WS Annotations</h3>
+<h3 id="ws-annotations">3.4. WS Annotations</h3>
 <div class="paragraph">
 <p>For details, see <a href="https://jakarta.ee/specifications/xml-web-services/">Jakarta XML Web Services</a></p>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-servicemode">jakarta.xml.ws.ServiceMode</h4>
+<h4 id="jakarta-xml-ws-servicemode">3.4.1. jakarta.xml.ws.ServiceMode</h4>
 <div class="paragraph">
 <p>The <code>ServiceMode</code> annotation is used to specify the mode for a provider
 class, i.e. whether a provider wants to have access to protocol message
@@ -1782,7 +2033,7 @@ envelope).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-webfault">jakarta.xml.ws.WebFault</h4>
+<h4 id="jakarta-xml-ws-webfault">3.4.2. jakarta.xml.ws.WebFault</h4>
 <div class="paragraph">
 <p>The <code>WebFault</code> annotation is used when mapping WSDL faults to Java
 exceptions, see section 2.5. It is used to capture the name of the fault
@@ -1792,7 +2043,7 @@ customize the mapping of service specific exceptions to WSDL faults.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-requestwrapper">jakarta.xml.ws.RequestWrapper</h4>
+<h4 id="jakarta-xml-ws-requestwrapper">3.4.3. jakarta.xml.ws.RequestWrapper</h4>
 <div class="paragraph">
 <p>The <code>RequestWrapper</code> annotation is applied to the methods of an SEI. It
 is used to capture the JAXB generated request wrapper bean and the
@@ -1805,7 +2056,7 @@ mode. Only the className element is required in this case.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-responsewrapper">jakarta.xml.ws.ResponseWrapper</h4>
+<h4 id="jakarta-xml-ws-responsewrapper">3.4.4. jakarta.xml.ws.ResponseWrapper</h4>
 <div class="paragraph">
 <p>The <code>ResponseWrapper</code> annotation is applied to the methods of an SEI. It
 is used to capture the JAXB generated response wrapper bean and the
@@ -1819,7 +2070,7 @@ required in this case.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-webserviceclient">jakarta.xml.ws.WebServiceClient</h4>
+<h4 id="jakarta-xml-ws-webserviceclient">3.4.5. jakarta.xml.ws.WebServiceClient</h4>
 <div class="paragraph">
 <p>The <code>WebServiceClient</code> annotation is specified on a generated service
 class (see 2.7). It is used to associate a class with a specific Web
@@ -1828,7 +2079,7 @@ a wsdl:service element.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-webendpoint">jakarta.xml.ws.WebEndpoint</h4>
+<h4 id="jakarta-xml-ws-webendpoint">3.4.6. jakarta.xml.ws.WebEndpoint</h4>
 <div class="paragraph">
 <p>The <code>WebEndpoint</code> annotation is specified on the getPortName() methods
 of a generated service class (see 2.7). It is used to associate a get
@@ -1837,7 +2088,7 @@ NCName).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-webserviceprovider">jakarta.xml.ws.WebServiceProvider</h4>
+<h4 id="jakarta-xml-ws-webserviceprovider">3.4.7. jakarta.xml.ws.WebServiceProvider</h4>
 <div class="paragraph">
 <p>The <code>WebServiceProvider</code> annotation is specified on classes that
 implement a strongly typed <code>jakarta.xml.ws.Provider</code> . It is used to
@@ -1851,7 +2102,7 @@ exclusive.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-bindingtype">jakarta.xml.ws.BindingType</h4>
+<h4 id="jakarta-xml-ws-bindingtype">3.4.8. jakarta.xml.ws.BindingType</h4>
 <div class="paragraph">
 <p>The <code>BindingType</code> annotation is applied to an endpoint implementation
 class. It specifies the binding to use when publishing an endpoint of
@@ -1862,7 +2113,7 @@ this type.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-webserviceref">jakarta.xml.ws.WebServiceRef</h4>
+<h4 id="jakarta-xml-ws-webserviceref">3.4.9. jakarta.xml.ws.WebServiceRef</h4>
 <div class="paragraph">
 <p>The <code>WebServiceRef</code> annotation is used to declare a reference to a Web
 service. It follows the resource pattern exemplified by the
@@ -1873,7 +2124,7 @@ rules described by the platform specification [33].</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-webservicerefs">jakarta.xml.ws.WebServiceRefs</h4>
+<h4 id="jakarta-xml-ws-webservicerefs">3.4.10. jakarta.xml.ws.WebServiceRefs</h4>
 <div class="paragraph">
 <p>The <code>WebServiceRefs</code> annotation is used to declare multiple references
 to Web services on a single class. It is necessary to work around the
@@ -1893,7 +2144,7 @@ platform specification.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-action">jakarta.xml.ws.Action</h4>
+<h4 id="jakarta-xml-ws-action">3.4.11. jakarta.xml.ws.Action</h4>
 <div class="paragraph">
 <p>The <code>Action</code> annotation is applied to the methods of a SEI. It used to
 generate the wsa:Action on wsdl:input and wsdl:output of each
@@ -1901,7 +2152,7 @@ wsdl:operation mapped from the annotated methods.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-xml-ws-faultaction">jakarta.xml.ws.FaultAction</h4>
+<h4 id="jakarta-xml-ws-faultaction">3.4.12. jakarta.xml.ws.FaultAction</h4>
 <div class="paragraph">
 <p>The <code>FaultAction</code> annotation is used within the <code>Action</code> annotation to
 generate the wsa:Action element on the wsdl:fault element of each
@@ -1910,7 +2161,7 @@ wsdl:operation mapped from the annotated methods.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="jakarta-web-service-metadata-annotations">Jakarta Web Service Metadata Annotations</h3>
+<h3 id="jakarta-web-service-metadata-annotations">3.5. Jakarta Web Service Metadata Annotations</h3>
 <div class="paragraph">
 <p>Jakarta Web Service Metadata defines the syntax and semantics of JAX-WS
 metadata and default values.</p>
@@ -1920,20 +2171,20 @@ metadata and default values.</p>
 Metadata</a> .</p>
 </div>
 <div class="sect3">
-<h4 id="jakarta-jws-webservice">jakarta.jws.WebService</h4>
+<h4 id="jakarta-jws-webservice">3.5.1. jakarta.jws.WebService</h4>
 <div class="paragraph">
 <p>Marks a Java class as implementing a Web Service, or a Java interface as
 defining a Web Service interface.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-jws-webmethod">jakarta.jws.WebMethod</h4>
+<h4 id="jakarta-jws-webmethod">3.5.2. jakarta.jws.WebMethod</h4>
 <div class="paragraph">
 <p>Customizes a method that is exposed as a Web Service operation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-jws-oneway">jakarta.jws.OneWay</h4>
+<h4 id="jakarta-jws-oneway">3.5.3. jakarta.jws.OneWay</h4>
 <div class="paragraph">
 <p>Indicates that the given web method has only an input message and no
 output. Typically, a oneway method returns the thread of control to the
@@ -1944,21 +2195,21 @@ INOUT or OUT parameters.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-jws-webparam">jakarta.jws.WebParam</h4>
+<h4 id="jakarta-jws-webparam">3.5.4. jakarta.jws.WebParam</h4>
 <div class="paragraph">
 <p>Customizes the mapping of an individual parameter to a Web Service
 message part and XML element.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-jws-webresult">jakarta.jws.WebResult</h4>
+<h4 id="jakarta-jws-webresult">3.5.5. jakarta.jws.WebResult</h4>
 <div class="paragraph">
 <p>Customizes the mapping of the return value to a WSDL part and XML
 element.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-jws-soapbinding">jakarta.jws.SOAPBinding</h4>
+<h4 id="jakarta-jws-soapbinding">3.5.6. jakarta.jws.SOAPBinding</h4>
 <div class="paragraph">
 <p>Specifies the mapping of the Web Service onto the SOAP message protocol.</p>
 </div>
@@ -1972,7 +2223,7 @@ annotation accept the <code>SOAPBinding</code> behavior defined on the type.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jakarta-jws-handlerchain">jakarta.jws.HandlerChain</h4>
+<h4 id="jakarta-jws-handlerchain">3.5.7. jakarta.jws.HandlerChain</h4>
 <div class="paragraph">
 <p>The <code>@HandlerChain</code> annotation associates the Web Service with an
 externally defined handler chain.</p>
@@ -1995,7 +2246,7 @@ annotation target includes <code>METHOD</code> and <code>FIELD</code> for use by
 </div>
 </div>
 <div class="sect1">
-<h2 id="jax-ws-tools">JAX-WS Tools</h2>
+<h2 id="jax-ws-tools">4. JAX-WS Tools</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The JAX-WS tools provided by JBossWS can be used in a variety of ways.
@@ -2003,7 +2254,7 @@ First we will look at server-side development strategies, and then
 proceed to the client.</p>
 </div>
 <div class="sect2">
-<h3 id="server-side">Server side</h3>
+<h3 id="server-side">4.1. Server side</h3>
 <div class="paragraph">
 <p>When developing a Web Service Endpoint (the server-side) you have the
 option of starting from Java ( <em>bottom-up development</em> ), or from the
@@ -2078,7 +2329,7 @@ client development</p></td>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="bottom-up-using-wsprovide">Bottom-Up (Using wsprovide)</h4>
+<h4 id="bottom-up-using-wsprovide">4.1.1. Bottom-Up (Using wsprovide)</h4>
 <div class="paragraph">
 <p>The bottom-up strategy involves developing the Java code for your
 service, and then annotating it using JAX-WS annotations. These
@@ -2226,7 +2477,7 @@ could be added to the deployment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="down-using-wsconsume">Down (Using wsconsume)</h4>
+<h4 id="down-using-wsconsume">4.1.2. Down (Using wsconsume)</h4>
 <div class="paragraph">
 <p>The top-down development strategy begins with the abstract contract for
 the service, which includes the WSDL file and zero or more schema files.
@@ -2352,7 +2603,7 @@ public class EchoImpl implements Echo
 </div>
 </div>
 <div class="sect2">
-<h3 id="client-side">Client Side</h3>
+<h3 id="client-side">4.2. Client Side</h3>
 <div class="paragraph">
 <p>Before going into detail on the client-side it is important to understand
 the decoupling concept that is central to Web Services. Web Services are
@@ -2534,7 +2785,7 @@ setting the <em>ENDPOINT_ADDRESS_PROPERTY</em> as shown below:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ws-binding-customization">WS binding customization</h3>
+<h3 id="ws-binding-customization">4.3. WS binding customization</h3>
 <div class="paragraph">
 <p>An introduction to binding customizations:</p>
 </div>
@@ -2561,14 +2812,14 @@ schema</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="wsconsume">wsconsume</h3>
+<h3 id="wsconsume">4.4. wsconsume</h3>
 <div class="paragraph">
 <p><em>wsconsume</em> is a command line tool and ant task that "consumes" the
 abstract contract (WSDL file) and produces portable JAX-WS service and
 client artifacts.</p>
 </div>
 <div class="sect3">
-<h4 id="command-line-tool">Command Line Tool</h4>
+<h4 id="command-line-tool">4.4.1. Command Line Tool</h4>
 <div class="paragraph">
 <p>The command line tool has the following usage:</p>
 </div>
@@ -2659,7 +2910,7 @@ interface.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="maven-plugin">Maven Plugin</h4>
+<h4 id="maven-plugin">4.4.2. Maven Plugin</h4>
 <div class="paragraph">
 <p>The wsconsume tools is included in the
 <strong>org.jboss.ws.plugins:jaxws-tools-</strong> <strong>maven-</strong> <strong>plugin</strong> plugin. The plugin
@@ -2925,7 +3176,7 @@ archive. To avoid that situation set <code>&lt;scope&gt;provided&lt;/scope&gt;</
 </div>
 </div>
 <div class="sect3">
-<h4 id="ant-task">Ant Task</h4>
+<h4 id="ant-task">4.4.3. Ant Task</h4>
 <div class="paragraph">
 <p>The <em>wsconsume</em> Ant task ( <em>org.jboss.ws.tools.ant.WSConsumeTask</em> ) has
 the following attributes:</p>
@@ -3104,7 +3355,7 @@ JVM with separate directories, a custom wsdl location attribute, and a list of b
 </div>
 </div>
 <div class="sect2">
-<h3 id="wsprovide">wsprovide</h3>
+<h3 id="wsprovide">4.5. wsprovide</h3>
 <div class="paragraph">
 <p><em>wsprovide</em> is a command line tool, Maven plugin and Ant task that
 generates portable JAX-WS artifacts for a service endpoint
@@ -3112,7 +3363,7 @@ implementation. It also has the option to "provide" the abstract
 contract for offline usage.</p>
 </div>
 <div class="sect3">
-<h4 id="command-line-tool-2">Command Line Tool</h4>
+<h4 id="command-line-tool-2">4.5.1. Command Line Tool</h4>
 <div class="paragraph">
 <p>The command line tool has the following usage:</p>
 </div>
@@ -3163,7 +3414,7 @@ directory:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="maven-plugin-2">Maven Plugin</h4>
+<h4 id="maven-plugin-2">4.5.2. Maven Plugin</h4>
 <div class="paragraph">
 <p>The <em>wsprovide</em> tools is included in the
 <strong>org.jboss.ws.plugins:jaxws-tools-</strong> <strong>maven-</strong> <strong>plugin</strong> plugin. The plugin
@@ -3362,7 +3613,7 @@ archive. Set <code>&lt;scope&gt;provided&lt;/scope&gt;</code> on the
 </div>
 </div>
 <div class="sect3">
-<h4 id="ant-task-2">Ant Task</h4>
+<h4 id="ant-task-2">4.5.3. Ant Task</h4>
 <div class="paragraph">
 <p>The wsprovide ant task ( <em>org.jboss.ws.tools.ant.WSProvideTask</em> ) has
 the following attributes:</p>
@@ -3473,16 +3724,16 @@ implementation.</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="advanced-user-guide">Advanced User Guide</h2>
+<h2 id="advanced-user-guide">5. Advanced User Guide</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="logging">Logging</h3>
+<h3 id="logging">5.1. Logging</h3>
 <div class="paragraph">
 <p>Logging of inbound and outbound messages is a common need. Different
 approaches are available for achieving that:</p>
 </div>
 <div class="sect3">
-<h4 id="jax-ws-handler-approach">JAX-WS Handler approach</h4>
+<h4 id="jax-ws-handler-approach">5.1.1. JAX-WS Handler approach</h4>
 <div class="paragraph">
 <p>A portable way of performing logging is writing a simple JAX-WS handler
 dumping the messages that are passed to it; the handler can be added to
@@ -3497,7 +3748,7 @@ or to some of them only (in which case the <code>@EndpointConfig</code> annotati
 </div>
 </div>
 <div class="sect3">
-<h4 id="apache-cxf-approach">Apache CXF approach</h4>
+<h4 id="apache-cxf-approach">5.1.2. Apache CXF approach</h4>
 <div class="paragraph">
 <p>Apache CXF also comes with logging interceptors that can be easily used
 to log messages to the console or configured client/server log files.
@@ -3566,7 +3817,7 @@ CXF documentation</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ws-support">WS-* support</h3>
+<h3 id="ws-support">5.2. WS-* support</h3>
 <div class="paragraph">
 <p>JBossWS includes most of the WS-* specification functionalities through
 the integration with Apache CXF. In particular, the whole WS-Security
@@ -3578,13 +3829,13 @@ configuration of complex features like WS-Security.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="address-rewrite">Address rewrite</h3>
+<h3 id="address-rewrite">5.3. Address rewrite</h3>
 <div class="paragraph">
 <p>JBossWS allows users to configure the <em>soap:address</em> attribute in the
 wsdl contract of deployed services.</p>
 </div>
 <div class="sect3">
-<h4 id="server-configuration-options">Server configuration options</h4>
+<h4 id="server-configuration-options">5.3.1. Server configuration options</h4>
 <div class="paragraph">
 <p>The configuration options are part of the
 <a href="https://docs.wildfly.org/26/Admin_Guide.html#Web_services">webservices
@@ -3619,7 +3870,7 @@ of the first connector is used.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="dynamic-rewrite">Dynamic rewrite</h4>
+<h4 id="dynamic-rewrite">5.3.2. Dynamic rewrite</h4>
 <div class="paragraph">
 <p>When the application server is bound to multiple addresses or
 non-trivial real-world network architectures cause request for different
@@ -3646,7 +3897,7 @@ currently configured for the https/ssl connector.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration-through-deployment-descriptor">Configuration through deployment descriptor</h3>
+<h3 id="configuration-through-deployment-descriptor">5.4. Configuration through deployment descriptor</h3>
 <div class="paragraph">
 <p>The <code>jboss-webservices.xml</code> deployment descriptor can be used to provide
 additional configuration for a given deployment. The expected location
@@ -3705,7 +3956,7 @@ EAR archive.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="context-root-element">context-root element</h4>
+<h4 id="context-root-element">5.4.1. context-root element</h4>
 <div class="paragraph">
 <p>Element <code>&lt;context-root&gt;</code> can be used to customize context root of
 webservices deployment.</p>
@@ -3719,7 +3970,7 @@ webservices deployment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="config-name-and-config-file-elements">config-name and config-file elements</h4>
+<h4 id="config-name-and-config-file-elements">5.4.2. config-name and config-file elements</h4>
 <div class="paragraph">
 <p>Elements <code>&lt;config-name&gt;</code> and <code>&lt;config-file&gt;</code> can be used to associate
 any endpoint provided in the deployment with a given
@@ -3741,7 +3992,7 @@ related
 </div>
 </div>
 <div class="sect3">
-<h4 id="property-element">property element</h4>
+<h4 id="property-element">5.4.3. property element</h4>
 <div class="paragraph">
 <p><code>&lt;property&gt;</code> elements can be used to setup simple property values to
 configure the ws stack behavior. Allowed property names and values are
@@ -3757,7 +4008,7 @@ mentioned in the guide under related topics.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="component-element">component element</h4>
+<h4 id="component-element">5.4.4. component element</h4>
 <div class="paragraph">
 <p>Element <code>&lt;port-component&gt;</code> can be used to customize EJB endpoint target
 URI or to configure security related properties.</p>
@@ -3778,7 +4029,7 @@ URI or to configure security related properties.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="webservice-description-element">webservice-description element</h4>
+<h4 id="webservice-description-element">5.4.5. webservice-description element</h4>
 <div class="paragraph">
 <p>Element <code>&lt;webservice-description&gt;</code> can be used to customize (override)
 webservice WSDL publish location.</p>
@@ -3796,7 +4047,7 @@ webservice WSDL publish location.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="schema-validation-of-soap-messages">Schema validation of SOAP messages</h3>
+<h3 id="schema-validation-of-soap-messages">5.5. Schema validation of SOAP messages</h3>
 <div class="paragraph">
 <p>Apache CXF has a feature for validating incoming and outgoing SOAP
 messages on both client and server side. The validation is performed
@@ -3857,7 +4108,7 @@ them)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="jaxb-introductions">JAXB Introductions</h3>
+<h3 id="jaxb-introductions">5.6. JAXB Introductions</h3>
 <div class="paragraph">
 <p>One common complaint from the JAXB users is the lack of support
 for binding 3rd party classes. The scenario is this: you are trying to
@@ -3881,15 +4132,15 @@ Introductions page</a> on the wiki and at the examples in the sources.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="wsdl-system-properties-expansion">WSDL system properties expansion</h3>
+<h3 id="wsdl-system-properties-expansion">5.7. WSDL system properties expansion</h3>
 <div class="paragraph">
 <p>See <a href="#published-wsdl-customization">Published WSDL customization</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="predefined-client-and-endpoint-configurations">Predefined client and endpoint configurations</h3>
+<h3 id="predefined-client-and-endpoint-configurations">5.8. Predefined client and endpoint configurations</h3>
 <div class="sect3">
-<h4 id="overview">Overview</h4>
+<h4 id="overview">5.8.1. Overview</h4>
 <div class="paragraph">
 <p>JBossWS permits extra setup configuration data to be predefined and
 associated with an endpoint or a client. Configurations can include
@@ -3948,7 +4199,7 @@ mentioned where relevant in the rest of the documentation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="assigning-configurations">Assigning configurations</h4>
+<h4 id="assigning-configurations">5.8.2. Assigning configurations</h4>
 <div class="paragraph">
 <p>Endpoints and clients are assigned configuration through different
 means. Users can explicitly require a given configuration or rely on
@@ -4417,9 +4668,9 @@ endpoints respectively</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="authentication">Authentication</h3>
+<h3 id="authentication">5.9. Authentication</h3>
 <div class="sect3">
-<h4 id="authentication-2">Authentication</h4>
+<h4 id="authentication-2">5.9.1. Authentication</h4>
 <div class="paragraph">
 <p>Here the simplest way to authenticate a web service user with JBossWS is
 explained.</p>
@@ -4547,9 +4798,9 @@ element:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="apache-cxf-integration">Apache CXF integration</h3>
+<h3 id="apache-cxf-integration">5.10. Apache CXF integration</h3>
 <div class="sect3">
-<h4 id="jbossws-integration-layer-with-apache-cxf">JBossWS integration layer with Apache CXF</h4>
+<h4 id="jbossws-integration-layer-with-apache-cxf">5.10.1. JBossWS integration layer with Apache CXF</h4>
 <div class="paragraph">
 <p>All JAX-WS functionalities provided by JBossWS on top of WildFly are
 currently served through a proper integration of the JBoss Web Services
@@ -4593,7 +4844,7 @@ for in-depth details on the CXF architecture.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="building-ws-applications-the-jboss-way">Building WS applications the JBoss way</h4>
+<h4 id="building-ws-applications-the-jboss-way">5.10.2. Building WS applications the JBoss way</h4>
 <div class="paragraph">
 <p>The Apache CXF client and endpoint configuration as explained in the
 <a href="https://cxf.apache.org/docs/index.html">Apache CXF official user guide</a> is
@@ -4670,7 +4921,7 @@ CXF internals like <em>interceptors</em> , <em>features</em> , etc.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="bus-usage">Bus usage</h4>
+<h4 id="bus-usage">5.10.3. Bus usage</h4>
 <div class="sect4">
 <h5 id="creating-a-bus-instance">Creating a Bus instance</h5>
 <div class="paragraph">
@@ -4936,7 +5187,7 @@ starting the JVM. The valid values for the property are <code>THREAD_BUS</code> 
 </div>
 </div>
 <div class="sect3">
-<h4 id="server-side-integration-customization">Server Side Integration Customization</h4>
+<h4 id="server-side-integration-customization">5.10.4. Server Side Integration Customization</h4>
 <div class="paragraph">
 <p>The JBossWS-CXF server side integration takes care of internally
 creating proper Apache CXF structures (including a <code>Bus</code> instance, of
@@ -5139,7 +5390,7 @@ current deployment. Further details available <a href="#configuration-through-de
 </div>
 </div>
 <div class="sect3">
-<h4 id="apache-cxf-interceptors">Apache CXF interceptors</h4>
+<h4 id="apache-cxf-interceptors">5.10.5. Apache CXF interceptors</h4>
 <div class="paragraph">
 <p>Apache CXF supports declaring interceptors using one of the following
 approaches:</p>
@@ -5193,7 +5444,7 @@ classes must have a no-argument constructor.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="apache-cxf-features">Apache CXF features</h4>
+<h4 id="apache-cxf-features">5.10.6. Apache CXF features</h4>
 <div class="paragraph">
 <p>Apache CXF supports declaring features using one of the following
 approaches:</p>
@@ -5242,7 +5493,7 @@ must have a no-argument constructor.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="properties-driven-bean-creation">Properties driven bean creation</h4>
+<h4 id="properties-driven-bean-creation">5.10.7. Properties driven bean creation</h4>
 <div class="paragraph">
 <p>Sections above explain how to declare CXF interceptors and features
 through properties either in a client/endpoint predefined configuration
@@ -5321,7 +5572,7 @@ course be configured.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="httpconduit-configuration">HTTPConduit configuration</h4>
+<h4 id="httpconduit-configuration">5.10.8. HTTPConduit configuration</h4>
 <div class="paragraph">
 <p>HTTP transport setup in Apache CXF is achieved through
 <code>org.apache.cxf.transport.http.HTTPConduit</code>
@@ -5400,7 +5651,7 @@ are not set.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="addressing">Addressing</h3>
+<h3 id="addressing">5.11. Addressing</h3>
 <div class="paragraph">
 <p>JBoss Web Services inherits full WS-Addressing capabilities from the
 underlying Apache CXF implementation. Apache CXF provides support for
@@ -5408,7 +5659,7 @@ underlying Apache CXF implementation. Apache CXF provides support for
 WS-Addressing.</p>
 </div>
 <div class="sect3">
-<h4 id="enabling-ws-addressing">Enabling WS-Addressing</h4>
+<h4 id="enabling-ws-addressing">5.11.1. Enabling WS-Addressing</h4>
 <div class="paragraph">
 <p>WS-Addressing can be turned on in multiple standard ways:</p>
 </div>
@@ -5481,7 +5732,7 @@ on the proprietary
 </div>
 </div>
 <div class="sect3">
-<h4 id="addressing-policy">Addressing Policy</h4>
+<h4 id="addressing-policy">5.11.2. Addressing Policy</h4>
 <div class="paragraph">
 <p>The WS-Addressing support is also perfectly integrated with the Apache
 CXF WS-Policy engine.</p>
@@ -5502,7 +5753,7 @@ and turn on addressing as requested.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example">Example</h4>
+<h4 id="example">5.11.3. Example</h4>
 <div class="paragraph">
 <p>Here is an example showing how to enable WS-Addressing through
 WS-Policy.</p>
@@ -5599,9 +5850,9 @@ proxy.sayHello("World");</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ws-security">WS-Security</h3>
+<h3 id="ws-security">5.12. WS-Security</h3>
 <div class="sect3">
-<h4 id="ws-security-overview">WS-Security overview</h4>
+<h4 id="ws-security-overview">5.12.1. WS-Security overview</h4>
 <div class="paragraph">
 <p>WS-Security provides the means to secure your services beyond transport
 level protocols such as <em>HTTPS</em> . Through a number of standards such as
@@ -5635,7 +5886,7 @@ number and a key function.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="Public_key_making.png" alt="Public key making">
+<img src="../image/Public_key_making.png" alt="Public key making">
 </div>
 </div>
 <div class="paragraph">
@@ -5648,7 +5899,7 @@ private key.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="Public_key_encryption-mod.svg.png" alt="Public key encryption mod.svg">
+<img src="../image/Public_key_encryption-mod.svg.png" alt="Public key encryption mod.svg">
 </div>
 </div>
 <div class="paragraph">
@@ -5660,12 +5911,12 @@ her public key.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="250px-Public_key_making.svg.png" alt="250px Public key making.svg">
+<img src="../image/250px-Public_key_making.svg.png" alt="250px Public key making.svg">
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jboss-ws-security-support">JBoss WS-Security support</h4>
+<h4 id="jboss-ws-security-support">5.12.2. JBoss WS-Security support</h4>
 <div class="paragraph">
 <p>JBoss Web Services supports many real world scenarios requiring
 WS-Security functionalities. This includes signature and encryption
@@ -5916,7 +6167,7 @@ public class ServiceImpl implements ServiceIface {
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-7">Examples</h4>
+<h4 id="examples-7">5.12.3. Examples</h4>
 <div class="paragraph">
 <p>In this section a sample of WS-Security service endpoints and clients
 are provided. Please note they&#8217;re only meant as tutorials; you should
@@ -6925,9 +7176,9 @@ public class ServiceImpl implements ServiceIface {
 </div>
 </div>
 <div class="sect2">
-<h3 id="ws-trust-and-sts">WS-Trust and STS</h3>
+<h3 id="ws-trust-and-sts">5.13. WS-Trust and STS</h3>
 <div class="sect3">
-<h4 id="ws-trust-overview">WS-Trust overview</h4>
+<h4 id="ws-trust-overview">5.13.1. WS-Trust overview</h4>
 <div class="paragraph">
 <p><a href="http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html">WS-Trust</a> is a Web
 service specification that defines extensions to WS-Security. It is a
@@ -6980,7 +7231,7 @@ and validates security tokens.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="security-token-service">Security Token Service</h4>
+<h4 id="security-token-service">5.13.2. Security Token Service</h4>
 <div class="paragraph">
 <p>The Security Token Service, STS, is the core of the WS-Trust
 specification. It is a standards based mechanism for authentication and
@@ -7007,7 +7258,7 @@ request and returns an appropriate response.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="apache-cxf-support">Apache CXF support</h4>
+<h4 id="apache-cxf-support">5.13.3. Apache CXF support</h4>
 <div class="paragraph">
 <p>Apache CXF is an open-source, fully featured Web services framework. The
 JBossWS open source project integrates the JBoss Web Services (JBossWS)
@@ -7025,7 +7276,7 @@ be found
 </div>
 </div>
 <div class="sect3">
-<h4 id="a-basic-ws-trust-scenario">A Basic WS-Trust Scenario</h4>
+<h4 id="a-basic-ws-trust-scenario">5.13.4. A Basic WS-Trust Scenario</h4>
 <div class="paragraph">
 <p>Here is an example of a basic WS-Trust scenario. It is comprised of a
 Web service requester (ws-requester), a Web service provider
@@ -8764,7 +9015,7 @@ Dependencies: org.apache.ws.security,org.apache.cxf,org.picketlink</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="actas-ws-trust-scenario">ActAs WS-Trust Scenario</h4>
+<h4 id="actas-ws-trust-scenario">5.13.5. ActAs WS-Trust Scenario</h4>
 <div class="paragraph">
 <p>The ActAs feature is used in scenarios that require composite
 delegation. It is commonly used in multi-tiered systems where an
@@ -9493,7 +9744,7 @@ proxy.sayHello();</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="onbehalfof-ws-trust-scenario">OnBehalfOf WS-Trust Scenario</h4>
+<h4 id="onbehalfof-ws-trust-scenario">5.13.6. OnBehalfOf WS-Trust Scenario</h4>
 <div class="paragraph">
 <p>The OnBehalfOf feature is used in scenarios that use the proxy pattern.
 In such scenarios, the client cannot access the STS directly, instead it
@@ -9882,7 +10133,7 @@ proxy.sayHello();</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="saml-bearer-assertion-scenario">SAML Bearer Assertion Scenario</h4>
+<h4 id="saml-bearer-assertion-scenario">5.13.7. SAML Bearer Assertion Scenario</h4>
 <div class="paragraph">
 <p>WS-Trust deals with managing software security tokens. A SAML assertion
 is a type of security token. In the SAML Bearer scenario, the service
@@ -11179,7 +11430,7 @@ org.apache.ws.security.crypto.merlin.keystore.file=META-INF/clientstore.jks</pre
 </div>
 </div>
 <div class="sect3">
-<h4 id="saml-holder-of-key-assertion-scenario">SAML Holder-Of-Key Assertion Scenario</h4>
+<h4 id="saml-holder-of-key-assertion-scenario">5.13.8. SAML Holder-Of-Key Assertion Scenario</h4>
 <div class="paragraph">
 <p>WS-Trust deals with managing software security tokens. A SAML assertion
 is a type of security token. In the Holder-Of-Key method, the STS
@@ -12441,7 +12692,7 @@ org.apache.ws.security.crypto.merlin.keystore.file=META-INF/clientstore.jks</pre
 </div>
 </div>
 <div class="sect2">
-<h3 id="ws-reliable-messaging">WS-Reliable Messaging</h3>
+<h3 id="ws-reliable-messaging">5.14. WS-Reliable Messaging</h3>
 <div class="paragraph">
 <p>JBoss Web Services inherits full WS-Reliable Messaging capabilities from
 the underlying Apache CXF implementation. At the time of writing, Apache
@@ -12450,7 +12701,7 @@ CXF provides support for the
 (February 2005) version of the specification.</p>
 </div>
 <div class="sect3">
-<h4 id="enabling-ws-reliable-messaging">Enabling WS-Reliable Messaging</h4>
+<h4 id="enabling-ws-reliable-messaging">5.14.1. Enabling WS-Reliable Messaging</h4>
 <div class="paragraph">
 <p>WS-Reliable Messaging is implemented internally in Apache CXF through a
 set of interceptors that deal with the low level requirements of the
@@ -12487,7 +12738,7 @@ documentation</a> .</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-2">Example</h4>
+<h4 id="example-2">5.14.2. Example</h4>
 <div class="paragraph">
 <p>In this example we configure WS-Reliable Messaging endpoint and client
 through the WS-Policy support.</p>
@@ -12782,7 +13033,7 @@ proxy.echo("Hello World!");</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="soap-over-jms">SOAP over JMS</h3>
+<h3 id="soap-over-jms">5.15. SOAP over JMS</h3>
 <div class="paragraph">
 <p>JBoss Web Services allows communication over the <em>JMS</em> transport. The
 functionality comes from Apache CXF support for the
@@ -12799,7 +13050,7 @@ archives). The webservices layer of WildFly takes care of looking for
 the Apache CXF core similarly as with <em>HTTP</em> endpoints.</p>
 </div>
 <div class="sect3">
-<h4 id="configuring-soap-over-jms">Configuring SOAP over JMS</h4>
+<h4 id="configuring-soap-over-jms">5.15.1. Configuring SOAP over JMS</h4>
 <div class="paragraph">
 <p>As per specification, the <em>SOAP over JMS</em> transport configuration is
 controlled by proper elements and attributes in the <code>binding</code> and
@@ -12881,7 +13132,7 @@ JMS endpoints.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-8">Examples</h4>
+<h4 id="examples-8">5.15.2. Examples</h4>
 <div class="sect4">
 <h5 id="jms-endpoint-only-deployment">JMS endpoint only deployment</h5>
 <div class="paragraph">
@@ -13490,7 +13741,7 @@ and <em>stop</em> ).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="http-proxy">HTTP Proxy</h3>
+<h3 id="http-proxy">5.16. HTTP Proxy</h3>
 <div class="paragraph">
 <p>The HTTP Proxy related functionalities of JBoss Web Services are
 provided by the Apache CXF http transport layer.</p>
@@ -13502,7 +13753,7 @@ explained below; for further information please refer to the
 CXF documentation</a> .</p>
 </div>
 <div class="sect3">
-<h4 id="configuration">Configuration</h4>
+<h4 id="configuration">5.16.1. Configuration</h4>
 <div class="paragraph">
 <p>The HTTP proxy configuration for a given JAX-WS client can be set in the
 following ways:</p>
@@ -13599,7 +13850,7 @@ Authenticator.setDefault(new ProxyAuthenticator(PROXY_USER, PROXY_PWD));</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ws-discovery">WS-Discovery</h3>
+<h3 id="ws-discovery">5.17. WS-Discovery</h3>
 <div class="paragraph">
 <p>Apache CXF includes support for <em>Web Services Dynamic Discovery</em> (
 <a href="http://docs.oasis-open.org/ws-dd/discovery/1.1/os/wsdd-discovery-1.1-spec-os.html">WS-Discovery</a>
@@ -13615,7 +13866,7 @@ required multicast traffic is also covered by the protocol.</p>
 by Apache CXF into the application server.</p>
 </div>
 <div class="sect3">
-<h4 id="enabling-ws-discovery">Enabling WS-Discovery</h4>
+<h4 id="enabling-ws-discovery">5.17.1. Enabling WS-Discovery</h4>
 <div class="paragraph">
 <p>Apache CXF enables <em>WS-Discovery</em> depending on the availability of its
 runtime component; given that&#8217;s always shipped in the application
@@ -13654,7 +13905,7 @@ messages upon undeployment.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="probing-services">Probing services</h4>
+<h4 id="probing-services">5.17.2. Probing services</h4>
 <div class="paragraph">
 <p>Apache CXF comes with a <em>WS-Discovery</em> API that can be used to probe /
 resolve services. When running in-container, a <a href="#jboss-modules">JBoss Modules</a> dependency to the the <code>org.apache.cxf.impl</code> module is
@@ -13673,9 +13924,9 @@ on CXF WS-Discovery usage.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ws-policy">WS-Policy</h3>
+<h3 id="ws-policy">5.18. WS-Policy</h3>
 <div class="sect3">
-<h4 id="apache-cxf-ws-policy-support">Apache CXF WS-Policy support</h4>
+<h4 id="apache-cxf-ws-policy-support">5.18.1. Apache CXF WS-Policy support</h4>
 <div class="paragraph">
 <p>JBossWS policy support rely on the Apache CXF WS-Policy framework, which
 is compliant with the
@@ -13800,7 +14051,7 @@ descriptor example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="jbossws-additions">JBossWS additions</h4>
+<h4 id="jbossws-additions">5.18.2. JBossWS additions</h4>
 <div class="sect4">
 <h5 id="policy-sets">Policy sets</h5>
 <div class="paragraph">
@@ -13974,9 +14225,9 @@ user forum!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="published-wsdl-customization">Published WSDL customization</h3>
+<h3 id="published-wsdl-customization">5.19. Published WSDL customization</h3>
 <div class="sect3">
-<h4 id="endpoint-address-rewrite">Endpoint address rewrite</h4>
+<h4 id="endpoint-address-rewrite">5.19.1. Endpoint address rewrite</h4>
 <div class="paragraph">
 <p>JBossWS supports the rewrite of the <code>&lt;soap:address&gt;</code> element of
 endpoints published in WSDL contracts. This feature is useful for
@@ -14133,7 +14384,7 @@ for a specific deployment:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="system-property-references">System property references</h4>
+<h4 id="system-property-references">5.19.2. System property references</h4>
 <div class="paragraph">
 <p>System property references wrapped within "@" characters are expanded
 when found in WSDL attribute and element values. This allows for
@@ -14183,7 +14434,7 @@ enabled for the endpoint defined by the contract above.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="jboss-modules">JBoss Modules</h2>
+<h2 id="jboss-modules">6. JBoss Modules</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The JBoss Web Services functionalities are provided by a given set of
@@ -14201,7 +14452,7 @@ custom needs, below is a brief collection of suggestions and hints
 around modules and webservices development on WildFly.</p>
 </div>
 <div class="sect2">
-<h3 id="setting-module-dependencies">Setting module dependencies</h3>
+<h3 id="setting-module-dependencies">6.1. Setting module dependencies</h3>
 <div class="paragraph">
 <p>On WildFly the user deployment classloader does not have any visibility
 over JBoss internals; so for instance you can&#8217;t <em>directly</em> use JBossWS
@@ -14226,7 +14477,7 @@ need for explicit dependencies declaration for those modules.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="using-manifest-mf">Using MANIFEST.MF</h4>
+<h4 id="using-manifest-mf">6.1.1. Using MANIFEST.MF</h4>
 <div class="paragraph">
 <p>The convenient method for configuring deployment dependencies is adding
 them into the MANIFEST.MF file:</p>
@@ -14366,7 +14617,7 @@ won&#8217;t appear as annotated classes to the webservices subsystem.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-jboss-deployment-descriptor-xml">Using jboss-deployment-descriptor.xml</h4>
+<h4 id="using-jboss-deployment-descriptor-xml">6.1.2. Using jboss-deployment-descriptor.xml</h4>
 <div class="paragraph">
 <p>In some circumstances, the convenient approach of setting module
 dependencies in MANIFEST.MF might not work. An example is the need for
@@ -14379,10 +14630,10 @@ their deployment and set module dependencies in it.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="build-and-testsuite-framework">Build and testsuite framework</h2>
+<h2 id="build-and-testsuite-framework">7. Build and testsuite framework</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="introduction">Introduction</h3>
+<h3 id="introduction">7.1. Introduction</h3>
 <div class="paragraph">
 <p>The JBossWS project build and testsuites have been completely revisited
 in version 5.0.0.Beta3. JBossWS now uses the <em>Arquillian</em>
@@ -14403,7 +14654,7 @@ to execute single tests against a locally running container
 (non-Arquillian managed) and run the tests concurrently.</p>
 </div>
 <div class="sect3">
-<h4 id="prerequisites-and-requirements">Prerequisites and requirements</h4>
+<h4 id="prerequisites-and-requirements">7.1.1. Prerequisites and requirements</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -14421,7 +14672,7 @@ concurrent tests run.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="architecture-overview">Architecture overview</h3>
+<h3 id="architecture-overview">7.2. Architecture overview</h3>
 <div class="paragraph">
 <p>When the build fetches the Wildfly container from the Maven repository, a
 patched copy is placed in the target/test-server sub-directory of
@@ -14440,7 +14691,7 @@ logging setup to ensure logs are written to unique files (
 <em>jbws-testsuite-SOME_IDENFIFIER.log</em> ) in <code>standalone/log</code> directory.</p>
 </div>
 <div class="sect3">
-<h4 id="target-container-identification">Target Container Identification</h4>
+<h4 id="target-container-identification">7.2.1. Target Container Identification</h4>
 <div class="paragraph">
 <p>JBossWS supports the current WildFly release and several previous versions
 for testing. Maven profiles are used to identify
@@ -14461,7 +14712,7 @@ available server.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="port-mapping">Port Mapping</h4>
+<h4 id="port-mapping">7.2.2. Port Mapping</h4>
 <div class="paragraph">
 <p>To facilitate concurrent testing, a port offset has been defined for each
 of the server configurations. The offsets are defined in the
@@ -14470,7 +14721,7 @@ of the server configurations. The offsets are defined in the
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-line-options">Command Line Options</h3>
+<h3 id="command-line-options">7.3. Command Line Options</h3>
 <div class="paragraph">
 <p>As any other Maven-based project, JBossWS is built as follows:</p>
 </div>
@@ -14480,7 +14731,7 @@ of the server configurations. The offsets are defined in the
 </div>
 </div>
 <div class="sect3">
-<h4 id="profile">Profile</h4>
+<h4 id="profile">7.3.1. Profile</h4>
 <div class="paragraph">
 <p>JBossWS uses Maven profiles to declare the target container and other
 types of environment setup. Multiple profiles are provided as a comma
@@ -14523,7 +14774,7 @@ profile is set.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="options">Options</h4>
+<h4 id="options">7.3.2. Options</h4>
 <div class="paragraph">
 <p>Below is a list of the available build / test options:</p>
 </div>
@@ -14588,7 +14839,7 @@ including tests.</p></td>
 </table>
 </div>
 <div class="sect3">
-<h4 id="examples-9">Examples</h4>
+<h4 id="examples-9">7.3.3. Examples</h4>
 <div class="paragraph">
 <p>Build the project, deploy the WS stack to a local copy of WildFly
 8.2.0.Final and run the testsuite:</p>
@@ -14649,7 +14900,7 @@ the zip file path is modules/dist/target/jbossws-cxf-dist-$\{
 </div>
 </div>
 <div class="sect2">
-<h3 id="container-remote-debugging">Container remote debugging</h3>
+<h3 id="container-remote-debugging">7.4. Container remote debugging</h3>
 <div class="paragraph">
 <p>While debugging a testcase is simply a matter of providing the
 -Ddebug option, remote debugging the container code that runs the WS
@@ -14665,7 +14916,7 @@ currently running.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="legal-notice">Legal Notice</h2>
+<h2 id="legal-notice">8. Legal Notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Copyright © 2011 Red Hat, Inc.</p>
@@ -14731,49 +14982,15 @@ Foundation.</p>
     <div id="proj_quick-start">
         <h3>Useful Links</h3>
         <ul>
-            <li><a href="https://docs.jboss.org/author/display/JBWS">JAX-WS User Guide</a></li>
-            <li><a href="https://github.com/jbossws/jbossws-cxf">Source Code</a></li>
-            <li><a href="https://issues.redhat.com/projects/JBWS/issues">
-                Issue Tracker</a></li>
+            <li><a href="/downloads-latest/">Download</a></li>
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/blogs">Blog</a></li>
+            <li><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
+            <li><a href="https://github.com/jbossws">Code</a></li>
             <li><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
         </ul>
     </div>
-    <div class="interviews-rss ">
-        <h3>JBossWS</h3>
-        <dl class="evenrow">
-            <dt><a href="/2020/05/27/jbossws-new-google-forum/">Move to JBossWS Google Group</a></dt>
-            <dd class="date">May 27, 2020 By Jim Ma
-            </dd>
-            <dd>JBossWS team has moved the old jboss community wiki and forum to <a href="https://groups.google.com/forum/#!forum/jbossws">JBossWS Google Groups</a>.
-                The old JBossWS wiki, User Forum and Developer Forum are all archived and read only now. This change will allow our community users
-                find us more easily with one email or web access...
-            </dd>
-        </dl>
-        <dl class="oddrow">
-            <dt><a href="/2020/01/15/jbossws-540final-is-released/">JBossWS
-                5.4.0.Final is released!</></dt>
-            <dd class="date">Wednesday, January 15, 2020 By Jim Ma
-            </dd>
-            <dd>I am pleased to annouce JBossWS 5.4.0 Final is out. In this release we upgraded many
-                components as usual and brings Elytron&#8230;
-            </dd>
-        </dl>
 
-        <dl class="oddrow">
-            <dt><a href="/2019/05/14/jbossws-530final-is-out">JBossWS
-                5.3.0.Final is out!</a></dt>
-            <dd class="date">May 14, 2019 19:07 PM by Jim Ma
-            </dd>
-            <dd>After couple days work, I am proud to announce JBossWS 5.3.0.Final has been released. This
-                new release brings a lot of component up&#8230;
-            </dd>
-        </dl>
-
-
-        <dl>
-            <dd class="more">View <a href="https://jbossws.github.io/blogs/">more jbossws updates</a></dd>
-        </dl>
-    </div>
     <div class="clear"><br/></div>
 
     <div class="uploaded-img">
@@ -14806,6 +15023,9 @@ Foundation.</p>
 
 </div><!-- end wrapper-3 -->
 
+</div><!-- end wrapper-content -->
+<div style="clear: both;"></div>
+</div><!-- end wrapper-2 -->
 </div>
        <div id="site-info">
       <div>
