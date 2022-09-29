@@ -121,21 +121,21 @@
                                 &gt;
                               <a href="/blogs">Blogs</a>
                                 &gt;
-                              <a href="#">Testsuite Transitioned to Wildfly CLI scripts</a>
+                              <a href="#">Testsuite Transitioned to WildFly CLI scripts</a>
                        </span>
                      </div><!-- end breadcrumb -->
-                     <h3>Testsuite Transitioned to Wildfly CLI scripts</h3>
+                     <h3>Testsuite Transitioned to WildFly CLI scripts</h3>
                      <h5>By JBossWS Team | September 28, 2022</h5>
                      <p></p>
                      <p>Starting with jbossws-cxf version 6.1.0.Final the testsuite has been
-transitioned from using groovy scripts to configure the Wildfly server
-to using Wildfly’s CLI scripts.</p>
+transitioned from using <a href="https://groovy-lang.org/">Groovy</a> scripts to configure the WildFly server
+to using <a href="https://docs.wildfly.org/26/Admin_Guide.html#Command_Line_Interface">WildFly’s CLI</a> scripts.</p>
 
-<p>Wildfly’s configuration files, standalone-*.xml, are XML based.  Before
-the advancements made in CLI scripting it was more effective to automate
+<p>WildFly’s configuration files, standalone-*.xml, are XML based.  Before
+the advancements made in CLI scripting, it was more effective to automate
 configuration file changes using tools that provided DOM processing utilities.
 Groovy was chosen for that task.  But now with a facility in
-org.wildfly.plugins:wildfly-maven-plugin to execute CLI script files, it is
+<em>org.wildfly.plugins:wildfly-maven-plugin</em> to execute CLI script files, it is
 more efficient use CLI scripts.</p>
 
 <p>If you have any issue or question, please let us know. Thanks!</p>
