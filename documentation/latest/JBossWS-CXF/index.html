@@ -2761,7 +2761,7 @@ public class EchoClient
 
       EchoService service = new EchoService();
       Echo echo = service.getEchoPort();
-      System.out.println("Server said: " + echo.echo(args0));
+      System.out.println("Server said: " + echo.echo(args[0]));
    }
 }</pre>
 </div>
@@ -2780,7 +2780,7 @@ setting the <em>ENDPOINT_ADDRESS_PROPERTY</em> as shown below:</p>
       BindingProvider bp = (BindingProvider)echo;
       bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
 
-      System.out.println("Server said: " + echo.echo(args0));</pre>
+      System.out.println("Server said: " + echo.echo(args[0]));</pre>
 </div>
 </div>
 </div>
