@@ -3,7 +3,7 @@ layout:     post
 title:       "JBossWS 5.4.4.FInal is released !"
 subtitle:   ""
 date:       May 7, 2021
-author:     JBossWS Team
+author:     Jim Ma
 ---
 
 JBossWS 5.4.4.Final has been released and is available for download. The maven artifacts have also been released to the Maven repository.
