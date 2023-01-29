@@ -3,7 +3,7 @@ layout:     post
 title:       "Testsuite Transitioned to WildFly CLI scripts"
 subtitle:   ""
 date:       September 28, 2022
-author:     JBossWS Team
+author:     Rebecca Searls
 ---
 
 Starting with jbossws-cxf version 6.1.0.Final the testsuite has been

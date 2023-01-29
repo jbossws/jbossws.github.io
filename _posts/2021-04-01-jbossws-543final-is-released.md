@@ -3,7 +3,7 @@ layout:     post
 title:       "JBossWS 5.4.3.FInal is released !"
 subtitle:   ""
 date:       Apr 1, 2021
-author:     JBossWS Team
+author:     Jim Ma
 ---
 
 I am pleased to announce JBossWS 5.4.3 Final is out. In this release we upgraded many components as usual and fix several issues to support Jakarta EE9. 

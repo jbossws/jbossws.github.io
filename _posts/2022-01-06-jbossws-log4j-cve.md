@@ -3,7 +3,7 @@ layout:     post
 title:       "Log4j CVE and JBossWS project"
 subtitle:   ""
 date:       Jan 6,2022
-author:     JBossWS Team
+author:     Jim Ma
 ---
 After [log4j cve issues](https://logging.apache.org/log4j/2.x/security.html) were reported, we carefully
 reviewed the usage in JBossWS projects and found we only use log4j dependencies in command line tools, client side

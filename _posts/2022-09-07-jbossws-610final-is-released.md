@@ -3,7 +3,7 @@ layout:     post
 title:       "JBossWS 6.1.0.Final is released !"
 subtitle:   ""
 date:       Sep 7, 2022
-author:     JBossWS Team
+author:     Jim Ma
 ---
 
 JBossWS 6.1.0.Final has been released and is available for download. In this minor release,

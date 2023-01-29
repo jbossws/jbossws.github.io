@@ -3,7 +3,7 @@ layout:     post
 title:       "JBossWS 5.5.0.Final is released !"
 subtitle:   ""
 date:       Jan 13, 2022
-author:     JBossWS Team
+author:     Jim Ma
 ---
 
 JBossWS 5.5.0.Final has been released and is available for download. 
