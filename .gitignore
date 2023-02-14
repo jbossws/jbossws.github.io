@@ -1,0 +1,14 @@
+# ignore eclipse files
+.project
+.classpath
+.settings
+.metadata
+.checkstyle
+
+# ignore IDEA files
+*.iml
+*.ipr
+*.iws
+.idea
+#OS X stuff
+.DS_Store
