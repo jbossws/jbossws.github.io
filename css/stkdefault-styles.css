@@ -153,7 +153,8 @@ div.superpromos .superpromo-section p.more a span {
 	padding: 6px 7px 10px 7px;
 } */
 #main .highlight h2 {
-	width: 296px;
+	width: auto;
+	height: auto;
 }
 
 /* teaser h2 in other layouts */
@@ -195,7 +196,8 @@ div.superpromos .superpromo-section p.more a span {
 	margin: 0 20px 20px 0;
 }
 .col-float3 #main .highlight {
-	width: 286px;
+	width: auto;
+	height: auto;
 }
 .col-float3 #teaser-3,
 .col-float3 #teaser-6 {
