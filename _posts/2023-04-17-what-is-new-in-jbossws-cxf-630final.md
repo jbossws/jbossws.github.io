@@ -10,6 +10,7 @@ project and add new things in the upcoming JBossWS 6.3.0 release. In this blog p
 we will discuss this topic and give an update what will be included in the new release. 
 
 1. JBossWS Galleon Feature Pack
+
    [WildFly Galleon](https://docs.wildfly.org/galleon) allows users to create custom distributions of 
    the WildFly application server. It uses feature pack to specify a set of components to include in 
    the custom Wildfly server. 
@@ -18,6 +19,7 @@ we will discuss this topic and give an update what will be included in the new r
    included in JBossWS dist module and create the custom WildFly server to run whole test suite.
 
 2. Cloud Support
+
    Containerized java application can be the first step to easily deploy to the cloud and scale up 
    or down based on demand. In the next JBossWS release, we'll improve JBossWS cloud support and create 
    examples/docs about how to run a webservice endpoint in docker container. 
@@ -26,12 +28,14 @@ we will discuss this topic and give an update what will be included in the new r
    application to the Openshift, we'll provide better support and guidance to run webservice on OpenShift.
 
 3. Clean build
+
    In the previous JBossWS releases, we have to use many arguments and maven profiles to run all jbossws
    tests and build all artifacts. This will be cleaned and improved in the upcoming 6.3.0 release. We'll 
    deprecate the old maven profiles and make JBossWS buildable with the simple maven build command line
    `mvn clean install`. 
 
 4. More Jakarta EE support
+
    From JBossWS 6.x, we already changed the javax package name to jakarta and imported the new jakarta 
    dependencies. For the third party dependencies, we'll update as many jakarta dependency as we can, 
    with particular focus on CXF 4.0.1.
