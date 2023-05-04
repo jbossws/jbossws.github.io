@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-05-04T01:44:41+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">What’s New in the Upcoming JBossWS 6.3.0 Release</title><link href="/2023/04/17/what-is-new-in-jbossws-cxf-630final/" rel="alternate" type="text/html" title="What’s New in the Upcoming JBossWS 6.3.0 Release" /><published>2023-04-17T00:00:00+00:00</published><updated>2023-04-17T00:00:00+00:00</updated><id>/2023/04/17/what-is-new-in-jbossws-cxf-630final</id><content type="html" xml:base="/2023/04/17/what-is-new-in-jbossws-cxf-630final/"><![CDATA[<p>After JBossWS 6.2.0 released, we are thinking about what we should do to improve JBossWS 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-05-04T03:23:49+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS Galleon Feature Pack</title><link href="/2023/04/18/jbossws-cxf-galleon-feature-pack/" rel="alternate" type="text/html" title="JBossWS Galleon Feature Pack" /><published>2023-04-18T00:00:00+00:00</published><updated>2023-04-18T00:00:00+00:00</updated><id>/2023/04/18/jbossws-cxf-galleon-feature-pack</id><content type="html" xml:base="/2023/04/18/jbossws-cxf-galleon-feature-pack/"><![CDATA[<p>The WildFly Galleon project is designed to allow users to install, uninstall, and patch products with a high degree of 
+customization. By defining an XML, CLI, or Maven plugin, users can slim down the WildFly server and select the subsystems 
+they want to install to run their application. For example, if a user’s application only requires JAX-RS, JPA, and 
+Servlets and does not need EJB or JMS, the Galleon tool can help install a customized version of WildFly or EAP that 
+only contains JAX-RS, JPA, Undertow, and other required dependent subsystems. Behind the WildFly Galleon technology, 
+a feature pack provides the unit of WildFly that can be installed or uninstalled using Galleon tools. 
+A feature pack is zipped and deployed to the Maven repository, and the Galleon tool can consume 
+the feature pack as user-defined to install these units. 
+In this post, we will discuss the new JBossWS CXF feature pack in the upcoming 6.3.0 release and how we can use this 
+feature pack to install the new JBossWS CXF version to a WildFly server.</p>
+
+<h4 id="jbossws-cxf-feature-pack">JBossWS CXF Feature Pack</h4>
+
+<p>The JBossWS CXF feature pack contains all JBossWS packages to install in a WildFly server. All JBossWS related JBoss 
+modules will be created or updated. With this JBossWS feature pack, the JBossWS version can be updated to 
+the version in this feature pack. The JBossWS feature pack depends on the wildfly-ee-galleon-pack’s latest version. 
+When the JBossWS-CXF feature pack is installed, the  wildfly-ee-galleon-pack will be installed before the
+JBossWS CXF feature pack.</p>
+
+<h4 id="install-jbossws-cxf-feature-pack-with-cli">Install JBossWS-CXF Feature Pack With CLI</h4>
+
+<p>Galleon provides a CLI tool to install and customize the WildFly installation. Simply download the latest version of
+<a href="https://github.com/wildfly/galleon/tree/5.1.0.Final">Galleon 5.1.0.Final</a>, unzip it, and the Galleon CLI tool is 
+ready for use. Then, we can install the JBossWS CXF feature pack with this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path/to/galleon-5.1.0.Final/bin/galleon.sh  install org.jboss.ws.cxf:jbossws-cxf-feature-pack:6.3.1-SNAPSHOT --dir=path/to/installation
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">galleon.sh install</code> can be run with <code class="language-plaintext highlighter-rouge">--layers</code> flag to define the subsystems you want to install. For more details,
+please check <a href="https://docs.wildfly.org/27/Galleon_Guide.html">Galleon guide</a>.</p>
+
+<p>Please note that Galleon requires Java 11 for runtime, and you should make sure that JDK11 or a higher version is set up properly.</p>
+
+<h4 id="install-jbossws-cxf-feature-pack-with-maven">Install JBossWS CXF Feature Pack with Maven</h4>
+
+<p>Another way to install the JBossWS-CXF feature pack is by using Maven. The <code class="language-plaintext highlighter-rouge">provision</code> goal in wildfly-maven-plugin installs the 
+WildFly server in the Maven build. Here is an example to install the JBossWS CXF feature pack and provide only the features and packages 
+included in the in <code class="language-plaintext highlighter-rouge">cloud-server</code> and <code class="language-plaintext highlighter-rouge">webservices</code> layers:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;4.1.0.Beta5&lt;/version&gt;
+                &lt;configuration&gt;
+
+                    &lt;feature-packs&gt;
+                        &lt;feature-pack&gt;
+                            &lt;location&gt;org.wildfly:wildfly-galleon-pack:27.0.1.Final&lt;/location&gt;
+                        &lt;/feature-pack&gt;
+                        &lt;feature-pack&gt;
+                            &lt;location&gt;org.jboss.ws.cxf:jbossws-cxf-feature-pack:6.2.1-SNAPSHOT&lt;/location&gt;
+                            &lt;inherit-packages&gt;true&lt;/inherit-packages&gt;
+                        &lt;/feature-pack&gt;
+                    &lt;/feature-packs&gt;
+                    &lt;layers&gt;
+                        &lt;layer&gt;cloud-server&lt;/layer&gt;
+                        &lt;layer&gt;webservices&lt;/layer&gt;
+                    &lt;/layers&gt;
+                &lt;/configuration&gt;
+                &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;provision&lt;/goal&gt;
+                        &lt;/goals&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">wildfly-maven-plugin</code>’s <code class="language-plaintext highlighter-rouge">provision</code> goal offers a lot of flexibility to Maven projects for 
+testing with the WFLY server and updating specific units within it. In the JBossWS project, this plugin 
+is currently being utilized to build a customized version of the WildFly server. This new server is 
+then used to execute all tests with the latest JBossWS CXF version installed, ensuring a reliable 
+and up-to-date testing environment.</p>
+
+<h4 id="summary">Summary</h4>
+
+<p>Galleon is a good tool for reducing the size of the WildFly server distribution. When install with the 
+jbossws-cxf-feature pack, it simplifies the process of replacing and updating the JBossWS unit in WildFly. 
+If you’re looking to remove specific subsystems or units from your WildFly distribution and install a new 
+version of the WildFly unit, it’s best to avoid doing it manually. Instead, make use of Galleon or the 
+wildfly-maven-plugin to ensure an efficient process.</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[The WildFly Galleon project is designed to allow users to install, uninstall, and patch products with a high degree of customization. By defining an XML, CLI, or Maven plugin, users can slim down the WildFly server and select the subsystems they want to install to run their application. For example, if a user’s application only requires JAX-RS, JPA, and Servlets and does not need EJB or JMS, the Galleon tool can help install a customized version of WildFly or EAP that only contains JAX-RS, JPA, Undertow, and other required dependent subsystems. Behind the WildFly Galleon technology, a feature pack provides the unit of WildFly that can be installed or uninstalled using Galleon tools. A feature pack is zipped and deployed to the Maven repository, and the Galleon tool can consume the feature pack as user-defined to install these units. In this post, we will discuss the new JBossWS CXF feature pack in the upcoming 6.3.0 release and how we can use this feature pack to install the new JBossWS CXF version to a WildFly server.]]></summary></entry><entry><title type="html">What’s New in the Upcoming JBossWS 6.3.0 Release</title><link href="/2023/04/17/what-is-new-in-jbossws-cxf-630final/" rel="alternate" type="text/html" title="What’s New in the Upcoming JBossWS 6.3.0 Release" /><published>2023-04-17T00:00:00+00:00</published><updated>2023-04-17T00:00:00+00:00</updated><id>/2023/04/17/what-is-new-in-jbossws-cxf-630final</id><content type="html" xml:base="/2023/04/17/what-is-new-in-jbossws-cxf-630final/"><![CDATA[<p>After JBossWS 6.2.0 released, we are thinking about what we should do to improve JBossWS 
 project and add new things in the upcoming JBossWS 6.3.0 release. In this blog post,
 we will discuss this topic and give an update what will be included in the new release.</p>
 
@@ -125,8 +205,4 @@ Apache CXF is now upgraded to 3.3.10 and more issues has been fixed in this rele
 <p>If you have any problem and want to send feedback for this new release, please post at <a href="https://developer.jboss.org/en/jbossws/cxf">jbossws forum</a> 
 or file issues in JIRA at: <a href="https://issues.jboss.org/projects/JBWS">https://issues.jboss.org/projects/JBWS</a></p>
 
-<p>Thanks <a href="https://github.com/ropalka">Richard Opalk</a> for many contributions to this release!</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[I am pleased to announce JBossWS 5.4.3 Final is out. In this release we upgraded many components as usual and fix several issues to support Jakarta EE9. Apache CXF is now upgraded to 3.3.10 and more issues has been fixed in this release. For more detailed info and full list of issues resolved, please check  release notes.]]></summary></entry><entry><title type="html">Move to JBossWS Google Group</title><link href="/2020/05/27/jbossws-new-google-forum/" rel="alternate" type="text/html" title="Move to JBossWS Google Group" /><published>2020-05-27T00:00:00+00:00</published><updated>2020-05-27T00:00:00+00:00</updated><id>/2020/05/27/jbossws-new-google-forum</id><content type="html" xml:base="/2020/05/27/jbossws-new-google-forum/"><![CDATA[<p><img src="/img/google-group.png" alt="google groups" title="Google Groups" /></p>
-
-<p>JBossWS team has moved the old jboss community wiki and forum to <a href="https://groups.google.com/forum/#!forum/jbossws">JBossWS Google Groups</a>. The old <a href="https://developer.jboss.org/wiki/JBossWS">JBossWS wiki</a>, <a href="https://community.jboss.org/en/jbossws">User Forum</a> and <a href="https://community.jboss.org/en/jbossws/dev">Developer Forum</a> are all archived and read only now. This change will allow our community users find us more easily with one email or web access. As always, please post your questions, doubts and feedback to google group.</p>
-
-<p>Besides this change, we moved the blog to use github pages jekeyll generator. This is not only for the new content, but also the old blog content from <a href="https://jbossws.blogspot.com/">jbossws blogspot</a>. This again allows everyone can submit PR to add blog entry like the community patch to fix something. If you want to add one blog entry to share your ideas, jbossws usage and other interesting things, please send us a pull request. Create a markdown blog post is very easy and simple, take a look at this <a href="https://jekyllrb.com/docs/posts/">jeykell guide</a> and directly change the content from <a href="https://github.com/jbossws/jbossws.github.io/blob/master/_posts/2020-01-01-jbossws-540final-is-released.md">this post example</a> to create your own will be the all things to do. JBossWS team is waiting for your blog post!</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[]]></summary></entry></feed>
+<p>Thanks <a href="https://github.com/ropalka">Richard Opalk</a> for many contributions to this release!</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[I am pleased to announce JBossWS 5.4.3 Final is out. In this release we upgraded many components as usual and fix several issues to support Jakarta EE9. Apache CXF is now upgraded to 3.3.10 and more issues has been fixed in this release. For more detailed info and full list of issues resolved, please check  release notes.]]></summary></entry></feed>

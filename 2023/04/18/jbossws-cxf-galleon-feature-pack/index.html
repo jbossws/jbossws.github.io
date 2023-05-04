@@ -121,47 +121,93 @@
                                 &gt;
                               <a href="/blogs">Blogs</a>
                                 &gt;
-                              <a href="#">JBossWS 3.1.0.GA released</a>
+                              <a href="#">JBossWS Galleon Feature Pack</a>
                        </span>
                      </div><!-- end breadcrumb -->
-                     <h3>JBossWS 3.1.0.GA released</h3>
-                     <h5>By JBossWS Team | March 3, 2009</h5>
+                     <h3>JBossWS Galleon Feature Pack</h3>
+                     <h5>By Jim Ma | April 18, 2023</h5>
                      <p></p>
-                     <p>The first post on this blog is to announce the release of <a href="http://www.jboss.org/jbossws">JBossWS 3.1.0.GA</a>.<br />
-For those who are not familiar to the project, starting from major release 3, JBossWS provides an <a href="http://jbossws.jboss.org/mediawiki/index.php?title=WSF">integration layer</a> allowing users to leverage different webservice stacks (JBossWS-Native, Apache CXF and Metro) on JBossAS.</p>
+                     <p>The WildFly Galleon project is designed to allow users to install, uninstall, and patch products with a high degree of 
+customization. By defining an XML, CLI, or Maven plugin, users can slim down the WildFly server and select the subsystems 
+they want to install to run their application. For example, if a user’s application only requires JAX-RS, JPA, and 
+Servlets and does not need EJB or JMS, the Galleon tool can help install a customized version of WildFly or EAP that 
+only contains JAX-RS, JPA, Undertow, and other required dependent subsystems. Behind the WildFly Galleon technology, 
+a feature pack provides the unit of WildFly that can be installed or uninstalled using Galleon tools. 
+A feature pack is zipped and deployed to the Maven repository, and the Galleon tool can consume 
+the feature pack as user-defined to install these units. 
+In this post, we will discuss the new JBossWS CXF feature pack in the upcoming 6.3.0 release and how we can use this 
+feature pack to install the new JBossWS CXF version to a WildFly server.</p>
 
-<p>Probably the most important achievement in JBossWS 3.1.0.GA is the improvement in terms of JAX-WS 2.1 support, as that's now available cross-stack:</p>
+<h4 id="jbossws-cxf-feature-pack">JBossWS CXF Feature Pack</h4>
 
-<ul>
-  <li>the 2.1 implementation has been completed in JBossWS-Native (CXF and Metro already support JAX-WS 2.1);</li>
-  <li>the wsconsume tool now supports target 2.1;</li>
-  <li>WebServiceContext now supports JAX-WS 2.1 specific methods with all stacks.
-This means now users can really leverage JAX-WS 2.1 additions (EndpointReference, WebServiceFeature, etc.) on JBoss AS with every supported stacks. You all know how easy and handy is enabling WS-Addressing and MTOM/XOP encoding with 
-@Addressing
- and 
-@MTOM
- ;-)</li>
-</ul>
+<p>The JBossWS CXF feature pack contains all JBossWS packages to install in a WildFly server. All JBossWS related JBoss 
+modules will be created or updated. With this JBossWS feature pack, the JBossWS version can be updated to 
+the version in this feature pack. The JBossWS feature pack depends on the wildfly-ee-galleon-pack’s latest version. 
+When the JBossWS-CXF feature pack is installed, the  wildfly-ee-galleon-pack will be installed before the
+JBossWS CXF feature pack.</p>
 
-<p>Besides the JAX-WS 2.1 support, JBossWS 3.1.0.GA has further new features, improvements and bug fixes in each stack, please refer to the release notes:</p>
+<h4 id="install-jbossws-cxf-feature-pack-with-cli">Install JBossWS-CXF Feature Pack With CLI</h4>
 
-<ul>
-  <li>
-    <p><a href="http://labs.jboss.com/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-native-3.1.0.GA.txt">ReleaseNotes-jbossws-native</a></p>
-  </li>
-  <li>
-    <p><a href="http://labs.jboss.com/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-metro-3.1.0.GA.txt">ReleaseNotes-jbossws-metro</a></p>
-  </li>
-  <li>
-    <p><a href="http://labs.jboss.com/file-access/default/members/jbossws/downloads/ReleaseNotes-jbossws-cxf-3.1.0.GA.txt">ReleaseNotes-jbossws-cxf</a>The supported target containers for this release are JBoss 4.2.3.GA, JBoss 5.0.0.GA and JBoss 5.0.1.GA.</p>
-  </li>
-</ul>
+<p>Galleon provides a CLI tool to install and customize the WildFly installation. Simply download the latest version of
+<a href="https://github.com/wildfly/galleon/tree/5.1.0.Final">Galleon 5.1.0.Final</a>, unzip it, and the Galleon CLI tool is 
+ready for use. Then, we can install the JBossWS CXF feature pack with this command:</p>
 
-<p>The binaries and sources, including the samples can be obtained <a href="http://labs.jboss.com/jbossws/downloads">here</a>.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>path/to/galleon-5.1.0.Final/bin/galleon.sh  install org.jboss.ws.cxf:jbossws-cxf-feature-pack:6.3.1-SNAPSHOT --dir=path/to/installation
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">galleon.sh install</code> can be run with <code class="language-plaintext highlighter-rouge">--layers</code> flag to define the subsystems you want to install. For more details,
+please check <a href="https://docs.wildfly.org/27/Galleon_Guide.html">Galleon guide</a>.</p>
 
-<p><a href="http://jbossws.jboss.org/mediawiki/index.php?title=Installation">Installation instructions</a>, <a href="http://jbossws.jboss.org/mediawiki/index.php/Quick_Start">quick start</a> and <a href="http://jbossws.jboss.org/mediawiki/index.php/JAX-WS_User_Guide">user guides</a> are available on the <a href="http://jbossws.jboss.org/mediawiki">JBossWS mediawiki</a>:</p>
+<p>Please note that Galleon requires Java 11 for runtime, and you should make sure that JDK11 or a higher version is set up properly.</p>
 
-<p><a href="http://jbossws.jboss.org/mediawiki">http://jbossws.jboss.org/mediawiki</a></p>
+<h4 id="install-jbossws-cxf-feature-pack-with-maven">Install JBossWS CXF Feature Pack with Maven</h4>
+
+<p>Another way to install the JBossWS-CXF feature pack is by using Maven. The <code class="language-plaintext highlighter-rouge">provision</code> goal in wildfly-maven-plugin installs the 
+WildFly server in the Maven build. Here is an example to install the JBossWS CXF feature pack and provide only the features and packages 
+included in the in <code class="language-plaintext highlighter-rouge">cloud-server</code> and <code class="language-plaintext highlighter-rouge">webservices</code> layers:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;4.1.0.Beta5&lt;/version&gt;
+                &lt;configuration&gt;
+
+                    &lt;feature-packs&gt;
+                        &lt;feature-pack&gt;
+                            &lt;location&gt;org.wildfly:wildfly-galleon-pack:27.0.1.Final&lt;/location&gt;
+                        &lt;/feature-pack&gt;
+                        &lt;feature-pack&gt;
+                            &lt;location&gt;org.jboss.ws.cxf:jbossws-cxf-feature-pack:6.2.1-SNAPSHOT&lt;/location&gt;
+                            &lt;inherit-packages&gt;true&lt;/inherit-packages&gt;
+                        &lt;/feature-pack&gt;
+                    &lt;/feature-packs&gt;
+                    &lt;layers&gt;
+                        &lt;layer&gt;cloud-server&lt;/layer&gt;
+                        &lt;layer&gt;webservices&lt;/layer&gt;
+                    &lt;/layers&gt;
+                &lt;/configuration&gt;
+                &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;provision&lt;/goal&gt;
+                        &lt;/goals&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">wildfly-maven-plugin</code>’s <code class="language-plaintext highlighter-rouge">provision</code> goal offers a lot of flexibility to Maven projects for 
+testing with the WFLY server and updating specific units within it. In the JBossWS project, this plugin 
+is currently being utilized to build a customized version of the WildFly server. This new server is 
+then used to execute all tests with the latest JBossWS CXF version installed, ensuring a reliable 
+and up-to-date testing environment.</p>
+
+<h4 id="summary">Summary</h4>
+
+<p>Galleon is a good tool for reducing the size of the WildFly server distribution. When install with the 
+jbossws-cxf-feature pack, it simplifies the process of replacing and updating the JBossWS unit in WildFly. 
+If you’re looking to remove specific subsystems or units from your WildFly distribution and install a new 
+version of the WildFly unit, it’s best to avoid doing it manually. Instead, make use of Galleon or the 
+wildfly-maven-plugin to ensure an efficient process.</p>
 
 
 
