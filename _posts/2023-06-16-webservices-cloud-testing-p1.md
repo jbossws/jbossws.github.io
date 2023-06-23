@@ -6,7 +6,7 @@ date:       June 16, 2023
 author:     Rebecca Searls
 ---
 The web services team is embarking on an exploration of technologies and strategies
-for running RESTEasy and Jbossws-cxf integration tests in a cloud environment.
+for running RESTEasy and JBossws-cxf integration tests in a cloud environment.
 A series of blogs will follow that discuss the technologies
 evaluated and strategies tried in this quest.
 
@@ -50,3 +50,5 @@ for building and running the tests in the required environments.
 
 These are the general parameters the team is using in evaluating technologies and strategies in writing and running web services tests in the cloud.  The coming blogs
 will discuss what we are learning and the decisions made for our implementation.
+
+[Part 2:](https://jbossws.github.io/2023/06/23/webservices-cloud-testing-p2/) Designing a Testing Framework
