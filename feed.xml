@@ -1,5 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-06-23T02:13:09+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">Web Services Testing In The Cloud Part 1</title><link href="/2023/06/16/webservices-cloud-testing-p1/" rel="alternate" type="text/html" title="Web Services Testing In The Cloud Part 1" /><published>2023-06-16T00:00:00+00:00</published><updated>2023-06-16T00:00:00+00:00</updated><id>/2023/06/16/webservices-cloud-testing-p1</id><content type="html" xml:base="/2023/06/16/webservices-cloud-testing-p1/"><![CDATA[<p>The web services team is embarking on an exploration of technologies and strategies
-for running RESTEasy and Jbossws-cxf integration tests in a cloud environment.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-06-23T12:50:15+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">Part 2, Designing a Testing Framework</title><link href="/2023/06/23/webservices-cloud-testing-p2/" rel="alternate" type="text/html" title="Part 2, Designing a Testing Framework" /><published>2023-06-23T00:00:00+00:00</published><updated>2023-06-23T00:00:00+00:00</updated><id>/2023/06/23/webservices-cloud-testing-p2</id><content type="html" xml:base="/2023/06/23/webservices-cloud-testing-p2/"><![CDATA[<p>This is the second article in a series about the web services team’s
+exploration of technologies and strategies for running RESTEasy and JBossws-cxf integration tests in a cloud environment.
+<a href="https://jbossws.github.io/2023/06/16/webservices-cloud-testing-p1/">Part 1</a> describes the scope of this project.
+This article investigates designing a testing framework based on maven.</p>
+
+<p>One of the project objectives is to use maven to generate the testable components and run the tests.  For this initial evaluation there are two test components, an image file containing a web service WAR running in Wildfly and a junit test class that runs outside the image file.  Future test cases will be more complex consisting of several web service images and a single test class.</p>
+
+<p>In proto-typing the testing framework an exiting simple arquillian based web service integration test will be migrated to this framework.  The complexity of the required modifications will be noted.  In my opinion the fewer the modifications the better.  I have considered creating a mock-arquillian archive that would allow the arquillian classes referenced in the exiting test class to be ignored.  This would allow the test class to remain unaltered and useable in both arquillian and the cloud test frameworks.  But it does not seem like a good idea for test clarity and long term code maintenance, so I will be making edits to the test class.</p>
+
+<p>As noted in part one, I think the framework should support testing both development and released versions of Wildfly. There are 2 strategies that can be used to build the image file.  One is to use a Wildfly image provided in quary.io/wildfly and add the web service
+WAR to it; creating a new image.  Two, is to generate a version of wildfly on local 
+ disk.  Add the WAR file to it.  Use a base docker image and add the wildfly build to that; creating a new image.
+In both test image building strategies the web service WAR file must be 
+available when building the image.  With arquillian the WAR file is defined within the test class.  It is generated and deployed when the test class runs.  In this image building process the maven-war-plugin is used to generate the WAR file.  The corresponding code is removed from the test class.  Generating the WAR file in this manner also means every test must exist in its own project module.</p>
+
+<p>In addressing the second strategy, generating a version of wildfly on local
+disk, org.wildfly.plugins:wildfly-maven-plugin is used to generate Wildfly from a Wildfly feature pack.  To that, the WAR file is copied into wildfly’s standalone/deployment directory by the plugin. The wildfly-maven-plugin has been enhanced to run Wildfly CLI-scripts.  A feature future web service cloud tests will need but is not required for this simple test case.  I find having the Wildfly code that is used in the image available locally helpful.  It makes it easy to debug any server issue with the test.</p>
+
+<p>For both strategies io.fabric8:docker-maven-plugin is used to generate a docker image from a Dockerfile provided in the project.  docker-maven-plugin is a versatile plugin with many features and options for generating Docker images and configurating the image’s run parameters.  This plugin can be used for testing.  It can start the image in Docker, run the test, stop the Docker instance and cleanup after the test.   However a more complex test case should be created to futher evaluate the capabilies of this plugin to meet the needs of our future test cases.</p>
+
+<p>The plugin recommended using the maven-failsafe-plugin instead of maven-surefire-plugin in running the integration test because on test failure maven-failsafe-plugin will clean up the Docker process and maven-surefire-plugin will not.  I encountered an issue using maven-failsafe-plugin in place of maven-surefire-plugin.  maven-surefire-plugin runs as a default build process.  In order to enable maven-failsafe-plugin to run I had to disable the running of surefire by excluding the test class in the plugin and including the test class in the maven-failsafe-plugin.  Also maven-failsafe-plugin requires test method names to either start or end with “IT”, so the test class had to be adjusted accordingly.
+While editing the test class I also removed the references to arquillian annotations, RunAsClient and Deployment, and junit annotation RunWith.</p>
+
+<p>A key objective of the testing framework is to be able to run the test suite on any Kuberneties compliant implementation.  io.fabric8:docker-maven-plugin does not appear to provide that versatility.  It deploys images to Docker only. However I have not found any other plugin that can deploy to any Kuberneties implementation either.</p>
+
+<p>Lets review the pros and cons of this framework</p>
+
+<p>Pros</p>
+<ul>
+  <li>The test can be built and run via maven.</li>
+  <li>The test class does not need extensive editing.</li>
+</ul>
+
+<p>Cons</p>
+<ul>
+  <li>Each test will required its own project module because a WAR file must be created.</li>
+  <li>There will be a lot of duplicate boilerplate code in the pom files.</li>
+  <li>The test class requires some edits.</li>
+  <li>There is no generic support for deploying the tests to any Kuberneties implementation.</li>
+</ul>
+
+<p>Source code for this proto-type project can be found <a href="https://github.com/rsearls/blog-posts/tree/master/blog-mvn-wfly-plugin">here.</a></p>]]></content><author><name>Rebecca Searls</name></author><summary type="html"><![CDATA[This is the second article in a series about the web services team’s exploration of technologies and strategies for running RESTEasy and JBossws-cxf integration tests in a cloud environment. Part 1 describes the scope of this project. This article investigates designing a testing framework based on maven.]]></summary></entry><entry><title type="html">Web Services Testing In The Cloud Part 1</title><link href="/2023/06/16/webservices-cloud-testing-p1/" rel="alternate" type="text/html" title="Web Services Testing In The Cloud Part 1" /><published>2023-06-16T00:00:00+00:00</published><updated>2023-06-16T00:00:00+00:00</updated><id>/2023/06/16/webservices-cloud-testing-p1</id><content type="html" xml:base="/2023/06/16/webservices-cloud-testing-p1/"><![CDATA[<p>The web services team is embarking on an exploration of technologies and strategies
+for running RESTEasy and JBossws-cxf integration tests in a cloud environment.
 A series of blogs will follow that discuss the technologies
 evaluated and strategies tried in this quest.</p>
 
@@ -42,7 +83,9 @@ will be determined once we have a better understanding of the framework(s)
 for building and running the tests in the required environments.</p>
 
 <p>These are the general parameters the team is using in evaluating technologies and strategies in writing and running web services tests in the cloud.  The coming blogs
-will discuss what we are learning and the decisions made for our implementation.</p>]]></content><author><name>Rebecca Searls</name></author><summary type="html"><![CDATA[The web services team is embarking on an exploration of technologies and strategies for running RESTEasy and Jbossws-cxf integration tests in a cloud environment. A series of blogs will follow that discuss the technologies evaluated and strategies tried in this quest.]]></summary></entry><entry><title type="html">JBossWS Galleon Feature Pack</title><link href="/2023/04/18/jbossws-cxf-galleon-feature-pack/" rel="alternate" type="text/html" title="JBossWS Galleon Feature Pack" /><published>2023-04-18T00:00:00+00:00</published><updated>2023-04-18T00:00:00+00:00</updated><id>/2023/04/18/jbossws-cxf-galleon-feature-pack</id><content type="html" xml:base="/2023/04/18/jbossws-cxf-galleon-feature-pack/"><![CDATA[<p>The WildFly Galleon project is designed to allow users to install, uninstall, and patch products with a high degree of 
+will discuss what we are learning and the decisions made for our implementation.</p>
+
+<p><a href="https://jbossws.github.io/2023/06/23/webservices-cloud-testing-p2/">Part 2:</a> Designing a Testing Framework</p>]]></content><author><name>Rebecca Searls</name></author><summary type="html"><![CDATA[The web services team is embarking on an exploration of technologies and strategies for running RESTEasy and JBossws-cxf integration tests in a cloud environment. A series of blogs will follow that discuss the technologies evaluated and strategies tried in this quest.]]></summary></entry><entry><title type="html">JBossWS Galleon Feature Pack</title><link href="/2023/04/18/jbossws-cxf-galleon-feature-pack/" rel="alternate" type="text/html" title="JBossWS Galleon Feature Pack" /><published>2023-04-18T00:00:00+00:00</published><updated>2023-04-18T00:00:00+00:00</updated><id>/2023/04/18/jbossws-cxf-galleon-feature-pack</id><content type="html" xml:base="/2023/04/18/jbossws-cxf-galleon-feature-pack/"><![CDATA[<p>The WildFly Galleon project is designed to allow users to install, uninstall, and patch products with a high degree of 
 customization. By defining an XML, CLI, or Maven plugin, users can slim down the WildFly server and select the subsystems 
 they want to install to run their application. For example, if a user’s application only requires JAX-RS, JPA, and 
 Servlets and does not need EJB or JMS, the Galleon tool can help install a customized version of WildFly or EAP that 
@@ -238,8 +281,4 @@ evaluate if it’s possible to remove log4j dependency to directly use jboss log
 
 <p>From above log4j usage in jbossws, if your project has dependency or transitive dependencies to any of these follow projects
 please upgrade to jbossws-cxf-5.5.0.Final or jbossws-common-tools-1.4.0.Final. If you find any issue in this upgrade, please 
-let us know.</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[After log4j cve issues were reported, we carefully reviewed the usage in JBossWS projects and found we only use log4j dependencies in command line tools, client side and testsuite. These are places we use log4j dependency:]]></summary></entry><entry><title type="html">JBossWS 5.4.4.FInal is released !</title><link href="/2021/05/07/jbossws-544final-is-released/" rel="alternate" type="text/html" title="JBossWS 5.4.4.FInal is released !" /><published>2021-05-07T00:00:00+00:00</published><updated>2021-05-07T00:00:00+00:00</updated><id>/2021/05/07/jbossws-544final-is-released</id><content type="html" xml:base="/2021/05/07/jbossws-544final-is-released/"><![CDATA[<p>JBossWS 5.4.4.Final has been released and is available for download. The maven artifacts have also been released to the Maven repository.
-This is a bug fix release and mainly resolved <a href="https://issues.redhat.com/browse/JBWS-4133">JBWS-4133</a> to support JDK14.
-If you moved to JDK14, please try this release and report to us any issues you get.</p>
-
-<p>Thanks <a href="https://github.com/bstansberry">Brian Stansberry</a>’s contribution for this release!</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[JBossWS 5.4.4.Final has been released and is available for download. The maven artifacts have also been released to the Maven repository. This is a bug fix release and mainly resolved JBWS-4133 to support JDK14. If you moved to JDK14, please try this release and report to us any issues you get.]]></summary></entry></feed>
+let us know.</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[After log4j cve issues were reported, we carefully reviewed the usage in JBossWS projects and found we only use log4j dependencies in command line tools, client side and testsuite. These are places we use log4j dependency:]]></summary></entry></feed>

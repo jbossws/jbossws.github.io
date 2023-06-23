@@ -117,235 +117,58 @@
                   <div id="main">
                      <div id="breadcrumb">
                        <span>
-                              <a href="/">JBoss Web Services</a>
+                              <a href="/">JBossWS</a>
                                 &gt;
                               <a href="/blogs">Blogs</a>
                                 &gt;
-                              <a href="#"></a>
+                              <a href="#">Part 2, Designing a Testing Framework</a>
                        </span>
                      </div><!-- end breadcrumb -->
-                     
-<div class="post-preview">
-    <a href="/2011/11/12/upcoming-jboss-as-7-event-in-lugano-jug/">
-        <h3 class="post-title"> Upcoming JBoss AS 7 event in Lugano (JUG)
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on November 12, 2011</p>
-</div>
-<hr>
+                     <h3>Part 2, Designing a Testing Framework</h3>
+                     <h5>By Rebecca Searls | June 23, 2023</h5>
+                     <p></p>
+                     <p>This is the second article in a series about the web services team’s
+exploration of technologies and strategies for running RESTEasy and JBossws-cxf integration tests in a cloud environment.
+<a href="https://jbossws.github.io/2023/06/16/webservices-cloud-testing-p1/">Part 1</a> describes the scope of this project.
+This article investigates designing a testing framework based on maven.</p>
 
-<div class="post-preview">
-    <a href="/2011/10/11/jbossws-towards-jboss-as-710/">
-        <h3 class="post-title"> JBossWS towards JBoss AS 7.1.0
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on October 11, 2011</p>
-</div>
-<hr>
+<p>One of the project objectives is to use maven to generate the testable components and run the tests.  For this initial evaluation there are two test components, an image file containing a web service WAR running in Wildfly and a junit test class that runs outside the image file.  Future test cases will be more complex consisting of several web service images and a single test class.</p>
 
-<div class="post-preview">
-    <a href="/2011/09/20/latest-web-services-presentations/">
-        <h3 class="post-title"> Latest Web Services presentations
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on September 20, 2011</p>
-</div>
-<hr>
+<p>In proto-typing the testing framework an exiting simple arquillian based web service integration test will be migrated to this framework.  The complexity of the required modifications will be noted.  In my opinion the fewer the modifications the better.  I have considered creating a mock-arquillian archive that would allow the arquillian classes referenced in the exiting test class to be ignored.  This would allow the test class to remain unaltered and useable in both arquillian and the cloud test frameworks.  But it does not seem like a good idea for test clarity and long term code maintenance, so I will be making edits to the test class.</p>
 
-<div class="post-preview">
-    <a href="/2011/09/07/jboss-at-ecows-2011/">
-        <h3 class="post-title"> JBoss at ECOWS 2011
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on September 7, 2011</p>
-</div>
-<hr>
+<p>As noted in part one, I think the framework should support testing both development and released versions of Wildfly. There are 2 strategies that can be used to build the image file.  One is to use a Wildfly image provided in quary.io/wildfly and add the web service
+WAR to it; creating a new image.  Two, is to generate a version of wildfly on local 
+ disk.  Add the WAR file to it.  Use a base docker image and add the wildfly build to that; creating a new image.
+In both test image building strategies the web service WAR file must be 
+available when building the image.  With arquillian the WAR file is defined within the test class.  It is generated and deployed when the test class runs.  In this image building process the maven-war-plugin is used to generate the WAR file.  The corresponding code is removed from the test class.  Generating the WAR file in this manner also means every test must exist in its own project module.</p>
 
-<div class="post-preview">
-    <a href="/2011/08/31/apache-cxf-pmc/">
-        <h3 class="post-title"> Apache CXF PMC
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on August 31, 2011</p>
-</div>
-<hr>
+<p>In addressing the second strategy, generating a version of wildfly on local
+disk, org.wildfly.plugins:wildfly-maven-plugin is used to generate Wildfly from a Wildfly feature pack.  To that, the WAR file is copied into wildfly’s standalone/deployment directory by the plugin. The wildfly-maven-plugin has been enhanced to run Wildfly CLI-scripts.  A feature future web service cloud tests will need but is not required for this simple test case.  I find having the Wildfly code that is used in the image available locally helpful.  It makes it easy to debug any server issue with the test.</p>
 
-<div class="post-preview">
-    <a href="/2011/07/28/publishing-ws-endpoints-through-as7/">
-        <h3 class="post-title"> Publishing WS endpoints through AS7 services
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on July 28, 2011</p>
-</div>
-<hr>
+<p>For both strategies io.fabric8:docker-maven-plugin is used to generate a docker image from a Dockerfile provided in the project.  docker-maven-plugin is a versatile plugin with many features and options for generating Docker images and configurating the image’s run parameters.  This plugin can be used for testing.  It can start the image in Docker, run the test, stop the Docker instance and cleanup after the test.   However a more complex test case should be created to futher evaluate the capabilies of this plugin to meet the needs of our future test cases.</p>
 
-<div class="post-preview">
-    <a href="/2011/07/07/jboss-as-7-webservices-features/">
-        <h3 class="post-title"> JBoss AS 7 webservices features
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on July 7, 2011</p>
-</div>
-<hr>
+<p>The plugin recommended using the maven-failsafe-plugin instead of maven-surefire-plugin in running the integration test because on test failure maven-failsafe-plugin will clean up the Docker process and maven-surefire-plugin will not.  I encountered an issue using maven-failsafe-plugin in place of maven-surefire-plugin.  maven-surefire-plugin runs as a default build process.  In order to enable maven-failsafe-plugin to run I had to disable the running of surefire by excluding the test class in the plugin and including the test class in the maven-failsafe-plugin.  Also maven-failsafe-plugin requires test method names to either start or end with “IT”, so the test class had to be adjusted accordingly.
+While editing the test class I also removed the references to arquillian annotations, RunAsClient and Deployment, and junit annotation RunWith.</p>
 
-<div class="post-preview">
-    <a href="/2011/05/11/jbossws-jbug-munchen/">
-        <h3 class="post-title"> JBossWS @ JBUG München
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on May 11, 2011</p>
-</div>
-<hr>
+<p>A key objective of the testing framework is to be able to run the test suite on any Kuberneties compliant implementation.  io.fabric8:docker-maven-plugin does not appear to provide that versatility.  It deploys images to Docker only. However I have not found any other plugin that can deploy to any Kuberneties implementation either.</p>
 
-<div class="post-preview">
-    <a href="/2011/05/11/jbossws-400beta1-is-out/">
-        <h3 class="post-title"> JBossWS 4.0.0.Beta1 is out!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on May 11, 2011</p>
-</div>
-<hr>
+<p>Lets review the pros and cons of this framework</p>
 
-<div class="post-preview">
-    <a href="/2011/01/07/stressing-ws-features-of-jboss-as-6/">
-        <h3 class="post-title"> Stressing WS features of JBoss AS 6 Final
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on January 7, 2011</p>
-</div>
-<hr>
+<p>Pros</p>
+<ul>
+  <li>The test can be built and run via maven.</li>
+  <li>The test class does not need extensive editing.</li>
+</ul>
 
-<div class="post-preview">
-    <a href="/2010/12/17/ready-for-jboss-as-6-and-then/">
-        <h3 class="post-title"> Ready for JBoss AS 6... and then?
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on December 17, 2010</p>
-</div>
-<hr>
+<p>Cons</p>
+<ul>
+  <li>Each test will required its own project module because a WAR file must be created.</li>
+  <li>There will be a lot of duplicate boilerplate code in the pom files.</li>
+  <li>The test class requires some edits.</li>
+  <li>There is no generic support for deploying the tests to any Kuberneties implementation.</li>
+</ul>
 
-<div class="post-preview">
-    <a href="/2010/12/09/jbossws-340-has-landed/">
-        <h3 class="post-title"> JBossWS 3.4.0 has landed!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on December 9, 2010</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2010/10/13/jbossws-340cr1-is-out/">
-        <h3 class="post-title"> JBossWS 3.4.0.CR1 is out!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on October 13, 2010</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2010/08/26/implementing-jaxws-22-http-spi-on/">
-        <h3 class="post-title"> Implementing JAXWS 2.2 HTTP SPI on Apache CXF
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on August 26, 2010</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2010/08/26/comsunnethttpserver-transport-using/">
-        <h3 class="post-title"> com.sun.net.httpserver transport using JAXWS 2.2 HTTP SPI
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on August 26, 2010</p>
-</div>
-<hr>
-
-
-<!-- Pager -->
-<p align="center">
-
-    
-        <a href="/blogs/page3">&larr; Newer Posts</a>
-    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-        <a href="/blogs/page5">Older Posts &rarr;</a>
-    
+<p>Source code for this proto-type project can be found <a href="https://github.com/rsearls/blog-posts/tree/master/blog-mvn-wfly-plugin">here.</a></p>
 
 
 
