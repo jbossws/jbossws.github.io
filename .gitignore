@@ -1,3 +1,7 @@
+#Jekyll local run files
+_site
+.jekyll-cache
+
 # ignore eclipse files
 .project
 .classpath
