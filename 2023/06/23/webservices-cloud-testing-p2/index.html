@@ -121,54 +121,55 @@
                                 &gt;
                               <a href="/blogs">Blogs</a>
                                 &gt;
-                              <a href="#">Part 2, Designing a Testing Framework</a>
+                              <a href="#">Web Services testing in the cloud - Part II</a>
                        </span>
                      </div><!-- end breadcrumb -->
-                     <h3>Part 2, Designing a Testing Framework</h3>
+                     <h3>Web Services testing in the cloud - Part II</h3>
                      <h5>By Rebecca Searls | June 23, 2023</h5>
                      <p></p>
                      <p>This is the second article in a series about the web services team’s
-exploration of technologies and strategies for running RESTEasy and JBossws-cxf integration tests in a cloud environment.
-<a href="https://jbossws.github.io/2023/06/16/webservices-cloud-testing-p1/">Part 1</a> describes the scope of this project.
-This article investigates designing a testing framework based on maven.</p>
+exploration of technologies and strategies for running JBossWS-CXF integration tests in a cloud environment.
+<a href="https://jbossws.github.io/2023/06/16/webservices-cloud-testing-p1/">Part I</a> describes the scope of this project.</p>
 
-<p>One of the project objectives is to use maven to generate the testable components and run the tests.  For this initial evaluation there are two test components, an image file containing a web service WAR running in Wildfly and a junit test class that runs outside the image file.  Future test cases will be more complex consisting of several web service images and a single test class.</p>
+<h4 id="designing-a-testing-framework">Designing a Testing Framework</h4>
 
-<p>In proto-typing the testing framework an exiting simple arquillian based web service integration test will be migrated to this framework.  The complexity of the required modifications will be noted.  In my opinion the fewer the modifications the better.  I have considered creating a mock-arquillian archive that would allow the arquillian classes referenced in the exiting test class to be ignored.  This would allow the test class to remain unaltered and useable in both arquillian and the cloud test frameworks.  But it does not seem like a good idea for test clarity and long term code maintenance, so I will be making edits to the test class.</p>
+<p>One of the project objectives is to use Maven to generate the testable components and run the tests.  For this initial evaluation there are two test components, an image file containing a web service deployment archive (usually a WAR file) running in WildFly and a JUnit test class that runs outside the image file.  Future test cases will be more complex consisting of several web service images and a single test class.</p>
 
-<p>As noted in part one, I think the framework should support testing both development and released versions of Wildfly. There are 2 strategies that can be used to build the image file.  One is to use a Wildfly image provided in quary.io/wildfly and add the web service
-WAR to it; creating a new image.  Two, is to generate a version of wildfly on local 
- disk.  Add the WAR file to it.  Use a base docker image and add the wildfly build to that; creating a new image.
-In both test image building strategies the web service WAR file must be 
-available when building the image.  With arquillian the WAR file is defined within the test class.  It is generated and deployed when the test class runs.  In this image building process the maven-war-plugin is used to generate the WAR file.  The corresponding code is removed from the test class.  Generating the WAR file in this manner also means every test must exist in its own project module.</p>
+<p>In proto-typing the testing framework an exiting simple Arquillian based web service integration test will be migrated to this framework.  The complexity of the required modifications will be noted.  In my opinion the fewer the modifications the better.  I have considered creating a mock-arquillian archive that would allow the Arquillian classes referenced in the exiting test class to be ignored.  This would allow the test class to remain unaltered and useable in both Arquillian and the cloud test frameworks.  But it does not seem like a good idea for test clarity and long term code maintenance, so I will be making edits to the test class.</p>
 
-<p>In addressing the second strategy, generating a version of wildfly on local
-disk, org.wildfly.plugins:wildfly-maven-plugin is used to generate Wildfly from a Wildfly feature pack.  To that, the WAR file is copied into wildfly’s standalone/deployment directory by the plugin. The wildfly-maven-plugin has been enhanced to run Wildfly CLI-scripts.  A feature future web service cloud tests will need but is not required for this simple test case.  I find having the Wildfly code that is used in the image available locally helpful.  It makes it easy to debug any server issue with the test.</p>
+<p>As noted in <a href="https://jbossws.github.io/2023/06/16/webservices-cloud-testing-p1/">Part I</a>, I think the framework should support testing both development and released versions of WildFly. There are 2 strategies that can be used to build the image file.  One is to use a WildFly image provided in <a href="https://quay.io/wildfly">quay.io/wildfly</a> and add the web service
+deployment archive to it, creating a new image.  Two, is to generate a version of WildFly on local 
+ disk, add the deployment archive to it, use a base <em>docker</em> image, add the WildFly build to that and finally create a new image.
+In both test image building strategies the web service deployment archive must be 
+available when building the image.  With Arquillian that file is defined within the test class.  It is generated using ShrinkWrap APIs and deployed when the test class runs.  In this image building process the <a href="https://maven.apache.org/plugins/maven-war-plugin/">maven-war-plugin</a> is used to generate the deployment archive.  The corresponding code is removed from the test class.  Generating the deployment archive in this manner also means every test must exist in its own project module.</p>
 
-<p>For both strategies io.fabric8:docker-maven-plugin is used to generate a docker image from a Dockerfile provided in the project.  docker-maven-plugin is a versatile plugin with many features and options for generating Docker images and configurating the image’s run parameters.  This plugin can be used for testing.  It can start the image in Docker, run the test, stop the Docker instance and cleanup after the test.   However a more complex test case should be created to futher evaluate the capabilies of this plugin to meet the needs of our future test cases.</p>
+<p>In addressing the second strategy, generating a version of WildFly on local
+disk, <a href="https://docs.wildfly.org/wildfly-maven-plugin/">org.wildfly.plugins:wildfly-maven-plugin</a> is used to generate WildFly from a WildFly feature pack.  To that, the deployment archive is copied into WildFly’s <code class="language-plaintext highlighter-rouge">standalone/deployment</code> directory by the plugin. The wildfly-maven-plugin has been enhanced to run WildFly CLI scripts.  A feature future web service cloud tests will need but is not required for this simple test case.  I find having the WildFly code that is used in the image available locally helpful.  It makes it easy to debug any server issue with the test.</p>
 
-<p>The plugin recommended using the maven-failsafe-plugin instead of maven-surefire-plugin in running the integration test because on test failure maven-failsafe-plugin will clean up the Docker process and maven-surefire-plugin will not.  I encountered an issue using maven-failsafe-plugin in place of maven-surefire-plugin.  maven-surefire-plugin runs as a default build process.  In order to enable maven-failsafe-plugin to run I had to disable the running of surefire by excluding the test class in the plugin and including the test class in the maven-failsafe-plugin.  Also maven-failsafe-plugin requires test method names to either start or end with “IT”, so the test class had to be adjusted accordingly.
-While editing the test class I also removed the references to arquillian annotations, RunAsClient and Deployment, and junit annotation RunWith.</p>
+<p>For both strategies <a href="https://dmp.fabric8.io/">io.fabric8:docker-maven-plugin</a> is used to generate a <a href="https://www.docker.com/">docker</a> image from a <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a> provided in the project.  <em>docker-maven-plugin</em> is a versatile plugin with many features and options for generating <em>docker</em> images and configurating the image’s run parameters.  This plugin can be used for testing.  It can start the image in <em>docker</em>, run the test, stop the <em>docker</em> instance and cleanup after the test. However a more complex test case should be created to futher evaluate the capabilies of this plugin to meet the needs of our future test cases.</p>
 
-<p>A key objective of the testing framework is to be able to run the test suite on any Kuberneties compliant implementation.  io.fabric8:docker-maven-plugin does not appear to provide that versatility.  It deploys images to Docker only. However I have not found any other plugin that can deploy to any Kuberneties implementation either.</p>
+<p>The plugin recommended using the <a href="https://maven.apache.org/surefire/maven-failsafe-plugin/">maven-failsafe-plugin</a> instead of <a href="https://maven.apache.org/surefire/maven-surefire-plugin/">maven-surefire-plugin</a> in running the integration test because on test failure <em>maven-failsafe-plugin</em> will clean up the <em>docker</em> process and <em>maven-surefire-plugin</em> will not. I encountered an issue using <em>maven-failsafe-plugin</em> in place of <em>maven-surefire-plugin</em>. <em>maven-surefire-plugin</em> runs as a default build process. In order to enable <em>maven-failsafe-plugin</em> to run I had to disable the running of surefire by excluding the test class in the plugin and including the test class in the <em>maven-failsafe-plugin</em>. Also maven-failsafe-plugin requires test method names to either start or end with “IT”, so the test class had to be adjusted accordingly.
+While editing the test class I also removed the references to Arquillian annotations, <em>RunAsClient</em> and <em>Deployment</em>, and JUnit annotation <em>RunWith</em>.</p>
 
-<p>Lets review the pros and cons of this framework</p>
+<p>A key objective of the testing framework is to be able to run the test suite on any Kubernetes compliant implementation. <em>io.fabric8:docker-maven-plugin</em> does not appear to provide that versatility.  It deploys images to <em>docker</em> only. However I have not found any other plugin that can deploy to any Kubernetes implementation either.</p>
 
-<p>Pros</p>
+<p>Let’s review the pros and cons of this framework:</p>
+
+<p><em>Pros</em></p>
 <ul>
   <li>The test can be built and run via maven.</li>
   <li>The test class does not need extensive editing.</li>
 </ul>
 
-<p>Cons</p>
+<p><em>Cons</em></p>
 <ul>
-  <li>Each test will required its own project module because a WAR file must be created.</li>
-  <li>There will be a lot of duplicate boilerplate code in the pom files.</li>
+  <li>Each test will required its own project module because a deployment archive must be created.</li>
+  <li>There will be a lot of duplicate boilerplate code in the <em>pom.xml</em> files.</li>
   <li>The test class requires some edits.</li>
-  <li>There is no generic support for deploying the tests to any Kuberneties implementation.</li>
+  <li>There is no generic support for deploying the tests to any Kubernetes implementation.</li>
 </ul>
 
-<p>Source code for this proto-type project can be found <a href="https://github.com/rsearls/blog-posts/tree/master/blog-mvn-wfly-plugin">here.</a></p>
+<p>Source code for this proto-type project can be found <a href="https://github.com/rsearls/blog-posts/tree/master/blog-mvn-wfly-plugin">here</a>.</p>
 
 
 
