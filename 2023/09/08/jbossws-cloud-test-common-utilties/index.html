@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   <META HTTP-EQUIV='Content-Security-Policy'
+         CONTENT="default-src 'none'; object-src 'none'; style-src 'self' https://static.jboss.org ; script-src 'self' https://static.jboss.org ; font-src 'none'; img-src 'self' https://static.jboss.org; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
+   <META HTTP-EQUIV='X-XSS-Protection' CONTENT="1; mode=block">
+   <META HTTP-EQUIV='X-Content-Type-Options' CONTENT="nosniff">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta name="keywords" content="JBoss Web Services"/>
+   <meta name="description" content=""/>
+   <meta name="author" content=""/>
+   <meta name="robots" content="all"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+
+   <title>JBoss Web Services - JBoss Community</title>
+
+   <link rel="stylesheet" type="text/css" href="/css/clearspace_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="/css/stkdefault-styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/magnolia/styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/jquery-ui.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/project.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css" media="only screen and (min-width: 1200px)" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
+</head>
+
+    <body id="project" class="col-float3 rightcol-layout">
+    <div id="rhbar">
+   <a class="jbdevlogo" href="https://developers.redhat.com"></a>
+   <a class="rhlogo" href="https://www.redhat.com/"></a>
+</div>
+
+<div id="wrapper">
+   <div id="maincontent-wrapper">
+
+      <div id="top_subnav_branding">
+         <div id="banner">
+
+            <div style="z-index: 999; position: absolute; top: 0px; height:15px;">
+            </div>
+
+            <div id="projectname">
+               JBoss Web Services
+            </div>
+
+            <div id="tagline">Web Services Framework for WildFly</div>
+
+         </div>
+
+         <div id="proj_announce">
+            <div id="proj_logo"><h2>JBoss WS</h2></div>
+            <div id="proj_tagline"><h3>Web Services Framework for WildFly</h3></div>
+         </div>
+
+         <div id="proj_nav" class="">
+            <ul class="sf-menu">
+
+               <li class="current">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/index.html" class="menu-title">Overview</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/downloads" class="menu-title">Downloads</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="/downloads-latest"> Latest</a></li>
+                     <li class="leaf"><a href="/downloads-4x"> 4.x</a></li>
+                     <li class="leaf"><a href="/downloads-3x"> 3.x</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/docs" class="menu-title">Documentation</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/blogs" class="menu-title">Blog</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/community" class="menu-title">Community</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="https://issues.redhat.com/projects/JBWS/issues" class="menu-title">Issue Tracker</a>
+                  <ul class="level1 jiralink">
+                     <li class="leaf"><a href="https://issues.redhat.com/projects/JBWS/issues">JIRA</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/sourcecode" class="menu-title">Source Code</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://github.com/jbossws">GitHub</a></li>
+                  </ul>
+               </li>
+
+               <li id="buildmenu" class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/build" class="menu-title">Build</a>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+          <div id="wrapper-2">
+         <div id="wrap-content">
+            <div id="wrapper-3">
+               <div id="main-wrapper">
+                  <div id="main">
+                     <div id="breadcrumb">
+                       <span>
+                              <a href="/">JBossWS</a>
+                                &gt;
+                              <a href="/blogs">Blogs</a>
+                                &gt;
+                              <a href="#">The New JBossWS Kubernetes/OpenShift Test Common Utilities</a>
+                       </span>
+                     </div><!-- end breadcrumb -->
+                     <h3>The New JBossWS Kubernetes/OpenShift Test Common Utilities</h3>
+                     <h5>By Jim Ma | September 8, 2023</h5>
+                     <p></p>
+                     <p>When deploying a web service application to a cloud environment, such as a Kubernetes or OpenShift cluster, 
+it’s essential to test if everything functions as expected. We now have plenty of JBossWS tests to deploy the webservice
+deployment into WildFly server and check if the webservice application function as expected.
+These tests make use of various tools and frameworks, including <a href="https://arquillian.org/modules/shrinkwrap-shrinkwrap/">ShrinkWrap</a> to package the deployment, 
+<a href="https://arquillian.org/">Arquillian</a> to manage the WFLY instance lifecycle and deploy the application deployment into WFLY server,
+and a web service client for sending requests and receiving responses.</p>
+
+<p>To create tests that can run seamlessly within a Kubernetes environment, it needs to have the similar tool and framework for 
+preparing the Kubernetes cluster, building container images,  deploying necessary resources (such as Services, Deployments, and Pods) to the cluster, 
+and creating a client to validate the functionality of the web service running in the cloud environment.</p>
+
+<p>In the following sections, we will delve into the preparation of the Kubernetes cluster, the packaging of the web service 
+application into a container image, the deployment of various resources within the Kubernetes cluster, and 
+the creation of a client to conduct comprehensive testing of the backend web service deployed in the Kubernetes cluster. 
+Additionally, we will highlight newly developed cloud test common utilities to help create the cloud test with greater ease.</p>
+
+<h4 id="prepare-the-kubernetes-test-environment">Prepare The Kubernetes Test Environment</h4>
+<p>To test and run the cloud tests, we need have a simple Kubernetes environment. The MiniKube is the commonly used minimal 
+Kubernetes cluster for test purpose. It’s easy to install and easy to start/stop. Follow <a href="https://minikube.sigs.k8s.io/docs/start/">the minikube instructions</a>,
+to install minikube. After the minikube installation, start it with <code class="language-plaintext highlighter-rouge">minikube start</code>.
+JBossWS cloud tests need to build container image and push the image to the local registry, so the minikube registry addon is required here.
+<code class="language-plaintext highlighter-rouge">minikube addons enable registry</code> enables the container registry and exposes its port 5000 for local access.
+After the registry is ready, the image with name and tag like <code class="language-plaintext highlighter-rouge">localhost:5000/wildfly-webservice:latest</code> can be pushed to this addon container
+registry.</p>
+
+<h4 id="build-container-image">Build Container Image</h4>
+<p>Containerized application is the essential part to deploy the application to Kubernetes. 
+There are a number of tools to build the container image like the Docker or CRI-O CLI tool. 
+In a maven build project, it’s more convenient to use a maven plugin to build the image in the maven build
+lifecycle. 
+The <a href="https://dmp.fabric8.io/">fabric8 maven docker plugin</a> is a good fit for this job. 
+Build and push images can all be completed by this maven plugin. This is an example we build the image with <code class="language-plaintext highlighter-rouge">docker-maven-plugin</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;plugin&gt;
+    &lt;groupId&gt;io.fabric8&lt;/groupId&gt;
+    &lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;build-images&lt;/id&gt;
+            &lt;phase&gt;pre-integration-test&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;build&lt;/goal&gt;
+                &lt;goal&gt;push&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;images&gt;
+                    &lt;image&gt;
+                        &lt;name&gt;localhost:5000/wildfly-webservice:latest&lt;/name&gt;
+                        &lt;build&gt;
+                            &lt;from&gt;quay.io/wildfly/wildfly-runtime:latest&lt;/from&gt;
+                            &lt;assembly&gt;
+                                &lt;mode&gt;dir&lt;/mode&gt;
+                                &lt;user&gt;jboss:root&lt;/user&gt;
+                                &lt;targetDir&gt;/opt/server&lt;/targetDir&gt;
+                                &lt;inline&gt;
+                                    &lt;formats&gt;
+                                        &lt;format&gt;dir&lt;/format&gt;
+                                    &lt;/formats&gt;
+                                    &lt;fileSets&gt;
+                                        &lt;fileSet&gt;
+                                            &lt;directory&gt;target/server&lt;/directory&gt;
+                                            &lt;outputDirectory&gt;/&lt;/outputDirectory&gt;
+                                            &lt;includes&gt;
+                                                &lt;include&gt;**&lt;/include&gt;
+                                            &lt;/includes&gt;
+                                        &lt;/fileSet&gt;
+                                    &lt;/fileSets&gt;
+                                &lt;/inline&gt;
+                            &lt;/assembly&gt;
+                        &lt;/build&gt;
+                    &lt;/image&gt;
+                &lt;/images&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre></div></div>
+<p>The build maven goal is responsible for packaging the local WFLY server instance under <code class="language-plaintext highlighter-rouge">target/server</code> into image directory <code class="language-plaintext highlighter-rouge">/opt/server</code>.
+The <code class="language-plaintext highlighter-rouge">&lt;user&gt;jboss:root&lt;/user&gt;</code> corresponds to the USER Dockerfile directive to switch the jboss user and root group. This 
+image is based on <code class="language-plaintext highlighter-rouge">quay.io/wildfly/wildfly-runtime:latest</code> and new output image is <code class="language-plaintext highlighter-rouge">localhost:5000/wildfly-webservice:latest</code>.
+The push goal is taking care of the image push to the minikube’s registry.</p>
+
+<h4 id="deploy-kubernetes-resources">Deploy Kubernetes Resources</h4>
+<p>Like test against WFLY Server, the tests deploy the application deployment, JBossWS cloud tests need to deploy the various Kubernetes 
+resources like and wait them ready before testing these resources are operational
+as expected. In the coming JBossWS 7 release, we added these new test utils class based on <a href="https://junit.org/junit5/docs/current/user-guide/">Junit5 Jupiter</a>
+and <a href="https://github.com/fabric8io/kubernetes-client">fabric8 kubernetes client</a> to deploy/delete Kubernetes resources before/after
+cloud tests. These are the new created components in the test common utilities:</p>
+
+<h5 id="jbosswskubernetesintegrationtest">@JBossWSKubernetesIntegrationTest</h5>
+<p>This is the new added class to annotate the Test class and enable the JBossWSKubernetesExtension to 
+deploy/undeploy the Kubernetes resources. It must be present for the JBossWS cloud test.
+This annotation has only one value <code class="language-plaintext highlighter-rouge">kubernetesResource</code>
+now to pass the kubernetes yaml resource file to create or delete Kubernetes resources for each test.</p>
+
+<h5 id="jbosswskubernetesextension">JBossWSKubernetesExtension</h5>
+<p>JBossWSKubernetesExtension is the junit5 extension and is activated by the
+@JBossWSKubernetesIntegrationTest annotation. For jbossws cloud test user, although this class is 
+an internal class, and user doesn’t need to import or directly use this class in the cloud test, but it’s good for user 
+to know this class can help finishing these tasks :</p>
+<ul>
+  <li>Create the kubernetes client and inject it to the test instance.</li>
+  <li>Read the <code class="language-plaintext highlighter-rouge">KubernetesResource</code> file defined in @JBossWSKubernetesIntegrationTest annotation</li>
+  <li>Create and delete the loaded <code class="language-plaintext highlighter-rouge">KubernetesResource</code> in @BeforeAll and @AfterAll annotated method.</li>
+</ul>
+
+<h5 id="injectkubeclient">@InjectKubeClient</h5>
+<p>This class to denote the field or the parameter to be injected with created KubernetesClient like:
+<code class="language-plaintext highlighter-rouge">@InjectKubeClient
+private KubernetesClient k8sClient;
+</code>
+or the parameter injection:
+<code class="language-plaintext highlighter-rouge">public void  checkWSEndpoint(@InjectKubeClient KubernetesClient kubeClient) throws Exception {
+</code></p>
+<h5 id="jbosswskubernetestest">JBossWSKubernetesTest</h5>
+<p>JBossWSKubernetesTest is the base class to provide the WildFly instance readiness check in the 
+@BeforeEach annotated method. By checking the WildFly readiness <code class="language-plaintext highlighter-rouge">http://localhost:9990/health/ready</code>, it waits for the amount of time unless
+the WildFly server is ready or the timeout . The cloud test can extend this base class to have the ability to wait for 
+the WildFly server ready in the cloud environment. Here is an example of jbossws cloud test which uses these new created test common utilities classes:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@JBossWSKubernetesIntegrationTest(
+kubernetesResource = "src/test/resources/kubernetes.yml"
+)
+public class EndpointTestCase extends JBossWSKubernetesTest {
+
+    private final String APP_NAME = "jbossws-cxf-k8s-basic";
+    @Test
+    public void  checkWSEndpoint(@InjectKubeClient KubernetesClient kubeClient) throws Exception {
+        List&lt;Pod&gt; lst = kubeClient.pods().withLabel("app.kubernetes.io/name", APP_NAME).list().getItems();
+        Assertions.assertEquals(1, lst.size(), "More than one pod found with expected label " + lst);
+        Pod first = lst.get(0);
+        Assertions.assertNotNull(first, "pod isn't created");
+        Assertions.assertEquals("Running", first.getStatus().getPhase(), "Pod isn't running");
+        LocalPortForward p = kubeClient.services().withName(APP_NAME).portForward(8080);
+        Assertions.assertTrue(p.isAlive());
+        URL baseURL = new URL("http://localhost:" + p.getLocalPort() + "/" + APP_NAME + "/EndpointImpl");
+        Endpoint endpoint = initPort(baseURL);
+        String  echoed = endpoint.echo("from k8s pod");
+        Assertions.assertEquals("Echo:from k8s pod", echoed);
+    }
+</code></pre></div></div>
+<h4 id="check-deployed-webservice">Check Deployed WebService</h4>
+<p>This is the client part to send the request to the deployed webservice and verify the response. 
+It is quite same as the client for the deployed service in WildFly, the only difference is 
+to get the accessible webservice url by invoking local port forward. The port forward means expose 
+the service or pod to the local machine port that can be accessed by the created webservice in the test.
+In the above example, the<code class="language-plaintext highlighter-rouge">LocalPortForward p = kubeClient.services().withName(APP_NAME).portForward(8080);</code>
+expose the Kubernetes service port 8080 to a local random port like <code class="language-plaintext highlighter-rouge">54443</code>. The following service requests are 
+all sent to this exposed port to call this service.</p>
+
+<h4 id="summary">Summary</h4>
+<p>In the new JBossWS release, the jbossws cloud tests will be added along with the new created test common utilities. To look at the complete jbossws
+test case and the kuberentes yaml files, please go to https://github.com/jbossws/jbossws-cxf/tree/main/modules/testsuite/cloud-tests/k8s
+and look at the <code class="language-plaintext highlighter-rouge">basic</code> folder for the basic could test, <code class="language-plaintext highlighter-rouge">wstrust</code> and <code class="language-plaintext highlighter-rouge">wsse</code> for the advanced webservice cloud tests.
+For any issue, feedback and comments please let us know.</p>
+
+
+                  </div><!-- end main -->
+               </div>
+
+    <div id="rightcolumn" class="column">
+
+    <div class="projectpage-socialmedia">
+        <span class="st_sharethis_large">&nbsp;</span>
+        <span class="st_facebook_large">&nbsp;</span>
+        <span class="st_twitter_large">&nbsp;</span>
+        <span class="st_linkedin_large">&nbsp;</span>
+        <span class="st_email_large">&nbsp;</span>
+    </div>
+
+
+    <div id="proj_quick-start">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="/downloads-latest/">Download</a></li>
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/blogs">Blog</a></li>
+            <li><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
+            <li><a href="https://github.com/jbossws">Code</a></li>
+            <li><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
+        </ul>
+    </div>
+
+    <div class="clear"><br/></div>
+
+    <div class="uploaded-img">
+
+        <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+            <img width="180" alt="" height="75"
+                 src="/img/logo_jprofiler01.gif"
+                 style="margin:0 auto;"/>
+
+        </a>
+    </div>
+
+    <h5>We use JProfiler for profiling</h5>
+
+    <table>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+
+
+    <div>
+        <a href="https://www.jboss.org/security.html">
+            <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+        </a>
+    </div>
+</div>
+
+</div><!-- end wrapper-3 -->
+
+</div><!-- end wrapper-content -->
+<div style="clear: both;"></div>
+</div><!-- end wrapper-2 -->
+</div>
+       <div id="site-info">
+      <div>
+      </div>
+
+      <div class="footer">
+         <div class="container" id="companyfooter">
+            <div class="redhatlogo" style="text-align:center;">
+               <div id="logospacer"></div>
+               <a href="https://www.redhat.com/">
+                  <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div><!-- end site-info -->
+</div><!-- end wrapper -->
+
+    </body>
+</html>
