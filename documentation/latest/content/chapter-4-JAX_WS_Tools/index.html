@@ -715,7 +715,6 @@ options:
   -w  --wsdlLocation=&lt;loc&gt;    Value to use for @WebServiceClient.wsdlLocation
   -o, --output=&lt;directory&gt;    The directory to put generated artifacts
   -s, --source=&lt;directory&gt;    The directory to put Java source
-  -t, --target=&lt;2.1|2.2&gt;      The JAX-WS specification target
   -q, --quiet                 Be somewhat more quiet
   -v, --verbose               Show full exception stack traces
   -l, --load-consumer         Load the consumer and exit (debug utility)
@@ -889,12 +888,6 @@ mode; can be used to set endorse dir, enable debugging, etc. <strong><em>Example
 <td class="tableblock halign-left valign-top"><p class="tableblock">fork</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not to run the generation task in a separate VM.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">target</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A preference for the JAX-WS specification target</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Depends on
-the underlying stack and endorsed dirs if any</p></td>
 </tr>
 </tbody>
 </table>
@@ -1118,12 +1111,6 @@ the following attributes:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sourcedestdir</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The output directory for Java source.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">value of destdir</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">target</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The JAX-WS specification target. Allowed values are 2.0, 2.1
-and 2.2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"> </p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">verbose</p></td>
