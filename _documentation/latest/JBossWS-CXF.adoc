@@ -1,7 +1,7 @@
 ---
 layout:     default
 title:       "JBossWS Documentation"
-subtitle:    "6.2.1-SNAPSHOT"
+subtitle:    "7.1.0-SNAPSHOT"
 link:        docs
 ---
 = JBossWS Documentation
