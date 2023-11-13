@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory">Chapter 6. JBoss Modules</title><link rel="stylesheet" href="css/jbossorg.css" type="text/css"/><meta xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" name="generator" content="DocBook XSL Stylesheets V1.72.0"/><link rel="start" href="index.html" title="JBoss Web Services Documentation"/><link rel="up" href="index.html" title="JBoss Web Services Documentation"/><link rel="prev" href="sid-3866738.html" title="Chapter 5. Advanced User Guide"/><link rel="next" href="sid-3735917.html" title="Chapter 7. Legal Notice"/></head><body><p id="title"><a href="http://www.jboss.org" class="site_href"><strong>JBoss.org</strong></a><a href="http://docs.jboss.org/" class="doc_href"><strong>Community Documentation</strong></a></p><ul class="docnav"><li class="previous"><a accesskey="p" href="sid-3866738.html"><strong>Prev</strong></a></li><li class="next"><a accesskey="n" href="sid-3735917.html"><strong>Next</strong></a></li></ul><div class="chapter" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="sid-4784150"/>Chapter 6. JBoss Modules</h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="sid-4784150.html#sid-4784150_JBossModules-Settingmoduledependencies">6.1. Setting module dependencies</a></span></dt><dd><dl><dt><span class="section"><a href="sid-4784150.html#sid-4784150_JBossModules-UsingMANIFEST.MF">6.1.1. Using MANIFEST.MF</a></span></dt><dt><span class="section"><a href="sid-4784150.html#sid-4784150_JBossModules-Usingjbossdeploymentdescriptor.xml">6.1.2. Using jboss-deployment-descriptor.xml</a></span></dt></dl></dd></dl></div><p>The JBoss Web Services functionalities are provided by a given set of modules / libraries installed on the server.</p><p>
+      On WildFly, those are organized into JBoss Modules modules. In particular the
+      <span class="italics">org.jboss.as.webservices.*</span>
+      and
+      <span class="italics">org.jboss.ws.*</span>
+      modules belong to  the JBossWS - WildFly integration. Users should not need to change anything  in them.
+    </p><p>While users are of course allowed to provide their own modules for their custom needs, below is a brief collection of suggestions and hints around modules and webservices development on WildFly.</p><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="sid-4784150_JBossModules-Settingmoduledependencies"/>6.1. Setting module dependencies</h2></div></div></div><p>
+        On WildFly the user deployment classloader does not have any  visibility over JBoss internals; so for instance you can't
+        <span class="italics">directly</span>
+        use  JBossWS
+        <span class="italics">implementation</span>
+        classes unless you explicitly set a dependency to the corresponding module. As a consequence, users need to declare the module dependencies they want to be added to their deployment.
+      </p><div xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="important"><h2>Important</h2><p>The JBoss Web Services APIs are always available by default whenever the webservices subsystem is available on AS7. So users just use them, no need for explicit dependencies declaration for those modules.</p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="sid-4784150_JBossModules-UsingMANIFEST.MF"/>6.1.1. Using MANIFEST.MF</h3></div></div></div><p>The convenient method for configuring deployment dependencies is adding them into the MANIFEST.MF file:</p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">Manifest-Version: 1.0
+Dependencies: org.jboss.ws.cxf.jbossws-cxf-client services export,foo.bar</pre></div><p>
+          Here above
+          <span class="italics">org.jboss.ws.cxf.jbossws-cxf-client</span>
+          and
+          <span class="italics">foo.bar</span>
+          are the modules you want to set dependencies to;
+          <span class="italics">services</span>
+          tells the modules framework that you want to also import
+          <span class="italics">META-INF/services/..</span>
+          declarations from the dependency, while
+          <span class="italics">export</span>
+          exports the classes from the module to any other module that might be depending on the module implicitly created for your deployment.
+        </p><div xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note"><h2>Note</h2><p>When using annotations on your endpoints / handlers such as the Apache CXF ones (@InInterceptor, @GZIP, ...) remember to add the proper module dependency in your manifest. Otherwise your annotations are not picked up and added to the annotation index by WildFly, resulting in them being completely and silently ignored.</p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h4 class="title"><a id="sid-4784150_JBossModules-UsingJAXB"/>6.1.1.1. Using JAXB</h4></div></div></div><p>In  order for successfully directly using JAXB contexts, etc. in your client or  endpoint running in-container, you need to properly setup a JAXB  implementation; that is performed setting the following dependency:</p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">Dependencies: com.sun.xml.bind services export</pre></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h4 class="title"><a id="sid-4784150_JBossModules-UsingApacheCXF"/>6.1.1.2. Using Apache CXF</h4></div></div></div><p>
+            In order for using Apache CXF APIs and implementation classes you need to add a dependency to the
+            <span class="italics">org.apache.cxf</span>
+            (API) module and / or
+            <span class="italics">org.apache.cxf.impl</span>
+            (implementation) module:
+          </p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">Dependencies: org.apache.cxf services</pre></div><p>However, please note that would not come with any JBossWS-CXF customizations nor additional extensions. For this reason, and generally speaking for simplifying user configuration, a client side aggregation module is available with all the WS dependencies users might need.</p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h4 class="title"><a id="sid-4784150_JBossModules-ClientsideWSaggregationmodule"/>6.1.1.3. Client side WS aggregation module</h4></div></div></div><p>Whenever you simply want to use all the JBoss Web Services  feature/functionalities, you can set a dependency to the convenient  client module.</p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">Dependencies: org.jboss.ws.cxf.jbossws-cxf-client services</pre></div><p>
+            Please note the
+            <span class="italics">services</span>
+            option above: that's strictly required in order for you to get the  JBossWS-CXF version of classes that are retrieved using the
+            <span class="italics">Service API</span>
+            ,  the
+            <code class="code">Bus</code>
+            for instance.
+          </p><div xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="note"><h2>Note</h2><p>Be careful as issues because of misconfiguration here can be  quite hard to track down, because the Apache CXF behaviour would be  sensibly different.</p></div><p>
+            
+          </p><div xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="important"><h2>Important</h2><p>
+              The
+              <span class="italics">services</span>
+              option is almost always needed when declaring dependencies on
+              <span class="italics">org.jboss.ws.cxf.jbossws-cxf-client</span>
+              and
+              <span class="italics">org.apache.cxf</span>
+              modules. The reason for this is in it affecting the loading of classes through the
+              <span class="italics">Service API</span>
+              , which is what is used to wire most of the JBossWS components as well as all Apache CXF Bus extensions.
+            </p></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h4 class="title"><a id="sid-4784150_JBossModules-Annotationscanning"/>6.1.1.4. Annotation scanning</h4></div></div></div><p>
+            The application server uses an annotation index for detecting JAX-WS endpoints in user deployments. When declaring WS endpoints whose class belongs to a different module (for instance referring that in the
+            <code class="code">web.xml</code>
+            descriptor), be sure to have an
+            <code class="code">annotations</code>
+            type dependency in place. Without that, your endpoints would simply be ignored as they won't appear as annotated classes to the webservices subsystem.
+          </p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">Dependencies: org.foo annotations</pre></div></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="sid-4784150_JBossModules-Usingjbossdeploymentdescriptor.xml"/>6.1.2. Using jboss-deployment-descriptor.xml</h3></div></div></div><p>In some circumstances, the convenient approach of setting module dependencies in MANIFEST.MF might not work. An example is the need for importing/exporting specific resources from a given module dependency. Users should hence add a jboss-deployment-structure.xml descriptor to their deployment and set module dependencies in it.</p></div></div></div><ul class="docnav"><li class="previous"><a accesskey="p" href="sid-3866738.html"><strong>Prev</strong>Chapter 5. Advanced User Guide</a></li><li class="up"><a accesskey="u" href="#"><strong>Top of page</strong></a></li><li class="home"><a accesskey="h" href="index.html"><strong>Front page</strong></a></li><li class="next"><a accesskey="n" href="sid-3735917.html"><strong>Next</strong>Chapter 7. Legal Notice</a></li></ul></body></html>
