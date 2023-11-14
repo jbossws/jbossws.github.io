@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory">Chapter 8. Build and testsuite framework</title><link rel="stylesheet" href="css/jbossorg.css" type="text/css"/><meta xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" name="generator" content="DocBook XSL Stylesheets V1.72.0"/><link rel="start" href="index.html" title="JBoss Web Services Documentation"/><link rel="up" href="index.html" title="JBoss Web Services Documentation"/><link rel="prev" href="sid-3735917.html" title="Chapter 7. Legal Notice"/><link rel="next" href="app-Revision_History-JBoss_Web_Services_Documentation.html" title="Appendix A. Revision History"/></head><body><p id="title"><a href="http://www.jboss.org" class="site_href"><strong>JBoss.org</strong></a><a href="http://docs.jboss.org/" class="doc_href"><strong>Community Documentation</strong></a></p><ul class="docnav"><li class="previous"><a accesskey="p" href="sid-3735917.html"><strong>Prev</strong></a></li><li class="next"><a accesskey="n" href="app-Revision_History-JBoss_Web_Services_Documentation.html"><strong>Next</strong></a></li></ul><div class="chapter" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="sid-88703514"/>Chapter 8. Build and testsuite framework</h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-Introduction">8.1. Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-Prerequisitesandrequirements">8.1.1. Prerequisites and requirements</a></span></dt></dl></dd><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-Architectureoverview">8.2. Architecture overview</a></span></dt><dd><dl><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-TargetContainerIdentification">8.2.1. Target Container Identification</a></span></dt><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-PortMapping">8.2.2. Port Mapping</a></span></dt></dl></dd><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-CommandLineOptions">8.3. Command Line Options</a></span></dt><dd><dl><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-Profile">8.3.1. Profile</a></span></dt><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-Options">8.3.2. Options</a></span></dt><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-Examples">8.3.3. Examples</a></span></dt></dl></dd><dt><span class="section"><a href="sid-88703514.html#sid-88703514_Buildandtestsuiteframework-Containerremotedebugging">8.4. Container remote debugging</a></span></dt></dl></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="sid-88703514_Buildandtestsuiteframework-Introduction"/>8.1. Introduction</h2></div></div></div><p>
+        The JBossWS project build and testsuites have been completely revisited in version 5.0.0.Beta3. As a result, JBossWS uses the
+        <span class="italics">Arquillian</span>
+        framework to run its integration tests against WildFly containers.
+      </p><p>
+        There are two test modules in JBossWS' testsuite,
+        <span class="italics">cxf-tests</span>
+        and
+        <span class="italics">shared-tests</span>
+        .  Each test module requires at least one
+        <span class="italics">WildFly</span>
+        container to run; multiple containers are used for modules whose tests can't run at the same time on the same container. By default, containers are managed (started / stopped) by Arquillian.The JBossWS build system fetches a copy of the required container from the Maven repository, unpacks it, patches it installing the current webservices stack on it and finally hands it over to Arquillian for the testsuite runs. The test framework also allows letting Arquillian manage an already available container instance on the local filesystem. Finally, it's also possible to execute single tests against a locally running container (non-Arquillian managed) and run the tests concurrently.
+      </p><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="sid-88703514_Buildandtestsuiteframework-Prerequisitesandrequirements"/>8.1.1. Prerequisites and requirements</h3></div></div></div><div class="itemizedlist"><ul><li><p>Maven version 3.2.2 or higher is required to build and run the testsuite.</p></li><li><p>A unique class name for each test across the testsuite's three child modules; classes may have the same package name across the child modules but the overall full-qualified name has to be unique to avoid breaking concurrent tests runs.</p></li></ul></div></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="sid-88703514_Buildandtestsuiteframework-Architectureoverview"/>8.2. Architecture overview</h2></div></div></div><p>When the build fetches the a container from the Maven repository, a patched copy of it is put within the target/test-server sub-directory of each testsuite module. For instance, you could have:</p><div class="sidebar"><p class="title"><b/></p><p>
+          ./modules/testsuite/cxf-tests/target/test-server/jbossws-cxf-dist-5.0.0-SNAPSHOT/wildfly-8.1.0.Final
+          
+          ./modules/testsuite/shared-tests/target/test-server/jbossws-cxf-dist-5.0.0-SNAPSHOT/wildfly-8.1.0.Final
+        </p></div><p>
+        Each container copy is also provided with specific standalone mode configuration files (
+        <span class="italics">jbws-testsuite-SOME_IDENTIFIER.xml</span>
+        ) in the
+        <code class="code">standalone/configuration</code>
+        server directory. The actual contents of such descriptors depends on the tests that are to be run against such container configurations (the most common difference when compared to the vanilla standalone.xml is the setup op additional security domains, system properties, web connectors etc.) Each configuration also includes logging setup to ensure logs are written to unique files (
+        <span class="italics">jbws-testsuite-SOME_IDENFIFIER.log</span>
+        ) in
+        <code class="code">standalone/log</code>
+        directory.
+      </p><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="sid-88703514_Buildandtestsuiteframework-TargetContainerIdentification"/>8.2.1. Target Container Identification</h3></div></div></div><p>
+          JBossWS supports the current WildFly release and several back versions for testing. See the
+          <a xmlns:xlink="http://www.w3.org/1999/xlink" href="https://community.jboss.org/wiki/JBossWS-SupportedTargetContainers">supported target containers</a>
+          page for details.
+          
+          Maven profiles are used to identify the target container to be used for testing. The naming convention is
+          <span class="italics">wildflyXYZ</span>
+          , for example
+          <span class="italics">wildfly820</span>
+          to mean WIldFly 8.2.0.Final.
+        </p><p>
+          To run tests against an existing local copy of a WildFly container, the user must specify the absolute path to the server implementation's home directory using the command line option,
+          <span class="italics">-Dserver.home=/foo/bar</span>
+          . The server is not expected to be running, as the build will create various standalone server configurations and start multiple instances on different port numbers. However, if a single test of few tests are executed only, the user can have those executed against live WildFly instances previously started on the same port numbers expected by the tests. Arquillian is configured to detect such scenario and use the available server.
+        </p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="sid-88703514_Buildandtestsuiteframework-PortMapping"/>8.2.2. Port Mapping</h3></div></div></div><p>
+          To facilitate concurrent testing a port offset has been defined for each of the server configurations.  The offsets are defined in the
+          <code class="code">&lt;properties&gt;</code>
+          element of the
+          <code class="code">modules/testsuite/pom.xml</code>
+          file.
+        </p></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="sid-88703514_Buildandtestsuiteframework-CommandLineOptions"/>8.3. Command Line Options</h2></div></div></div><p>As any other Maven-based project, JBossWS is built as follows:</p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">mvn -P[profile] -D[options] [phase]</pre></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="sid-88703514_Buildandtestsuiteframework-Profile"/>8.3.1. Profile</h3></div></div></div><p>JBossWS uses Maven profiles to declare the target container and other types of environment setup. Multiple profiles are provided as a comma separated list of profile names. Only a single target container profile is allowed at the same time though.</p><div class="informaltable"><table border="1"><colgroup><col/><col/></colgroup><thead><tr><th>
+                  <p>Profile</p>
+                </th><th>
+                  <p>
+                    Description
+                    
+                  </p>
+                </th></tr></thead><tbody><tr><td>
+                  <p>
+                    <code class="code">wildflyXYZ</code>
+                    
+                  </p>
+                </td><td>
+                  <p>Designates the target container to use, where XYZ is WildFly's  three digit version number</p>
+                </td></tr><tr><td>
+                  <p>
+                    <code class="code">fast</code>
+                    
+                  </p>
+                </td><td>
+                  <p>
+                    Declares the tests are to be run concurrently
+                    
+                  </p>
+                </td></tr><tr><td>
+                  <p>
+                    <code class="code">dist</code>
+                    
+                  </p>
+                </td><td>
+                  <p>
+                    Explicitly includes
+                    <span class="italics">dist</span>
+                    module in the build; by default this is automatically triggered (only) when a
+                    <code class="code">wildflyXYZ</code>
+                    profile is set.
+                    
+                  </p>
+                </td></tr><tr><td>
+                  <p>
+                    <code class="code">testsuite</code>
+                    
+                  </p>
+                </td><td>
+                  <p>
+                    Explicitly includes the testsuite modules in the build; by default this is automatically triggered (only) when a
+                    <code class="code">wildflyXYZ</code>
+                    profile is set.
+                  </p>
+                </td></tr></tbody></table></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="sid-88703514_Buildandtestsuiteframework-Options"/>8.3.2. Options</h3></div></div></div><p>Below is a list of the available build / test options:</p><div class="informaltable"><table border="1"><colgroup><col/><col/></colgroup><thead><tr><th>
+                  <p>Option</p>
+                </th><th>
+                  <p>
+                    Description
+                    
+                  </p>
+                </th></tr></thead><tbody><tr><td>
+                  <p>
+                    server.home
+                    
+                  </p>
+                </td><td>
+                  <p>
+                    Declares the absolute path to a given local server instance.
+                    
+                  </p>
+                </td></tr><tr><td>
+                  <p>exclude-udp-tests</p>
+                </td><td>
+                  <p>Force skipping the UDP tests. This option might be needed when running on a network that does not allow UDP broadcast.</p>
+                </td></tr><tr><td>
+                  <p>
+                    nodeploy
+                    
+                  </p>
+                </td><td>
+                  <p>
+                    Do not upgrade the WS stack on the target server container.
+                    
+                  </p>
+                </td></tr><tr><td>
+                  <p>
+                    noprepare
+                    
+                  </p>
+                </td><td>
+                  <p>Skip integration tests preparation phase, which includes tuning of the server configurations, wsconsume/wsprovide invocations, etc.</p>
+                </td></tr><tr><td>
+                  <p>
+                    debug
+                    
+                  </p>
+                </td><td>
+                  <p>Turns on Surefire debugging of integration tests only. Debugging address is 5005.</p>
+                </td></tr><tr><td>
+                  <p>jboss.bind.address</p>
+                </td><td>
+                  <p>Starts the containers bound to the specified network interface address.</p>
+                </td></tr><tr><td>
+                  <p>arquillian.deploymentExportPath</p>
+                </td><td>
+                  <p>
+                    Instructs Arquillian to write the actual test deployments to disk in the specified module sub-directory.
+                    
+                  </p>
+                </td></tr><tr><td>
+                  <p>
+                    test
+                    
+                  </p>
+                </td><td>
+                  <p>
+                    Runs the test in the specified comma-separated list of JUnit classes
+                    
+                  </p>
+                </td></tr><tr><td>
+                  <p>
+                    maven.surefire.debug
+                    
+                  </p>
+                </td><td>
+                  <p>
+                    Turns on Surefire debugging in any module including tests.
+                    
+                  </p>
+                </td></tr></tbody></table></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="sid-88703514_Buildandtestsuiteframework-Examples"/>8.3.3. Examples</h3></div></div></div><p>Build the project, deploy the WS stack to a local copy of WildFly 8.2.0.Final and run the testsuite:</p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">mvn -Pwildfly820 -Dserver.home=/foo/wildfly-8.2.0.Final integration-test</pre></div><p>
+          Use
+          <span class="italics">WildFly 8.1.0.Final</span>
+          as the target container (letting the build fetch it), patch it with current WS stack and run only test
+          <span class="italics">MtomTestCase</span>
+          that is located in the
+          <span class="italics">cxf-test</span>
+          module:
+        </p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">mvn -Pwildfly810 integration-test -Dtest="org/jboss/test/ws/jaxws/samples/MtomTestCase"</pre></div><p>Build, deploy, then run the tests concurrently. Run till Maven post-integration-test phase to trigger test servers shutdown and save memory at the end of each testsuite module:</p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">mvn -Pfast,wildfly810 post-integration-test</pre></div><p>Completely clean the project:</p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">mvn -Pdist,testsuite clean</pre></div><p>Build the WS stack and install it on a specified server instance without running the integration testsuite:</p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">mvn -Pwildfly900 -Dserver.home=/foo/wildfly-9.0.0.Alpha2-SNAPSHOT package</pre></div><p>
+          When a server.home option is not provided, the build creates a zip archive with a vanilla WildFly server patched with the current WS stack: the zip file path is modules/dist/target/jbossws-cxf-dist-${
+          <span class="strong"><strong>project.version}</strong></span>
+          -wildflyXYZ.zip
+        </p><div class="informalexample"><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="">mvn -Pwildfly810 package</pre></div></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="sid-88703514_Buildandtestsuiteframework-Containerremotedebugging"/>8.4. Container remote debugging</h2></div></div></div><p>While debugging the a testcase is simply a matter of providing the -Ddebug option, remote debugging the container code that runs the WS stack requires few additional setup steps. The suggested approach is to identify a single test to run; before actually running the test, manually start a target container in debug mode and specifying the proper port offset and server configuration (have a look at the arquillian.xml decriptors in the testsuite). Then run the tests with -Dserver.home=... option pointing to the home dir for the server currently running.</p></div></div><ul class="docnav"><li class="previous"><a accesskey="p" href="sid-3735917.html"><strong>Prev</strong>Chapter 7. Legal Notice</a></li><li class="up"><a accesskey="u" href="#"><strong>Top of page</strong></a></li><li class="home"><a accesskey="h" href="index.html"><strong>Front page</strong></a></li><li class="next"><a accesskey="n" href="app-Revision_History-JBoss_Web_Services_Documentation.html"><strong>Next</strong>Appendix A. Revision History</a></li></ul></body></html>
