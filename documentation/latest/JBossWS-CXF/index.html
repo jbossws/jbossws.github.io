@@ -187,6 +187,7 @@
 <li><a href="#asynchronous-invocations">3.2.5. Asynchronous Invocations</a></li>
 <li><a href="#oneway-invocations">3.2.6. Oneway Invocations</a></li>
 <li><a href="#timeout-configuration">3.2.7. Timeout Configuration</a></li>
+<li><a href="#http2-support">3.2.8. HTTP/2 Support</a></li>
 </ul>
 </li>
 <li><a href="#common-api">3.3. Common API</a>
@@ -1828,6 +1829,31 @@ client receive time out:</p>
    port.echo("testTimeout");
 }</pre>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="http2-support">3.2.8. HTTP/2 Support</h4>
+<div class="paragraph">
+<p>Starting from JBossWS 7.1.0, the new default CXF HTTP client transport supports HTTP/2 by default.
+The client automatically uses HTTP/2 if the HTTP/2 is supported by server. Otherwise, it falls back to
+HTTP/1.1.
+The client http version can be defined with the <code>org.apache.cxf.transport.http.forceVersion</code> property.
+This property can be set to system or bus property. Below is an example illustrating how
+to enforce http version to 1.1:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code> BusFactory.getDefaultBus().setProperty("org.apache.cxf.transport.http.forceVersion", "1");
+ HelloWorld port = getPort();
+ String response = port.echo("hello");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>CXF offers the contextual property <code>force.urlconnection.http.conduit"</code> to switch to the old cxf
+client that is using java.net.HttpURLConnection/javax.net.ssl.HttpsURLConnection. It supports
+HTTP/1.1 by default and has better performance. If client performance is a priority and HTTP/2 support is unnecessary,
+this option provides a means to switch back to the previous default client.
+For more information, please check out [CXF documentation](<a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=49941#ClientHTTPTransport(includingSSLsupport)-DefaultClientTransport" class="bare">https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=49941#ClientHTTPTransport(includingSSLsupport)-DefaultClientTransport</a>).</p>
 </div>
 </div>
 </div>
