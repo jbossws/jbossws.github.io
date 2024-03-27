@@ -1834,25 +1834,29 @@ client receive time out:</p>
 <div class="sect3">
 <h4 id="http2-support">3.2.8. HTTP/2 Support</h4>
 <div class="paragraph">
-<p>Starting from JBossWS 7.1.0, the new default CXF HTTP client transport supports HTTP/2 by default.
-The client automatically uses HTTP/2 if the HTTP/2 is supported by server. Otherwise, it falls back to
-HTTP/1.1.
-The client http version can be defined with the <code>org.apache.cxf.transport.http.forceVersion</code> property.
-This property can be set to system or bus property. Below is an example illustrating how
-to enforce http version to 1.1:</p>
+<p>Starting from JBossWS 7.1.0,the new CXF HTTP client transport has been created to better support HTTP/2.
+This client which is using java.net.http.HttpClient now seamlessly upgrades to HTTP/2 if supported by the server.
+Otherwise, it falls back to HTTP/1.1. To enable this new client, you must ensure that the
+contextual property <code>force.urlconnection.http.conduit</code> is explicitly set to false, either in the System
+properties or the Bus. Otherwise, the default(old) client which based on java.net.HttpURLConnection/javax.net.ssl.HttpsURLConnection
+is enabled.</p>
+</div>
+<div class="paragraph">
+<p>To http version for the new client can be defined with the <code>org.apache.cxf.transport.http.forceVersion</code> property.
+This property can be set to system or bus property. Below is an example illustrating how to enable this new client
+and enforce the http version to 1.1:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code> BusFactory.getDefaultBus().setProperty("org.apache.cxf.transport.http.forceVersion", "1");
+<pre class="highlight"><code> BusFactory.getDefaultBus().setProperty("force.urlconnection.http.conduit", false);
+ BusFactory.getDefaultBus().setProperty("org.apache.cxf.transport.http.forceVersion", "1.1");
  HelloWorld port = getPort();
  String response = port.echo("hello");</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>CXF offers the contextual property <code>force.urlconnection.http.conduit"</code> to switch to the old cxf
-client that is using java.net.HttpURLConnection/javax.net.ssl.HttpsURLConnection. It supports
-HTTP/1.1 by default and has better performance. If client performance is a priority and HTTP/2 support is unnecessary,
-this option provides a means to switch back to the previous default client.
+<p>But from our tests, this new http client is a bit slower than the old client. Therefore, it&#8217;s only recommended to consider using it when the client performance
+isn&#8217;t critical and HTTP/2 support is required.
 For more information, please check out [CXF documentation](<a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=49941#ClientHTTPTransport(includingSSLsupport)-DefaultClientTransport" class="bare">https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=49941#ClientHTTPTransport(includingSSLsupport)-DefaultClientTransport</a>).</p>
 </div>
 </div>
