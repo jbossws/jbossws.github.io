@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:       "JBossWS 7.1.0.Final is released!"
+title:      "JBossWS 7.1.0.Final is released!"
 subtitle:   ""
 date:       Mar 29,2024 10:25 AM
 author:     Jim Ma
