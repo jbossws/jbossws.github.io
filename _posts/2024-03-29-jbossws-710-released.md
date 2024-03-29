@@ -2,7 +2,7 @@
 layout:     post
 title:      "JBossWS 7.1.0.Final is released!"
 subtitle:   ""
-date:       Mar 29,2024 10:25 AM
+date:       Mar 27, 2024
 author:     Jim Ma
 ---
 JBossWS-CXF 7.1.0.Final has been released. This release contains several bug fixes, test enhancements and components upgrades.
