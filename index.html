@@ -128,10 +128,11 @@
                      </div>
                      <div style="" id="alert-content-1-1180310962" class="alert-content">
                         <div class="rendered-content">
-                           <p>JBossWS-CXF 7.1.0.Final has been released. This release contains several bug fixes, test enhancements and components upgrades. 
-The notable upgrades are the CXF 4.0.4 upgrade which resolved <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-28752">CVE-2024-28752</a> 
-and XmlSec(santuario) 3.0.3 upgrade resolved <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-44483">CVE-2023-44483</a>. The CXF upgrade introduced the new CXF http client which is using java.net.http.HttpClient from JDK to better support HTTP/2.From 7.1.0.Final, 
-we started to use Java 21 to build and run testsuite to make sure everything works with this latest version JDK.</p>
+                           <p>JBossWS-CXF 7.1.0.Final has been released. This release contains several bug fixes, test enhancements and components upgrades.
+The notable upgrades are the CXF 4.0.4 upgrade which resolved <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-28752">CVE-2024-28752</a>
+and XmlSec(santuario) 3.0.3 upgrade resolved <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-44483">CVE-2023-44483</a>. The CXF upgrade introduced the new CXF http client which is using java.net.http.HttpClient
+from JDK to better support HTTP/2, but this is the preview feature and user can enable this new client by setting system property or bus property.
+From 7.1.0.Final,we started to use Java 21 to build and run testsuite to make sure everything works with this latest version JDK.</p>
 
 <p>For more detailed info and full list of issue in this release, please check <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12414901">release notes</a>.
 Please try this release out and give us your feedback!</p>

@@ -117,233 +117,35 @@
                   <div id="main">
                      <div id="breadcrumb">
                        <span>
-                              <a href="/">JBoss Web Services</a>
+                              <a href="/">JBossWS</a>
                                 &gt;
                               <a href="/blogs">Blogs</a>
                                 &gt;
-                              <a href="#"></a>
+                              <a href="#">The new webserivce http client in jbossws-cxf-7.1.0.Final</a>
                        </span>
                      </div><!-- end breadcrumb -->
-                     
-<div class="post-preview">
-    <a href="/2024/03/27/new-webservice-client/">
-        <h3 class="post-title"> The new webserivce http client in jbossws-cxf-7.1.0.Final
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on March 27, 2024</p>
-</div>
-<hr>
+                     <h3>The new webserivce http client in jbossws-cxf-7.1.0.Final</h3>
+                     <h5>By Jim Ma | March 27, 2024</h5>
+                     <p></p>
+                     <p>From jbossws-cxf-7.1.0.Final, we upgraded the CXF to 4.0.4. With this CXF upgrade, 
+the new webservice client is included in jbossws-cxf-7.1.0.Final and WFLY 32.0.0.Beta1.
+This new CXF webservice client is going to replace the old webservice http client which is 
+using URLConnection with the new java.net.http.HttpClient. This new CXF http client mainly brings the HTTP/2 
+support without other dependency, and user doesn’t need to set anything else if server supports HTTP/2.
+Due to some important issues like the <a href="https://issues.apache.org/jira/browse/CXF-8951">massive threads created</a> and 
+<a href="https://bugs.openjdk.org/browse/JDK-8277519">performance issue</a> in this new http client, 
+jbossws-cxf disable this new webserivce http client by default and still switch to the old http client based on HTTPURLConnection.
+To enable this new webservice client, user should explicitly set the <code class="language-plaintext highlighter-rouge">force.urlconnection.http.conduit</code> to <code class="language-plaintext highlighter-rouge">false</code> 
+in system property or bus property like:</p>
 
-<div class="post-preview">
-    <a href="/2024/03/27/jbossws-710-released/">
-        <h3 class="post-title"> JBossWS 7.1.0.Final is released!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on March 27, 2024</p>
-</div>
-<hr>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> BusFactory.getDefaultBus().setProperty("force.urlconnection.http.conduit", false);
+ BusFactory.getDefaultBus().setProperty("org.apache.cxf.transport.http.forceVersion", "2");
+ HelloWorld port = getPort();
+ String response = port.echo("hello");
+</code></pre></div></div>
 
-<div class="post-preview">
-    <a href="/2023/10/13/jbossws-7.0.0.final-is-released/">
-        <h3 class="post-title"> JBossWS 7.0.0.Final is out !
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on October 13, 2023</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2023/09/08/jbossws-cloud-test-common-utilties/">
-        <h3 class="post-title"> The New JBossWS Kubernetes/OpenShift Test Common Utilities
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on September 8, 2023</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2023/06/23/webservices-cloud-testing-p2/">
-        <h3 class="post-title"> Web Services testing in the cloud - Part II
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Rebecca Searls on June 23, 2023</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2023/06/16/webservices-cloud-testing-p1/">
-        <h3 class="post-title"> Web Services testing in the cloud - Part I
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Rebecca Searls on June 16, 2023</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2023/04/18/jbossws-cxf-galleon-feature-pack/">
-        <h3 class="post-title"> JBossWS Galleon Feature Pack
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on April 18, 2023</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2023/04/17/what-is-new-in-jbossws-cxf-630final/">
-        <h3 class="post-title"> What's New in the Upcoming JBossWS 6.3.0 Release
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on April 17, 2023</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2023/02/14/jbossws-620final-is-released/">
-        <h3 class="post-title"> JBossWS 6.2.0.Final is released !
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on February 14, 2023</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/09/28/Testsuite-Transitioned-to-Wildfly-CLI-scripts/">
-        <h3 class="post-title"> Testsuite Transitioned to WildFly CLI scripts
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Rebecca Searls on September 28, 2022</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/09/07/jbossws-610final-is-released/">
-        <h3 class="post-title"> JBossWS 6.1.0.Final is released !
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on September 7, 2022</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/06/21/jbossws-600final-is-released/">
-        <h3 class="post-title"> JBossWS 6.0.0.Final is released !
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on June 21, 2022</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/01/13/jbossws-550final-is-released/">
-        <h3 class="post-title"> JBossWS 5.5.0.Final is released !
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on January 13, 2022</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/01/06/jbossws-log4j-cve/">
-        <h3 class="post-title"> Log4j CVE and JBossWS project
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on January 6, 2022</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2021/05/07/jbossws-544final-is-released/">
-        <h3 class="post-title"> JBossWS 5.4.4.FInal is released !
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by Jim Ma on May 7, 2021</p>
-</div>
-<hr>
-
-
-<!-- Pager -->
-<p align="center">
-
-    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-        <a href="/blogs/page2">Older Posts &rarr;</a>
-    
+<p>Due to this isn’t mature and possibly more issues will be found by the community user.
+It isn’t recommended to use this in production unless performance isn’t a factor and HTTP/2 is required to support.</p>
 
 
 
