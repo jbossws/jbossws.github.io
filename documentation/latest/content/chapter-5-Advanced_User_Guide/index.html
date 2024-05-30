@@ -10508,6 +10508,57 @@ enabled for the endpoint defined by the contract above.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="throtlling">Throtlling</h3>
+<div class="paragraph">
+<p>The throttling feature allows server to limit the number of request when the server is busy or
+there are a lot of faults by some requests. This can protect server from being overwhelmed and server resource is used
+out.
+From JBossWS 7.2.0, the `JBossWSThrottlingFeature' is provided to support Throtlling for JBossWS and WFLY
+users. As each ThrotllingFeature needs a ThrolltingManager to do the actual work, the 'EndpointMetricsThrottlingManager' is created
+to throttle or limit the flow based on the metrics from the webserivce endpoint. 'EndpointMetricsThrottlingManager' can use the
+throshold for endpoint metric value like requestCount, faultCount etc.</p>
+</div>
+<div class="paragraph">
+<p>The throttling configuration can be defined in the <code>jbossws-endpoint-config.xml</code> like :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
+
+  &lt;endpoint-config&gt;
+    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloWorldImpl&lt;/config-name&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.EndpointMetricsThrottlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager.requestCountThreshold&lt;/property-name&gt;
+      &lt;property-value&gt;5&lt;/property-value&gt;
+    &lt;/property&gt;
+  &lt;/endpoint-config&gt;
+&lt;/jaxws-config&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This configuraiton file set a requestCountThreshold "5" to enable the throttling and returns the http response code 419
+to the client when the total request count reaches 5. This is totally for demo purpose, please don&#8217;t use in any situation
+except for the test purpose.</p>
+</div>
+</div>
 </div>
 </div>
 
