@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   <META HTTP-EQUIV='Content-Security-Policy'
+         CONTENT="default-src 'none'; object-src 'none'; style-src 'self' https://static.jboss.org ; script-src 'self' https://static.jboss.org ; font-src 'none'; img-src 'self' https://static.jboss.org; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
+   <META HTTP-EQUIV='X-XSS-Protection' CONTENT="1; mode=block">
+   <META HTTP-EQUIV='X-Content-Type-Options' CONTENT="nosniff">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta name="keywords" content="JBoss Web Services"/>
+   <meta name="description" content=""/>
+   <meta name="author" content=""/>
+   <meta name="robots" content="all"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+
+   <title>JBoss Web Services - JBoss Community</title>
+
+   <link rel="stylesheet" type="text/css" href="/css/clearspace_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="/css/stkdefault-styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/magnolia/styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/jquery-ui.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/project.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css" media="only screen and (min-width: 1200px)" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
+</head>
+
+    <body id="project" class="col-float3 rightcol-layout">
+    <div id="rhbar">
+   <a class="jbdevlogo" href="https://developers.redhat.com"></a>
+   <a class="rhlogo" href="https://www.redhat.com/"></a>
+</div>
+
+<div id="wrapper">
+   <div id="maincontent-wrapper">
+
+      <div id="top_subnav_branding">
+         <div id="banner">
+
+            <div style="z-index: 999; position: absolute; top: 0px; height:15px;">
+            </div>
+
+            <div id="projectname">
+               JBoss Web Services
+            </div>
+
+            <div id="tagline">Web Services Framework for WildFly</div>
+
+         </div>
+
+         <div id="proj_announce">
+            <div id="proj_logo"><h2>JBoss WS</h2></div>
+            <div id="proj_tagline"><h3>Web Services Framework for WildFly</h3></div>
+         </div>
+
+         <div id="proj_nav" class="">
+            <ul class="sf-menu">
+
+               <li class="current">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/index.html" class="menu-title">Overview</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/downloads" class="menu-title">Downloads</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="/downloads-latest"> Latest</a></li>
+                     <li class="leaf"><a href="/downloads-4x"> 4.x</a></li>
+                     <li class="leaf"><a href="/downloads-3x"> 3.x</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/docs" class="menu-title">Documentation</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/blogs" class="menu-title">Blog</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/community" class="menu-title">Community</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="https://issues.redhat.com/projects/JBWS/issues" class="menu-title">Issue Tracker</a>
+                  <ul class="level1 jiralink">
+                     <li class="leaf"><a href="https://issues.redhat.com/projects/JBWS/issues">JIRA</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/sourcecode" class="menu-title">Source Code</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://github.com/jbossws">GitHub</a></li>
+                  </ul>
+               </li>
+
+               <li id="buildmenu" class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/build" class="menu-title">Build</a>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+          <div id="wrapper-2">
+         <div id="wrap-content">
+            <div id="wrapper-3">
+               <div id="main-wrapper">
+                  <div id="main">
+                     <div id="breadcrumb">
+                       <span>
+                              <a href="/">JBossWS</a>
+                                &gt;
+                              <a href="/blogs">Blogs</a>
+                                &gt;
+                              <a href="#">Throttle the webservice request with JBossWSThrottlingFeature </a>
+                       </span>
+                     </div><!-- end breadcrumb -->
+                     <h3>Throttle the webservice request with JBossWSThrottlingFeature </h3>
+                     <h5>By Jim Ma | May 31, 2024</h5>
+                     <p></p>
+                     <p>To ensure the web service application can handle a large number of requests, we need to allocate 
+sufficient resources and use load balancing approaches to distribute the requests
+across different server instances. Besides providing enough resources for the web service 
+application, we can still do more within the application server to help manage and control 
+the flow of requests to the backend web services, ensuring the stability and performance of 
+a certain web service application. In this blog, we will explore the newly added JBossWSThrottlingFeature 
+and demonstrate, with an example, how to use this feature to limit web service requests.</p>
+
+<h3 id="understanding-throttling">Understanding Throttling</h3>
+<p>Throttling is a technique to control the number of requests a backend service can handle within 
+a specified time frame. For example, we can set a limit so that the service can only handle 
+10,000 requests in 5 minutes. By limiting the rate of incoming requests, throttling helps prevent 
+the server from being overwhelmed and protects it from potential crashes. This ensures that 
+server resources are utilized within their designed capacity. Throttling is particularly 
+important in environments where services are exposed to numerous clients and handle resource-intensive operations. 
+It also acts as a protective measure against Denial of Service (DoS) attacks.</p>
+<h3 id="jbosswsthrottlingfeature">JBossWSThrottlingFeature</h3>
+<p>JBossWSThrottlingFeature is the new feature class to enable the throttling in JBossWS-CXF/WildFly which is introduced 
+in jbossws-cxf-7.2.0. This class can allow the JBossWSThrottlingFeature to be configured in the jaxws-endpoint-config.xml.
+Like CXF’s throttling feature, each JBossWSThrottlingFeature needs a ThrottlingManager to check if the request reaches the 
+limit and should return the response immediately. The EndpointMetricsThrottlingManager is created to throttle the request 
+based on JBossWS endpoint metrics. JBossWS EndpointMetrics collects the different metrics from each endpoint:</p>
+<ul>
+  <li>faultCount</li>
+  <li>requestCount</li>
+  <li>averageProcessingTime</li>
+  <li>maxProcessingTime</li>
+  <li>minProcessingTime</li>
+  <li>totalProcessingTime</li>
+</ul>
+
+<p>User can define the limit number for each metric to limit the request to this endpoint.For example, if we define
+the faultCount reaches 5, it will throttle the request and return 429 (Server Busy) response to the client.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
+
+  &lt;endpoint-config&gt;
+    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloWorldImpl&lt;/config-name&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.EndpointMetricsThrottlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager.requestCountThreshold&lt;/property-name&gt;
+      &lt;property-value&gt;5&lt;/property-value&gt;
+    &lt;/property&gt;
+  &lt;/endpoint-config&gt;
+</code></pre></div></div>
+<p>Endpoint metrics require that statistics be enabled for the web service subsystem. So users should execute this CLI command to 
+enable statistics:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+./subsystem=webservices:write-attribute(name=statistics-enabled,value=true)
+
+</code></pre></div></div>
+
+<p>The EndpointMetricsThrottlingManager is a basic implementation for web service throttling. Users can extend this class or write 
+their own ThrottlingManager. Here is an example of limiting requests based on the request rate limit::</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class RateLimitThorttlingManager extends ThrottleResponse implements ThrottlingManager {
+    private AtomicLong[] requestTime = new AtomicLong[60];
+    private AtomicInteger[] requestCount = new AtomicInteger[60];
+    private AtomicBoolean firstMessage = new AtomicBoolean(false);
+    private int requestsPerMin = Integer.MAX_VALUE;
+    public int getRequestsPerMin() {
+        return requestsPerMin;
+    }
+    public void setRequestsPerMin(int requestsPerMin) {
+        this.requestsPerMin = requestsPerMin;
+    }
+    public RateLimitThorttlingManager() {
+        super();
+        for (int i = 0; i &lt; 60; i++) {
+            requestTime[i] = new AtomicLong(0);
+            requestCount[i] = new AtomicInteger(0);
+        }
+    }
+
+    @Override
+    public List&lt;String&gt; getDecisionPhases() {
+        return Collections.singletonList(Phase.PRE_STREAM);
+    }
+
+    @Override
+    public ThrottleResponse getThrottleResponse(String phase, Message m) {
+        long currentTime = System.currentTimeMillis();
+        int currentIndex = (int) ((currentTime / 1000) % 60);
+        requestTime[currentIndex].set(currentTime);
+        requestCount[currentIndex].incrementAndGet();
+        if (firstMessage.compareAndSet(false, true)) {
+            return null;
+        } else {
+            //reset the count for the previous minutes
+            for (int i = 0 ; i &lt; 60 ; i++) {
+                AtomicLong item = requestTime[i];
+                if (item.get() &gt; 0 &amp;&amp; (currentTime -item.get()) &gt; 60000) {
+                    requestTime[i].set(0);
+                    requestCount[i].set(0);
+                }
+            }
+            int sum = Stream.of(requestCount).mapToInt(AtomicInteger::get).sum();
+            if (sum &gt; requestsPerMin) {
+                this.setResponseCode(429);
+                return this;
+            }
+        }
+        return null;
+    }
+}
+</code></pre></div></div>
+
+<p>The request rate limit can be defined in the jaxws-endpoint-config.xml. Here is an example 
+setting the request rate limit to 5 per minute::</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
+&lt;endpoint-config&gt;
+    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloImpl&lt;/config-name&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.test.ws.jaxws.cxf.throttling.RateLimitThorttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager.requestsPerMin&lt;/property-name&gt;
+      &lt;property-value&gt;5&lt;/property-value&gt;
+    &lt;/property&gt;
+  &lt;/endpoint-config&gt;
+&lt;/jaxws-config&gt;
+</code></pre></div></div>
+<p>This jaxws-endpoint-config.xml should be packaged directly in the WAR file (not under META-INF or WEB-INF), 
+and the module dependency org.apache.cxf.impl is required to be added to the Manifest file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Manifest-Version: 1.0
+Dependencies: org.apache.cxf.impl
+</code></pre></div></div>
+<p>For the complete example, please look at <a href="https://github.com/jbossws/jbossws-cxf/tree/main/modules/testsuite/cxf-tests/src/test/java/org/jboss/test/ws/jaxws/cxf/throttling">https://github.com/jbossws/jbossws-cxf/tree/main/modules/testsuite/cxf-tests/src/test/java/org/jboss/test/ws/jaxws/cxf/throttling</a></p>
+
+
+
+                  </div><!-- end main -->
+               </div>
+
+    <div id="rightcolumn" class="column">
+
+    <div class="projectpage-socialmedia">
+        <span class="st_sharethis_large">&nbsp;</span>
+        <span class="st_facebook_large">&nbsp;</span>
+        <span class="st_twitter_large">&nbsp;</span>
+        <span class="st_linkedin_large">&nbsp;</span>
+        <span class="st_email_large">&nbsp;</span>
+    </div>
+
+
+    <div id="proj_quick-start">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="/downloads-latest/">Download</a></li>
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/blogs">Blog</a></li>
+            <li><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
+            <li><a href="https://github.com/jbossws">Code</a></li>
+            <li><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
+        </ul>
+    </div>
+
+    <div class="clear"><br/></div>
+
+    <div class="uploaded-img">
+
+        <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+            <img width="180" alt="" height="75"
+                 src="/img/logo_jprofiler01.gif"
+                 style="margin:0 auto;"/>
+
+        </a>
+    </div>
+
+    <h5>We use JProfiler for profiling</h5>
+
+    <table>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+
+
+    <div>
+        <a href="https://www.jboss.org/security.html">
+            <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+        </a>
+    </div>
+</div>
+
+</div><!-- end wrapper-3 -->
+
+</div><!-- end wrapper-content -->
+<div style="clear: both;"></div>
+</div><!-- end wrapper-2 -->
+</div>
+       <div id="site-info">
+      <div>
+      </div>
+
+      <div class="footer">
+         <div class="container" id="companyfooter">
+            <div class="redhatlogo" style="text-align:center;">
+               <div id="logospacer"></div>
+               <a href="https://www.redhat.com/">
+                  <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div><!-- end site-info -->
+</div><!-- end wrapper -->
+
+    </body>
+</html>

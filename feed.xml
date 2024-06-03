@@ -1,4 +1,162 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-06-03T01:41:31+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS 7.1.0.Final is released!</title><link href="/2024/03/27/jbossws-710-released/" rel="alternate" type="text/html" title="JBossWS 7.1.0.Final is released!" /><published>2024-03-27T00:00:00+00:00</published><updated>2024-03-27T00:00:00+00:00</updated><id>/2024/03/27/jbossws-710-released</id><content type="html" xml:base="/2024/03/27/jbossws-710-released/"><![CDATA[<p>JBossWS-CXF 7.1.0.Final has been released. This release contains several bug fixes, test enhancements and components upgrades.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-06-03T08:35:21+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">Throttle the webservice request with JBossWSThrottlingFeature</title><link href="/2024/05/31/new-throttling-feature/" rel="alternate" type="text/html" title="Throttle the webservice request with JBossWSThrottlingFeature" /><published>2024-05-31T00:00:00+00:00</published><updated>2024-05-31T00:00:00+00:00</updated><id>/2024/05/31/new-throttling-feature</id><content type="html" xml:base="/2024/05/31/new-throttling-feature/"><![CDATA[<p>To ensure the web service application can handle a large number of requests, we need to allocate 
+sufficient resources and use load balancing approaches to distribute the requests
+across different server instances. Besides providing enough resources for the web service 
+application, we can still do more within the application server to help manage and control 
+the flow of requests to the backend web services, ensuring the stability and performance of 
+a certain web service application. In this blog, we will explore the newly added JBossWSThrottlingFeature 
+and demonstrate, with an example, how to use this feature to limit web service requests.</p>
+
+<h3 id="understanding-throttling">Understanding Throttling</h3>
+<p>Throttling is a technique to control the number of requests a backend service can handle within 
+a specified time frame. For example, we can set a limit so that the service can only handle 
+10,000 requests in 5 minutes. By limiting the rate of incoming requests, throttling helps prevent 
+the server from being overwhelmed and protects it from potential crashes. This ensures that 
+server resources are utilized within their designed capacity. Throttling is particularly 
+important in environments where services are exposed to numerous clients and handle resource-intensive operations. 
+It also acts as a protective measure against Denial of Service (DoS) attacks.</p>
+<h3 id="jbosswsthrottlingfeature">JBossWSThrottlingFeature</h3>
+<p>JBossWSThrottlingFeature is the new feature class to enable the throttling in JBossWS-CXF/WildFly which is introduced 
+in jbossws-cxf-7.2.0. This class can allow the JBossWSThrottlingFeature to be configured in the jaxws-endpoint-config.xml.
+Like CXF’s throttling feature, each JBossWSThrottlingFeature needs a ThrottlingManager to check if the request reaches the 
+limit and should return the response immediately. The EndpointMetricsThrottlingManager is created to throttle the request 
+based on JBossWS endpoint metrics. JBossWS EndpointMetrics collects the different metrics from each endpoint:</p>
+<ul>
+  <li>faultCount</li>
+  <li>requestCount</li>
+  <li>averageProcessingTime</li>
+  <li>maxProcessingTime</li>
+  <li>minProcessingTime</li>
+  <li>totalProcessingTime</li>
+</ul>
+
+<p>User can define the limit number for each metric to limit the request to this endpoint.For example, if we define
+the faultCount reaches 5, it will throttle the request and return 429 (Server Busy) response to the client.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
+
+  &lt;endpoint-config&gt;
+    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloWorldImpl&lt;/config-name&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.EndpointMetricsThrottlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager.requestCountThreshold&lt;/property-name&gt;
+      &lt;property-value&gt;5&lt;/property-value&gt;
+    &lt;/property&gt;
+  &lt;/endpoint-config&gt;
+</code></pre></div></div>
+<p>Endpoint metrics require that statistics be enabled for the web service subsystem. So users should execute this CLI command to 
+enable statistics:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+./subsystem=webservices:write-attribute(name=statistics-enabled,value=true)
+
+</code></pre></div></div>
+
+<p>The EndpointMetricsThrottlingManager is a basic implementation for web service throttling. Users can extend this class or write 
+their own ThrottlingManager. Here is an example of limiting requests based on the request rate limit::</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class RateLimitThorttlingManager extends ThrottleResponse implements ThrottlingManager {
+    private AtomicLong[] requestTime = new AtomicLong[60];
+    private AtomicInteger[] requestCount = new AtomicInteger[60];
+    private AtomicBoolean firstMessage = new AtomicBoolean(false);
+    private int requestsPerMin = Integer.MAX_VALUE;
+    public int getRequestsPerMin() {
+        return requestsPerMin;
+    }
+    public void setRequestsPerMin(int requestsPerMin) {
+        this.requestsPerMin = requestsPerMin;
+    }
+    public RateLimitThorttlingManager() {
+        super();
+        for (int i = 0; i &lt; 60; i++) {
+            requestTime[i] = new AtomicLong(0);
+            requestCount[i] = new AtomicInteger(0);
+        }
+    }
+
+    @Override
+    public List&lt;String&gt; getDecisionPhases() {
+        return Collections.singletonList(Phase.PRE_STREAM);
+    }
+
+    @Override
+    public ThrottleResponse getThrottleResponse(String phase, Message m) {
+        long currentTime = System.currentTimeMillis();
+        int currentIndex = (int) ((currentTime / 1000) % 60);
+        requestTime[currentIndex].set(currentTime);
+        requestCount[currentIndex].incrementAndGet();
+        if (firstMessage.compareAndSet(false, true)) {
+            return null;
+        } else {
+            //reset the count for the previous minutes
+            for (int i = 0 ; i &lt; 60 ; i++) {
+                AtomicLong item = requestTime[i];
+                if (item.get() &gt; 0 &amp;&amp; (currentTime -item.get()) &gt; 60000) {
+                    requestTime[i].set(0);
+                    requestCount[i].set(0);
+                }
+            }
+            int sum = Stream.of(requestCount).mapToInt(AtomicInteger::get).sum();
+            if (sum &gt; requestsPerMin) {
+                this.setResponseCode(429);
+                return this;
+            }
+        }
+        return null;
+    }
+}
+</code></pre></div></div>
+
+<p>The request rate limit can be defined in the jaxws-endpoint-config.xml. Here is an example 
+setting the request rate limit to 5 per minute::</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
+&lt;endpoint-config&gt;
+    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloImpl&lt;/config-name&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.test.ws.jaxws.cxf.throttling.RateLimitThorttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager.requestsPerMin&lt;/property-name&gt;
+      &lt;property-value&gt;5&lt;/property-value&gt;
+    &lt;/property&gt;
+  &lt;/endpoint-config&gt;
+&lt;/jaxws-config&gt;
+</code></pre></div></div>
+<p>This jaxws-endpoint-config.xml should be packaged directly in the WAR file (not under META-INF or WEB-INF), 
+and the module dependency org.apache.cxf.impl is required to be added to the Manifest file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Manifest-Version: 1.0
+Dependencies: org.apache.cxf.impl
+</code></pre></div></div>
+<p>For the complete example, please look at <a href="https://github.com/jbossws/jbossws-cxf/tree/main/modules/testsuite/cxf-tests/src/test/java/org/jboss/test/ws/jaxws/cxf/throttling">https://github.com/jbossws/jbossws-cxf/tree/main/modules/testsuite/cxf-tests/src/test/java/org/jboss/test/ws/jaxws/cxf/throttling</a></p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[To ensure the web service application can handle a large number of requests, we need to allocate sufficient resources and use load balancing approaches to distribute the requests across different server instances. Besides providing enough resources for the web service application, we can still do more within the application server to help manage and control the flow of requests to the backend web services, ensuring the stability and performance of a certain web service application. In this blog, we will explore the newly added JBossWSThrottlingFeature and demonstrate, with an example, how to use this feature to limit web service requests.]]></summary></entry><entry><title type="html">JBossWS 7.1.0.Final is released!</title><link href="/2024/03/27/jbossws-710-released/" rel="alternate" type="text/html" title="JBossWS 7.1.0.Final is released!" /><published>2024-03-27T00:00:00+00:00</published><updated>2024-03-27T00:00:00+00:00</updated><id>/2024/03/27/jbossws-710-released</id><content type="html" xml:base="/2024/03/27/jbossws-710-released/"><![CDATA[<p>JBossWS-CXF 7.1.0.Final has been released. This release contains several bug fixes, test enhancements and components upgrades.
 The notable upgrades are the CXF 4.0.4 upgrade which resolved <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-28752">CVE-2024-28752</a>
 and XmlSec(santuario) 3.0.3 upgrade resolved <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-44483">CVE-2023-44483</a>. The CXF upgrade introduced the new CXF http client which is using java.net.http.HttpClient 
 from JDK to better support HTTP/2, but this is the preview feature and user can enable this new client by setting system property or bus property.
@@ -413,15 +571,4 @@ For more detailed info and full list of issues resolved, please check
 <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12396048">release notes.</a></p>
 
 <p>This minor release will be included in WFLY upstream and released in WFLY 28 Beta1.
-Please contact us if you get any issue when try with this release. Thanks!</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[JBossWS 6.2.0.Final is now available for download. In this release, we upgraded the CXF to the latest 4.0.0 release and cleaned up dependencies to run the testsuite against WildFly. In this release, we improved the maven pom to use the less environment parameter and profile to build and test. For more detailed info and full list of issues resolved, please check release notes.]]></summary></entry><entry><title type="html">Testsuite Transitioned to WildFly CLI scripts</title><link href="/2022/09/28/Testsuite-Transitioned-to-Wildfly-CLI-scripts/" rel="alternate" type="text/html" title="Testsuite Transitioned to WildFly CLI scripts" /><published>2022-09-28T00:00:00+00:00</published><updated>2022-09-28T00:00:00+00:00</updated><id>/2022/09/28/Testsuite-Transitioned-to-Wildfly-CLI-scripts</id><content type="html" xml:base="/2022/09/28/Testsuite-Transitioned-to-Wildfly-CLI-scripts/"><![CDATA[<p>Starting with jbossws-cxf version 6.1.0.Final the testsuite has been
-transitioned from using <a href="https://groovy-lang.org/">Groovy</a> scripts to configure the WildFly server
-to using <a href="https://docs.wildfly.org/26/Admin_Guide.html#Command_Line_Interface">WildFly’s CLI</a> scripts.</p>
-
-<p>WildFly’s configuration files, standalone-*.xml, are XML based.  Before
-the advancements made in CLI scripting, it was more effective to automate
-configuration file changes using tools that provided DOM processing utilities.
-Groovy was chosen for that task.  But now with a facility in
-<em>org.wildfly.plugins:wildfly-maven-plugin</em> to execute CLI script files, it is
-more efficient use CLI scripts.</p>
-
-<p>If you have any issue or question, please let us know. Thanks!</p>]]></content><author><name>Rebecca Searls</name></author><summary type="html"><![CDATA[Starting with jbossws-cxf version 6.1.0.Final the testsuite has been transitioned from using Groovy scripts to configure the WildFly server to using WildFly’s CLI scripts.]]></summary></entry></feed>
+Please contact us if you get any issue when try with this release. Thanks!</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[JBossWS 6.2.0.Final is now available for download. In this release, we upgraded the CXF to the latest 4.0.0 release and cleaned up dependencies to run the testsuite against WildFly. In this release, we improved the maven pom to use the less environment parameter and profile to build and test. For more detailed info and full list of issues resolved, please check release notes.]]></summary></entry></feed>
