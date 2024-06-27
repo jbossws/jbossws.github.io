@@ -10554,9 +10554,130 @@ throshold for endpoint metric value like requestCount, faultCount etc.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This configuraiton file set a requestCountThreshold "5" to enable the throttling and returns the http response code 419
+<p>This configuration file set a requestCountThreshold "5" to enable the throttling and returns the http response code 419
 to the client when the total request count reaches 5. This is totally for demo purpose, please don&#8217;t use in any situation
 except for the test purpose.</p>
+</div>
+<div class="paragraph">
+<p>Besides the requestPermits，there are other items can be configured with EndpointMetricsThrottlingManager:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>faultPermit: The number of faults allowed before throttling takes effect."</p>
+</li>
+<li>
+<p>requestPermit: The number of requests allowed before throttling takes effect."</p>
+</li>
+<li>
+<p>averageProcessingTimePermit: The average processing time in milliseconds; if it exceeds this value, throttling takes effect.</p>
+</li>
+<li>
+<p>maxProcessingTimePermit: The maximum processing time in milliseconds; if it exceeds this value, throttling takes effect.</p>
+</li>
+<li>
+<p>minProcessingTimePermit: The minimum processing time in milliseconds; if it exceeds this value, throttling takes effect.</p>
+</li>
+<li>
+<p>totalProcessingTimePermit: The total processing time in milliseconds; if it exceeds this value, throttling takes effect.</p>
+</li>
+<li>
+<p>responseStatusCode: The response code if the throttling takes effect and default is 429.</p>
+</li>
+<li>
+<p>delayTime：When the response code is set to 503, this value in milliseconds will finally be set with Retry-After header in response when throttling takes effect.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To allow users to configure throttling more easily, there is an out-of-the-box RateLimitThrottlingManager that users can utilize to set traffic limits.
+This RateLimitThrottlingManager enables users to define the permitted number of requests within a specified period.
+To simplify this process, it offers the permitsPerMin configuration item, which allows users to set the number of
+permitted requests per minute. This configuration internally sets the period to 60 seconds and adjusts the permitted number of
+requests based on the user&#8217;s specifications in the jaxws-endpoint-config.xml. Here is the configuration example which is
+using <code>permitsPerMin</code> to limit the 5 requests in one minute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
+  &lt;endpoint-config&gt;
+    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloImpl&lt;/config-name&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.RateLimitThorttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager.permitsPerMin&lt;/property-name&gt;
+      &lt;property-value&gt;5&lt;/property-value&gt;
+    &lt;/property&gt;
+  &lt;/endpoint-config&gt;
+&lt;/jaxws-config&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Users can use the <code>period</code> and <code>permitsPerPeriod</code> settings to define the number of requests allowed within any specified time period.
+Below is an example of the jaxws-endpoint-config.xml configuration to control 5 requests in 30 seconds:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
+  &lt;endpoint-config&gt;
+    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloImpl&lt;/config-name&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
+      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.RateLimitThorttlingManager&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager.period&lt;/property-name&gt;
+      &lt;property-value&gt;30&lt;/property-value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;property-name&gt;##throttlingManager.permitsPerPeriod&lt;/property-name&gt;
+      &lt;property-value&gt;5&lt;/property-value&gt;
+    &lt;/property&gt;
+  &lt;/endpoint-config&gt;
+&lt;/jaxws-config&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Please note that both of these ThrottlingManagers are based on the web service endpoint metrics and require the web service
+subsystem&#8217;s statistics to be enabled. Before using either of these ThrottlingManagers, ensure that statistics
+are enabled with the jboss-cli:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>./subsystem=webservices:write-attribute(name=statistics-enabled,value=true)</code></pre>
+</div>
 </div>
 </div>
 </div>
