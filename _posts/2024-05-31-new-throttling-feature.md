@@ -11,7 +11,7 @@ across different server instances. Besides providing enough resources for the we
 application, we can still do more within the application server to help manage and control 
 the flow of requests to the backend web services, ensuring the stability and performance of 
 a certain web service application. In this blog, we will explore the newly added JBossWSThrottlingFeature 
-and demonstrate, with an example, how to use this feature to limit web service requests.
+and demonstrate this feature to limit web service requests with some configuration examples.
 
 ### Understanding Throttling
 Throttling is a technique to control the number of requests a backend service can handle within 
@@ -27,6 +27,7 @@ in jbossws-cxf-7.2.0. This class can allow the JBossWSThrottlingFeature to be co
 Like CXF's throttling feature, each JBossWSThrottlingFeature needs a ThrottlingManager to check if the request reaches the 
 limit and should return the response immediately. The EndpointMetricsThrottlingManager is created to throttle the request 
 based on JBossWS endpoint metrics. JBossWS EndpointMetrics collects the different metrics from each endpoint:
+
 - faultCount
 - requestCount
 - averageProcessingTime
@@ -35,7 +36,7 @@ based on JBossWS endpoint metrics. JBossWS EndpointMetrics collects the differen
 - totalProcessingTime
 
 User can define the limit number for each metric to limit the request to this endpoint.For example, if we define
-the faultCount reaches 5, it will throttle the request and return 429 (Server Busy) response to the client.
+the requests number reaches 5, it will throttle the request and return 429 (Server Busy) response to the client.
 ```
 <jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
   xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd">
@@ -59,84 +60,22 @@ the faultCount reaches 5, it will throttle the request and return 429 (Server Bu
       <property-value>org.jboss.wsf.stack.cxf.features.throttling.EndpointMetricsThrottlingManager</property-value>
     </property>
     <property>
-      <property-name>##throttlingManager.requestCountThreshold</property-name>
+      <property-name>##throttlingManager.requestPermit</property-name>
       <property-value>5</property-value>
     </property>
   </endpoint-config>
 ```
-Endpoint metrics require that statistics be enabled for the web service subsystem. So users should execute this CLI command to 
-enable statistics:
+There is another RateLimitThorttlingManager out-of-the-box to allow user to easily control the request traffic
+by defining the `permitsPerMin`. This simply define the number of requests the server can handle in one minute.
+Exceed this number of requests, the server will respond 429 immediately.Below is the configuration example which is
+limiting the requests is 5 in one minute:
 
 ```
+<?xml version="1.0" encoding="UTF-8"?>
 
-./subsystem=webservices:write-attribute(name=statistics-enabled,value=true)
-
-``` 
-
-
-The EndpointMetricsThrottlingManager is a basic implementation for web service throttling. Users can extend this class or write 
-their own ThrottlingManager. Here is an example of limiting requests based on the request rate limit::
-
-```
-public class RateLimitThorttlingManager extends ThrottleResponse implements ThrottlingManager {
-    private AtomicLong[] requestTime = new AtomicLong[60];
-    private AtomicInteger[] requestCount = new AtomicInteger[60];
-    private AtomicBoolean firstMessage = new AtomicBoolean(false);
-    private int requestsPerMin = Integer.MAX_VALUE;
-    public int getRequestsPerMin() {
-        return requestsPerMin;
-    }
-    public void setRequestsPerMin(int requestsPerMin) {
-        this.requestsPerMin = requestsPerMin;
-    }
-    public RateLimitThorttlingManager() {
-        super();
-        for (int i = 0; i < 60; i++) {
-            requestTime[i] = new AtomicLong(0);
-            requestCount[i] = new AtomicInteger(0);
-        }
-    }
-
-    @Override
-    public List<String> getDecisionPhases() {
-        return Collections.singletonList(Phase.PRE_STREAM);
-    }
-
-    @Override
-    public ThrottleResponse getThrottleResponse(String phase, Message m) {
-        long currentTime = System.currentTimeMillis();
-        int currentIndex = (int) ((currentTime / 1000) % 60);
-        requestTime[currentIndex].set(currentTime);
-        requestCount[currentIndex].incrementAndGet();
-        if (firstMessage.compareAndSet(false, true)) {
-            return null;
-        } else {
-            //reset the count for the previous minutes
-            for (int i = 0 ; i < 60 ; i++) {
-                AtomicLong item = requestTime[i];
-                if (item.get() > 0 && (currentTime -item.get()) > 60000) {
-                    requestTime[i].set(0);
-                    requestCount[i].set(0);
-                }
-            }
-            int sum = Stream.of(requestCount).mapToInt(AtomicInteger::get).sum();
-            if (sum > requestsPerMin) {
-                this.setResponseCode(429);
-                return this;
-            }
-        }
-        return null;
-    }
-}
-```
-
-The request rate limit can be defined in the jaxws-endpoint-config.xml. Here is an example 
-setting the request rate limit to 5 per minute::
-
-```
 <jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
   xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd">
-<endpoint-config>
+  <endpoint-config>
     <config-name>org.jboss.test.ws.jaxws.cxf.throttling.HelloImpl</config-name>
     <property>
       <property-name>cxf.features</property-name>
@@ -152,22 +91,67 @@ setting the request rate limit to 5 per minute::
     </property>
     <property>
       <property-name>##throttlingManager</property-name>
-      <property-value>org.jboss.test.ws.jaxws.cxf.throttling.RateLimitThorttlingManager</property-value>
+      <property-value>org.jboss.wsf.stack.cxf.features.throttling.RateLimitThorttlingManager</property-value>
     </property>
     <property>
-      <property-name>##throttlingManager.requestsPerMin</property-name>
+      <property-name>##throttlingManager.permitsPerMin</property-name>
       <property-value>5</property-value>
     </property>
   </endpoint-config>
 </jaxws-config>
 ```
-This jaxws-endpoint-config.xml should be packaged directly in the WAR file (not under META-INF or WEB-INF), 
-and the module dependency org.apache.cxf.impl is required to be added to the Manifest file.
+The other two options `peroid` and `permitsPerPeroid` in RateLimitThorttlingManager can be used to specify any peroid time and number of requests is allowed in this peroid 
+time instead of defining the requests limit in one minute which is commonly used. For example, this jaxws-endpoint-config.xml can be used to limit the 5 requests in 30 seconds:
 ```
-Manifest-Version: 1.0
-Dependencies: org.apache.cxf.impl
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd">
+  <endpoint-config>
+    <config-name>org.jboss.test.ws.jaxws.cxf.throttling.HelloImpl</config-name>
+    <property>
+      <property-name>cxf.features</property-name>
+      <property-value>##throttlingFeature</property-value>
+    </property>
+    <property>
+      <property-name>##throttlingFeature</property-name>
+      <property-value>org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature</property-value>
+    </property>
+    <property>
+      <property-name>##throttlingFeature.throttlingManager</property-name>
+      <property-value>##throttlingManager</property-value>
+    </property>
+    <property>
+      <property-name>##throttlingManager</property-name>
+      <property-value>org.jboss.wsf.stack.cxf.features.throttling.RateLimitThorttlingManager</property-value>
+    </property>
+    <property>
+      <property-name>##throttlingManager.period</property-name>
+      <property-value>30</property-value>
+    </property>
+    <property>
+      <property-name>##throttlingManager.permitsPerPeriod</property-name>
+      <property-value>5</property-value>
+    </property>
+  </endpoint-config>
+</jaxws-config>
 ```
-For the complete example, please look at <https://github.com/jbossws/jbossws-cxf/tree/main/modules/testsuite/cxf-tests/src/test/java/org/jboss/test/ws/jaxws/cxf/throttling>
+Please note ,both these two ThrottlingManagers require the webservice subsystem' statistics is enabled
+to get the correct value from Endpoint metrics. To enable the webservice subsystem's statistics, simply 
+run the jboss-cli command:
+```
+./subsystem=webservices:write-attribute(name=statistics-enabled,value=true)
+```
+
+The key element of the throttling feature configuration is the jaxws-endpoint-config.xml, and this configuration file should be packaged directly in the WAR file, and ensure it's not under META-INF or WEB-INF.
+
+### Summary
+The JBossWS throttling feature can be an easy approach to protect important web services from being 
+overwhelmed or crashed. This feature can also be used to serve different user categories, 
+such as paid and unpaid users. If you need this feature in your web service application, 
+please give it a try. If you find that the out-of-the-box ThrottlingManager 
+doesn't meet your requirements, you can extend the throttling api and create 
+your own ThrottlingManager. If your created ThrottlingManager could be useful 
+for others and want to contribute, don't forget to let us know.
 
 
 
