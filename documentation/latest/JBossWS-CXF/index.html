@@ -5460,6 +5460,74 @@ interceptors within <a href="#predefined-client-and-endpoint-configurations">Pre
 client or endpoint the configuration is assigned to. The interceptor
 classes must have a no-argument constructor.</p>
 </div>
+<div class="paragraph">
+<p>When using CXF interceptors that access CDI beans in the WildFly environment, you need to ensure that
+the Thread Context ClassLoader (TCCL) is correctly set to make sure the CDI beans are loaded/read properly.</p>
+</div>
+<div class="paragraph">
+<p>To do this, CXF interceptors with CDI access should extend <code>org.jboss.wsf.stack.cxf.interceptor.AbstractTCCLPhaseInterceptor</code>
+and override the method <code>handleMessageWithTCCL(Message message)</code> to ensure the proper classloader is set before execution
+:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>public class CDIOutInterceptor extends AbstractTCCLPhaseInterceptor&lt;Message&gt; {
+public CDIOutInterceptor() {
+super(Phase.PRE_STREAM);
+}
+
+   @Override
+   public void handleMessageWithTCCL(Message message) throws Fault {
+      if (!MessageUtils.isRequestor(message)) {
+         DelegateBean bean = new DelegateBean();
+      }
+   }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>import jakarta.enterprise.context.Dependent;
+import jakarta.enterprise.inject.spi.CDI;
+
+@Dependent
+public class DelegateBean {
+    EmptyBean logic = CDI.current().select(EmptyBean.class).get();
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>@Dependent
+public class EmptyBean {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>AbstractTCCLPhaseInterceptor</code> can set the deployment classloader to thread context classloader before the
+handleMessage() method is called, and it restores the previous classloader afterward.</p>
+</div>
+<div class="paragraph">
+<p>Since AbstractTCCLPhaseInterceptor was introduced in version 7.3.0.Final and is included in
+'org.jboss.ws.cxf.jbossws-cxf-server' WildFly module dependency, you must add this necessary dependency to the MANIFEST.MF file of your deployment artifact.
+Additionally, don&#8217;t forget to include the <code>org.apache.cxf</code> dependency for importing the cxf interceptor apis. Here is the package example code with Arquillian to
+add these two dependencies to the user&#8217;s deployment artifact. Please use the same dependency adding format when
+including these dependencies to the MANIFEST.MF file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>    public static WebArchive createDeployment() {
+        WebArchive archive = ShrinkWrap.create(WebArchive.class, DEP + ".war");
+        archive.setManifest(new StringAsset("Manifest-Version: 1.0\n"
+                        + "Dependencies: org.apache.cxf,org.jboss.ws.cxf.jbossws-cxf-server\n"))
+                .addClasses(HelloBean.class, DelegateBean.class, EmptyBean.class, CDIOutInterceptor.class, LoggingHandler.class)
+                .addAsWebInfResource(new File(JBossWSTestHelper.getTestResourcesDir() + "/jaxws/cxf/jbws4430/WEB-INF/wsdl/HelloWorld.wsdl"), "wsdl/HelloWorld.wsdl")
+                .add(new FileAsset(new File(JBossWSTestHelper.getTestResourcesDir() + "/jaxws/cxf/jbws4430/handlers.xml")), "WEB-INF/classes/handlers.xml")
+                .setWebXML(new File(JBossWSTestHelper.getTestResourcesDir() + "/jaxws/cxf/jbws4430/WEB-INF/web.xml"));
+        return archive;
+    }</code></pre>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="apache-cxf-features">5.10.6. Apache CXF features</h4>
