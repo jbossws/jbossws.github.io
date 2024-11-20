@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   <META HTTP-EQUIV='Content-Security-Policy'
+         CONTENT="default-src 'none'; object-src 'none'; style-src 'self' https://static.jboss.org ; script-src 'self' https://static.jboss.org ; font-src 'none'; img-src 'self' https://static.jboss.org; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
+   <META HTTP-EQUIV='X-XSS-Protection' CONTENT="1; mode=block">
+   <META HTTP-EQUIV='X-Content-Type-Options' CONTENT="nosniff">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta name="keywords" content="JBoss Web Services"/>
+   <meta name="description" content=""/>
+   <meta name="author" content=""/>
+   <meta name="robots" content="all"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+
+   <title>JBoss Web Services - JBoss Community</title>
+
+   <link rel="stylesheet" type="text/css" href="/css/clearspace_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="/css/stkdefault-styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/common/org_common.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/magnolia/styles.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/jquery-ui.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/project.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css" media="only screen and (min-width: 1200px)" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
+</head>
+
+    <body id="project" class="col-float3 rightcol-layout">
+    <div id="rhbar">
+   <a class="jbdevlogo" href="https://developers.redhat.com"></a>
+   <a class="rhlogo" href="https://www.redhat.com/"></a>
+</div>
+
+<div id="wrapper">
+   <div id="maincontent-wrapper">
+
+      <div id="top_subnav_branding">
+         <div id="banner">
+
+            <div style="z-index: 999; position: absolute; top: 0px; height:15px;">
+            </div>
+
+            <div id="projectname">
+               JBoss Web Services
+            </div>
+
+            <div id="tagline">Web Services Framework for WildFly</div>
+
+         </div>
+
+         <div id="proj_announce">
+            <div id="proj_logo"><h2>JBoss WS</h2></div>
+            <div id="proj_tagline"><h3>Web Services Framework for WildFly</h3></div>
+         </div>
+
+         <div id="proj_nav" class="">
+            <ul class="sf-menu">
+
+               <li class="current">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/index.html" class="menu-title">Overview</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/downloads" class="menu-title">Downloads</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="/downloads-latest"> Latest</a></li>
+                     <li class="leaf"><a href="/downloads-4x"> 4.x</a></li>
+                     <li class="leaf"><a href="/downloads-3x"> 3.x</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/docs" class="menu-title">Documentation</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/blogs" class="menu-title">Blog</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/community" class="menu-title">Community</a>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="https://issues.redhat.com/projects/JBWS/issues" class="menu-title">Issue Tracker</a>
+                  <ul class="level1 jiralink">
+                     <li class="leaf"><a href="https://issues.redhat.com/projects/JBWS/issues">JIRA</a></li>
+                  </ul>
+               </li>
+
+               <li class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/sourcecode" class="menu-title">Source Code</a>
+                  <ul class="level1">
+                     <li class="leaf"><a href="https://github.com/jbossws">GitHub</a></li>
+                  </ul>
+               </li>
+
+               <li id="buildmenu" class="open">
+                  <span class="notch">&nbsp;</span>
+                  <a href="/build" class="menu-title">Build</a>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+          <div id="wrapper-2">
+         <div id="wrap-content">
+            <div id="wrapper-3">
+               <div id="main-wrapper">
+                  <div id="main">
+                     <div id="breadcrumb">
+                       <span>
+                              <a href="/">JBoss Web Services</a>
+                                &gt;
+                              <a href="/">Chapter 2 Quick_start</a>
+                                &gt;
+                              <a href="#"></a>
+                       </span>
+                     </div><!-- end breadcrumb -->
+                     <div class="sect1">
+<h2 id="quick-start">Quick Start</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JBossWS uses WildFly as its target container. The following examples
+focus on web service features that leverage EJB3 service
+implementations and the JAX-WS programming models. For further
+information on POJO service implementations and advanced topics
+consult the <a href="#Jakarta XML Web Services User Guide">[Jakarta XML Web Services User Guide]</a> .</p>
+</div>
+<div class="sect2">
+<h3 id="developing-web-service-implementations">Developing web service implementations</h3>
+<div class="paragraph">
+<p>Jakarta XML Web Services leverages annotations in order to express web service meta data on Java components and to describe the mapping between Java data types and XML. When developing web service implementations one needs to decide whether to start with an abstract contract (WSDL) or a Java component.</p>
+</div>
+<div class="paragraph">
+<p>It is common practice for a developer create the web service in Java
+and use vendor tools to generate the corresponding WSDL.
+For this reason we are going to look at a service implementation that leverages
+<a href="https://jakarta.ee/specifications/web-services-metadata/">Jakarta Web Service Metadata</a> .</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Even though detailed knowledge of web service meta data is not required,
+it will definitely help if you make yourself familiar with it. For
+further information see</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://jakarta.ee/specifications/web-services-metadata/">Jakarta Web Service Metadata</a></p>
+</li>
+<li>
+<p><a href="https://jakarta.ee/specifications/xml-binding">Jakarta XML Binding
+(JAXB)</a></p>
+</li>
+<li>
+<p><a href="https://jakarta.ee/specifications/xml-web-services/">Jakarta XML Web Services</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="the-service-implementation-class">The service implementation class</h4>
+<div class="paragraph">
+<p>When starting from Java, a service (endpoint) implementation must be provided. A valid endpoint implementation class must meet the following
+requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It <em>must</em> carry a <code>jakarta.jws.WebService</code> annotation (see Jakarta Web Service Metadata)</p>
+</li>
+<li>
+<p>All method parameters and return types <em>must</em> be compatible with the
+JAXB 3.0</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s look at a sample EJB3 component that exposes as a web service.</p>
+</div>
+<div class="paragraph">
+<p>For now ignore the EJB3 annotation <code>@Stateless</code> . Focus on the <code>@WebService</code> annotation.</p>
+</div>
+<div class="sect4">
+<h5 id="implementing-the-service">Implementing the service</h5>
+<div class="literalblock">
+<div class="content">
+<pre>package org.jboss.test.ws.jaxws.samples.retail.profile;
+
+import jakarta.ejb.Stateless;
+import jakarta.jws.WebService;
+import jakarta.jws.WebMethod;
+import jakarta.jws.soap.SOAPBinding;
+
+@Stateless                                                             (1)
+@WebService(                                                           (2)
+   name="ProfileMgmt",
+   targetNamespace = "http://org.jboss.ws/samples/retail/profile",
+   serviceName = "ProfileMgmtService")
+@SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)         (3)
+public class ProfileMgmtBean {
+
+   @WebMethod                                                          (4)
+   public DiscountResponse getCustomerDiscount(DiscountRequest request) {
+      return new DiscountResponse(request.getCustomer(), 10.00);
+   }
+}</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1. This endpoint is using a stateless session bean implementation
+2. This web service has an explicit namespace, (http://org.jboss.ws/samples/retail/profile)
+3. The endpoint is declared to use a doc/lit bare parameter style.  This affects the endpoint statements generated in the WSDL.
+4. 'getCustomerDiscount' is the public operation that a consumer can call.</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="what-about-the-payload">What about the payload?</h5>
+<div class="paragraph">
+<p>The method parameters and return values represent the XML
+payload, because this is a stateless session bean the parameters and return value must be compatible with JAXB3. No JAXB annotations are needed for this example.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>package org.jboss.test.ws.jaxws.samples.retail.profile;
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlType;
+
+import org.jboss.test.ws.jaxws.samples.retail.Customer;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(                                                  (1)
+  name = "discountRequest",
+  namespace="http://org.jboss.ws/samples/retail/profile",
+  propOrder = { "customer" }
+)
+public class DiscountRequest {
+
+   protected Customer customer;
+
+   public DiscountRequest() {
+   }
+
+   public DiscountRequest(Customer customer) {
+      this.customer = customer;
+   }
+
+   public Customer getCustomer() {
+      return customer;
+   }
+
+   public void setCustomer(Customer value) {
+      this.customer = value;
+   }
+
+}</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1. @XmlType is used to declare an XML type named, discountRequest, and a namespace name, (http://org.jboss.ws/samples/retail/profile).</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For more complex XML mapping consult the
+<a href="https://jakarta.ee/specifications/xml-binding">JAXB documentation</a> .</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deploying-service-implementations">Deploying service implementations</h4>
+<div class="paragraph">
+<p>Web service deployment depends on the implementation type. Web services can be implemented as plain old Java objects, POJO or as EJB3 components.</p>
+</div>
+<div class="sect4">
+<h5 id="ejb3-services">EJB3 services</h5>
+<div class="paragraph">
+<p>Create a JAR containing the service implementation class, the endpoint interface and any custom data types needed.  Drop the JAR in the <em>deployment</em> directory.  No additional deployment descriptors required. Any meta data
+required for the deployment of the actual web service is taken from the
+annotations provided in the implementation class and the service
+endpoint interface. JBossWS intercepts the EJB3 deployment (the
+bean will be there) and creates an HTTP endpoint at deploy-time.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="the-jar-package-structure">The JAR package structure</h5>
+<div class="paragraph">
+<p>jar -tf jaxws-samples-retail.jar</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>org/jboss/test/ws/jaxws/samples/retail/profile/DiscountRequest.class
+org/jboss/test/ws/jaxws/samples/retail/profile/DiscountResponse.class
+org/jboss/test/ws/jaxws/samples/retail/profile/ObjectFactory.class
+org/jboss/test/ws/jaxws/samples/retail/profile/ProfileMgmt.class
+org/jboss/test/ws/jaxws/samples/retail/profile/ProfileMgmtBean.class
+org/jboss/test/ws/jaxws/samples/retail/profile/ProfileMgmtService.class
+org/jboss/test/ws/jaxws/samples/retail/profile/package-info.class</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the deployment was successful you should be able to see your endpoint
+in the application server management console.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="consuming-web-services">Consuming web services</h3>
+<div class="paragraph">
+<p>When creating web service clients, one usually starts from the WSDL, but deciphering the WSDL can be complicated.
+JBossWS ships with a set of tools to generate the required JAX-WS
+artifacts to build client implementations. The following section
+looks at a basic usage pattern. For a more detailed
+introduction to the web service client please consult the user guide.</p>
+</div>
+<div class="sect3">
+<h4 id="creating-the-client-artifacts">Creating the client artifacts</h4>
+<div class="sect4">
+<h5 id="using-wsconsume">Using wsconsume</h5>
+<div class="paragraph">
+<p>The <em>wsconsume</em> tool is used to consume the abstract contract (WSDL) and
+produce annotated Java classes.
+The following discussion starts with the WSDL from our retail example
+(ProfileMgmtService.wsdl) above. For a detailed tool reference
+consult the user guide.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wsconsume is a command line tool that generates
+portable JAX-WS artifacts from a WSDL file.
+
+usage: org.jboss.ws.tools.jaxws.command.wsconsume [options] &lt;wsdl-url&gt;
+
+options:
+    -h, --help                  Show this help message
+    -b, --binding=&lt;file&gt;        One or more JAX-WS or JAXB binding files
+    -k, --keep                  Keep/Generate Java source
+    -c  --catalog=&lt;file&gt;        Oasis XML Catalog file for entity resolution
+    -p  --package=&lt;name&gt;        The target package for generated source
+    -w  --wsdlLocation=&lt;loc&gt;    Value to use for @WebService.wsdlLocation
+    -o, --output=&lt;directory&gt;    The directory to put generated artifacts
+    -s, --source=&lt;directory&gt;    The directory to put Java source
+    -q, --quiet                 Be somewhat more quiet
+    -t, --show-traces           Show full exception stack traces</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s try it on our sample:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>~./wsconsume.sh -k -p org.jboss.test.ws.jaxws.samples.retail.profile ProfileMgmtService.wsdl  (1)
+
+org/jboss/test/ws/jaxws/samples/retail/profile/Customer.java
+org/jboss/test/ws/jaxws/samples/retail/profile/DiscountRequest.java
+org/jboss/test/ws/jaxws/samples/retail/profile/DiscountResponse.java
+org/jboss/test/ws/jaxws/samples/retail/profile/ObjectFactory.java
+org/jboss/test/ws/jaxws/samples/retail/profile/ProfileMgmt.java
+org/jboss/test/ws/jaxws/samples/retail/profile/ProfileMgmtService.java
+org/jboss/test/ws/jaxws/samples/retail/profile/package-info.java</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Note we used the <code>-p</code> switch to specify the package name
+of the generated sources.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="the-generated-artifacts-explained">The generated artifacts explained</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">File</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProfileMgmt.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service Endpoint Interface</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Customer.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom data type</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discount*.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom data type</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ObjectFactory.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JAXB XML Registry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">package-info.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Holder for JAXB package annotations</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProfileMgmtService.java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service factory</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>wsconsume</em> generates all the custom data types (JAXB annotated
+classes), the service endpoint interface and a service factory class.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="constructing-a-service-stub">Constructing a service stub</h4>
+<div class="paragraph">
+<p>Web service clients make use of a service stub that hides the details of
+a remote web service invocation. To a client application a WS invocation
+looks like an invocation of any other business component. In this
+case the service endpoint interface is the business interface.
+JAX-WS does use a service factory class to construct this as particular
+service stub:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>import jakarta.xml.ws.Service;
+[...]
+Service service = Service.create(                                 (1)
+new URL("http://example.org/service?wsdl"),
+new QName("MyService")
+);
+ProfileMgmt profileMgmt = service.getPort(ProfileMgmt.class);     (2)
+
+// do something with the service stub here...                     (3)</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a service factory using the WSDL location and the service name</p>
+</li>
+<li>
+<p>Use the tool created service endpoint interface to build the service
+stub</p>
+</li>
+<li>
+<p>Use the stub like any other business interface</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="resolving-dependencies-and-running-the-client">Resolving dependencies and running the client</h4>
+<div class="paragraph">
+<p>To successfully run a WS client application, a classloader
+needs to be properly setup to include the JBossWS components and its
+required transitive dependencies. Depending on the environment the
+client is run in, this might require adding some jars to the
+classpath, or adding some artifact dependencies to the maven dependency
+tree. Even for simply developing a client, users might
+need to resolve proper dependencies (e.g. to setup their IDE).</p>
+</div>
+<div class="paragraph">
+<p>Below you will find some options for resolving dependencies and running a WS
+client using the JBossWS libraries:</p>
+</div>
+<div class="sect4">
+<h5 id="maven-project">Maven project</h5>
+<div class="paragraph">
+<p>The JBossWS project is composed of multiple Maven artifacts that can be
+used to declare dependencies in user Maven projects. In particular, the
+`
+              org.jboss.ws.cxf:jbossws-cxf-client
+            ` artifact can be used for getting the whole JBossWS client
+dependency. Users should simply add a dependency to it in their Maven
+project and make sure JBossWS components (in particular
+<code>org.jboss.ws.cxf:jbossws-cxf-factories</code> ) come before jars of any other
+JAX-WS implementation in your classpath.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="jboss-modules-environment">JBoss Modules environment</h5>
+<div class="paragraph">
+<p>One approach for running a WS client is to leverage JBoss
+Modules, creating a classloading environment equivalent to the
+server container WS endpoints run in. This is achieved by using the
+<em>jboss-modules.jar</em> coming with WildFly as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>java -jar $WILDFLY_HOME/jboss-modules.jar -mp $WILDFLY_HOME/modules -jar client.jar</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>client.jar</em> is meant to contain the WS client application and
+include a <em>MANIFEST.MF</em> file specifying the proper <code>Main-Class</code> as well
+as <a href="#JBoss Modules">[JBoss Modules]</a> dependencies, for instance:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Manifest-Version: 1.0
+Main-Class: org.jboss.test.ws.jaxws.jbws1666.TestClient
+Dependencies: org.jboss.ws.cxf.jbossws-cxf-client</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="flat-classpath-setup">Flat classpath setup</h5>
+<div class="paragraph">
+<p>Alternatively, users can setup their application classpath manually
+(e.g when compiling and running the application directly through <code>javac</code>
+/ <code>java</code> command or using <code>Ant</code> ).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="maven-archetype-quick-start">Maven archetype quick start</h3>
+<div class="paragraph">
+<p>A convenient approach to start a new project aiming at providing and/or
+consuming a JAX-WS endpoint is to use the JBossWS <em>jaxws-codefirst</em>
+Maven Archetype. A starting project (including working build and sample
+helloworld client and endpoint) is created in few seconds. It&#8217;s simply a
+matter of issuing a command and answering several simple questions about the
+desired artifact and group ids for the project being generated:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; mvn archetype:generate -Dfilter=org.jboss.ws.plugins.archetypes:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The generated project includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a sample HelloWorld code-first POJO endpoint</p>
+</li>
+<li>
+<p>an integration test that gets the WSDL contract for the above service,
+builds a client and invokes the endpoint</p>
+</li>
+<li>
+<p>a pom.xml for creating a war archive; the project has proper WS
+component dependencies and uses both wsprovide and wsconsume maven
+plugins for generating the contract for the code-first endpoint and then
+generating the client stubs for such contract</p>
+</li>
+<li>
+<p>a plugin for deploying the archive on WildFly.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The project is built and tested by running:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; mvn wildfly:deploy
+&gt; mvn integration-test</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The build processes the various plugins and calls into the JBossWS tools
+to generate all the required classes for building the deployment archive
+and client. The user can test the sample, have a look at the project
+structure and then either trash the sample endpoint and testcase and
+replace them with his own components, or modify them step-by-step to
+achieve their own needs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="appendix">Appendix</h3>
+<div class="sect3">
+<h4 id="sample-wsdl-contract">Sample wsdl contract</h4>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;definitions
+    name='ProfileMgmtService'
+    targetNamespace='http://org.jboss.ws/samples/retail/profile'
+    xmlns='http://schemas.xmlsoap.org/wsdl/'
+    xmlns:ns1='http://org.jboss.ws/samples/retail'
+    xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+    xmlns:tns='http://org.jboss.ws/samples/retail/profile'
+    xmlns:xsd='http://www.w3.org/2001/XMLSchema'&gt;
+
+   &lt;types&gt;
+
+      &lt;xs:schema targetNamespace='http://org.jboss.ws/samples/retail'
+                 version='1.0' xmlns:xs='http://www.w3.org/2001/XMLSchema'&gt;
+         &lt;xs:complexType name='customer'&gt;
+            &lt;xs:sequence&gt;
+               &lt;xs:element minOccurs='0' name='creditCardDetails' type='xs:string'/&gt;
+               &lt;xs:element minOccurs='0' name='firstName' type='xs:string'/&gt;
+               &lt;xs:element minOccurs='0' name='lastName' type='xs:string'/&gt;
+            &lt;/xs:sequence&gt;
+         &lt;/xs:complexType&gt;
+      &lt;/xs:schema&gt;
+
+      &lt;xs:schema
+          targetNamespace='http://org.jboss.ws/samples/retail/profile'
+          version='1.0'
+          xmlns:ns1='http://org.jboss.ws/samples/retail'
+          xmlns:tns='http://org.jboss.ws/samples/retail/profile'
+          xmlns:xs='http://www.w3.org/2001/XMLSchema'&gt;
+
+         &lt;xs:import namespace='http://org.jboss.ws/samples/retail'/&gt;
+         &lt;xs:element name='getCustomerDiscount'
+                     nillable='true' type='tns:discountRequest'/&gt;
+         &lt;xs:element name='getCustomerDiscountResponse'
+                     nillable='true' type='tns:discountResponse'/&gt;
+         &lt;xs:complexType name='discountRequest'&gt;
+            &lt;xs:sequence&gt;
+               &lt;xs:element minOccurs='0' name='customer' type='ns1:customer'/&gt;
+
+            &lt;/xs:sequence&gt;
+         &lt;/xs:complexType&gt;
+         &lt;xs:complexType name='discountResponse'&gt;
+            &lt;xs:sequence&gt;
+               &lt;xs:element minOccurs='0' name='customer' type='ns1:customer'/&gt;
+               &lt;xs:element name='discount' type='xs:double'/&gt;
+            &lt;/xs:sequence&gt;
+         &lt;/xs:complexType&gt;
+      &lt;/xs:schema&gt;
+
+   &lt;/types&gt;
+
+   &lt;message name='ProfileMgmt_getCustomerDiscount'&gt;
+      &lt;part element='tns:getCustomerDiscount' name='getCustomerDiscount'/&gt;
+   &lt;/message&gt;
+   &lt;message name='ProfileMgmt_getCustomerDiscountResponse'&gt;
+      &lt;part element='tns:getCustomerDiscountResponse'
+            name='getCustomerDiscountResponse'/&gt;
+   &lt;/message&gt;
+   &lt;portType name='ProfileMgmt'&gt;
+      &lt;operation name='getCustomerDiscount'
+                 parameterOrder='getCustomerDiscount'&gt;
+
+         &lt;input message='tns:ProfileMgmt_getCustomerDiscount'/&gt;
+         &lt;output message='tns:ProfileMgmt_getCustomerDiscountResponse'/&gt;
+      &lt;/operation&gt;
+   &lt;/portType&gt;
+   &lt;binding name='ProfileMgmtBinding' type='tns:ProfileMgmt'&gt;
+      &lt;soap:binding style='document'
+                    transport='http://schemas.xmlsoap.org/soap/http'/&gt;
+      &lt;operation name='getCustomerDiscount'&gt;
+         &lt;soap:operation soapAction=''/&gt;
+         &lt;input&gt;
+
+            &lt;soap:body use='literal'/&gt;
+         &lt;/input&gt;
+         &lt;output&gt;
+            &lt;soap:body use='literal'/&gt;
+         &lt;/output&gt;
+      &lt;/operation&gt;
+   &lt;/binding&gt;
+   &lt;service name='ProfileMgmtService'&gt;
+      &lt;port binding='tns:ProfileMgmtBinding' name='ProfileMgmtPort'&gt;
+
+         &lt;soap:address
+             location='http://&lt;HOST&gt;:&lt;PORT&gt;/jaxws-samples-retail/ProfileMgmtBean'/&gt;
+      &lt;/port&gt;
+   &lt;/service&gt;
+&lt;/definitions&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+                  </div><!-- end main -->
+               </div>
+
+    <div id="rightcolumn" class="column">
+
+    <div class="projectpage-socialmedia">
+        <span class="st_sharethis_large">&nbsp;</span>
+        <span class="st_facebook_large">&nbsp;</span>
+        <span class="st_twitter_large">&nbsp;</span>
+        <span class="st_linkedin_large">&nbsp;</span>
+        <span class="st_email_large">&nbsp;</span>
+    </div>
+
+
+    <div id="proj_quick-start">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="/downloads-latest/">Download</a></li>
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/blogs">Blog</a></li>
+            <li><a href="https://issues.redhat.com/browse/JBWS">JIRA</a></li>
+            <li><a href="https://github.com/jbossws">Code</a></li>
+            <li><a href="https://github.com/jbossws/jbossws-cxf/discussions">Discussion</a></li>
+        </ul>
+    </div>
+
+    <div class="clear"><br/></div>
+
+    <div class="uploaded-img">
+
+        <a href="https://www.ej-technologies.com/products/jprofiler/overview.html">
+
+            <img width="180" alt="" height="75"
+                 src="/img/logo_jprofiler01.gif"
+                 style="margin:0 auto;"/>
+
+        </a>
+    </div>
+
+    <h5>We use JProfiler for profiling</h5>
+
+    <table>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+
+
+    <div>
+        <a href="https://www.jboss.org/security.html">
+            <div class="projectpage-sprite projectpage-sprite-securityimage">&nbsp;</div>
+        </a>
+    </div>
+</div>
+
+</div><!-- end wrapper-3 -->
+
+</div><!-- end wrapper-content -->
+<div style="clear: both;"></div>
+</div><!-- end wrapper-2 -->
+</div>
+       <div id="site-info">
+      <div>
+      </div>
+
+      <div class="footer">
+         <div class="container" id="companyfooter">
+            <div class="redhatlogo" style="text-align:center;">
+               <div id="logospacer"></div>
+               <a href="https://www.redhat.com/">
+                  <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
+               </a>
+            </div>
+         </div>
+      </div>
+   </div><!-- end site-info -->
+</div><!-- end wrapper -->
+
+    </body>
+</html>
