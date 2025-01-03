@@ -1,15 +1,10 @@
 ---
 layout:     main
-title:       "JBossWS 7.3.0.Final Release"
-date:       Nov 11,2024 15:00 PM
+title:      "JBossWS 7.3.1.Final is released!"
+date:       Dec 11,2024
 author:     Jim Ma
 ---
-We are pleased to announce the release of JBossWS-CXF 7.3.0.Final. In this release, 
-we’ve upgraded CXF to version 4.0.5, woodstox-core from 6.4.0 to 7.0.0 and addressed several important issues, including
- [JBWS-4430](https://issues.redhat.com/browse/JBWS-4430). For more details, 
-please see the [Release Notes](https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&version=12431262).
-
-If you are currently using JBossWS 7.2.0.Final, we recommend upgrading to this version, 
-especially if you are using CDI in the SOAP handler or CXF interceptors.
+JBossWS-CXF 7.3.1.Final has been released. In this release, we mainly fixed issue: [JBWS-4433:Don't create JAXPDelegateClassLoader for each invocation in the CXFServletExt](https://issues.redhat.com/browse/JBWS-4433)
+to improve the performance. For complete issue list, please check the [Release Notes](https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&version=12439419).
 
 Please try out this release, and let us know if you have any issues or questions.
