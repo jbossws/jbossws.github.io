@@ -6,13 +6,13 @@ on:
       - main
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout github io
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Checkout latest snapshot adoc and image files
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: jbossws/jbossws-cxf
           path: './jbossws-cxf'
