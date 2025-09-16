@@ -1,7 +1,7 @@
 ---
 layout:     default
 title:       "JBossWS Documentation"
-subtitle:    "7.3.5-SNAPSHOT"
+subtitle:    "7.3.4.Final"
 link:        docs
 ---
 = JBossWS Documentation
@@ -11,7 +11,6 @@ link:        docs
 :doctype: book
 :title-logo-image:
 :leveloffset: -1
-:imagesdir: ../image/
 
 include::content/Preface.adoc[]
 
