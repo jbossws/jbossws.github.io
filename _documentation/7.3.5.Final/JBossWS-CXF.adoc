@@ -1,17 +1,10 @@
----
-layout:     default
-title:       "JBossWS Documentation"
-subtitle:    "7.3.6-SNAPSHOT"
-link:        docs
----
-= JBossWS Documentation
+= JBoss Web Services Documentation - {jbossws-version}
 :sectnums:
 :toc:
 :toclevels: 3
 :doctype: book
 :title-logo-image:
 :leveloffset: -1
-:imagesdir: ../image/
 
 include::content/Preface.adoc[]
 
