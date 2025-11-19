@@ -1,4 +1,10 @@
-= JBoss Web Services Documentation - {jbossws-version}
+---
+layout:     default
+title:       "JBossWS Documentation"
+subtitle:    "7.3.5.Final"
+link:        docs
+---
+= JBossWS Documentation
 :sectnums:
 :toc:
 :toclevels: 3
