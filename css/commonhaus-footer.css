@@ -1,0 +1,36 @@
+/*
+ * Copyright The JBossWS Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+.footer.commonhaus-footer {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    height: auto;
+    min-height: 100px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.commonhaus-footer .commonhaus-logo {
+    grid-column: 1/13;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    padding-top: 20px;
+}
+
+.commonhaus-footer .commonhaus-logo img {
+    height: 30px;
+}
+
+.commonhaus-footer .commonhaus-legal {
+    grid-column: 1/13;
+    grid-row: 2;
+    align-self: start;
+    justify-self: center;
+    font-size: .75rem;
+    width: 100%;
+    padding: 0 20px;
+}
