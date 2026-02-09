@@ -2,7 +2,7 @@
 <html>
     <head>
    <META HTTP-EQUIV='Content-Security-Policy'
-         CONTENT="default-src 'none'; object-src 'none'; style-src 'self' https://static.jboss.org ; script-src 'self' https://static.jboss.org ; font-src 'none'; img-src 'self' https://static.jboss.org; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
+         CONTENT="default-src 'none'; object-src 'none'; style-src 'self' https://static.jboss.org ; script-src 'self' https://static.jboss.org ; font-src 'none'; img-src 'self' https://static.jboss.org https://raw.githubusercontent.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none' "/>
    <META HTTP-EQUIV='X-XSS-Protection' CONTENT="1; mode=block">
    <META HTTP-EQUIV='X-Content-Type-Options' CONTENT="nosniff">
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -23,6 +23,7 @@
    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/theme/css/magnolia/wide.css" media="only screen and (min-width: 1200px)" />
    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/jbossdeveloper-thin.css" media="screen, projection" />
    <link rel="stylesheet" type="text/css" href="https://static.jboss.org/css/rhbar.css" media="screen, projection" />
+   <link rel="stylesheet" type="text/css" href="/css/commonhaus-footer.css" media="screen, projection" />
 </head>
 
     <body id="project" class="col-float3 rightcol-layout">
@@ -264,16 +265,24 @@ The <a href="https://docs.jboss.org/author/display/JBWS">JBossWS 4.x documentati
       <div>
       </div>
 
-      <div class="footer">
-         <div class="container" id="companyfooter">
-            <div class="redhatlogo" style="text-align:center;">
-               <div id="logospacer"></div>
-               <a href="https://www.redhat.com/">
-                  <img src="https://static.jboss.org/images/rhbar/redhatlogo.png">
-               </a>
-            </div>
-         </div>
-      </div>
+       <div class="footer commonhaus-footer">
+           <div class="commonhaus-logo">
+               <img src="https://raw.githubusercontent.com/commonhaus/artwork/main/foundation/brand/svg/CF_logo_horizontal_single_default.svg" alt="Commonhaus Foundation"/>
+           </div>
+           <div class="commonhaus-legal">
+               <div>
+                   Copyright © <a href="https://jbossws.github.io/">JBoss Web Services</a>.
+                   All rights reserved.
+               </div>
+               <div>
+                   For details on our trademarks, please visit our <a href="https://www.commonhaus.org/policies/trademark-policy/">Trademark Policy</a>
+                   and <a href="https://www.commonhaus.org/trademarks/">Trademark List</a>.
+                   Trademarks of third parties are owned by their respective holders and their mention here does not suggest any endorsement or association.
+               </div>
+           </div>
+       </div>
+
+
    </div><!-- end site-info -->
 </div><!-- end wrapper -->
 
