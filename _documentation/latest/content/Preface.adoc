@@ -1,0 +1,4 @@
+[[preface-JBoss_Web_Services_Documentation]]
+== Preface
+
+This book covers the documentation for the current JBossWS release.
