@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2026-04-01T14:36:11+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS 7.3.7.Final is released!</title><link href="/2025/11/18/jbossws-737-release/" rel="alternate" type="text/html" title="JBossWS 7.3.7.Final is released!" /><published>2025-11-18T00:00:00+00:00</published><updated>2025-11-18T00:00:00+00:00</updated><id>/2025/11/18/jbossws-737-release</id><content type="html" xml:base="/2025/11/18/jbossws-737-release/"><![CDATA[<p>JBossWS-CXF 7.3.7.Final has been released. In this bugfix release we added JDK25 support, fixed expired certificates issue and changed bus
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2026-05-27T15:45:34+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS 7.3.8.Final is released!</title><link href="/2026/05/06/jbossws-738-release/" rel="alternate" type="text/html" title="JBossWS 7.3.8.Final is released!" /><published>2026-05-06T00:00:00+00:00</published><updated>2026-05-06T00:00:00+00:00</updated><id>/2026/05/06/jbossws-738-release</id><content type="html" xml:base="/2026/05/06/jbossws-738-release/"><![CDATA[<p>In this bugfix release we added a functionality that lets JBossWS CXF accept encoded URL paths, e.g. those 
+including NLS (National Language Symbols) characters in Web Services names.</p>
+
+<p>Please try out this release, and let us know if you have any issues or questions.</p>
+
+<h3 id="release-notes---jboss-web-services---jbossws-cxf-738final">Release notes - JBoss Web Services - jbossws-cxf-7.3.8.Final</h3>
+
+<h4 id="bug">Bug</h4>
+
+<ul>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4467">JBWS-4467</a> - Tests are searched for in modules/testsuite after 
+ maven-surefire-plugin upgrade</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4488">JBWS-4488</a> - jbossws-cxf - “JBWS024029: Cannot obtain destination 
+ for …” is thrown when trying to consume a web service having NLS characters in URL path</p>
+
+    <ul>
+      <li>
+        <p>JBossWS-CXF can automatically handle URL-encoded paths containing National Language Symbols (NLS) or other non-ASCII characters. <br />
+The stack can automatically try to decode incoming request paths to match the registered endpoints.</p>
+
+        <p>This behavior is disabled by default and can be controlled globally via the following system properties:</p>
+
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">org.jboss.ws.cxf.decodeUrlPath</code> - controls the default behavior across all deployments. The default value is <code class="language-plaintext highlighter-rouge">false</code>.</li>
+          <li><code class="language-plaintext highlighter-rouge">org.jboss.ws.cxf.urlCharset</code> - controls the charset that will be used to decode the URL path. The default value is <code class="language-plaintext highlighter-rouge">UTF-8</code>.</li>
+        </ul>
+
+        <p>Such properties can be overridden per-deployment, that is, via the <code class="language-plaintext highlighter-rouge">jboss-webservices.xml</code><br />
+descriptor, which take precedence over the system properties.</p>
+
+        <p>The <code class="language-plaintext highlighter-rouge">org.jboss.ws.cxf.urlCharset</code> system property should be aligned with Undertow’s <code class="language-plaintext highlighter-rouge">URL\_CHARSET</code> configuration option.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="task">Task</h4>
+
+<ul>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4465">JBWS-4465</a> - JBossWS CXF “feature-pack” module does not build against WildFly 39.0.0.Beta1</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4471">JBWS-4471</a> - jbossws-cxf - Update to jbossws-parent 2.1.1.Final</p>
+  </li>
+</ul>]]></content><author><name>Fabio Burzigotti</name></author><summary type="html"><![CDATA[In this bugfix release we added a functionality that lets JBossWS CXF accept encoded URL paths, e.g. those including NLS (National Language Symbols) characters in Web Services names.]]></summary></entry><entry><title type="html">JBossWS 7.3.7.Final is released!</title><link href="/2025/11/18/jbossws-737-release/" rel="alternate" type="text/html" title="JBossWS 7.3.7.Final is released!" /><published>2025-11-18T00:00:00+00:00</published><updated>2025-11-18T00:00:00+00:00</updated><id>/2025/11/18/jbossws-737-release</id><content type="html" xml:base="/2025/11/18/jbossws-737-release/"><![CDATA[<p>JBossWS-CXF 7.3.7.Final has been released. In this bugfix release we added JDK25 support, fixed expired certificates issue and changed bus
 default configuration to avoid accumulated cleanup threads leak.
 For complete issue list, please check the <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12471164">Release Notes</a>.</p>
 
@@ -34,148 +82,4 @@ time frame. In addition to this new feature, we addressed several other issues, 
 <a href="https://issues.redhat.com/browse/JBWS-4424">JBWS-4424</a> and made a few enhancements.  For more detailed information and a full list of issues addressed in this release,
 please check <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12425135">release notes</a>.</p>
 
-<p>Please try this release out and give us your feedback!</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.2.0.Final has been released. In this release, we introduced the throttling feature to better control the number of requests a backend service can handle within a specified time frame. In addition to this new feature, we addressed several other issues, including a performance problem on the client side JBWS-4424 and made a few enhancements. For more detailed information and a full list of issues addressed in this release, please check release notes.]]></summary></entry><entry><title type="html">Throttle the webservice request with JBossWSThrottlingFeature</title><link href="/2024/05/31/new-throttling-feature/" rel="alternate" type="text/html" title="Throttle the webservice request with JBossWSThrottlingFeature" /><published>2024-05-31T00:00:00+00:00</published><updated>2024-05-31T00:00:00+00:00</updated><id>/2024/05/31/new-throttling-feature</id><content type="html" xml:base="/2024/05/31/new-throttling-feature/"><![CDATA[<p>To ensure the web service application can handle a large number of requests, we need to allocate 
-sufficient resources and use load balancing approaches to distribute the requests
-across different server instances. Besides providing enough resources for the web service 
-application, we can still do more within the application server to help manage and control 
-the flow of requests to the backend web services, ensuring the stability and performance of 
-a certain web service application. In this blog, we will explore the newly added JBossWSThrottlingFeature 
-and demonstrate this feature to limit web service requests with some configuration examples.</p>
-
-<h3 id="understanding-throttling">Understanding Throttling</h3>
-<p>Throttling is a technique to control the number of requests a backend service can handle within 
-a specified time frame. For example, we can set a limit so that the service can only handle 
-10,000 requests in 5 minutes. By limiting the rate of incoming requests, throttling helps prevent 
-the server from being overwhelmed and protects it from potential crashes. This ensures that 
-server resources are utilized within their designed capacity. Throttling is particularly 
-important in environments where services are exposed to numerous clients and handle resource-intensive operations. 
-It also acts as a protective measure against Denial of Service (DoS) attacks.</p>
-<h3 id="jbosswsthrottlingfeature">JBossWSThrottlingFeature</h3>
-<p>JBossWSThrottlingFeature is the new feature class to enable the throttling in JBossWS-CXF/WildFly which is introduced 
-in jbossws-cxf-7.2.0. This class can allow the JBossWSThrottlingFeature to be configured in the jaxws-endpoint-config.xml.
-Like CXF’s throttling feature, each JBossWSThrottlingFeature needs a ThrottlingManager to check if the request reaches the 
-limit and should return the response immediately. The EndpointMetricsThrottlingManager is created to throttle the request 
-based on JBossWS endpoint metrics. JBossWS EndpointMetrics collects the different metrics from each endpoint:</p>
-
-<ul>
-  <li>faultCount</li>
-  <li>requestCount</li>
-  <li>averageProcessingTime</li>
-  <li>maxProcessingTime</li>
-  <li>minProcessingTime</li>
-  <li>totalProcessingTime</li>
-</ul>
-
-<p>User can define the limit number for each metric to limit the request to this endpoint.For example, if we define
-the requests number reaches 5, it will throttle the request and return 429 (Server Busy) response to the client.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
-  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
-
-  &lt;endpoint-config&gt;
-    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloWorldImpl&lt;/config-name&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
-      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
-      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
-      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
-      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.EndpointMetricsThrottlingManager&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingManager.requestPermit&lt;/property-name&gt;
-      &lt;property-value&gt;5&lt;/property-value&gt;
-    &lt;/property&gt;
-  &lt;/endpoint-config&gt;
-</code></pre></div></div>
-<p>There is another RateLimitThorttlingManager out-of-the-box to allow user to easily control the request traffic
-by defining the <code class="language-plaintext highlighter-rouge">permitsPerMin</code>. This simply define the number of requests the server can handle in one minute.
-Exceed this number of requests, the server will respond 429 immediately.Below is the configuration example which is
-limiting the requests is 5 in one minute:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-
-&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
-  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
-  &lt;endpoint-config&gt;
-    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloImpl&lt;/config-name&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
-      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
-      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
-      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
-      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.RateLimitThorttlingManager&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingManager.permitsPerMin&lt;/property-name&gt;
-      &lt;property-value&gt;5&lt;/property-value&gt;
-    &lt;/property&gt;
-  &lt;/endpoint-config&gt;
-&lt;/jaxws-config&gt;
-</code></pre></div></div>
-<p>The other two options <code class="language-plaintext highlighter-rouge">peroid</code> and <code class="language-plaintext highlighter-rouge">permitsPerPeroid</code> in RateLimitThorttlingManager can be used to specify any peroid time and number of requests is allowed in this peroid 
-time instead of defining the requests limit in one minute which is commonly used. For example, this jaxws-endpoint-config.xml can be used to limit the 5 requests in 30 seconds:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;jaxws-config xmlns="urn:jboss:jbossws-jaxws-config:4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
-  xsi:schemaLocation="urn:jboss:jbossws-jaxws-config:4.0 schema/jbossws-jaxws-config_4_0.xsd"&gt;
-  &lt;endpoint-config&gt;
-    &lt;config-name&gt;org.jboss.test.ws.jaxws.cxf.throttling.HelloImpl&lt;/config-name&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;cxf.features&lt;/property-name&gt;
-      &lt;property-value&gt;##throttlingFeature&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingFeature&lt;/property-name&gt;
-      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.JBossWSThrottlingFeature&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingFeature.throttlingManager&lt;/property-name&gt;
-      &lt;property-value&gt;##throttlingManager&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingManager&lt;/property-name&gt;
-      &lt;property-value&gt;org.jboss.wsf.stack.cxf.features.throttling.RateLimitThorttlingManager&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingManager.period&lt;/property-name&gt;
-      &lt;property-value&gt;30&lt;/property-value&gt;
-    &lt;/property&gt;
-    &lt;property&gt;
-      &lt;property-name&gt;##throttlingManager.permitsPerPeriod&lt;/property-name&gt;
-      &lt;property-value&gt;5&lt;/property-value&gt;
-    &lt;/property&gt;
-  &lt;/endpoint-config&gt;
-&lt;/jaxws-config&gt;
-</code></pre></div></div>
-<p>Please note ,both these two ThrottlingManagers require the webservice subsystem’ statistics is enabled
-to get the correct value from Endpoint metrics. To enable the webservice subsystem’s statistics, simply 
-run the jboss-cli command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./subsystem=webservices:write-attribute(name=statistics-enabled,value=true)
-</code></pre></div></div>
-
-<p>The key element of the throttling feature configuration is the jaxws-endpoint-config.xml, and this configuration file should be packaged directly in the WAR file, and ensure it’s not under META-INF or WEB-INF.</p>
-
-<h3 id="summary">Summary</h3>
-<p>The JBossWS throttling feature can be an easy approach to protect important web services from being 
-overwhelmed or crashed. This feature can also be used to serve different user categories, 
-such as paid and unpaid users. If you need this feature in your web service application, 
-please give it a try. If you find that the out-of-the-box ThrottlingManager 
-doesn’t meet your requirements, you can extend the throttling api and create 
-your own ThrottlingManager. If your created ThrottlingManager could be useful 
-for others and want to contribute, don’t forget to let us know.</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[To ensure the web service application can handle a large number of requests, we need to allocate sufficient resources and use load balancing approaches to distribute the requests across different server instances. Besides providing enough resources for the web service application, we can still do more within the application server to help manage and control the flow of requests to the backend web services, ensuring the stability and performance of a certain web service application. In this blog, we will explore the newly added JBossWSThrottlingFeature and demonstrate this feature to limit web service requests with some configuration examples.]]></summary></entry></feed>
+<p>Please try this release out and give us your feedback!</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.2.0.Final has been released. In this release, we introduced the throttling feature to better control the number of requests a backend service can handle within a specified time frame. In addition to this new feature, we addressed several other issues, including a performance problem on the client side JBWS-4424 and made a few enhancements. For more detailed information and a full list of issues addressed in this release, please check release notes.]]></summary></entry></feed>

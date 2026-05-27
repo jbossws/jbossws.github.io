@@ -124,235 +124,203 @@
                        <span>
                               <a href="/">JBoss Web Services</a>
                                 &gt;
-                              <a href="/blogs">Blogs</a>
+                              <a href="/">Chapter 1 Web_services_introduction</a>
                                 &gt;
                               <a href="#"></a>
                        </span>
                      </div><!-- end breadcrumb -->
-                     
-<div class="post-preview">
-    <a href="/2017/11/13/jbossws-520final-is-available/">
-        <h3 class="post-title"> JBossWS 5.2.0.Final is available
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on November 13, 2017</p>
+                     <div class="sect1">
+<h2 id="web-services-introduction">Web Services Introduction</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="what-is-a-web-service">What is a web service?</h3>
+<div class="paragraph">
+<p><em>A Web service is a software system designed to support interoperable
+machine-to-machine interaction over a network. It has an interface
+described in a machine-processable format (specifically WSDL). Other
+systems interact with the Web service in a manner prescribed by its
+description using SOAP messages, typically conveyed using HTTP with an
+XML serialization in conjunction with other Web-related standards.</em></p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2016/08/27/summers-nearly-over/">
-        <h3 class="post-title"> Summer's nearly over..
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on August 27, 2016</p>
+<div class="paragraph">
+<p>From <em>W3C Web Services Architecture</em>
+<a href="http://www.w3.org/TR/2004/NOTE-ws-arch-20040211">[1</a>]</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2015/12/23/christmas-2015-releases/">
-        <h3 class="post-title"> Christmas 2015 releases!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on December 23, 2015</p>
+<div class="paragraph">
+<p>Technical details will be later explained in the documentation. What
+comes out is that web services provide a standard means of
+interoperating between different software applications. Each of these
+applications may run on a variety of platforms and/or frameworks
+providing a set of functionalities. The main concern is about
+interoperability between services.</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2015/09/02/jbossws-510final-is-available/">
-        <h3 class="post-title"> JBossWS 5.1.0.Final is available!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on September 2, 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A service provider publishes a service contract that exposes the
+public functions (operations) it provides.  A service
+consumers uses those operations to communicate with the provider.</p>
+</li>
+<li>
+<p>Both service providers and service consumers implement concrete
+software that sends and receives messages in accordance with the service contract agreed to before the communication.</p>
+</li>
+<li>
+<p>Web services specifications define the rules for publishing a service contract.</p>
+</li>
+<li>
+<p>Web services stacks (like <em>JBossWS</em> ) that conform to the specifications provide a software infrastructure to developers for implementing service providers and consumers.  This infrastructure enables developers to focus on developing their own business logic in their preferred way, without dealing with the low-level details of message exchange.</p>
+</li>
+</ul>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2015/08/06/jbossws-501final-and-510beta1/">
-        <h3 class="post-title"> JBossWS 5.0.1.Final and 5.1.0.Beta1
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on August 6, 2015</p>
+<div class="sect3">
+<h4 id="who-needs-web-services">Who needs web services?</h4>
+<div class="paragraph">
+<p>Enterprise systems communication may benefit from adoption of WS
+technologies.  The Exposure of well designed contracts allows developers to extract an abstract view of service capabilities.  The standardization of software contracts can help improve communication with third-party systems and business-to-business integration.  It is easier to expand services for the consumer.  No more vendor specific implementation details, home-brew communication protocol or custom per-customer settings.</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2015/06/26/migrating-sources-to-github/">
-        <h3 class="post-title"> Migrating sources to GitHub
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on June 26, 2015</p>
+<div class="paragraph">
+<p>Enterprise system may benefit from web service technologies also for
+internal heterogeneous subsystems communication.
+Departments are free to implement providers and consumers in different software languages.  As long as a department adheres to the contract, there should be no need for one department to rewrite whole functionalities when another makes alterations and enhancements to their code.</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2015/04/27/jbossws-500final-is-available/">
-        <h3 class="post-title"> JBossWS 5.0.0.Final is available!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on April 27, 2015</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2015/03/24/moving-towards-jbossws-5/">
-        <h3 class="post-title"> Moving towards JBossWS 5...
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on March 24, 2015</p>
+<div class="sect3">
+<h4 id="what-web-services-are-not">What web services are not&#8230;&#8203;</h4>
+<div class="paragraph">
+<p>Web services are not the solution for every software system communication.</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2014/09/23/a-book-on-jax-ws-in-wildfly-and-more/">
-        <h3 class="post-title"> A book on JAX-WS in WildFly and more...
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on September 23, 2014</p>
+<div class="paragraph">
+<p>Web services are meant to be used for loosely-coupled coarse-grained
+communication and message (document) exchange.</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2014/09/16/how-to-kick-start-ws-project-in-few/">
-        <h3 class="post-title"> How to kick start a WS project in few seconds
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on September 16, 2014</p>
+<div class="paragraph">
+<p>Web service specifications (
+<a href="http://community.jboss.org/docs/DOC-13554#Future_of_Web_Services">WS-*</a> )
+have evolved to standardize ws-related advanced aspects including reliable messaging, message-level security, cross-service transactions, etc.
+Web service specifications also include the notion of registries to collect service contract references and mechanisms to discover service implementations.</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2014/09/05/wildfly-9-and-jbossws-5-future-is-coming/">
-        <h3 class="post-title"> WildFly 9 and JBossWS 5, the future is coming...
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on September 5, 2014</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2014/09/05/jbossws-431final-is-available/">
-        <h3 class="post-title"> JBossWS 4.3.1.Final is available
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on September 5, 2014</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2014/03/20/jbossws-430final-is-available/">
-        <h3 class="post-title"> JBossWS 4.3.0.Final is available!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on March 20, 2014</p>
+<div class="sect2">
+<h3 id="from-concepts-to-technology">From concepts to technology</h3>
+<div class="sect3">
+<h4 id="service-contracts">Service contracts</h4>
+<div class="paragraph">
+<p>Contracts carry technical constraints and requirements of the exposed
+service as well as information about data to be exchange to interact
+with the service. They comprise technical descriptions and optional
+non-technical documents. The latter might include human readable
+description of the service and the business process it is part of as
+well as service level agreement / quality of provided service
+information.</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2013/10/23/controlling-apache-cxf-bus-creation-for/">
-        <h3 class="post-title"> Controlling Apache CXF Bus creation for JAXWS clients
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on October 23, 2013</p>
+<div class="sect4">
+<h5 id="technical-description">Technical description</h5>
+<div class="paragraph">
+<p>Service description is mainly provided using the standard
+<a href="http://www.w3.org/TR/wsdl">Web Service Description Language (WSDL)</a> .
+Practically speaking this means one or more XML files contains
+information including the service location ( <em>endpoint address</em> ), the
+service functionalities ( <em>operations</em> ), the input/output messages
+involved in the communication and the business data structure. The
+latter is basically one or more <a href="http://www.w3.org/TR/xmlschema-0/">XML
+Schema definition</a> . Moreover recent specifications like (
+<a href="http://schemas.xmlsoap.org/ws/2004/09/policy/">WS-Policy</a> ) allow for
+advanced service capabilities to be stated in the contract through
+WSDL extensions.</p>
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2013/07/29/jbossws-420final-is-available/">
-        <h3 class="post-title"> JBossWS 4.2.0.Final is available!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on July 29, 2013</p>
+<div class="paragraph">
+<p>Web service stacks like JBossWS usually have tools to both generate and
+consume technical contracts. This helps ensure that owners of service producer ( <em>server</em> ) and consumer ( <em>client</em> ) declare valid contracts to establish the communication.</p>
 </div>
-<hr>
-
-
-<!-- Pager -->
-<p align="center">
-
-    
-        <a href="/blogs/page2">&larr; Newer Posts</a>
-    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-        <a href="/blogs/page4">Older Posts &rarr;</a>
-    
-
-
+</div>
+<div class="sect4">
+<h5 id="contract-delivery-process">Contract delivery process</h5>
+<div class="paragraph">
+<p>One of the main concerns about service contracts is the way they&#8217;re
+obtained.</p>
+</div>
+<div class="sect5">
+<h6 id="bottom-up-approach">Bottom-Up approach</h6>
+<div class="paragraph">
+<p>As previously said, tools allow developers to automatically generate
+WSDL contract files given their service implementation. Advantages and
+disadvantage of this delivery process include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Developers do not have to deal with contracts by hand thus deep
+knowledge of WSDL and XML is not required.</p>
+</li>
+<li>
+<p>Less effort and time is required for services to be developed and go live
+to a production environment.</p>
+</li>
+<li>
+<p>Contracts usually need frequent maintenance, refactoring and
+versioning.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="down-approach">Down approach</h6>
+<div class="paragraph">
+<p>Developers may write contracts first instead. This usually implies an
+initial collaboration of architects and business analysts to define a
+conceptual service design together.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Services with contracts obtained this way may easily cooperate in a
+service oriented architecture</p>
+</li>
+<li>
+<p>More effort and time is required for web service project start-up</p>
+</li>
+<li>
+<p>Deep knowledge of WSDL and related technology is required</p>
+</li>
+<li>
+<p>Contracts tend to have longer lifespans and usually require less
+maintenance.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="message-exchange">Message exchange</h4>
+<div class="paragraph">
+<p>As stated by the
+<a href="http://www.w3.org/TR/2004/NOTE-ws-arch-20040211/#whatis">W3C definition</a>
+, the communication between web services is standardized by the
+<a href="http://www.w3.org/TR/soap/">SOAP</a> specification. This means XML messages
+flow from the provider and consumer endpoints.</p>
+</div>
+<div class="paragraph">
+<p>Messages' content is described in the wsdl contract. The WSDL file also
+states the  to be used for the transmission. The most common transport protocol is HTTP, however JMS, SMTP and other ones are allowed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="advanced-web-services-technologies">Advanced Web Services technologies</h4>
+<div class="paragraph">
+<p>The above specifications are quite common nowadays in the IT
+industry. Many enterprises have used them for years.</p>
+</div>
+<div class="paragraph">
+<p>In recent years specifications have been created for security (WS-Security) and reliable messaging (WS-Reliable Messaging).
+Important functionality in delivering mission critical enterprise services.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
                   </div><!-- end main -->
                </div>
