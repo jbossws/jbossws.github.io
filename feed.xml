@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2026-06-30T12:42:14+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS 7.4.0.Final is released!</title><link href="/2026/05/28/jbossws-740-release/" rel="alternate" type="text/html" title="JBossWS 7.4.0.Final is released!" /><published>2026-05-28T00:00:00+00:00</published><updated>2026-05-28T00:00:00+00:00</updated><id>/2026/05/28/jbossws-740-release</id><content type="html" xml:base="/2026/05/28/jbossws-740-release/"><![CDATA[<p>In this release we upgraded Apache CXF to 4.1.6, aligned Jakarta and JBoss dependencies to WildFly, and moved 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2026-08-31T14:34:33+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS 7.4.1.Final is released!</title><link href="/2026/08/12/jbossws-741-release/" rel="alternate" type="text/html" title="JBossWS 7.4.1.Final is released!" /><published>2026-08-12T00:00:00+00:00</published><updated>2026-08-12T00:00:00+00:00</updated><id>/2026/08/12/jbossws-741-release</id><content type="html" xml:base="/2026/08/12/jbossws-741-release/"><![CDATA[<p>In this release we upgraded Apache CXF to 4.1.8, which includes a security improvement that blocks decoupled
+WS-Addressing destinations by default as a hardening measure against SSRF attacks. JBossWS-CXF enables decoupled
+WS-Addressing destinations by default to preserve backward compatibility, while allowing users to opt out and
+leverage the new Apache CXF security behaviour via the <code class="language-plaintext highlighter-rouge">org.jboss.ws.cxf.decoupledEndpointEnabled</code> property.</p>
+
+<p>This release also marks the point where the <code class="language-plaintext highlighter-rouge">7.4.x</code> maintenance branch will be created in the jbossws-cxf repository,
+as development moves on to the next major release. See the <a href="https://github.com/jbossws/jbossws-cxf/discussions/733">GitHub discussion</a> for more details.</p>
+
+<p>Please try out this release, and let us know if you have any issues or questions.</p>
+
+<h3 id="release-notes---jboss-web-services---jbossws-cxf-741final">Release notes - JBoss Web Services - jbossws-cxf-7.4.1.Final</h3>
+
+<p>Full release report: <a href="https://redhat.atlassian.net/projects/JBWS/versions/109929/tab/release-report-all-issues">JBWS 7.4.1.Final</a></p>
+
+<h4 id="component-upgrade">Component Upgrade</h4>
+
+<ul>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4521">JBWS-4521</a> - Upgrade Apache CXF from 4.1.6 to 4.1.8</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4522">JBWS-4522</a> - Upgrade com.google.cloud.tools:jib-maven-plugin from 3.4.3 to 3.5.2</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4523">JBWS-4523</a> - Upgrade org.apache.logging.log4j:log4j-1.2-api from 2.23.1 to 2.26.1</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4524">JBWS-4524</a> - Upgrade org.apache.neethi:neethi from 3.2.2 to 3.2.3</p>
+  </li>
+</ul>
+
+<h4 id="task">Task</h4>
+
+<ul>
+  <li><a href="https://redhat.atlassian.net/browse/JBWS-4525">JBWS-4525</a> - (jbossws-cxf) - Update the project README to reflect the current release procedure</li>
+</ul>]]></content><author><name>Fabio Burzigotti</name></author><summary type="html"><![CDATA[In this release we upgraded Apache CXF to 4.1.8, which includes a security improvement that blocks decoupled WS-Addressing destinations by default as a hardening measure against SSRF attacks. JBossWS-CXF enables decoupled WS-Addressing destinations by default to preserve backward compatibility, while allowing users to opt out and leverage the new Apache CXF security behaviour via the org.jboss.ws.cxf.decoupledEndpointEnabled property.]]></summary></entry><entry><title type="html">JBossWS 7.4.0.Final is released!</title><link href="/2026/05/28/jbossws-740-release/" rel="alternate" type="text/html" title="JBossWS 7.4.0.Final is released!" /><published>2026-05-28T00:00:00+00:00</published><updated>2026-05-28T00:00:00+00:00</updated><id>/2026/05/28/jbossws-740-release</id><content type="html" xml:base="/2026/05/28/jbossws-740-release/"><![CDATA[<p>In this release we upgraded Apache CXF to 4.1.6, aligned Jakarta and JBoss dependencies to WildFly, and moved 
 to jboss-jakarta-xml-ws-api 4.0 spec.</p>
 
 <p>Please try out this release, and let us know if you have any issues or questions.</p>
@@ -134,12 +169,4 @@ to improve user experience. For complete issue list, please check the <a href="h
 <p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Richard Opalka</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.2.Final has been released. In this bugfix release we addressed issue: JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers to improve user experience. For complete issue list, please check the Release Notes.]]></summary></entry><entry><title type="html">JBossWS 7.3.1.Final is released!</title><link href="/2024/12/11/jbossws-731-release/" rel="alternate" type="text/html" title="JBossWS 7.3.1.Final is released!" /><published>2024-12-11T00:00:00+00:00</published><updated>2024-12-11T00:00:00+00:00</updated><id>/2024/12/11/jbossws-731-release</id><content type="html" xml:base="/2024/12/11/jbossws-731-release/"><![CDATA[<p>JBossWS-CXF 7.3.1.Final has been released. In this release, we mainly fixed issue: <a href="https://issues.redhat.com/browse/JBWS-4433">JBWS-4433:Don’t create JAXPDelegateClassLoader for each invocation in the CXFServletExt</a>
 to improve the performance. For complete issue list, please check the <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12439419">Release Notes</a>.</p>
 
-<p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.1.Final has been released. In this release, we mainly fixed issue: JBWS-4433:Don’t create JAXPDelegateClassLoader for each invocation in the CXFServletExt to improve the performance. For complete issue list, please check the Release Notes.]]></summary></entry><entry><title type="html">JBossWS 7.3.0.Final is released!</title><link href="/2024/11/11/jbossws-730-release/" rel="alternate" type="text/html" title="JBossWS 7.3.0.Final is released!" /><published>2024-11-11T00:00:00+00:00</published><updated>2024-11-11T00:00:00+00:00</updated><id>/2024/11/11/jbossws-730-release</id><content type="html" xml:base="/2024/11/11/jbossws-730-release/"><![CDATA[<p>We are pleased to announce the release of JBossWS-CXF 7.3.0.Final. In this release,
-we’ve upgraded CXF to version 4.0.5, woodstox-core from 6.4.0 to 7.0.0 and addressed several important issues, including
-<a href="https://issues.redhat.com/browse/JBWS-4430">JBWS-4430</a>. For more details,
-please see the <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12431262">Release Notes</a>.</p>
-
-<p>If you are currently using JBossWS 7.2.0.Final, we recommend upgrading to this version,
-especially if you are using CDI in the SOAP handler or CXF interceptors.</p>
-
-<p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[We are pleased to announce the release of JBossWS-CXF 7.3.0.Final. In this release, we’ve upgraded CXF to version 4.0.5, woodstox-core from 6.4.0 to 7.0.0 and addressed several important issues, including JBWS-4430. For more details, please see the Release Notes.]]></summary></entry></feed>
+<p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.1.Final has been released. In this release, we mainly fixed issue: JBWS-4433:Don’t create JAXPDelegateClassLoader for each invocation in the CXFServletExt to improve the performance. For complete issue list, please check the Release Notes.]]></summary></entry></feed>

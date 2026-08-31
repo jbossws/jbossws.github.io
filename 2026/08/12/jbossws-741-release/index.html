@@ -118,236 +118,52 @@
                   <div id="main">
                      <div id="breadcrumb">
                        <span>
-                              <a href="/">JBoss Web Services</a>
+                              <a href="/">JBossWS</a>
                                 &gt;
                               <a href="/blogs">Blogs</a>
                                 &gt;
-                              <a href="#"></a>
+                              <a href="#">JBossWS 7.4.1.Final is released!</a>
                        </span>
                      </div><!-- end breadcrumb -->
-                     
-<div class="post-preview">
-    <a href="/2013/10/23/controlling-apache-cxf-bus-creation-for/">
-        <h3 class="post-title"> Controlling Apache CXF Bus creation for JAXWS clients
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on October 23, 2013</p>
-</div>
-<hr>
+                     <h3>JBossWS 7.4.1.Final is released!</h3>
+                     <h5>By Fabio Burzigotti | August 12, 2026</h5>
+                     <p></p>
+                     <p>In this release we upgraded Apache CXF to 4.1.8, which includes a security improvement that blocks decoupled
+WS-Addressing destinations by default as a hardening measure against SSRF attacks. JBossWS-CXF enables decoupled
+WS-Addressing destinations by default to preserve backward compatibility, while allowing users to opt out and
+leverage the new Apache CXF security behaviour via the <code class="language-plaintext highlighter-rouge">org.jboss.ws.cxf.decoupledEndpointEnabled</code> property.</p>
 
-<div class="post-preview">
-    <a href="/2013/07/29/jbossws-420final-is-available/">
-        <h3 class="post-title"> JBossWS 4.2.0.Final is available!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on July 29, 2013</p>
-</div>
-<hr>
+<p>This release also marks the point where the <code class="language-plaintext highlighter-rouge">7.4.x</code> maintenance branch will be created in the jbossws-cxf repository,
+as development moves on to the next major release. See the <a href="https://github.com/jbossws/jbossws-cxf/discussions/733">GitHub discussion</a> for more details.</p>
 
-<div class="post-preview">
-    <a href="/2013/06/26/jbossws-420cr1-and-ws-policy-sets/">
-        <h3 class="post-title"> JBossWS 4.2.0.CR1 and the WS-Policy sets
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on June 26, 2013</p>
-</div>
-<hr>
+<p>Please try out this release, and let us know if you have any issues or questions.</p>
 
-<div class="post-preview">
-    <a href="/2013/05/15/jbossws-420beta1-and-ws-discovery/">
-        <h3 class="post-title"> JBossWS 4.2.0.Beta1 and WS-Discovery support
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on May 15, 2013</p>
-</div>
-<hr>
+<h3 id="release-notes---jboss-web-services---jbossws-cxf-741final">Release notes - JBoss Web Services - jbossws-cxf-7.4.1.Final</h3>
 
-<div class="post-preview">
-    <a href="/2013/04/18/jbossws-42-feature-preview/">
-        <h3 class="post-title"> JBossWS 4.2 feature preview
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on April 18, 2013</p>
-</div>
-<hr>
+<p>Full release report: <a href="https://redhat.atlassian.net/projects/JBWS/versions/109929/tab/release-report-all-issues">JBWS 7.4.1.Final</a></p>
 
-<div class="post-preview">
-    <a href="/2013/02/14/maven-plugin-for-jaxws-tools-again/">
-        <h3 class="post-title"> Maven plugin for JAXWS tools, again!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on February 14, 2013</p>
-</div>
-<hr>
+<h4 id="component-upgrade">Component Upgrade</h4>
 
-<div class="post-preview">
-    <a href="/2013/02/11/ws-testing-wise-is-back/">
-        <h3 class="post-title"> WS testing... Wise is back!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on February 11, 2013</p>
-</div>
-<hr>
+<ul>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4521">JBWS-4521</a> - Upgrade Apache CXF from 4.1.6 to 4.1.8</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4522">JBWS-4522</a> - Upgrade com.google.cloud.tools:jib-maven-plugin from 3.4.3 to 3.5.2</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4523">JBWS-4523</a> - Upgrade org.apache.logging.log4j:log4j-1.2-api from 2.23.1 to 2.26.1</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4524">JBWS-4524</a> - Upgrade org.apache.neethi:neethi from 3.2.2 to 3.2.3</p>
+  </li>
+</ul>
 
-<div class="post-preview">
-    <a href="/2013/01/30/jax-ws-tools-and-java-compiler-api/">
-        <h3 class="post-title"> JAX-WS tools and the Java Compiler API
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on January 30, 2013</p>
-</div>
-<hr>
+<h4 id="task">Task</h4>
 
-<div class="post-preview">
-    <a href="/2012/10/16/jbossws-410final-has-been-released/">
-        <h3 class="post-title"> JBossWS 4.1.0.Final has been released!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on October 16, 2012</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2012/06/11/looking-at-next-future-jbossws-41/">
-        <h3 class="post-title"> Looking at the next future... JBossWS 4.1
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on June 11, 2012</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2012/04/12/ws-endpoints-on-openshift/">
-        <h3 class="post-title"> WS endpoints on OpenShift
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on April 12, 2012</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2012/04/07/april-12th-jboss-day-in-northern-italy/">
-        <h3 class="post-title"> April 12th: a JBoss day in Northern Italy
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on April 7, 2012</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2012/02/20/jboss-application-server-710/">
-        <h3 class="post-title"> JBoss Application Server 7.1.0
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on February 20, 2012</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2012/02/05/jbossws-401-release/">
-        <h3 class="post-title"> JBossWS 4.0.1 release
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on February 5, 2012</p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2011/12/22/christmas-releases/">
-        <h3 class="post-title"> Christmas releases!
-        </h3>
-        
-        <h5 class="post-subtitle">
-            
-        </h5>
-        
-    </a>
-    <p class="post-meta">Posted by JBossWS Team on December 22, 2011</p>
-</div>
-<hr>
-
-
-<!-- Pager -->
-<p align="center">
-
-    
-        <a href="/blogs/page3">&larr; Newer Posts</a>
-    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-        <a href="/blogs/page5">Older Posts &rarr;</a>
-    
-
+<ul>
+  <li><a href="https://redhat.atlassian.net/browse/JBWS-4525">JBWS-4525</a> - (jbossws-cxf) - Update the project README to reflect the current release procedure</li>
+</ul>
 
 
                   </div><!-- end main -->
