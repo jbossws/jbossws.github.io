@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2026-08-31T14:34:33+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS 7.4.1.Final is released!</title><link href="/2026/08/12/jbossws-741-release/" rel="alternate" type="text/html" title="JBossWS 7.4.1.Final is released!" /><published>2026-08-12T00:00:00+00:00</published><updated>2026-08-12T00:00:00+00:00</updated><id>/2026/08/12/jbossws-741-release</id><content type="html" xml:base="/2026/08/12/jbossws-741-release/"><![CDATA[<p>In this release we upgraded Apache CXF to 4.1.8, which includes a security improvement that blocks decoupled
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2026-10-02T21:55:11+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS 5.4.18.Final is released!</title><link href="/2026/09/11/jbossws-5418-release/" rel="alternate" type="text/html" title="JBossWS 5.4.18.Final is released!" /><published>2026-09-11T00:00:00+00:00</published><updated>2026-09-11T00:00:00+00:00</updated><id>/2026/09/11/jbossws-5418-release</id><content type="html" xml:base="/2026/09/11/jbossws-5418-release/"><![CDATA[<p>In this maintenance patch release we basically fixed some issues with services ports and proxies, and refreshed the project status.</p>
+
+<p>Please try out this release, and let us know if you have any issues or questions.</p>
+
+<h3 id="release-notes---jboss-web-services---jbossws-cxf-5418final">Release notes - JBoss Web Services - jbossws-cxf-5.4.18.Final</h3>
+
+<h4 id="bug">Bug</h4>
+
+<ul>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4452">JBWS-4452</a> - Fix potential JAXWS proxies memory leak</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4453">JBWS-4453</a> - Make ports cache of service instances configurable and disabled by default</p>
+  </li>
+</ul>
+
+<h4 id="task">Task</h4>
+
+<ul>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4475">JBWS-4475</a> - jbossws-cxf (5.4.x) - Support new Nexus Deployment Workflow</p>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4528">JBWS-4528</a> - (jbossws-cxf-5.4.x) - Regenerate expired WS-Trust test certificates</p>
+  </li>
+</ul>]]></content><author><name>Fabio Burzigotti</name></author><summary type="html"><![CDATA[In this maintenance patch release we basically fixed some issues with services ports and proxies, and refreshed the project status.]]></summary></entry><entry><title type="html">JBossWS 7.4.1.Final is released!</title><link href="/2026/08/12/jbossws-741-release/" rel="alternate" type="text/html" title="JBossWS 7.4.1.Final is released!" /><published>2026-08-12T00:00:00+00:00</published><updated>2026-08-12T00:00:00+00:00</updated><id>/2026/08/12/jbossws-741-release</id><content type="html" xml:base="/2026/08/12/jbossws-741-release/"><![CDATA[<p>In this release we upgraded Apache CXF to 4.1.8, which includes a security improvement that blocks decoupled
 WS-Addressing destinations by default as a hardening measure against SSRF attacks. JBossWS-CXF enables decoupled
 WS-Addressing destinations by default to preserve backward compatibility, while allowing users to opt out and
 leverage the new Apache CXF security behaviour via the <code class="language-plaintext highlighter-rouge">org.jboss.ws.cxf.decoupledEndpointEnabled</code> property.</p>
@@ -166,7 +192,4 @@ to improve user experience. For complete issue list, please check the <a href="h
 <p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Richard Opalka</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.3.Final has been released. In this bugfix release we implemented missing bits of issue: JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers to improve user experience. For complete issue list, please check the Release Notes.]]></summary></entry><entry><title type="html">JBossWS 7.3.2.Final is released!</title><link href="/2025/05/05/jbossws-732-release/" rel="alternate" type="text/html" title="JBossWS 7.3.2.Final is released!" /><published>2025-05-05T00:00:00+00:00</published><updated>2025-05-05T00:00:00+00:00</updated><id>/2025/05/05/jbossws-732-release</id><content type="html" xml:base="/2025/05/05/jbossws-732-release/"><![CDATA[<p>JBossWS-CXF 7.3.2.Final has been released. In this bugfix release we addressed issue: <a href="https://issues.redhat.com/browse/JBWS-4444">JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers</a>
 to improve user experience. For complete issue list, please check the <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12451253">Release Notes</a>.</p>
 
-<p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Richard Opalka</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.2.Final has been released. In this bugfix release we addressed issue: JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers to improve user experience. For complete issue list, please check the Release Notes.]]></summary></entry><entry><title type="html">JBossWS 7.3.1.Final is released!</title><link href="/2024/12/11/jbossws-731-release/" rel="alternate" type="text/html" title="JBossWS 7.3.1.Final is released!" /><published>2024-12-11T00:00:00+00:00</published><updated>2024-12-11T00:00:00+00:00</updated><id>/2024/12/11/jbossws-731-release</id><content type="html" xml:base="/2024/12/11/jbossws-731-release/"><![CDATA[<p>JBossWS-CXF 7.3.1.Final has been released. In this release, we mainly fixed issue: <a href="https://issues.redhat.com/browse/JBWS-4433">JBWS-4433:Don’t create JAXPDelegateClassLoader for each invocation in the CXFServletExt</a>
-to improve the performance. For complete issue list, please check the <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12439419">Release Notes</a>.</p>
-
-<p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Jim Ma</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.1.Final has been released. In this release, we mainly fixed issue: JBWS-4433:Don’t create JAXPDelegateClassLoader for each invocation in the CXFServletExt to improve the performance. For complete issue list, please check the Release Notes.]]></summary></entry></feed>
+<p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Richard Opalka</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.2.Final has been released. In this bugfix release we addressed issue: JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers to improve user experience. For complete issue list, please check the Release Notes.]]></summary></entry></feed>

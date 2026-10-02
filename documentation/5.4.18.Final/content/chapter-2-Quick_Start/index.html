@@ -130,34 +130,26 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>JBossWS uses WildFly as its target container. The following examples
-focus on web service features that leverage EJB3 service
+focus on web service deployments that leverage EJB3 service
 implementations and the JAX-WS programming models. For further
-information on POJO service implementations and advanced topics
-consult the <a href="#Jakarta XML Web Services User Guide">[Jakarta XML Web Services User Guide]</a> .</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Java SE 17 or later is required.</p>
-</div>
-</td>
-</tr>
-</table>
+information on POJO service implementations and advanced topics you need
+consult the <a href="#JAX-WS User Guide">[JAX-WS User Guide]</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="developing-web-service-implementations">Developing web service implementations</h3>
 <div class="paragraph">
-<p>Jakarta XML Web Services leverages annotations in order to express web service meta data on Java components and to describe the mapping between Java data types and XML. When developing web service implementations one needs to decide whether to start with an abstract contract (WSDL) or a Java component.</p>
+<p>JAX-WS does leverage annotations in order to express web service meta
+data on Java components and to describe the mapping between Java data
+types and XML. When developing web service implementations you need to
+decide whether you are going to start with an abstract contract (WSDL)
+or a Java component.</p>
 </div>
 <div class="paragraph">
-<p>It is common practice for a developer create the web service in Java
-and use vendor tools to generate the corresponding WSDL.
-For this reason we are going to look at a service implementation that leverages
+<p>If you are in charge to provide the service implementation, then you are
+probably going to start with the implementation and derive the abstract
+contract from it. You are probably not even getting in touch with the
+WSDL unless you hand it to 3rd party clients. For this reason we are
+going to look at a service implementation that leverages
 <a href="https://jakarta.ee/specifications/web-services-metadata/">Jakarta Web Service Metadata</a> .</p>
 </div>
 <div class="admonitionblock important">
@@ -178,11 +170,12 @@ further information see</p>
 <p><a href="https://jakarta.ee/specifications/web-services-metadata/">Jakarta Web Service Metadata</a></p>
 </li>
 <li>
-<p><a href="https://jakarta.ee/specifications/xml-binding">Jakarta XML Binding
+<p><a href="http://www.jcp.org/en/jsr/summary?id=222">Java API for XML binding
 (JAXB)</a></p>
 </li>
 <li>
-<p><a href="https://jakarta.ee/specifications/xml-web-services/">Jakarta XML Web Services</a></p>
+<p><a href="http://www.jcp.org/en/jsr/summary?id=224">Java API for XML-Based Web
+Services</a></p>
 </li>
 </ul>
 </div>
@@ -193,25 +186,28 @@ further information see</p>
 <div class="sect3">
 <h4 id="the-service-implementation-class">The service implementation class</h4>
 <div class="paragraph">
-<p>When starting from Java, a service (endpoint) implementation must be provided. A valid endpoint implementation class must meet the following
+<p>When starting from Java you must provide the service implementation. A
+valid endpoint implementation class must meet the following
 requirements:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>It <em>must</em> carry a <code>jakarta.jws.WebService</code> annotation (see Jakarta Web Service Metadata)</p>
+<p>It <em>must</em> carry a <code>javax.jws.WebService</code> annotation (see JSR 181)</p>
 </li>
 <li>
 <p>All method parameters and return types <em>must</em> be compatible with the
-JAXB 3.0</p>
+JAXB 2.0</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s look at a sample EJB3 component that exposes as a web service.</p>
+<p>Let&#8217;s look at a sample EJB3 component that is going to be exposed as a
+web service.</p>
 </div>
 <div class="paragraph">
-<p>For now ignore the EJB3 annotation <code>@Stateless</code> . Focus on the <code>@WebService</code> annotation.</p>
+<p>Don&#8217;t be confused with the EJB3 annotation <code>@Stateless</code> . We concentrate
+on the <code>@WebService</code> annotation for now.</p>
 </div>
 <div class="sect4">
 <h5 id="implementing-the-service">Implementing the service</h5>
@@ -219,10 +215,10 @@ JAXB 3.0</p>
 <div class="content">
 <pre>package org.jboss.test.ws.jaxws.samples.retail.profile;
 
-import jakarta.ejb.Stateless;
-import jakarta.jws.WebService;
-import jakarta.jws.WebMethod;
-import jakarta.jws.soap.SOAPBinding;
+import javax.ejb.Stateless;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
+import javax.jws.soap.SOAPBinding;
 
 @Stateless                                                             (1)
 @WebService(                                                           (2)
@@ -241,26 +237,32 @@ public class ProfileMgmtBean {
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>1. This endpoint is using a stateless session bean implementation
-2. This web service has an explicit namespace, (http://org.jboss.ws/samples/retail/profile)
-3. The endpoint is declared to use a doc/lit bare parameter style.  This affects the endpoint statements generated in the WSDL.
-4. 'getCustomerDiscount' is the public operation that a consumer can call.</pre>
+<pre>1. We are using a stateless session bean implementation
+2. Exposed a web service with an explicit namespace
+3. It's a doc/lit bare endpoint
+4. And offers an 'getCustomerDiscount' operation</pre>
 </div>
 </div>
 </div>
 <div class="sect4">
 <h5 id="what-about-the-payload">What about the payload?</h5>
 <div class="paragraph">
-<p>The method parameters and return values represent the XML
-payload, because this is a stateless session bean the parameters and return value must be compatible with JAXB3. No JAXB annotations are needed for this example.</p>
+<p>The method parameters and return values are going to represent our XML
+payload and thus require being compatible with JAXB2. Actually you
+wouldn&#8217;t need any JAXB annotations for this particular example, because
+JAXB relies on meaningful defaults. For the sake of documentation we put
+the more important ones here.</p>
+</div>
+<div class="paragraph">
+<p>Take a look at the request parameter:</p>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>package org.jboss.test.ws.jaxws.samples.retail.profile;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
 import org.jboss.test.ws.jaxws.samples.retail.Customer;
 
@@ -294,7 +296,7 @@ public class DiscountRequest {
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>1. @XmlType is used to declare an XML type named, discountRequest, and a namespace name, (http://org.jboss.ws/samples/retail/profile).</pre>
+<pre>1. In this case we use @XmlType to specify an XML complex type name and override the namespace.</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -305,8 +307,8 @@ public class DiscountRequest {
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more complex XML mapping consult the
-<a href="https://jakarta.ee/specifications/xml-binding">JAXB documentation</a> .</p>
+<p>If you have more complex mapping problems you need to consult the
+<a href="http://java.sun.com/webservices/jaxb/">JAXB documentation</a> .</p>
 </div>
 </td>
 </tr>
@@ -317,16 +319,21 @@ public class DiscountRequest {
 <div class="sect3">
 <h4 id="deploying-service-implementations">Deploying service implementations</h4>
 <div class="paragraph">
-<p>Web service deployment depends on the implementation type. Web services can be implemented as plain old Java objects, POJO or as EJB3 components.</p>
+<p>Service deployment basically depends on the implementation type. As you
+may already know web services can be implemented as EJB3 components or
+plain old Java objects. This quick start leverages EJB3 components,
+that&#8217;s why we are going to look at this case in the next sections.</p>
 </div>
 <div class="sect4">
 <h5 id="ejb3-services">EJB3 services</h5>
 <div class="paragraph">
-<p>Create a JAR containing the service implementation class, the endpoint interface and any custom data types needed.  Drop the JAR in the <em>deployment</em> directory.  No additional deployment descriptors required. Any meta data
+<p>Simply wrap up the service implementation class, the endpoint interface
+and any custom data types in a JAR and drop them in the <em>deployment</em>
+directory. No additional deployment descriptors required. Any meta data
 required for the deployment of the actual web service is taken from the
-annotations provided in the implementation class and the service
-endpoint interface. JBossWS intercepts the EJB3 deployment (the
-bean will be there) and creates an HTTP endpoint at deploy-time.</p>
+annotations provided on the implementation class and the service
+endpoint interface. JBossWS will intercept that EJB3 deployment (the
+bean will also be there) and create an HTTP endpoint at deploy-time.</p>
 </div>
 </div>
 <div class="sect4">
@@ -366,11 +373,11 @@ in the application server management console.</p>
 <div class="sect2">
 <h3 id="consuming-web-services">Consuming web services</h3>
 <div class="paragraph">
-<p>When creating web service clients, one usually starts from the WSDL, but deciphering the WSDL can be complicated.
+<p>When creating web service clients you would usually start from the WSDL.
 JBossWS ships with a set of tools to generate the required JAX-WS
-artifacts to build client implementations. The following section
-looks at a basic usage pattern. For a more detailed
-introduction to the web service client please consult the user guide.</p>
+artifacts to build client implementations. In the following section we
+will look at the most basic usage patterns. For a more detailed
+introduction to web service client please consult the user guide.</p>
 </div>
 <div class="sect3">
 <h4 id="creating-the-client-artifacts">Creating the client artifacts</h4>
@@ -378,9 +385,9 @@ introduction to the web service client please consult the user guide.</p>
 <h5 id="using-wsconsume">Using wsconsume</h5>
 <div class="paragraph">
 <p>The <em>wsconsume</em> tool is used to consume the abstract contract (WSDL) and
-produce annotated Java classes.
-The following discussion starts with the WSDL from our retail example
-(ProfileMgmtService.wsdl) above. For a detailed tool reference
+produce annotated Java classes (and optionally sources) that define it.
+We are going to start with the WSDL from our retail example
+(ProfileMgmtService.wsdl). For a detailed tool reference you need to
 consult the user guide.</p>
 </div>
 <div class="literalblock">
@@ -422,7 +429,7 @@ org/jboss/test/ws/jaxws/samples/retail/profile/package-info.java</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Note we used the <code>-p</code> switch to specify the package name
+<p>As you can see we did use the <code>-p</code> switch to specify the package name
 of the generated sources.</p>
 </li>
 </ol>
@@ -469,24 +476,26 @@ of the generated sources.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p><em>wsconsume</em> generates all the custom data types (JAXB annotated
-classes), the service endpoint interface and a service factory class.</p>
+<p>Basically <em>wsconsume</em> generates all custom data types (JAXB annotated
+classes), the service endpoint interface and a service factory class. We
+will look at how these artifacts can be used the build web service
+client implementations in the next section.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="constructing-a-service-stub">Constructing a service stub</h4>
 <div class="paragraph">
-<p>Web service clients make use of a service stub that hides the details of
+<p>Web service clients make use of a service stubs that hide the details of
 a remote web service invocation. To a client application a WS invocation
-looks like an invocation of any other business component. In this
-case the service endpoint interface is the business interface.
+just looks like an invocation of any other business component. In this
+case the service endpoint interface acts as the business interface.
 JAX-WS does use a service factory class to construct this as particular
 service stub:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>import jakarta.xml.ws.Service;
+<pre>import javax.xml.ws.Service;
 [...]
 Service service = Service.create(                                 (1)
 new URL("http://example.org/service?wsdl"),
@@ -515,16 +524,16 @@ stub</p>
 <div class="sect3">
 <h4 id="resolving-dependencies-and-running-the-client">Resolving dependencies and running the client</h4>
 <div class="paragraph">
-<p>To successfully run a WS client application, a classloader
+<p>In order for successfully running a WS client application, a classloader
 needs to be properly setup to include the JBossWS components and its
 required transitive dependencies. Depending on the environment the
-client is run in, this might require adding some jars to the
+client is meant to be run in, this might imply adding some jars to the
 classpath, or adding some artifact dependencies to the maven dependency
-tree. Even for simply developing a client, users might
+tree, etc. Moreover, even for simply developing a client, users might
 need to resolve proper dependencies (e.g. to setup their IDE).</p>
 </div>
 <div class="paragraph">
-<p>Below you will find some options for resolving dependencies and running a WS
+<p>Below you find some options for resolving dependencies and running a WS
 client using the JBossWS libraries:</p>
 </div>
 <div class="sect4">
@@ -536,17 +545,128 @@ used to declare dependencies in user Maven projects. In particular, the
               org.jboss.ws.cxf:jbossws-cxf-client
             ` artifact can be used for getting the whole JBossWS client
 dependency. Users should simply add a dependency to it in their Maven
-project and make sure JBossWS components (in particular
+project.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re running the client out of the container, It&#8217;s also recommended to
+properly setup JAXWS implementation endorsing, to make sure you use the
+JBossWS implementation of JAXWS API instead of relying on the
+implementation coming with the JDK; this is usually done by copying the
+`
+              org.jboss.ws.cxf.jbossws-cxf-factories
+            ` (JBossWS-CXF stack) jar into a local directory (e.g.
+<em>project.build.directory/endorsed</em> ) and then using that for compiling
+and running sources, for setting the <em>java.endorsed.dirs</em> system
+property into the maven-surefire-plugin, etc:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 [http://maven.apache.org/maven-v4_0_0.xsd]"&gt;
+  ...
+  &lt;build&gt;
+    &lt;plugins&gt;
+
+      &lt;plugin&gt;
+        &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;id&gt;create-endorsed-dir&lt;/id&gt;
+            &lt;phase&gt;generate-sources&lt;/phase&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;copy&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+              &lt;artifactItems&gt;
+                &lt;artifactItem&gt;
+                  &lt;groupId&gt;org.jboss.spec.javax.xml.ws&lt;/groupId&gt;
+                  &lt;artifactId&gt;jboss-jaxws-api_2.2_spec&lt;/artifactId&gt;
+                  &lt;type&gt;jar&lt;/type&gt;
+                  &lt;outputDirectory&gt;${project.build.directory}/endorsed&lt;/outputDirectory&gt;
+                &lt;/artifactItem&gt;
+                &lt;artifactItem&gt;
+                  &lt;groupId&gt;org.jboss.spec.javax.xml.bind&lt;/groupId&gt;
+                  &lt;artifactId&gt;jboss-jaxb-api_2.2_spec&lt;/artifactId&gt;
+                  &lt;type&gt;jar&lt;/type&gt;
+                  &lt;outputDirectory&gt;${project.build.directory}/endorsed&lt;/outputDirectory&gt;
+                &lt;/artifactItem&gt;
+                &lt;artifactItem&gt;
+                  &lt;groupId&gt;org.jboss.ws.cxf&lt;/groupId&gt;
+                  &lt;artifactId&gt;jbossws-cxf-factories&lt;/artifactId&gt;
+                  &lt;type&gt;jar&lt;/type&gt;
+                  &lt;outputDirectory&gt;${project.build.directory}/endorsed&lt;/outputDirectory&gt;
+                &lt;/artifactItem&gt;
+              &lt;/artifactItems&gt;
+            &lt;/configuration&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+      &lt;/plugin&gt;
+      &lt;plugin&gt;
+        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+        &lt;configuration&gt;
+          &lt;showDeprecation&gt;false&lt;/showDeprecation&gt;
+          &lt;compilerArguments&gt;
+            &lt;endorseddirs&gt;${project.build.directory}/endorsed&lt;/endorseddirs&gt;
+          &lt;/compilerArguments&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+      &lt;plugin&gt;
+        &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+        &lt;configuration&gt;
+          &lt;argLine&gt;-Djava.endorsed.dirs=${project.build.directory}/endorsed&lt;/argLine&gt;
+          ...
+        &lt;/configuration&gt;
+        ...
+      &lt;/plugin&gt;
+      ...
+    &lt;/plugins&gt;
+    ...
+  &lt;/build&gt;
+...
+&lt;/project&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Endorsing of JAX-WS <strong>api</strong> jar is used to force a API level different
+from the one included in the JDK. E.g. JAXWS 2.2 on JDK 1.6, or JAXWS
+2.1 on JDK 1.7, etc. So, depending on your environment, it might not be
+strictly required.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Endorsing is deprecated in JDK 1.8 and will be removed in future JDK
+version. If you can&#8217;t rely on endorsing with your JDK version, be sure
+JBossWS components (in particular
 <code>org.jboss.ws.cxf:jbossws-cxf-factories</code> ) come before jars of any other
 JAX-WS implementation in your classpath.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
 <h5 id="jboss-modules-environment">JBoss Modules environment</h5>
 <div class="paragraph">
-<p>One approach for running a WS client is to leverage JBoss
-Modules, creating a classloading environment equivalent to the
-server container WS endpoints run in. This is achieved by using the
+<p>An interesting approach for running a WS client is to leverage JBoss
+Modules, basically getting a classloading environment equivalent to the
+server container WS endpoints are run in. This is achieved by using the
 <em>jboss-modules.jar</em> coming with WildFly as follows:</p>
 </div>
 <div class="literalblock">
@@ -570,9 +690,11 @@ Dependencies: org.jboss.ws.cxf.jbossws-cxf-client</pre>
 <div class="sect4">
 <h5 id="flat-classpath-setup">Flat classpath setup</h5>
 <div class="paragraph">
-<p>Alternatively, users can setup their application classpath manually
+<p>Finally, users can of course setup their application classpath manually
 (e.g when compiling and running the application directly through <code>javac</code>
-/ <code>java</code> command or using <code>Ant</code> ).</p>
+/ <code>java</code> command or using <code>Ant</code> ). As for the Maven project approach
+mentioned above, properly setting <em>java.endorsed.dirs</em> system property
+is also required.</p>
 </div>
 </div>
 </div>
@@ -584,7 +706,7 @@ Dependencies: org.jboss.ws.cxf.jbossws-cxf-client</pre>
 consuming a JAX-WS endpoint is to use the JBossWS <em>jaxws-codefirst</em>
 Maven Archetype. A starting project (including working build and sample
 helloworld client and endpoint) is created in few seconds. It&#8217;s simply a
-matter of issuing a command and answering several simple questions about the
+matter of issuing a command and answering to simple questions on the
 desired artifact and group ids for the project being generated:</p>
 </div>
 <div class="literalblock">
@@ -602,7 +724,7 @@ desired artifact and group ids for the project being generated:</p>
 </li>
 <li>
 <p>an integration test that gets the WSDL contract for the above service,
-builds a client and invokes the endpoint</p>
+builds up a client and invokes the endpoint</p>
 </li>
 <li>
 <p>a pom.xml for creating a war archive; the project has proper WS
@@ -616,7 +738,7 @@ generating the client stubs for such contract</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The project is built and tested by running:</p>
+<p>The project is built and tested by simply running:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -630,7 +752,7 @@ to generate all the required classes for building the deployment archive
 and client. The user can test the sample, have a look at the project
 structure and then either trash the sample endpoint and testcase and
 replace them with his own components, or modify them step-by-step to
-achieve their own needs.</p>
+achieve what he needs.</p>
 </div>
 </div>
 <div class="sect2">

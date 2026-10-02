@@ -132,19 +132,19 @@
 <h3 id="introduction">Introduction</h3>
 <div class="paragraph">
 <p>The JBossWS project build and testsuites have been completely revisited
-in version 5.0.0.Beta3. JBossWS now uses the <em>Arquillian</em>
+in version 5.0.0.Beta3. As a result, JBossWS uses the <em>Arquillian</em>
 framework to run its integration tests against WildFly containers.</p>
 </div>
 <div class="paragraph">
 <p>There are two test modules in JBossWS' testsuite, <em>cxf-tests</em> and
 <em>shared-tests</em> . Each test module requires at least one <em>WildFly</em>
-container to run. Multiple containers are used for modules whose tests
+container to run; multiple containers are used for modules whose tests
 can&#8217;t run at the same time on the same container. By default, containers
-are managed (started / stopped) by Arquillian. The JBossWS build system
+are managed (started / stopped) by Arquillian.The JBossWS build system
 fetches a copy of the required container from the Maven repository,
 unpacks it, patches it installing the current webservices stack on it
 and finally hands it over to Arquillian for the testsuite runs. The test
-framework also allows Arquillian to manage an already available
+framework also allows letting Arquillian manage an already available
 container instance on the local filesystem. Finally, it&#8217;s also possible
 to execute single tests against a locally running container
 (non-Arquillian managed) and run the tests concurrently.</p>
@@ -154,17 +154,14 @@ to execute single tests against a locally running container
 <div class="ulist">
 <ul>
 <li>
-<p>Java SE 17 or later is required.</p>
-</li>
-<li>
 <p>Maven version 3.2.2 or higher is required to build and run the
 testsuite.</p>
 </li>
 <li>
 <p>A unique class name for each test across the testsuite&#8217;s three child
-modules. Classes may have the same package name across the child modules
-but the full-qualified name must be unique to avoid breaking
-concurrent tests run.</p>
+modules; classes may have the same package name across the child modules
+but the overall full-qualified name has to be unique to avoid breaking
+concurrent tests runs.</p>
 </li>
 </ul>
 </div>
@@ -173,26 +170,26 @@ concurrent tests run.</p>
 <div class="sect2">
 <h3 id="architecture-overview">Architecture overview</h3>
 <div class="paragraph">
-<p>When the build fetches the Wildfly container from the Maven repository, a
-patched copy is placed in the target/test-server sub-directory of
+<p>When the build fetches the a container from the Maven repository, a
+patched copy of it is put within the target/test-server sub-directory of
 each testsuite module. For instance, you could have:</p>
 </div>
 <div class="paragraph">
 <div class="title">/modules/testsuite/shared-tests/target/test-server/jbossws-cxf-dist-5.0.0-SNAPSHOT/wildfly-8.1.0.Final</div>
-<p>Each container copy is provided with specific standalone mode
+<p>Each container copy is also provided with specific standalone mode
 configuration files ( <em>jbws-testsuite-SOME_IDENTIFIER.xml</em> ) in the
-<code>standalone/configuration</code> server directory. The contents of such
+<code>standalone/configuration</code> server directory. The actual contents of such
 descriptors depends on the tests that are to be run against such
 container configurations (the most common difference when compared to
-the vanilla standalone.xml is the setup of additional security domains,
-system properties, web connectors etc.) Each configuration includes
+the vanilla standalone.xml is the setup op additional security domains,
+system properties, web connectors etc.) Each configuration also includes
 logging setup to ensure logs are written to unique files (
 <em>jbws-testsuite-SOME_IDENFIFIER.log</em> ) in <code>standalone/log</code> directory.</p>
 </div>
 <div class="sect3">
 <h4 id="target-container-identification">Target Container Identification</h4>
 <div class="paragraph">
-<p>JBossWS supports the current WildFly release and several previous versions
+<p>JBossWS supports the current WildFly release and several back versions
 for testing. Maven profiles are used to identify
 the target container to be used for testing. The naming convention is
 <em>wildflyXYZ</em> , for example <em>wildfly820</em> to mean WIldFly 8.2.0.Final.</p>
@@ -201,10 +198,10 @@ the target container to be used for testing. The naming convention is
 <p>To run tests against an existing local copy of a WildFly container, the
 user must specify the absolute path to the server implementation&#8217;s home
 directory using the command line option, <em>-Dserver.home=/foo/bar</em> . The
-server should not be running, as the build will create various
+server is not expected to be running, as the build will create various
 standalone server configurations and start multiple instances on
-different port numbers. If only a single test or few tests are to be
-executed, the user can have those executed against live WildFly
+different port numbers. However, if a single test of few tests are
+executed only, the user can have those executed against live WildFly
 instances previously started on the same port numbers expected by the
 tests. Arquillian is configured to detect such scenario and use the
 available server.</p>
@@ -213,7 +210,7 @@ available server.</p>
 <div class="sect3">
 <h4 id="port-mapping">Port Mapping</h4>
 <div class="paragraph">
-<p>To facilitate concurrent testing, a port offset has been defined for each
+<p>To facilitate concurrent testing a port offset has been defined for each
 of the server configurations. The offsets are defined in the
 <code>&lt;properties&gt;</code> element of the <code>modules/testsuite/pom.xml</code> file.</p>
 </div>
@@ -300,6 +297,10 @@ instance.</p></td>
 needed when running on a network that does not allow UDP broadcast.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nodeploy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Do not upgrade the WS stack on the target server container.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">noprepare</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Skip integration tests preparation phase, which includes
 tuning of the server configurations, wsconsume/wsprovide invocations,
@@ -365,7 +366,7 @@ memory at the end of each testsuite module:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Clean the project:</p>
+<p>Completely clean the project:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -397,13 +398,13 @@ the zip file path is modules/dist/target/jbossws-cxf-dist-$\{
 <div class="sect2">
 <h3 id="container-remote-debugging">Container remote debugging</h3>
 <div class="paragraph">
-<p>While debugging a testcase is simply a matter of providing the
+<p>While debugging the a testcase is simply a matter of providing the
 -Ddebug option, remote debugging the container code that runs the WS
 stack requires few additional setup steps. The suggested approach is to
 identify a single test to run; before actually running the test,
 manually start a target container in debug mode and specifying the
 proper port offset and server configuration (have a look at the
-arquillian.xml decriptors in the testsuite), then run the tests with
+arquillian.xml decriptors in the testsuite). Then run the tests with
 -Dserver.home=&#8230;&#8203; option pointing to the home dir for the server
 currently running.</p>
 </div>
