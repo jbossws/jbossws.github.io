@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2026-10-02T21:55:11+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS 5.4.18.Final is released!</title><link href="/2026/09/11/jbossws-5418-release/" rel="alternate" type="text/html" title="JBossWS 5.4.18.Final is released!" /><published>2026-09-11T00:00:00+00:00</published><updated>2026-09-11T00:00:00+00:00</updated><id>/2026/09/11/jbossws-5418-release</id><content type="html" xml:base="/2026/09/11/jbossws-5418-release/"><![CDATA[<p>In this maintenance patch release we basically fixed some issues with services ports and proxies, and refreshed the project status.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2026-10-26T12:02:00+00:00</updated><id>/feed.xml</id><title type="html">JBossWS</title><entry><title type="html">JBossWS 8.0.0.Final is released!</title><link href="/2026/10/13/jbossws-800-release/" rel="alternate" type="text/html" title="JBossWS 8.0.0.Final is released!" /><published>2026-10-13T00:00:00+00:00</published><updated>2026-10-13T00:00:00+00:00</updated><id>/2026/10/13/jbossws-800-release</id><content type="html" xml:base="/2026/10/13/jbossws-800-release/"><![CDATA[<p>This release upgrades key security components — Apache CXF to 4.1.9 and WSS4J to 4.0.2 — resolving multiple CVEs, along with OpenSAML 5.2.3. It aligns with WildFly 41.0.1.Final and sets Java SE 17 as the minimum supported runtime.</p>
+
+<p>Please try out this release, and let us know if you have any issues or questions.</p>
+
+<h3 id="release-notes---jboss-web-services---jbossws-cxf-800final">Release notes - JBoss Web Services - jbossws-cxf-8.0.0.Final</h3>
+
+<h4 id="component-upgrade">Component Upgrade</h4>
+
+<ul>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4535">JBWS-4535</a> - Upgrade WSS4J from 4.0.1 to 4.0.2 (as required by CXF 4.1.9) and related dependencies, most notably OpenSAML (5.1.6 -&gt; 5.2.3)</p>
+
+    <ul>
+      <li>Upgrade WSS4J dependencies from 4.0.1 to 4.0.2 (resolves CVE-2026-88920)</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4538">JBWS-4538</a> - Upgrade Apache CXF components from 4.1.8 to 4.1.9, and align relevant dependencies, except WSS4J</p>
+
+    <ul>
+      <li>Upgrade Apache CXF dependencies from 4.1.8 to 4.1.9 (resolves CVE-2026-78384, CVE-2026-108039, CVE-2026-107937 in cxf-core and CVE-2026-97791, CVE-2026-97468 in cxf-rt-ws-security)</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://redhat.atlassian.net/browse/JBWS-4539">JBWS-4539</a> - Upgrading WildFly to 41.0.1.Final</p>
+
+    <ul>
+      <li>Upgrade WildFly from 40.0.0.Final to 41.0.1.Final</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="task">Task</h4>
+
+<ul>
+  <li><a href="https://redhat.atlassian.net/browse/JBWS-4469">JBWS-4469</a> - JBossWS Galleon feature pack - Set SE 17 as the supported base</li>
+</ul>]]></content><author><name>Fabio Burzigotti</name></author><summary type="html"><![CDATA[This release upgrades key security components — Apache CXF to 4.1.9 and WSS4J to 4.0.2 — resolving multiple CVEs, along with OpenSAML 5.2.3. It aligns with WildFly 41.0.1.Final and sets Java SE 17 as the minimum supported runtime.]]></summary></entry><entry><title type="html">JBossWS 5.4.18.Final is released!</title><link href="/2026/09/11/jbossws-5418-release/" rel="alternate" type="text/html" title="JBossWS 5.4.18.Final is released!" /><published>2026-09-11T00:00:00+00:00</published><updated>2026-09-11T00:00:00+00:00</updated><id>/2026/09/11/jbossws-5418-release</id><content type="html" xml:base="/2026/09/11/jbossws-5418-release/"><![CDATA[<p>In this maintenance patch release we basically fixed some issues with services ports and proxies, and refreshed the project status.</p>
 
 <p>Please try out this release, and let us know if you have any issues or questions.</p>
 
@@ -189,7 +225,4 @@ For complete issue list, please check the <a href="https://issues.redhat.com/sec
 <p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Richard Opalka</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.4.Final has been released. In this bugfix release we improved ports caching mechanism and upgraded Apache CXF to 4.0.9 version. For complete issue list, please check the Release Notes.]]></summary></entry><entry><title type="html">JBossWS 7.3.3.Final is released!</title><link href="/2025/05/14/jbossws-733-release/" rel="alternate" type="text/html" title="JBossWS 7.3.3.Final is released!" /><published>2025-05-14T00:00:00+00:00</published><updated>2025-05-14T00:00:00+00:00</updated><id>/2025/05/14/jbossws-733-release</id><content type="html" xml:base="/2025/05/14/jbossws-733-release/"><![CDATA[<p>JBossWS-CXF 7.3.3.Final has been released. In this bugfix release we implemented missing bits of issue: <a href="https://issues.redhat.com/browse/JBWS-4444">JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers</a>
 to improve user experience. For complete issue list, please check the <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12457853">Release Notes</a>.</p>
 
-<p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Richard Opalka</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.3.Final has been released. In this bugfix release we implemented missing bits of issue: JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers to improve user experience. For complete issue list, please check the Release Notes.]]></summary></entry><entry><title type="html">JBossWS 7.3.2.Final is released!</title><link href="/2025/05/05/jbossws-732-release/" rel="alternate" type="text/html" title="JBossWS 7.3.2.Final is released!" /><published>2025-05-05T00:00:00+00:00</published><updated>2025-05-05T00:00:00+00:00</updated><id>/2025/05/05/jbossws-732-release</id><content type="html" xml:base="/2025/05/05/jbossws-732-release/"><![CDATA[<p>JBossWS-CXF 7.3.2.Final has been released. In this bugfix release we addressed issue: <a href="https://issues.redhat.com/browse/JBWS-4444">JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers</a>
-to improve user experience. For complete issue list, please check the <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12310050&amp;version=12451253">Release Notes</a>.</p>
-
-<p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Richard Opalka</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.2.Final has been released. In this bugfix release we addressed issue: JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers to improve user experience. For complete issue list, please check the Release Notes.]]></summary></entry></feed>
+<p>Please try out this release, and let us know if you have any issues or questions.</p>]]></content><author><name>Richard Opalka</name></author><summary type="html"><![CDATA[JBossWS-CXF 7.3.3.Final has been released. In this bugfix release we implemented missing bits of issue: JBWS-4444 Sever throws IllegalStateException when accessing CDI beans from soap handlers to improve user experience. For complete issue list, please check the Release Notes.]]></summary></entry></feed>
